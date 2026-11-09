@@ -50,7 +50,7 @@ Finding one effect does not keep it alive or reserve it. Use the [removal operat
 
 ## Keep a reference when the character moves
 
-Reference tracking is included in the documented framework revision. Its native integration still needs a full-colony check.
+Reference tracking is included in the documented framework revision. A [developer verification procedure](debugging.md#verify-native-references-across-a-reload) exercises independent observations, exact-target removal and a real save/reload. Its [recorded in-game run](../compatibility/index.md#in-game-reference-scenario) covers that specific scenario with local example changes; it does not establish arbitrary lifecycle or provider compatibility.
 
 Suppose an activity remembers the glove's effect, then the character leaves the map and returns before the activity checks again. The effect may still exist, but its current location alone cannot reveal that interruption. The activity decides whether to stop or resume; RimWeave makes the observed changes available.
 

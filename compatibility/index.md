@@ -26,9 +26,17 @@ The native example contains two observers in one example mod. It is not proof of
 
 ## Native reference tracking
 
-The documented framework revision includes exact native references and per-consumer observations of supported transitions. Automated checks cover current-state inspection, native map event adapters, cooperating health callbacks and native Scribe reference resolution, including rejection of references created or loaded without an owning game. The full framework suite passed 186 tests in both Debug and Release on 9 November 2026, with no build warnings or errors. No game assemblies were copied into the installable mod directories.
+The documented framework revision includes exact native references and per-consumer observations of supported transitions. Automated checks cover current-state inspection, native map event adapters, cooperating health callbacks and native Scribe reference resolution, including rejection of references created or loaded without an owning game. On 9 November 2026, the framework and local example changes described below passed 192 tests in Debug and 190 in Release, with no build warnings or errors. No game assemblies were copied into the installable mod directories.
 
 These checks use controlled native objects and save graphs. They do not establish a complete colony load, a full movement/death/resurrection sequence in game, or compatibility with arbitrary providers. Some native removals bypass callbacks; direct map presence does not cover every carried or contained pawn, and arbitrary off-map destruction has no immediate notification guarantee. See [the integration boundaries](../guides/health-effects.md#keep-a-reference-when-the-character-moves).
+
+### In-game reference scenario
+
+On 9 November 2026, a disposable colony ran on RimWorld 1.7.5000 rev1275 with Core, Royalty, Ideology, Biotech, Odyssey, RimWeave Framework, RimWeave Example and a temporary verification driver. The driver invoked the example's guarded command entry point inside the game; it did not test the debug menus. The example changes remain local and under review. The public framework API is unchanged, and its snapshot still describes the published revision.
+
+All 34 assertions passed, including direct native departure and return, independent acknowledgement by two consumers, exact-effect removal with the similar effect preserved, and two complete native colony save/load cycles. Loading preserved observations and diagnostic identities without automatically resuming tracking or replaying scenario commands. After the second load, the removed target remained unresolved and the similar effect stayed attached. Starting with developer mode disabled was refused before adding markers; an untouched game and passive inspection created no scenario.
+
+Native save/load warnings for the removed effect are expected in this scenario: no owner serializes that detached target. Its reference retains the diagnostic identity, becomes unresolved after loading and never substitutes the surviving effect. This result does not promise warning-free native serialization. It also does not establish caravan or container transport, death/resurrection behavior, UI interactions, or compatibility with arbitrary providers. See [the reproducible scenario](../guides/debugging.md#verify-native-references-across-a-reload).
 
 ## Explicit limitations
 

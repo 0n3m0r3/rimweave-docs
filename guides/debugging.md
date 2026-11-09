@@ -44,6 +44,27 @@ Repeated marker removal PASS: first=Removed, second=NotPresent; callbacks first=
 
 Each observer ran once on the first removal and zero times on the repeated call. A failure displays the observed values. Also verify that a marker on the other hand remains attached after removing the selected one.
 
+## Verify native references across a reload
+
+> [!NOTE]
+> These reference-check commands are local example changes under review; they are not yet included in the published framework repository revision shown in this site's version notice. The documented public API is unchanged. The recorded in-game run called the guarded command entry point programmatically; the menu interactions below have not been checked. See [Support and evidence](../compatibility/index.md#in-game-reference-scenario).
+
+This scenario uses two consumers, A and B, following the same character and the same exact health effect. A second, similar effect must remain untouched. The example adds two whole-body markers with the same definition and contribution identity: their distinct native identities are what tell them apart. This is separate from the hand-marker example above.
+
+Use a disposable colony with the Debug example installed. Search for **Reference scenario** in the debug actions menu. Each report appears in a message window and the native log.
+
+1. Select **T: Reference scenario: start**, click a living pawn directly on the current map, and confirm **Start reference scenario on …**. Expect `START PASS` with two markers. Opening the selection menu does not start the scenario; developer mode, the selected game and the pawn are checked again when you confirm.
+2. Run **Reference scenario: departure and return**, then **Reference scenario: acknowledge A**. The first command briefly removes the pawn from the map and puts it back on the same cell through native operations. Expect `DEPARTURE/RETURN PASS` and `ACKNOWLEDGE A PASS`: A has no pending changes, while B still holds `LeftContext` and `EnteredContext` for both its pawn and effect references. These are change kinds, without ordering or counts.
+3. Save through RimWorld's normal save menu, reload that save, and run **Reference scenario: inspect** before another scenario action. Expect `LOAD PASS`: saved native identities and pending observations survived, active tracking gained `TrackingInterrupted`, and all four observers remain stopped. `noReplay` checks that marker and scenario-command counts did not increase; loading does not recreate the markers or run a scenario command.
+4. Run **Reference scenario: resume**. Expect `RESUME PASS`: all four observers are active again and their pending observations remain available. Resuming observation does not apply another effect.
+5. Run **Reference scenario: remove exact effect**. Expect `EXACT REMOVAL PASS`: the first removal returns `Removed`, a repeated request returns `NotPresent`, both effect observers stop, and the similar effect remains attached. Their target is never replaced by that similar effect.
+
+After removal, save and reload once more, then inspect before another scenario action. Expect one surviving marker, the removed target reported as `Unresolved` with its original diagnostic identity, and no automatic restart. Attempting **Reference scenario: resume** must fail instead of selecting the similar effect. Native save/load warnings about this removed target are expected: no owner saves the detached effect in this scenario. The reference retains its identity without owning or recreating it. An unresolved reference is not a claim that every missing target has permanently disappeared.
+
+**Reference scenario: inspect** reports the exact native identities, current resolution, direct map presence, health attachment, tracking coverage and pending changes. Inspection does not acknowledge either consumer's observations. A failure reports actual values; inspect native state before continuing because a failed native operation may have partially completed.
+
+A save holds one scenario. Starting again is refused; there is no automatic reset or cleanup, and the surviving marker remains in that disposable save. Use a fresh disposable colony for another run. Direct departure and return do not validate caravan travel, carried pawns, arbitrary third-party callbacks or compatibility between independent mods. Recorded results belong in [Support and evidence](../compatibility/index.md).
+
 ## When an action is absent
 
 Check that the installed files came from the last **Debug** build, that the separate example is enabled, and that the game has been restarted after replacing assemblies. Search for the action name while playing on a map. A successful IDE build is not proof that the running game loaded the new files.

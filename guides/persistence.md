@@ -35,9 +35,11 @@ For a handle in its owning game, `Capture()` reports `Loading` until native refe
 
 A reference loaded without an owning `Current.Game` remains unavailable. Creating a game afterward cannot make it resolve or attach to a target with a matching identity.
 
+The handle does not own the target's lifetime. After a health effect is removed, native Scribe can warn that its reference target was not saved. If no owner serializes that detached effect, the loaded handle remains `Unresolved`, retaining its diagnostic identity without substituting a similar effect. A detached effect that another owner still serializes can remain resolvable; detachment alone does not justify dropping the native reference.
+
 Pending change kinds survive the save. If tracking was active, loading also records `TrackingInterrupted`: a C# subscription is not a saved gameplay action. Tracking does not restart automatically, and loading invokes no activity reaction. After native game initialization, the owner reads the restored state and pending changes, decides its own continuation policy, and explicitly calls `StartTracking()` if observation should resume. Use `LoadedGame`, `StartedNewGame` or later; `PostLoadInit` is too early to activate tracking.
 
-These guarantees assume the required native objects, definitions and provider classes can be loaded. They do not preserve every historical target, provide persistent organ identity or resolve an opaque `SourceReference`. The reference tests use native Scribe resolution with controlled pawn and health graphs; they do not demonstrate loading an entire colony or resuming every provider's activity.
+These guarantees assume the required native objects, definitions and provider classes can be loaded. They do not preserve every historical target, provide persistent organ identity or resolve an opaque `SourceReference`. The reference tests use native Scribe resolution with controlled pawn and health graphs; they do not demonstrate loading an entire colony or resuming every provider's activity. The [developer scenario](debugging.md#verify-native-references-across-a-reload) also exercises saved observations and explicit resumption in a real colony. Its [recorded run](../compatibility/index.md#in-game-reference-scenario) covers two complete save/load cycles with local example changes, including loading after the exact effect was removed. It does not establish compatibility with arbitrary providers.
 
 ## An old save may contain no description
 
