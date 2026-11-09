@@ -47,7 +47,7 @@ Each observer ran once on the first removal and zero times on the repeated call.
 ## Verify native references across a reload
 
 > [!NOTE]
-> These reference-check commands are local example changes under review; they are not yet included in the published framework repository revision shown in this site's version notice. The documented public API is unchanged. The recorded in-game run called the guarded command entry point programmatically; the menu interactions below have not been checked. See [Support and evidence](../compatibility/index.md#in-game-reference-scenario).
+> These reference-check commands are included in [framework commit dd5d0e3](https://github.com/0n3m0r3/rimweave/commit/dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2). The public framework API is unchanged. The recorded in-game run called the guarded command entry point programmatically; the menu interactions below have not been checked. See [Support and evidence](../compatibility/index.md#in-game-reference-scenario).
 
 This scenario uses two consumers, A and B, following the same character and the same exact health effect. A second, similar effect must remain untouched. The example adds two whole-body markers with the same definition and contribution identity: their distinct native identities are what tell them apart. This is separate from the hand-marker example above.
 
