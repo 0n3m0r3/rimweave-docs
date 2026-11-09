@@ -1,0 +1,5 @@
+apiRules:
+- exclude:
+    uidRegex: ^RimWeave\.RimWeaveMod($|\.)
+- exclude:
+    uidRegex: ^RimWeave$

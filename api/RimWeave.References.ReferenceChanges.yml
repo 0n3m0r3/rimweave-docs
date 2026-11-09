@@ -1,0 +1,334 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.ReferenceChanges
+  commentId: T:RimWeave.References.ReferenceChanges
+  id: ReferenceChanges
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.ReferenceChanges.ContextRemoved
+  - RimWeave.References.ReferenceChanges.Destroyed
+  - RimWeave.References.ReferenceChanges.Died
+  - RimWeave.References.ReferenceChanges.Discarded
+  - RimWeave.References.ReferenceChanges.EffectDetached
+  - RimWeave.References.ReferenceChanges.EnteredContext
+  - RimWeave.References.ReferenceChanges.LeftContext
+  - RimWeave.References.ReferenceChanges.None
+  - RimWeave.References.ReferenceChanges.Resurrected
+  - RimWeave.References.ReferenceChanges.TrackingInterrupted
+  langs:
+  - csharp
+  name: ReferenceChanges
+  nameWithType: ReferenceChanges
+  fullName: RimWeave.References.ReferenceChanges
+  type: Enum
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ReferenceChanges
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 4
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Kinds of transitions observed since a consumer last acknowledged them.
+  remarks: Repeated kinds are coalesced. These flags preserve neither event counts nor ordering.
+  example: []
+  syntax:
+    content: '[Flags]
+
+      public enum ReferenceChanges'
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: RimWeave.References.ReferenceChanges.None
+  commentId: F:RimWeave.References.ReferenceChanges.None
+  id: None
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: None
+  nameWithType: ReferenceChanges.None
+  fullName: RimWeave.References.ReferenceChanges.None
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: None
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 8
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: No transition has been recorded.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.EnteredContext
+  commentId: F:RimWeave.References.ReferenceChanges.EnteredContext
+  id: EnteredContext
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: EnteredContext
+  nameWithType: ReferenceChanges.EnteredContext
+  fullName: RimWeave.References.ReferenceChanges.EnteredContext
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: EnteredContext
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The target entered a local context.
+  example: []
+  syntax:
+    content: EnteredContext = 1
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.LeftContext
+  commentId: F:RimWeave.References.ReferenceChanges.LeftContext
+  id: LeftContext
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: LeftContext
+  nameWithType: ReferenceChanges.LeftContext
+  fullName: RimWeave.References.ReferenceChanges.LeftContext
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: LeftContext
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 12
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The target left a local context.
+  example: []
+  syntax:
+    content: LeftContext = 2
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.ContextRemoved
+  commentId: F:RimWeave.References.ReferenceChanges.ContextRemoved
+  id: ContextRemoved
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: ContextRemoved
+  nameWithType: ReferenceChanges.ContextRemoved
+  fullName: RimWeave.References.ReferenceChanges.ContextRemoved
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContextRemoved
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The target's last observed local context was removed.
+  example: []
+  syntax:
+    content: ContextRemoved = 4
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.Died
+  commentId: F:RimWeave.References.ReferenceChanges.Died
+  id: Died
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: Died
+  nameWithType: ReferenceChanges.Died
+  fullName: RimWeave.References.ReferenceChanges.Died
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Died
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 16
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The provider reported the target's death.
+  example: []
+  syntax:
+    content: Died = 8
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.Resurrected
+  commentId: F:RimWeave.References.ReferenceChanges.Resurrected
+  id: Resurrected
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: Resurrected
+  nameWithType: ReferenceChanges.Resurrected
+  fullName: RimWeave.References.ReferenceChanges.Resurrected
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Resurrected
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 18
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The provider reported resurrection.
+  example: []
+  syntax:
+    content: Resurrected = 16
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.Discarded
+  commentId: F:RimWeave.References.ReferenceChanges.Discarded
+  id: Discarded
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: Discarded
+  nameWithType: ReferenceChanges.Discarded
+  fullName: RimWeave.References.ReferenceChanges.Discarded
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Discarded
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The provider discarded the target.
+  example: []
+  syntax:
+    content: Discarded = 32
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.EffectDetached
+  commentId: F:RimWeave.References.ReferenceChanges.EffectDetached
+  id: EffectDetached
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: EffectDetached
+  nameWithType: ReferenceChanges.EffectDetached
+  fullName: RimWeave.References.ReferenceChanges.EffectDetached
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: EffectDetached
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 22
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The exact effect was detached from its native owner.
+  example: []
+  syntax:
+    content: EffectDetached = 64
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.TrackingInterrupted
+  commentId: F:RimWeave.References.ReferenceChanges.TrackingInterrupted
+  id: TrackingInterrupted
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: TrackingInterrupted
+  nameWithType: ReferenceChanges.TrackingInterrupted
+  fullName: RimWeave.References.ReferenceChanges.TrackingInterrupted
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: TrackingInterrupted
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 24
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Observation stopped; no continuity is promised until tracking starts again.
+  example: []
+  syntax:
+    content: TrackingInterrupted = 128
+    return:
+      type: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChanges.Destroyed
+  commentId: F:RimWeave.References.ReferenceChanges.Destroyed
+  id: Destroyed
+  parent: RimWeave.References.ReferenceChanges
+  langs:
+  - csharp
+  name: Destroyed
+  nameWithType: ReferenceChanges.Destroyed
+  fullName: RimWeave.References.ReferenceChanges.Destroyed
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Destroyed
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 26
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Revalidation observed native destruction; not necessarily an immediate notification.
+  example: []
+  syntax:
+    content: Destroyed = 256
+    return:
+      type: RimWeave.References.ReferenceChanges
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: RimWeave.References.ReferenceChanges
+  commentId: T:RimWeave.References.ReferenceChanges
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceChanges.html
+  name: ReferenceChanges
+  nameWithType: ReferenceChanges
+  fullName: RimWeave.References.ReferenceChanges

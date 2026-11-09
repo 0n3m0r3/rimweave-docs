@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Contributions.IContribution
+  commentId: T:RimWeave.Contributions.IContribution
+  id: IContribution
+  parent: RimWeave.Contributions
+  children:
+  - RimWeave.Contributions.IContribution.Metadata
+  langs:
+  - csharp
+  name: IContribution
+  nameWithType: IContribution
+  fullName: RimWeave.Contributions.IContribution
+  type: Interface
+  source:
+    remote:
+      path: RimWeave/Contributions/IContribution.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: IContribution
+    path: RimWeave/Contributions/IContribution.cs
+    startLine: 7
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Exposes a contribution's attribution independently of its storage and target.
+  remarks: 'Reading Metadata must return the owner''s current non-null instance without applying an effect.
+
+    A load operation may replace that instance; read it from the restored owner after loading.'
+  example: []
+  syntax:
+    content: public interface IContribution
+  derivedClasses:
+  - RimWeave.Health.ContributionHediff
+- uid: RimWeave.Contributions.IContribution.Metadata
+  commentId: P:RimWeave.Contributions.IContribution.Metadata
+  id: Metadata
+  parent: RimWeave.Contributions.IContribution
+  langs:
+  - csharp
+  name: Metadata
+  nameWithType: IContribution.Metadata
+  fullName: RimWeave.Contributions.IContribution.Metadata
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/IContribution.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Metadata
+    path: RimWeave/Contributions/IContribution.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: The contribution's current metadata, retained between reads until the owner restores it.
+  example: []
+  syntax:
+    content: ContributionMetadata Metadata { get; }
+    parameters: []
+    return:
+      type: RimWeave.Contributions.ContributionMetadata
+  overload: RimWeave.Contributions.IContribution.Metadata*
+references:
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: RimWeave.Contributions.IContribution.Metadata*
+  commentId: Overload:RimWeave.Contributions.IContribution.Metadata
+  href: RimWeave.Contributions.IContribution.html#RimWeave_Contributions_IContribution_Metadata
+  name: Metadata
+  nameWithType: IContribution.Metadata
+  fullName: RimWeave.Contributions.IContribution.Metadata
+- uid: RimWeave.Contributions.ContributionMetadata
+  commentId: T:RimWeave.Contributions.ContributionMetadata
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionMetadata.html
+  name: ContributionMetadata
+  nameWithType: ContributionMetadata
+  fullName: RimWeave.Contributions.ContributionMetadata

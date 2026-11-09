@@ -1,0 +1,294 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Persistence.ContributionMetadataScribe
+  commentId: T:RimWeave.Persistence.ContributionMetadataScribe
+  id: ContributionMetadataScribe
+  parent: RimWeave.Persistence
+  children:
+  - RimWeave.Persistence.ContributionMetadataScribe.ExposeData
+  - RimWeave.Persistence.ContributionMetadataScribe.Metadata
+  langs:
+  - csharp
+  name: ContributionMetadataScribe
+  nameWithType: ContributionMetadataScribe
+  fullName: RimWeave.Persistence.ContributionMetadataScribe
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Persistence/ContributionMetadataScribe.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionMetadataScribe
+    path: RimWeave/Persistence/ContributionMetadataScribe.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Persistence
+  summary: Persists shared contribution metadata inside an owner's native Scribe node.
+  remarks: 'The owner calls ExposeData once in each native save/load phase and exposes Metadata to consumers.
+
+    This adapter does not save the owner, resolve sources or apply effects. Unreadable metadata is
+
+    retained as opaque XML text on subsequent saves; it requires an explicit future recovery policy.'
+  example: []
+  syntax:
+    content: 'public sealed class ContributionMetadataScribe : IExposable'
+  inheritance:
+  - System.Object
+  implements:
+  - Verse.IExposable
+  inheritedMembers: []
+- uid: RimWeave.Persistence.ContributionMetadataScribe.Metadata
+  commentId: P:RimWeave.Persistence.ContributionMetadataScribe.Metadata
+  id: Metadata
+  parent: RimWeave.Persistence.ContributionMetadataScribe
+  langs:
+  - csharp
+  name: Metadata
+  nameWithType: ContributionMetadataScribe.Metadata
+  fullName: RimWeave.Persistence.ContributionMetadataScribe.Metadata
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Persistence/ContributionMetadataScribe.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Metadata
+    path: RimWeave/Persistence/ContributionMetadataScribe.cs
+    startLine: 28
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Persistence
+  summary: The current metadata, replaced during LoadingVars rather than merged with defaults.
+  example: []
+  syntax:
+    content: public ContributionMetadata Metadata { get; }
+    parameters: []
+    return:
+      type: RimWeave.Contributions.ContributionMetadata
+  overload: RimWeave.Persistence.ContributionMetadataScribe.Metadata*
+- uid: RimWeave.Persistence.ContributionMetadataScribe.ExposeData
+  commentId: M:RimWeave.Persistence.ContributionMetadataScribe.ExposeData
+  id: ExposeData
+  parent: RimWeave.Persistence.ContributionMetadataScribe
+  langs:
+  - csharp
+  name: ExposeData()
+  nameWithType: ContributionMetadataScribe.ExposeData()
+  fullName: RimWeave.Persistence.ContributionMetadataScribe.ExposeData()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Persistence/ContributionMetadataScribe.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ExposeData
+    path: RimWeave/Persistence/ContributionMetadataScribe.cs
+    startLine: 31
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Persistence
+  summary: Reads or writes the owner's metadata without performing a gameplay operation.
+  example: []
+  syntax:
+    content: public void ExposeData()
+  overload: RimWeave.Persistence.ContributionMetadataScribe.ExposeData*
+  implements:
+  - Verse.IExposable.ExposeData
+references:
+- uid: RimWeave.Persistence
+  commentId: N:RimWeave.Persistence
+  name: RimWeave.Persistence
+  nameWithType: RimWeave.Persistence
+  fullName: RimWeave.Persistence
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Persistence
+    name: Persistence
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: Verse.IExposable
+  commentId: T:Verse.IExposable
+  parent: Verse
+  isExternal: true
+  name: IExposable
+  nameWithType: IExposable
+  fullName: Verse.IExposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.Persistence.ContributionMetadataScribe.Metadata*
+  commentId: Overload:RimWeave.Persistence.ContributionMetadataScribe.Metadata
+  href: RimWeave.Persistence.ContributionMetadataScribe.html#RimWeave_Persistence_ContributionMetadataScribe_Metadata
+  name: Metadata
+  nameWithType: ContributionMetadataScribe.Metadata
+  fullName: RimWeave.Persistence.ContributionMetadataScribe.Metadata
+- uid: RimWeave.Contributions.ContributionMetadata
+  commentId: T:RimWeave.Contributions.ContributionMetadata
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionMetadata.html
+  name: ContributionMetadata
+  nameWithType: ContributionMetadata
+  fullName: RimWeave.Contributions.ContributionMetadata
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: RimWeave.Persistence.ContributionMetadataScribe.ExposeData*
+  commentId: Overload:RimWeave.Persistence.ContributionMetadataScribe.ExposeData
+  href: RimWeave.Persistence.ContributionMetadataScribe.html#RimWeave_Persistence_ContributionMetadataScribe_ExposeData
+  name: ExposeData
+  nameWithType: ContributionMetadataScribe.ExposeData
+  fullName: RimWeave.Persistence.ContributionMetadataScribe.ExposeData
+- uid: Verse.IExposable.ExposeData
+  commentId: M:Verse.IExposable.ExposeData
+  parent: Verse.IExposable
+  isExternal: true
+  name: ExposeData()
+  nameWithType: IExposable.ExposeData()
+  fullName: Verse.IExposable.ExposeData()
+  spec.csharp:
+  - uid: Verse.IExposable.ExposeData
+    name: ExposeData
+    isExternal: true
+  - name: (
+  - name: )

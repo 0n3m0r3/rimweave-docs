@@ -1,0 +1,679 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.NativeReferenceSnapshot
+  commentId: T:RimWeave.References.NativeReferenceSnapshot
+  id: NativeReferenceSnapshot
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.NativeReferenceSnapshot.Dead
+  - RimWeave.References.NativeReferenceSnapshot.Destroyed
+  - RimWeave.References.NativeReferenceSnapshot.Discarded
+  - RimWeave.References.NativeReferenceSnapshot.Effect
+  - RimWeave.References.NativeReferenceSnapshot.EffectAttached
+  - RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+  - RimWeave.References.NativeReferenceSnapshot.Map
+  - RimWeave.References.NativeReferenceSnapshot.Pawn
+  - RimWeave.References.NativeReferenceSnapshot.PawnIdentity
+  - RimWeave.References.NativeReferenceSnapshot.Resolution
+  - RimWeave.References.NativeReferenceSnapshot.Spawned
+  langs:
+  - csharp
+  name: NativeReferenceSnapshot
+  nameWithType: NativeReferenceSnapshot
+  fullName: RimWeave.References.NativeReferenceSnapshot
+  type: Class
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: NativeReferenceSnapshot
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 25
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: A passive observation of native identity, location and attachment at one instant.
+  remarks: 'A resolved dead, destroyed or detached object is not necessarily usable by an operation.
+
+    Map presence does not establish reachability, reservation, willingness or business eligibility.
+
+    The referenced native objects remain mutable; inspect again before a later operation.'
+  example: []
+  syntax:
+    content: 'public sealed record NativeReferenceSnapshot : IEquatable<NativeReferenceSnapshot>'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RimWeave.References.NativeReferenceSnapshot}
+  inheritedMembers: []
+- uid: RimWeave.References.NativeReferenceSnapshot.Resolution
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Resolution
+  id: Resolution
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Resolution
+  nameWithType: NativeReferenceSnapshot.Resolution
+  fullName: RimWeave.References.NativeReferenceSnapshot.Resolution
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Resolution
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 28
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The resolution outcome; unresolved does not mean destroyed.
+  example: []
+  syntax:
+    content: public NativeReferenceResolution Resolution { get; init; }
+    parameters: []
+    return:
+      type: RimWeave.References.NativeReferenceResolution
+  overload: RimWeave.References.NativeReferenceSnapshot.Resolution*
+- uid: RimWeave.References.NativeReferenceSnapshot.PawnIdentity
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.PawnIdentity
+  id: PawnIdentity
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: PawnIdentity
+  nameWithType: NativeReferenceSnapshot.PawnIdentity
+  fullName: RimWeave.References.NativeReferenceSnapshot.PawnIdentity
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PawnIdentity
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 30
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The native pawn identity retained even if resolution fails.
+  example: []
+  syntax:
+    content: public string? PawnIdentity { get; init; }
+    parameters: []
+    return:
+      type: System.String
+  overload: RimWeave.References.NativeReferenceSnapshot.PawnIdentity*
+- uid: RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+  id: EffectIdentity
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: EffectIdentity
+  nameWithType: NativeReferenceSnapshot.EffectIdentity
+  fullName: RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: EffectIdentity
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 32
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The exact native effect identity, or null for a pawn reference.
+  example: []
+  syntax:
+    content: public string? EffectIdentity { get; init; }
+    parameters: []
+    return:
+      type: System.String
+  overload: RimWeave.References.NativeReferenceSnapshot.EffectIdentity*
+- uid: RimWeave.References.NativeReferenceSnapshot.Pawn
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Pawn
+  id: Pawn
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Pawn
+  nameWithType: NativeReferenceSnapshot.Pawn
+  fullName: RimWeave.References.NativeReferenceSnapshot.Pawn
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Pawn
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 34
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The resolved pawn, or null when resolution is incomplete or inconsistent.
+  example: []
+  syntax:
+    content: public Pawn? Pawn { get; init; }
+    parameters: []
+    return:
+      type: Verse.Pawn
+  overload: RimWeave.References.NativeReferenceSnapshot.Pawn*
+- uid: RimWeave.References.NativeReferenceSnapshot.Effect
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Effect
+  id: Effect
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Effect
+  nameWithType: NativeReferenceSnapshot.Effect
+  fullName: RimWeave.References.NativeReferenceSnapshot.Effect
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Effect
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 36
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The resolved exact effect; no substitution by definition or contribution identity occurs.
+  example: []
+  syntax:
+    content: public Hediff? Effect { get; init; }
+    parameters: []
+    return:
+      type: Verse.Hediff
+  overload: RimWeave.References.NativeReferenceSnapshot.Effect*
+- uid: RimWeave.References.NativeReferenceSnapshot.Map
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Map
+  id: Map
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Map
+  nameWithType: NativeReferenceSnapshot.Map
+  fullName: RimWeave.References.NativeReferenceSnapshot.Map
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Map
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 38
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The pawn's directly occupied map when observed, if any.
+  example: []
+  syntax:
+    content: public Map? Map { get; init; }
+    parameters: []
+    return:
+      type: Verse.Map
+  overload: RimWeave.References.NativeReferenceSnapshot.Map*
+- uid: RimWeave.References.NativeReferenceSnapshot.Spawned
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Spawned
+  id: Spawned
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Spawned
+  nameWithType: NativeReferenceSnapshot.Spawned
+  fullName: RimWeave.References.NativeReferenceSnapshot.Spawned
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Spawned
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 40
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Whether the resolved pawn was spawned directly on a map.
+  example: []
+  syntax:
+    content: public bool? Spawned { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+  overload: RimWeave.References.NativeReferenceSnapshot.Spawned*
+- uid: RimWeave.References.NativeReferenceSnapshot.Dead
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Dead
+  id: Dead
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Dead
+  nameWithType: NativeReferenceSnapshot.Dead
+  fullName: RimWeave.References.NativeReferenceSnapshot.Dead
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Dead
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 42
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The observed native death state, independent of resolution.
+  example: []
+  syntax:
+    content: public bool? Dead { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+  overload: RimWeave.References.NativeReferenceSnapshot.Dead*
+- uid: RimWeave.References.NativeReferenceSnapshot.Destroyed
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Destroyed
+  id: Destroyed
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Destroyed
+  nameWithType: NativeReferenceSnapshot.Destroyed
+  fullName: RimWeave.References.NativeReferenceSnapshot.Destroyed
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Destroyed
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 44
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The observed native destruction state, independent of death and map presence.
+  example: []
+  syntax:
+    content: public bool? Destroyed { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+  overload: RimWeave.References.NativeReferenceSnapshot.Destroyed*
+- uid: RimWeave.References.NativeReferenceSnapshot.Discarded
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.Discarded
+  id: Discarded
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: Discarded
+  nameWithType: NativeReferenceSnapshot.Discarded
+  fullName: RimWeave.References.NativeReferenceSnapshot.Discarded
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Discarded
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 46
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Whether the native pawn has been discarded.
+  example: []
+  syntax:
+    content: public bool? Discarded { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+  overload: RimWeave.References.NativeReferenceSnapshot.Discarded*
+- uid: RimWeave.References.NativeReferenceSnapshot.EffectAttached
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.EffectAttached
+  id: EffectAttached
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: EffectAttached
+  nameWithType: NativeReferenceSnapshot.EffectAttached
+  fullName: RimWeave.References.NativeReferenceSnapshot.EffectAttached
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: EffectAttached
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 48
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Exact membership in the native health list; null for a pawn-only or unresolved reference.
+  example: []
+  syntax:
+    content: public bool? EffectAttached { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+  overload: RimWeave.References.NativeReferenceSnapshot.EffectAttached*
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.IEquatable{RimWeave.References.NativeReferenceSnapshot}
+  commentId: T:System.IEquatable{RimWeave.References.NativeReferenceSnapshot}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<NativeReferenceSnapshot>
+  nameWithType: IEquatable<NativeReferenceSnapshot>
+  fullName: System.IEquatable<RimWeave.References.NativeReferenceSnapshot>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RimWeave.References.NativeReferenceSnapshot
+    name: NativeReferenceSnapshot
+    href: RimWeave.References.NativeReferenceSnapshot.html
+  - name: '>'
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.References.NativeReferenceSnapshot.Resolution*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Resolution
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Resolution
+  name: Resolution
+  nameWithType: NativeReferenceSnapshot.Resolution
+  fullName: RimWeave.References.NativeReferenceSnapshot.Resolution
+- uid: RimWeave.References.NativeReferenceResolution
+  commentId: T:RimWeave.References.NativeReferenceResolution
+  parent: RimWeave.References
+  href: RimWeave.References.NativeReferenceResolution.html
+  name: NativeReferenceResolution
+  nameWithType: NativeReferenceResolution
+  fullName: RimWeave.References.NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceSnapshot.PawnIdentity*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.PawnIdentity
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_PawnIdentity
+  name: PawnIdentity
+  nameWithType: NativeReferenceSnapshot.PawnIdentity
+  fullName: RimWeave.References.NativeReferenceSnapshot.PawnIdentity
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+- uid: RimWeave.References.NativeReferenceSnapshot.EffectIdentity*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_EffectIdentity
+  name: EffectIdentity
+  nameWithType: NativeReferenceSnapshot.EffectIdentity
+  fullName: RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+- uid: RimWeave.References.NativeReferenceSnapshot.Pawn*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Pawn
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Pawn
+  name: Pawn
+  nameWithType: NativeReferenceSnapshot.Pawn
+  fullName: RimWeave.References.NativeReferenceSnapshot.Pawn
+- uid: Verse.Pawn
+  commentId: T:Verse.Pawn
+  parent: Verse
+  isExternal: true
+  name: Pawn
+  nameWithType: Pawn
+  fullName: Verse.Pawn
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.References.NativeReferenceSnapshot.Effect*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Effect
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Effect
+  name: Effect
+  nameWithType: NativeReferenceSnapshot.Effect
+  fullName: RimWeave.References.NativeReferenceSnapshot.Effect
+- uid: Verse.Hediff
+  commentId: T:Verse.Hediff
+  parent: Verse
+  isExternal: true
+  name: Hediff
+  nameWithType: Hediff
+  fullName: Verse.Hediff
+- uid: RimWeave.References.NativeReferenceSnapshot.Map*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Map
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Map
+  name: Map
+  nameWithType: NativeReferenceSnapshot.Map
+  fullName: RimWeave.References.NativeReferenceSnapshot.Map
+- uid: Verse.Map
+  commentId: T:Verse.Map
+  parent: Verse
+  isExternal: true
+  name: Map
+  nameWithType: Map
+  fullName: Verse.Map
+- uid: RimWeave.References.NativeReferenceSnapshot.Spawned*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Spawned
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Spawned
+  name: Spawned
+  nameWithType: NativeReferenceSnapshot.Spawned
+  fullName: RimWeave.References.NativeReferenceSnapshot.Spawned
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.References.NativeReferenceSnapshot.Dead*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Dead
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Dead
+  name: Dead
+  nameWithType: NativeReferenceSnapshot.Dead
+  fullName: RimWeave.References.NativeReferenceSnapshot.Dead
+- uid: RimWeave.References.NativeReferenceSnapshot.Destroyed*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Destroyed
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Destroyed
+  name: Destroyed
+  nameWithType: NativeReferenceSnapshot.Destroyed
+  fullName: RimWeave.References.NativeReferenceSnapshot.Destroyed
+- uid: RimWeave.References.NativeReferenceSnapshot.Discarded*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Discarded
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Discarded
+  name: Discarded
+  nameWithType: NativeReferenceSnapshot.Discarded
+  fullName: RimWeave.References.NativeReferenceSnapshot.Discarded
+- uid: RimWeave.References.NativeReferenceSnapshot.EffectAttached*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.EffectAttached
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_EffectAttached
+  name: EffectAttached
+  nameWithType: NativeReferenceSnapshot.EffectAttached
+  fullName: RimWeave.References.NativeReferenceSnapshot.EffectAttached

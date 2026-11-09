@@ -1,0 +1,20 @@
+{
+  "build": {
+    "content": [
+      { "files": ["index.md", "toc.yml", "getting-started/**.md", "getting-started/toc.yml", "concepts/**.md", "concepts/toc.yml", "guides/**.md", "guides/toc.yml", "compatibility/**.md", "compatibility/toc.yml", "api/**.yml", "api/index.md"] }
+    ],
+    "resource": [{ "files": ["images/**", "api/snapshot.json", ".nojekyll"] }],
+    "dest": "_site",
+    "template": ["default", "modern", "templates/rimweave"],
+    "globalMetadata": {
+      "_appName": "RimWeave",
+      "_appTitle": "RimWeave Developer Documentation",
+      "_appLogoPath": "images/rimweave.svg",
+      "_appFaviconPath": "images/favicon.svg",
+      "_appFooter": "RimWeave Framework · Preview documentation · MIT",
+      "_enableSearch": true,
+      "_disableContribution": true,
+      "_lang": "en"
+    }
+  }
+}

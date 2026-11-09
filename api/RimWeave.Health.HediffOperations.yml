@@ -1,0 +1,273 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.HediffOperations
+  commentId: T:RimWeave.Health.HediffOperations
+  id: HediffOperations
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.HediffOperations.Remove(Verse.Pawn,Verse.Hediff)
+  langs:
+  - csharp
+  name: HediffOperations
+  nameWithType: HediffOperations
+  fullName: RimWeave.Health.HediffOperations
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/HediffOperations.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: HediffOperations
+    path: RimWeave/Health/HediffOperations.cs
+    startLine: 5
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Guards native health-effect removal against stale instances and mismatched owners.
+  example: []
+  syntax:
+    content: public static class HediffOperations
+  inheritance:
+  - System.Object
+  inheritedMembers: []
+- uid: RimWeave.Health.HediffOperations.Remove(Verse.Pawn,Verse.Hediff)
+  commentId: M:RimWeave.Health.HediffOperations.Remove(Verse.Pawn,Verse.Hediff)
+  id: Remove(Verse.Pawn,Verse.Hediff)
+  parent: RimWeave.Health.HediffOperations
+  langs:
+  - csharp
+  name: Remove(Pawn, Hediff)
+  nameWithType: HediffOperations.Remove(Pawn, Hediff)
+  fullName: RimWeave.Health.HediffOperations.Remove(Verse.Pawn, Verse.Hediff)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/HediffOperations.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Remove
+    path: RimWeave/Health/HediffOperations.cs
+    startLine: 19
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Removes an attached instance through its pawn's native health tracker.
+  remarks: 'Call on the simulation thread. The result describes attachment to the
+
+    requested pawn after a normal return; it does not describe all side effects.
+
+    Native exceptions propagate and may follow partial changes.'
+  example: []
+  syntax:
+    content: public static HediffRemovalResult Remove(Pawn pawn, Hediff hediff)
+    parameters:
+    - id: pawn
+      type: Verse.Pawn
+      description: The requested owner with an initialized native health tracker.
+    - id: hediff
+      type: Verse.Hediff
+      description: The exact native effect instance, including an ordinary non-RimWeave Hediff.
+    return:
+      type: RimWeave.Health.HediffRemovalResult
+      description: An observed attachment outcome; inspect Status rather than assuming success.
+  overload: RimWeave.Health.HediffOperations.Remove*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The pawn or effect is null.
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: RimWeave.Health.HediffOperations.Remove*
+  commentId: Overload:RimWeave.Health.HediffOperations.Remove
+  href: RimWeave.Health.HediffOperations.html#RimWeave_Health_HediffOperations_Remove_Verse_Pawn_Verse_Hediff_
+  name: Remove
+  nameWithType: HediffOperations.Remove
+  fullName: RimWeave.Health.HediffOperations.Remove
+- uid: Verse.Pawn
+  commentId: T:Verse.Pawn
+  parent: Verse
+  isExternal: true
+  name: Pawn
+  nameWithType: Pawn
+  fullName: Verse.Pawn
+- uid: Verse.Hediff
+  commentId: T:Verse.Hediff
+  parent: Verse
+  isExternal: true
+  name: Hediff
+  nameWithType: Hediff
+  fullName: Verse.Hediff
+- uid: RimWeave.Health.HediffRemovalResult
+  commentId: T:RimWeave.Health.HediffRemovalResult
+  parent: RimWeave.Health
+  href: RimWeave.Health.HediffRemovalResult.html
+  name: HediffRemovalResult
+  nameWithType: HediffRemovalResult
+  fullName: RimWeave.Health.HediffRemovalResult
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse

@@ -1,0 +1,339 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Contributions.ContributionId
+  commentId: T:RimWeave.Contributions.ContributionId
+  id: ContributionId
+  parent: RimWeave.Contributions
+  children:
+  - RimWeave.Contributions.ContributionId.#ctor(System.String,System.String)
+  - RimWeave.Contributions.ContributionId.LocalId
+  - RimWeave.Contributions.ContributionId.OwnerId
+  langs:
+  - csharp
+  name: ContributionId
+  nameWithType: ContributionId
+  fullName: RimWeave.Contributions.ContributionId
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionId.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionId
+    path: RimWeave/Contributions/ContributionId.cs
+    startLine: 3
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: A stable extension identifier and a case-sensitive local contribution key.
+  example: []
+  syntax:
+    content: 'public sealed record ContributionId : IEquatable<ContributionId>'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RimWeave.Contributions.ContributionId}
+  inheritedMembers: []
+- uid: RimWeave.Contributions.ContributionId.OwnerId
+  commentId: P:RimWeave.Contributions.ContributionId.OwnerId
+  id: OwnerId
+  parent: RimWeave.Contributions.ContributionId
+  langs:
+  - csharp
+  name: OwnerId
+  nameWithType: ContributionId.OwnerId
+  fullName: RimWeave.Contributions.ContributionId.OwnerId
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionId.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: OwnerId
+    path: RimWeave/Contributions/ContributionId.cs
+    startLine: 6
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: The provider identifier, normalized to invariant lowercase.
+  example: []
+  syntax:
+    content: public string OwnerId { get; }
+    parameters: []
+    return:
+      type: System.String
+  overload: RimWeave.Contributions.ContributionId.OwnerId*
+- uid: RimWeave.Contributions.ContributionId.LocalId
+  commentId: P:RimWeave.Contributions.ContributionId.LocalId
+  id: LocalId
+  parent: RimWeave.Contributions.ContributionId
+  langs:
+  - csharp
+  name: LocalId
+  nameWithType: ContributionId.LocalId
+  fullName: RimWeave.Contributions.ContributionId.LocalId
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionId.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: LocalId
+    path: RimWeave/Contributions/ContributionId.cs
+    startLine: 8
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: The provider's case-sensitive key within a caller-selected target scope.
+  example: []
+  syntax:
+    content: public string LocalId { get; }
+    parameters: []
+    return:
+      type: System.String
+  overload: RimWeave.Contributions.ContributionId.LocalId*
+- uid: RimWeave.Contributions.ContributionId.#ctor(System.String,System.String)
+  commentId: M:RimWeave.Contributions.ContributionId.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: RimWeave.Contributions.ContributionId
+  langs:
+  - csharp
+  name: ContributionId(string, string)
+  nameWithType: ContributionId.ContributionId(string, string)
+  fullName: RimWeave.Contributions.ContributionId.ContributionId(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionId.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/Contributions/ContributionId.cs
+    startLine: 15
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Creates a value identity without registering or attaching a contribution.
+  remarks: Identity is attribution, not an authorization boundary or a globally unique target identifier.
+  example: []
+  syntax:
+    content: public ContributionId(string ownerId, string localId)
+    parameters:
+    - id: ownerId
+      type: System.String
+      description: A nonblank provider identifier with no surrounding whitespace.
+    - id: localId
+      type: System.String
+      description: A nonblank local key with no surrounding whitespace.
+  overload: RimWeave.Contributions.ContributionId.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: An identifier is null, blank or has surrounding whitespace.
+references:
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.IEquatable{RimWeave.Contributions.ContributionId}
+  commentId: T:System.IEquatable{RimWeave.Contributions.ContributionId}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ContributionId>
+  nameWithType: IEquatable<ContributionId>
+  fullName: System.IEquatable<RimWeave.Contributions.ContributionId>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RimWeave.Contributions.ContributionId
+    name: ContributionId
+    href: RimWeave.Contributions.ContributionId.html
+  - name: '>'
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Contributions.ContributionId.OwnerId*
+  commentId: Overload:RimWeave.Contributions.ContributionId.OwnerId
+  href: RimWeave.Contributions.ContributionId.html#RimWeave_Contributions_ContributionId_OwnerId
+  name: OwnerId
+  nameWithType: ContributionId.OwnerId
+  fullName: RimWeave.Contributions.ContributionId.OwnerId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+- uid: RimWeave.Contributions.ContributionId.LocalId*
+  commentId: Overload:RimWeave.Contributions.ContributionId.LocalId
+  href: RimWeave.Contributions.ContributionId.html#RimWeave_Contributions_ContributionId_LocalId
+  name: LocalId
+  nameWithType: ContributionId.LocalId
+  fullName: RimWeave.Contributions.ContributionId.LocalId
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: RimWeave.Contributions.ContributionId.#ctor*
+  commentId: Overload:RimWeave.Contributions.ContributionId.#ctor
+  href: RimWeave.Contributions.ContributionId.html#RimWeave_Contributions_ContributionId__ctor_System_String_System_String_
+  name: ContributionId
+  nameWithType: ContributionId.ContributionId
+  fullName: RimWeave.Contributions.ContributionId.ContributionId

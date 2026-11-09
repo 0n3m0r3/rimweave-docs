@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  id: RimWeave.Contributions
+  children:
+  - RimWeave.Contributions.ContributionId
+  - RimWeave.Contributions.ContributionLookupResult`1
+  - RimWeave.Contributions.ContributionLookupStatus
+  - RimWeave.Contributions.ContributionMetadata
+  - RimWeave.Contributions.ContributionOrigin
+  - RimWeave.Contributions.ContributionOriginType
+  - RimWeave.Contributions.ContributionResolver
+  - RimWeave.Contributions.IContribution
+  langs:
+  - csharp
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  type: Namespace
+  assemblies:
+  - RimWeave
+references:
+- uid: RimWeave.Contributions.ContributionId
+  commentId: T:RimWeave.Contributions.ContributionId
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionId.html
+  name: ContributionId
+  nameWithType: ContributionId
+  fullName: RimWeave.Contributions.ContributionId
+- uid: RimWeave.Contributions.ContributionLookupStatus
+  commentId: T:RimWeave.Contributions.ContributionLookupStatus
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionLookupStatus.html
+  name: ContributionLookupStatus
+  nameWithType: ContributionLookupStatus
+  fullName: RimWeave.Contributions.ContributionLookupStatus
+- uid: RimWeave.Contributions.ContributionLookupResult`1
+  commentId: T:RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<T>
+  nameWithType: ContributionLookupResult<T>
+  fullName: RimWeave.Contributions.ContributionLookupResult<T>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Contributions.ContributionMetadata
+  commentId: T:RimWeave.Contributions.ContributionMetadata
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionMetadata.html
+  name: ContributionMetadata
+  nameWithType: ContributionMetadata
+  fullName: RimWeave.Contributions.ContributionMetadata
+- uid: RimWeave.Contributions.ContributionOrigin
+  commentId: T:RimWeave.Contributions.ContributionOrigin
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionOrigin.html
+  name: ContributionOrigin
+  nameWithType: ContributionOrigin
+  fullName: RimWeave.Contributions.ContributionOrigin
+- uid: RimWeave.Contributions.ContributionOriginType
+  commentId: T:RimWeave.Contributions.ContributionOriginType
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionOriginType.html
+  name: ContributionOriginType
+  nameWithType: ContributionOriginType
+  fullName: RimWeave.Contributions.ContributionOriginType
+- uid: RimWeave.Contributions.ContributionResolver
+  commentId: T:RimWeave.Contributions.ContributionResolver
+  href: RimWeave.Contributions.ContributionResolver.html
+  name: ContributionResolver
+  nameWithType: ContributionResolver
+  fullName: RimWeave.Contributions.ContributionResolver
+- uid: RimWeave.Contributions.IContribution
+  commentId: T:RimWeave.Contributions.IContribution
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.IContribution.html
+  name: IContribution
+  nameWithType: IContribution
+  fullName: RimWeave.Contributions.IContribution
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions

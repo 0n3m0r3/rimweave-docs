@@ -1,0 +1,432 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.HediffRemovalResult
+  commentId: T:RimWeave.Health.HediffRemovalResult
+  id: HediffRemovalResult
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.HediffRemovalResult.#ctor(RimWeave.Health.HediffRemovalStatus,Verse.Pawn,Verse.Hediff,Verse.BodyPartRecord)
+  - RimWeave.Health.HediffRemovalResult.Hediff
+  - RimWeave.Health.HediffRemovalResult.Part
+  - RimWeave.Health.HediffRemovalResult.Pawn
+  - RimWeave.Health.HediffRemovalResult.Status
+  langs:
+  - csharp
+  name: HediffRemovalResult
+  nameWithType: HediffRemovalResult
+  fullName: RimWeave.Health.HediffRemovalResult
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: HediffRemovalResult
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 25
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: An observed removal outcome for the requested pawn and instance.
+  example: []
+  syntax:
+    content: 'public sealed record HediffRemovalResult : IEquatable<HediffRemovalResult>'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RimWeave.Health.HediffRemovalResult}
+  inheritedMembers: []
+- uid: RimWeave.Health.HediffRemovalResult.#ctor(RimWeave.Health.HediffRemovalStatus,Verse.Pawn,Verse.Hediff,Verse.BodyPartRecord)
+  commentId: M:RimWeave.Health.HediffRemovalResult.#ctor(RimWeave.Health.HediffRemovalStatus,Verse.Pawn,Verse.Hediff,Verse.BodyPartRecord)
+  id: '#ctor(RimWeave.Health.HediffRemovalStatus,Verse.Pawn,Verse.Hediff,Verse.BodyPartRecord)'
+  parent: RimWeave.Health.HediffRemovalResult
+  langs:
+  - csharp
+  name: HediffRemovalResult(HediffRemovalStatus, Pawn, Hediff, BodyPartRecord?)
+  nameWithType: HediffRemovalResult.HediffRemovalResult(HediffRemovalStatus, Pawn, Hediff, BodyPartRecord?)
+  fullName: RimWeave.Health.HediffRemovalResult.HediffRemovalResult(RimWeave.Health.HediffRemovalStatus, Verse.Pawn,
+    Verse.Hediff, Verse.BodyPartRecord?)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 25
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: An observed removal outcome for the requested pawn and instance.
+  example: []
+  syntax:
+    content: public HediffRemovalResult(HediffRemovalStatus Status, Pawn Pawn, Hediff Hediff, BodyPartRecord? Part)
+    parameters:
+    - id: Status
+      type: RimWeave.Health.HediffRemovalStatus
+      description: The attachment outcome observed by the operation.
+    - id: Pawn
+      type: Verse.Pawn
+      description: The requested native owner.
+    - id: Hediff
+      type: Verse.Hediff
+      description: The exact effect instance requested for removal.
+    - id: Part
+      type: Verse.BodyPartRecord
+      description: The part reference captured before callbacks, not a persistent organ identity.
+  overload: RimWeave.Health.HediffRemovalResult.#ctor*
+- uid: RimWeave.Health.HediffRemovalResult.Status
+  commentId: P:RimWeave.Health.HediffRemovalResult.Status
+  id: Status
+  parent: RimWeave.Health.HediffRemovalResult
+  langs:
+  - csharp
+  name: Status
+  nameWithType: HediffRemovalResult.Status
+  fullName: RimWeave.Health.HediffRemovalResult.Status
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Status
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 26
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The attachment outcome observed by the operation.
+  example: []
+  syntax:
+    content: public HediffRemovalStatus Status { get; init; }
+    parameters: []
+    return:
+      type: RimWeave.Health.HediffRemovalStatus
+  overload: RimWeave.Health.HediffRemovalResult.Status*
+- uid: RimWeave.Health.HediffRemovalResult.Pawn
+  commentId: P:RimWeave.Health.HediffRemovalResult.Pawn
+  id: Pawn
+  parent: RimWeave.Health.HediffRemovalResult
+  langs:
+  - csharp
+  name: Pawn
+  nameWithType: HediffRemovalResult.Pawn
+  fullName: RimWeave.Health.HediffRemovalResult.Pawn
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Pawn
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 27
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The requested native owner.
+  example: []
+  syntax:
+    content: public Pawn Pawn { get; init; }
+    parameters: []
+    return:
+      type: Verse.Pawn
+  overload: RimWeave.Health.HediffRemovalResult.Pawn*
+- uid: RimWeave.Health.HediffRemovalResult.Hediff
+  commentId: P:RimWeave.Health.HediffRemovalResult.Hediff
+  id: Hediff
+  parent: RimWeave.Health.HediffRemovalResult
+  langs:
+  - csharp
+  name: Hediff
+  nameWithType: HediffRemovalResult.Hediff
+  fullName: RimWeave.Health.HediffRemovalResult.Hediff
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Hediff
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 28
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The exact effect instance requested for removal.
+  example: []
+  syntax:
+    content: public Hediff Hediff { get; init; }
+    parameters: []
+    return:
+      type: Verse.Hediff
+  overload: RimWeave.Health.HediffRemovalResult.Hediff*
+- uid: RimWeave.Health.HediffRemovalResult.Part
+  commentId: P:RimWeave.Health.HediffRemovalResult.Part
+  id: Part
+  parent: RimWeave.Health.HediffRemovalResult
+  langs:
+  - csharp
+  name: Part
+  nameWithType: HediffRemovalResult.Part
+  fullName: RimWeave.Health.HediffRemovalResult.Part
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Part
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 29
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The part reference captured before callbacks, not a persistent organ identity.
+  example: []
+  syntax:
+    content: public BodyPartRecord? Part { get; init; }
+    parameters: []
+    return:
+      type: Verse.BodyPartRecord
+  overload: RimWeave.Health.HediffRemovalResult.Part*
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.IEquatable{RimWeave.Health.HediffRemovalResult}
+  commentId: T:System.IEquatable{RimWeave.Health.HediffRemovalResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<HediffRemovalResult>
+  nameWithType: IEquatable<HediffRemovalResult>
+  fullName: System.IEquatable<RimWeave.Health.HediffRemovalResult>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RimWeave.Health.HediffRemovalResult
+    name: HediffRemovalResult
+    href: RimWeave.Health.HediffRemovalResult.html
+  - name: '>'
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Health.HediffRemovalResult.#ctor*
+  commentId: Overload:RimWeave.Health.HediffRemovalResult.#ctor
+  href: RimWeave.Health.HediffRemovalResult.html#RimWeave_Health_HediffRemovalResult__ctor_RimWeave_Health_HediffRemovalStatus_Verse_Pawn_Verse_Hediff_Verse_BodyPartRecord_
+  name: HediffRemovalResult
+  nameWithType: HediffRemovalResult.HediffRemovalResult
+  fullName: RimWeave.Health.HediffRemovalResult.HediffRemovalResult
+- uid: RimWeave.Health.HediffRemovalStatus
+  commentId: T:RimWeave.Health.HediffRemovalStatus
+  parent: RimWeave.Health
+  href: RimWeave.Health.HediffRemovalStatus.html
+  name: HediffRemovalStatus
+  nameWithType: HediffRemovalStatus
+  fullName: RimWeave.Health.HediffRemovalStatus
+- uid: Verse.Pawn
+  commentId: T:Verse.Pawn
+  parent: Verse
+  isExternal: true
+  name: Pawn
+  nameWithType: Pawn
+  fullName: Verse.Pawn
+- uid: Verse.Hediff
+  commentId: T:Verse.Hediff
+  parent: Verse
+  isExternal: true
+  name: Hediff
+  nameWithType: Hediff
+  fullName: Verse.Hediff
+- uid: Verse.BodyPartRecord
+  commentId: T:Verse.BodyPartRecord
+  parent: Verse
+  isExternal: true
+  name: BodyPartRecord
+  nameWithType: BodyPartRecord
+  fullName: Verse.BodyPartRecord
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.Health.HediffRemovalResult.Status*
+  commentId: Overload:RimWeave.Health.HediffRemovalResult.Status
+  href: RimWeave.Health.HediffRemovalResult.html#RimWeave_Health_HediffRemovalResult_Status
+  name: Status
+  nameWithType: HediffRemovalResult.Status
+  fullName: RimWeave.Health.HediffRemovalResult.Status
+- uid: RimWeave.Health.HediffRemovalResult.Pawn*
+  commentId: Overload:RimWeave.Health.HediffRemovalResult.Pawn
+  href: RimWeave.Health.HediffRemovalResult.html#RimWeave_Health_HediffRemovalResult_Pawn
+  name: Pawn
+  nameWithType: HediffRemovalResult.Pawn
+  fullName: RimWeave.Health.HediffRemovalResult.Pawn
+- uid: RimWeave.Health.HediffRemovalResult.Hediff*
+  commentId: Overload:RimWeave.Health.HediffRemovalResult.Hediff
+  href: RimWeave.Health.HediffRemovalResult.html#RimWeave_Health_HediffRemovalResult_Hediff
+  name: Hediff
+  nameWithType: HediffRemovalResult.Hediff
+  fullName: RimWeave.Health.HediffRemovalResult.Hediff
+- uid: RimWeave.Health.HediffRemovalResult.Part*
+  commentId: Overload:RimWeave.Health.HediffRemovalResult.Part
+  href: RimWeave.Health.HediffRemovalResult.html#RimWeave_Health_HediffRemovalResult_Part
+  name: Part
+  nameWithType: HediffRemovalResult.Part
+  fullName: RimWeave.Health.HediffRemovalResult.Part

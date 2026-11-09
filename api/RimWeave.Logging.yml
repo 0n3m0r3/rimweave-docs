@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Logging
+  commentId: N:RimWeave.Logging
+  id: RimWeave.Logging
+  children:
+  - RimWeave.Logging.RimWeaveLog
+  langs:
+  - csharp
+  name: RimWeave.Logging
+  nameWithType: RimWeave.Logging
+  fullName: RimWeave.Logging
+  type: Namespace
+  assemblies:
+  - RimWeave
+references:
+- uid: RimWeave.Logging.RimWeaveLog
+  commentId: T:RimWeave.Logging.RimWeaveLog
+  href: RimWeave.Logging.RimWeaveLog.html
+  name: RimWeaveLog
+  nameWithType: RimWeaveLog
+  fullName: RimWeave.Logging.RimWeaveLog

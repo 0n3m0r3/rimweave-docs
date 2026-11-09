@@ -1,0 +1,159 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Contributions.ContributionLookupStatus
+  commentId: T:RimWeave.Contributions.ContributionLookupStatus
+  id: ContributionLookupStatus
+  parent: RimWeave.Contributions
+  children:
+  - RimWeave.Contributions.ContributionLookupStatus.Ambiguous
+  - RimWeave.Contributions.ContributionLookupStatus.Found
+  - RimWeave.Contributions.ContributionLookupStatus.InvalidMetadata
+  - RimWeave.Contributions.ContributionLookupStatus.NotPresent
+  langs:
+  - csharp
+  name: ContributionLookupStatus
+  nameWithType: ContributionLookupStatus
+  fullName: RimWeave.Contributions.ContributionLookupStatus
+  type: Enum
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionLookupResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionLookupStatus
+    path: RimWeave/Contributions/ContributionLookupResult.cs
+    startLine: 3
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Whether metadata was usable and how many contributions matched in the supplied scope.
+  example: []
+  syntax:
+    content: public enum ContributionLookupStatus
+- uid: RimWeave.Contributions.ContributionLookupStatus.NotPresent
+  commentId: F:RimWeave.Contributions.ContributionLookupStatus.NotPresent
+  id: NotPresent
+  parent: RimWeave.Contributions.ContributionLookupStatus
+  langs:
+  - csharp
+  name: NotPresent
+  nameWithType: ContributionLookupStatus.NotPresent
+  fullName: RimWeave.Contributions.ContributionLookupStatus.NotPresent
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionLookupResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: NotPresent
+    path: RimWeave/Contributions/ContributionLookupResult.cs
+    startLine: 6
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: No contribution matched.
+  example: []
+  syntax:
+    content: NotPresent = 0
+    return:
+      type: RimWeave.Contributions.ContributionLookupStatus
+- uid: RimWeave.Contributions.ContributionLookupStatus.Found
+  commentId: F:RimWeave.Contributions.ContributionLookupStatus.Found
+  id: Found
+  parent: RimWeave.Contributions.ContributionLookupStatus
+  langs:
+  - csharp
+  name: Found
+  nameWithType: ContributionLookupStatus.Found
+  fullName: RimWeave.Contributions.ContributionLookupStatus.Found
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionLookupResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Found
+    path: RimWeave/Contributions/ContributionLookupResult.cs
+    startLine: 8
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Exactly one contribution matched.
+  example: []
+  syntax:
+    content: Found = 1
+    return:
+      type: RimWeave.Contributions.ContributionLookupStatus
+- uid: RimWeave.Contributions.ContributionLookupStatus.Ambiguous
+  commentId: F:RimWeave.Contributions.ContributionLookupStatus.Ambiguous
+  id: Ambiguous
+  parent: RimWeave.Contributions.ContributionLookupStatus
+  langs:
+  - csharp
+  name: Ambiguous
+  nameWithType: ContributionLookupStatus.Ambiguous
+  fullName: RimWeave.Contributions.ContributionLookupStatus.Ambiguous
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionLookupResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Ambiguous
+    path: RimWeave/Contributions/ContributionLookupResult.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Several contributions matched; no winner was selected.
+  example: []
+  syntax:
+    content: Ambiguous = 2
+    return:
+      type: RimWeave.Contributions.ContributionLookupStatus
+- uid: RimWeave.Contributions.ContributionLookupStatus.InvalidMetadata
+  commentId: F:RimWeave.Contributions.ContributionLookupStatus.InvalidMetadata
+  id: InvalidMetadata
+  parent: RimWeave.Contributions.ContributionLookupStatus
+  langs:
+  - csharp
+  name: InvalidMetadata
+  nameWithType: ContributionLookupStatus.InvalidMetadata
+  fullName: RimWeave.Contributions.ContributionLookupStatus.InvalidMetadata
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionLookupResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: InvalidMetadata
+    path: RimWeave/Contributions/ContributionLookupResult.cs
+    startLine: 12
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: A candidate's saved metadata is unavailable, so the query cannot establish a complete result.
+  example: []
+  syntax:
+    content: InvalidMetadata = 3
+    return:
+      type: RimWeave.Contributions.ContributionLookupStatus
+references:
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: RimWeave.Contributions.ContributionLookupStatus
+  commentId: T:RimWeave.Contributions.ContributionLookupStatus
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionLookupStatus.html
+  name: ContributionLookupStatus
+  nameWithType: ContributionLookupStatus
+  fullName: RimWeave.Contributions.ContributionLookupStatus

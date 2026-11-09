@@ -1,0 +1,509 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Contributions.ContributionMetadata
+  commentId: T:RimWeave.Contributions.ContributionMetadata
+  id: ContributionMetadata
+  parent: RimWeave.Contributions
+  children:
+  - RimWeave.Contributions.ContributionMetadata.AssignIdentity(RimWeave.Contributions.ContributionId)
+  - RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility(System.String)
+  - RimWeave.Contributions.ContributionMetadata.DescribeOrigin(RimWeave.Contributions.ContributionOrigin)
+  - RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility
+  - RimWeave.Contributions.ContributionMetadata.Identity
+  - RimWeave.Contributions.ContributionMetadata.LoadError
+  - RimWeave.Contributions.ContributionMetadata.Origin
+  langs:
+  - csharp
+  name: ContributionMetadata
+  nameWithType: ContributionMetadata
+  fullName: RimWeave.Contributions.ContributionMetadata
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionMetadata
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 9
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Attribution and provenance shared by contributions with different native owners.
+  remarks: 'Metadata does not register, attach, serialize or apply a contribution.
+
+    Missing attribution remains unknown. The containing owner controls its lifetime.
+
+    When LoadError is present, values are unavailable rather than absent and mutations are refused.
+
+    Mutate metadata on the owning domain''s thread.'
+  example: []
+  syntax:
+    content: public sealed class ContributionMetadata
+  inheritance:
+  - System.Object
+  inheritedMembers: []
+- uid: RimWeave.Contributions.ContributionMetadata.Identity
+  commentId: P:RimWeave.Contributions.ContributionMetadata.Identity
+  id: Identity
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: Identity
+  nameWithType: ContributionMetadata.Identity
+  fullName: RimWeave.Contributions.ContributionMetadata.Identity
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Identity
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 12
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: The declared attribution, or null when undeclared or unavailable.
+  example: []
+  syntax:
+    content: public ContributionId? Identity { get; }
+    parameters: []
+    return:
+      type: RimWeave.Contributions.ContributionId
+  overload: RimWeave.Contributions.ContributionMetadata.Identity*
+- uid: RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility
+  commentId: P:RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility
+  id: ExclusiveResponsibility
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: ExclusiveResponsibility
+  nameWithType: ContributionMetadata.ExclusiveResponsibility
+  fullName: RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ExclusiveResponsibility
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: An exact, case-sensitive exclusive responsibility key, or null when unclaimed or unavailable.
+  example: []
+  syntax:
+    content: public string? ExclusiveResponsibility { get; }
+    parameters: []
+    return:
+      type: System.String
+  overload: RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility*
+- uid: RimWeave.Contributions.ContributionMetadata.Origin
+  commentId: P:RimWeave.Contributions.ContributionMetadata.Origin
+  id: Origin
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: Origin
+  nameWithType: ContributionMetadata.Origin
+  fullName: RimWeave.Contributions.ContributionMetadata.Origin
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Origin
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 17
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: The declared cause, or null when undeclared or unavailable.
+  remarks: Null is not automatically converted to <xref href="RimWeave.Contributions.ContributionOriginType.Unknown"
+    data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ContributionOrigin? Origin { get; }
+    parameters: []
+    return:
+      type: RimWeave.Contributions.ContributionOrigin
+  overload: RimWeave.Contributions.ContributionMetadata.Origin*
+- uid: RimWeave.Contributions.ContributionMetadata.LoadError
+  commentId: P:RimWeave.Contributions.ContributionMetadata.LoadError
+  id: LoadError
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: LoadError
+  nameWithType: ContributionMetadata.LoadError
+  fullName: RimWeave.Contributions.ContributionMetadata.LoadError
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: LoadError
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Why saved metadata could not be read, or null when no load error occurred.
+  remarks: A load error makes all metadata unavailable; it does not remove the owning contribution.
+  example: []
+  syntax:
+    content: public string? LoadError { get; }
+    parameters: []
+    return:
+      type: System.String
+  overload: RimWeave.Contributions.ContributionMetadata.LoadError*
+- uid: RimWeave.Contributions.ContributionMetadata.AssignIdentity(RimWeave.Contributions.ContributionId)
+  commentId: M:RimWeave.Contributions.ContributionMetadata.AssignIdentity(RimWeave.Contributions.ContributionId)
+  id: AssignIdentity(RimWeave.Contributions.ContributionId)
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: AssignIdentity(ContributionId)
+  nameWithType: ContributionMetadata.AssignIdentity(ContributionId)
+  fullName: RimWeave.Contributions.ContributionMetadata.AssignIdentity(RimWeave.Contributions.ContributionId)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: AssignIdentity
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 26
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Assigns an identity, accepting repeated equal values without changing ownership.
+  example: []
+  syntax:
+    content: public void AssignIdentity(ContributionId identity)
+    parameters:
+    - id: identity
+      type: RimWeave.Contributions.ContributionId
+      description: The identity declared by the provider.
+  overload: RimWeave.Contributions.ContributionMetadata.AssignIdentity*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">identity</code> is null.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: A different identity has already been assigned, or saved metadata is unavailable.
+- uid: RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility(System.String)
+  commentId: M:RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility(System.String)
+  id: ClaimExclusiveResponsibility(System.String)
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: ClaimExclusiveResponsibility(string)
+  nameWithType: ContributionMetadata.ClaimExclusiveResponsibility(string)
+  fullName: RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility(string)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ClaimExclusiveResponsibility
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 41
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Declares an exclusive claim without choosing a winner or applying an effect.
+  remarks: Equal claims are accepted again. Providers agree on key semantics and query scope.
+  example: []
+  syntax:
+    content: public void ClaimExclusiveResponsibility(string responsibility)
+    parameters:
+    - id: responsibility
+      type: System.String
+      description: A nonblank, case-sensitive key with no surrounding whitespace.
+  overload: RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The key is null, blank or has surrounding whitespace.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: A different responsibility has already been declared, or saved metadata is unavailable.
+- uid: RimWeave.Contributions.ContributionMetadata.DescribeOrigin(RimWeave.Contributions.ContributionOrigin)
+  commentId: M:RimWeave.Contributions.ContributionMetadata.DescribeOrigin(RimWeave.Contributions.ContributionOrigin)
+  id: DescribeOrigin(RimWeave.Contributions.ContributionOrigin)
+  parent: RimWeave.Contributions.ContributionMetadata
+  langs:
+  - csharp
+  name: DescribeOrigin(ContributionOrigin)
+  nameWithType: ContributionMetadata.DescribeOrigin(ContributionOrigin)
+  fullName: RimWeave.Contributions.ContributionMetadata.DescribeOrigin(RimWeave.Contributions.ContributionOrigin)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionMetadata.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: DescribeOrigin
+    path: RimWeave/Contributions/ContributionMetadata.cs
+    startLine: 56
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Records a declared origin without applying an effect or making it reversible.
+  remarks: Repeated equal descriptions are accepted; a custom cause is never replaced by Unknown.
+  example: []
+  syntax:
+    content: public void DescribeOrigin(ContributionOrigin origin)
+    parameters:
+    - id: origin
+      type: RimWeave.Contributions.ContributionOrigin
+      description: The immutable description supplied by a provider or adapter.
+  overload: RimWeave.Contributions.ContributionMetadata.DescribeOrigin*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">origin</code> is null.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: A different origin has already been declared, or saved metadata is unavailable.
+references:
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RimWeave.Contributions.ContributionMetadata.Identity*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.Identity
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_Identity
+  name: Identity
+  nameWithType: ContributionMetadata.Identity
+  fullName: RimWeave.Contributions.ContributionMetadata.Identity
+- uid: RimWeave.Contributions.ContributionId
+  commentId: T:RimWeave.Contributions.ContributionId
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionId.html
+  name: ContributionId
+  nameWithType: ContributionId
+  fullName: RimWeave.Contributions.ContributionId
+- uid: RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_ExclusiveResponsibility
+  name: ExclusiveResponsibility
+  nameWithType: ContributionMetadata.ExclusiveResponsibility
+  fullName: RimWeave.Contributions.ContributionMetadata.ExclusiveResponsibility
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+- uid: RimWeave.Contributions.ContributionOriginType.Unknown
+  commentId: P:RimWeave.Contributions.ContributionOriginType.Unknown
+  href: RimWeave.Contributions.ContributionOriginType.html#RimWeave_Contributions_ContributionOriginType_Unknown
+  name: Unknown
+  nameWithType: ContributionOriginType.Unknown
+  fullName: RimWeave.Contributions.ContributionOriginType.Unknown
+- uid: RimWeave.Contributions.ContributionMetadata.Origin*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.Origin
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_Origin
+  name: Origin
+  nameWithType: ContributionMetadata.Origin
+  fullName: RimWeave.Contributions.ContributionMetadata.Origin
+- uid: RimWeave.Contributions.ContributionOrigin
+  commentId: T:RimWeave.Contributions.ContributionOrigin
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionOrigin.html
+  name: ContributionOrigin
+  nameWithType: ContributionOrigin
+  fullName: RimWeave.Contributions.ContributionOrigin
+- uid: RimWeave.Contributions.ContributionMetadata.LoadError*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.LoadError
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_LoadError
+  name: LoadError
+  nameWithType: ContributionMetadata.LoadError
+  fullName: RimWeave.Contributions.ContributionMetadata.LoadError
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: RimWeave.Contributions.ContributionMetadata.AssignIdentity*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.AssignIdentity
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_AssignIdentity_RimWeave_Contributions_ContributionId_
+  name: AssignIdentity
+  nameWithType: ContributionMetadata.AssignIdentity
+  fullName: RimWeave.Contributions.ContributionMetadata.AssignIdentity
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_ClaimExclusiveResponsibility_System_String_
+  name: ClaimExclusiveResponsibility
+  nameWithType: ContributionMetadata.ClaimExclusiveResponsibility
+  fullName: RimWeave.Contributions.ContributionMetadata.ClaimExclusiveResponsibility
+- uid: RimWeave.Contributions.ContributionMetadata.DescribeOrigin*
+  commentId: Overload:RimWeave.Contributions.ContributionMetadata.DescribeOrigin
+  href: RimWeave.Contributions.ContributionMetadata.html#RimWeave_Contributions_ContributionMetadata_DescribeOrigin_RimWeave_Contributions_ContributionOrigin_
+  name: DescribeOrigin
+  nameWithType: ContributionMetadata.DescribeOrigin
+  fullName: RimWeave.Contributions.ContributionMetadata.DescribeOrigin

@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  id: RimWeave.References
+  children:
+  - RimWeave.References.NativeReference
+  - RimWeave.References.NativeReferenceResolution
+  - RimWeave.References.NativeReferenceSnapshot
+  - RimWeave.References.ReferenceChangeTracker
+  - RimWeave.References.ReferenceChanges
+  - RimWeave.References.ReferenceTrackingCoverage
+  - RimWeave.References.ReferenceTrackingGameComponent
+  - RimWeave.References.ReferenceTrackingMapComponent
+  langs:
+  - csharp
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  type: Namespace
+  assemblies:
+  - RimWeave
+references:
+- uid: RimWeave.References.NativeReference
+  commentId: T:RimWeave.References.NativeReference
+  href: RimWeave.References.NativeReference.html
+  name: NativeReference
+  nameWithType: NativeReference
+  fullName: RimWeave.References.NativeReference
+- uid: RimWeave.References.NativeReferenceResolution
+  commentId: T:RimWeave.References.NativeReferenceResolution
+  parent: RimWeave.References
+  href: RimWeave.References.NativeReferenceResolution.html
+  name: NativeReferenceResolution
+  nameWithType: NativeReferenceResolution
+  fullName: RimWeave.References.NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceSnapshot
+  commentId: T:RimWeave.References.NativeReferenceSnapshot
+  parent: RimWeave.References
+  href: RimWeave.References.NativeReferenceSnapshot.html
+  name: NativeReferenceSnapshot
+  nameWithType: NativeReferenceSnapshot
+  fullName: RimWeave.References.NativeReferenceSnapshot
+- uid: RimWeave.References.ReferenceChanges
+  commentId: T:RimWeave.References.ReferenceChanges
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceChanges.html
+  name: ReferenceChanges
+  nameWithType: ReferenceChanges
+  fullName: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceTrackingCoverage
+  commentId: T:RimWeave.References.ReferenceTrackingCoverage
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceTrackingCoverage.html
+  name: ReferenceTrackingCoverage
+  nameWithType: ReferenceTrackingCoverage
+  fullName: RimWeave.References.ReferenceTrackingCoverage
+- uid: RimWeave.References.ReferenceChangeTracker
+  commentId: T:RimWeave.References.ReferenceChangeTracker
+  href: RimWeave.References.ReferenceChangeTracker.html
+  name: ReferenceChangeTracker
+  nameWithType: ReferenceChangeTracker
+  fullName: RimWeave.References.ReferenceChangeTracker
+- uid: RimWeave.References.ReferenceTrackingGameComponent
+  commentId: T:RimWeave.References.ReferenceTrackingGameComponent
+  href: RimWeave.References.ReferenceTrackingGameComponent.html
+  name: ReferenceTrackingGameComponent
+  nameWithType: ReferenceTrackingGameComponent
+  fullName: RimWeave.References.ReferenceTrackingGameComponent
+- uid: RimWeave.References.ReferenceTrackingMapComponent
+  commentId: T:RimWeave.References.ReferenceTrackingMapComponent
+  href: RimWeave.References.ReferenceTrackingMapComponent.html
+  name: ReferenceTrackingMapComponent
+  nameWithType: ReferenceTrackingMapComponent
+  fullName: RimWeave.References.ReferenceTrackingMapComponent
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References

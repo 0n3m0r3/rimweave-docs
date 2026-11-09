@@ -1,0 +1,717 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.NativeReference
+  commentId: T:RimWeave.References.NativeReference
+  id: NativeReference
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.NativeReference.#ctor
+  - RimWeave.References.NativeReference.#ctor(Verse.Hediff)
+  - RimWeave.References.NativeReference.#ctor(Verse.Pawn)
+  - RimWeave.References.NativeReference.Capture
+  - RimWeave.References.NativeReference.Dispose
+  - RimWeave.References.NativeReference.ExposeData
+  - RimWeave.References.NativeReference.IsTracking
+  - RimWeave.References.NativeReference.PendingChanges
+  - RimWeave.References.NativeReference.StartTracking
+  - RimWeave.References.NativeReference.StopTracking
+  - RimWeave.References.NativeReference.TakeChanges
+  - RimWeave.References.NativeReference.TrackingCoverage
+  langs:
+  - csharp
+  name: NativeReference
+  nameWithType: NativeReference
+  fullName: RimWeave.References.NativeReference
+  type: Class
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: NativeReference
+    path: RimWeave/References/NativeReference.cs
+    startLine: 15
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: A consumer-owned reference to a native pawn or one exact health effect on that pawn.
+  remarks: 'Save this object from its owner''s ExposeData using native deep serialization. Targets are saved
+
+    as native references, never copied or recovered through contribution identities or source strings.
+
+    Tracking retains transition kinds, not their count or order. It requires explicit activation and
+
+    disposal by its owner, and must be restarted after loading. No operation or reservation is created.
+
+    Create targeted references within their owning game. A target loaded without a current game
+
+    remains unavailable instead of being adopted by a later game.
+
+    All access belongs on the simulation thread.'
+  example: []
+  syntax:
+    content: 'public sealed class NativeReference : IExposable, IDisposable'
+  inheritance:
+  - System.Object
+  implements:
+  - Verse.IExposable
+  - System.IDisposable
+  inheritedMembers: []
+- uid: RimWeave.References.NativeReference.#ctor
+  commentId: M:RimWeave.References.NativeReference.#ctor
+  id: '#ctor'
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: NativeReference()
+  nameWithType: NativeReference.NativeReference()
+  fullName: RimWeave.References.NativeReference.NativeReference()
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/References/NativeReference.cs
+    startLine: 30
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Creates an unresolved reference for native loading.
+  example: []
+  syntax:
+    content: public NativeReference()
+  overload: RimWeave.References.NativeReference.#ctor*
+- uid: RimWeave.References.NativeReference.#ctor(Verse.Pawn)
+  commentId: M:RimWeave.References.NativeReference.#ctor(Verse.Pawn)
+  id: '#ctor(Verse.Pawn)'
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: NativeReference(Pawn)
+  nameWithType: NativeReference.NativeReference(Pawn)
+  fullName: RimWeave.References.NativeReference.NativeReference(Verse.Pawn)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/References/NativeReference.cs
+    startLine: 34
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Names the exact pawn without starting observation or retaining its world availability.
+  example: []
+  syntax:
+    content: public NativeReference(Pawn pawn)
+    parameters:
+    - id: pawn
+      type: Verse.Pawn
+  overload: RimWeave.References.NativeReference.#ctor*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: There is no current game to own the reference.
+- uid: RimWeave.References.NativeReference.#ctor(Verse.Hediff)
+  commentId: M:RimWeave.References.NativeReference.#ctor(Verse.Hediff)
+  id: '#ctor(Verse.Hediff)'
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: NativeReference(Hediff)
+  nameWithType: NativeReference.NativeReference(Hediff)
+  fullName: RimWeave.References.NativeReference.NativeReference(Verse.Hediff)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/References/NativeReference.cs
+    startLine: 45
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Names the exact effect and its native owner without substituting other matching effects.
+  example: []
+  syntax:
+    content: public NativeReference(Hediff effect)
+    parameters:
+    - id: effect
+      type: Verse.Hediff
+  overload: RimWeave.References.NativeReference.#ctor*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: There is no current game to own the reference.
+- uid: RimWeave.References.NativeReference.PendingChanges
+  commentId: P:RimWeave.References.NativeReference.PendingChanges
+  id: PendingChanges
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: PendingChanges
+  nameWithType: NativeReference.PendingChanges
+  fullName: RimWeave.References.NativeReference.PendingChanges
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PendingChanges
+    path: RimWeave/References/NativeReference.cs
+    startLine: 54
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Unacknowledged recorded transitions; reading does not clear them.
+  example: []
+  syntax:
+    content: public ReferenceChanges PendingChanges { get; }
+    parameters: []
+    return:
+      type: RimWeave.References.ReferenceChanges
+  overload: RimWeave.References.NativeReference.PendingChanges*
+- uid: RimWeave.References.NativeReference.IsTracking
+  commentId: P:RimWeave.References.NativeReference.IsTracking
+  id: IsTracking
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: IsTracking
+  nameWithType: NativeReference.IsTracking
+  fullName: RimWeave.References.NativeReference.IsTracking
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: IsTracking
+    path: RimWeave/References/NativeReference.cs
+    startLine: 57
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Whether this reference currently receives notifications in its owning game.
+  example: []
+  syntax:
+    content: public bool IsTracking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+  overload: RimWeave.References.NativeReference.IsTracking*
+- uid: RimWeave.References.NativeReference.TrackingCoverage
+  commentId: P:RimWeave.References.NativeReference.TrackingCoverage
+  id: TrackingCoverage
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: TrackingCoverage
+  nameWithType: NativeReference.TrackingCoverage
+  fullName: RimWeave.References.NativeReference.TrackingCoverage
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: TrackingCoverage
+    path: RimWeave/References/NativeReference.cs
+    startLine: 67
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The notifications this subscription can promise; arbitrary off-map pawn destruction is excluded.
+  example: []
+  syntax:
+    content: public ReferenceTrackingCoverage TrackingCoverage { get; }
+    parameters: []
+    return:
+      type: RimWeave.References.ReferenceTrackingCoverage
+  overload: RimWeave.References.NativeReference.TrackingCoverage*
+- uid: RimWeave.References.NativeReference.Capture
+  commentId: M:RimWeave.References.NativeReference.Capture
+  id: Capture
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: Capture()
+  nameWithType: NativeReference.Capture()
+  fullName: RimWeave.References.NativeReference.Capture()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Capture
+    path: RimWeave/References/NativeReference.cs
+    startLine: 73
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Reads current native state and releases an obsolete subscription without changing the game.
+  example: []
+  syntax:
+    content: public NativeReferenceSnapshot Capture()
+    return:
+      type: RimWeave.References.NativeReferenceSnapshot
+  overload: RimWeave.References.NativeReference.Capture*
+- uid: RimWeave.References.NativeReference.StartTracking
+  commentId: M:RimWeave.References.NativeReference.StartTracking
+  id: StartTracking
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: StartTracking()
+  nameWithType: NativeReference.StartTracking()
+  fullName: RimWeave.References.NativeReference.StartTracking()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: StartTracking
+    path: RimWeave/References/NativeReference.cs
+    startLine: 123
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Starts receiving native notifications in the current game without changing the target.
+  remarks: 'Call from LoadedGame/StartedNewGame or later, after native map initialization. Pawn-only and ordinary
+    Hediff references receive map events;
+
+    health lifecycle notifications require the exact effect to be a cooperating ContributionHediff.
+
+    Native and external paths that bypass these callbacks are outside notification coverage.
+
+    For example, native resurrection can remove effects before notifying survivors. Capture and
+
+    TakeChanges reconcile a detached or destroyed target; they do not reconstruct missing history.
+
+    Map events concern direct spawning, not every movement of a pawn inside another holder.'
+  example: []
+  syntax:
+    content: public void StartTracking()
+  overload: RimWeave.References.NativeReference.StartTracking*
+- uid: RimWeave.References.NativeReference.StopTracking
+  commentId: M:RimWeave.References.NativeReference.StopTracking
+  id: StopTracking
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: StopTracking()
+  nameWithType: NativeReference.StopTracking()
+  fullName: RimWeave.References.NativeReference.StopTracking()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: StopTracking
+    path: RimWeave/References/NativeReference.cs
+    startLine: 149
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Stops this subscription, retaining its reference and pending observations.
+  example: []
+  syntax:
+    content: public void StopTracking()
+  overload: RimWeave.References.NativeReference.StopTracking*
+- uid: RimWeave.References.NativeReference.TakeChanges
+  commentId: M:RimWeave.References.NativeReference.TakeChanges
+  id: TakeChanges
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: TakeChanges()
+  nameWithType: NativeReference.TakeChanges()
+  fullName: RimWeave.References.NativeReference.TakeChanges()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: TakeChanges
+    path: RimWeave/References/NativeReference.cs
+    startLine: 159
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Acknowledges this consumer's observed change kinds without invoking any gameplay reaction.
+  example: []
+  syntax:
+    content: public ReferenceChanges TakeChanges()
+    return:
+      type: RimWeave.References.ReferenceChanges
+  overload: RimWeave.References.NativeReference.TakeChanges*
+- uid: RimWeave.References.NativeReference.Dispose
+  commentId: M:RimWeave.References.NativeReference.Dispose
+  id: Dispose
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: Dispose()
+  nameWithType: NativeReference.Dispose()
+  fullName: RimWeave.References.NativeReference.Dispose()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Dispose
+    path: RimWeave/References/NativeReference.cs
+    startLine: 166
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Releases the active subscription. Historical identity and observations remain readable.
+  example: []
+  syntax:
+    content: public void Dispose()
+  overload: RimWeave.References.NativeReference.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: RimWeave.References.NativeReference.ExposeData
+  commentId: M:RimWeave.References.NativeReference.ExposeData
+  id: ExposeData
+  parent: RimWeave.References.NativeReference
+  langs:
+  - csharp
+  name: ExposeData()
+  nameWithType: NativeReference.ExposeData()
+  fullName: RimWeave.References.NativeReference.ExposeData()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/NativeReference.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ExposeData
+    path: RimWeave/References/NativeReference.cs
+    startLine: 173
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Persists exact native references and pending transitions without resuming observation or replaying effects.
+  remarks: 'Saving revalidates the subscription and can stop an obsolete one without changing native game state.
+
+    A reference saved in another game retains its diagnostic identities but writes no resolvable target links.'
+  example: []
+  syntax:
+    content: public void ExposeData()
+  overload: RimWeave.References.NativeReference.ExposeData*
+  implements:
+  - Verse.IExposable.ExposeData
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: Verse.IExposable
+  commentId: T:Verse.IExposable
+  parent: Verse
+  isExternal: true
+  name: IExposable
+  nameWithType: IExposable
+  fullName: Verse.IExposable
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.References.NativeReference.#ctor*
+  commentId: Overload:RimWeave.References.NativeReference.#ctor
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference__ctor
+  name: NativeReference
+  nameWithType: NativeReference.NativeReference
+  fullName: RimWeave.References.NativeReference.NativeReference
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Verse.Pawn
+  commentId: T:Verse.Pawn
+  parent: Verse
+  isExternal: true
+  name: Pawn
+  nameWithType: Pawn
+  fullName: Verse.Pawn
+- uid: Verse.Hediff
+  commentId: T:Verse.Hediff
+  parent: Verse
+  isExternal: true
+  name: Hediff
+  nameWithType: Hediff
+  fullName: Verse.Hediff
+- uid: RimWeave.References.NativeReference.PendingChanges*
+  commentId: Overload:RimWeave.References.NativeReference.PendingChanges
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_PendingChanges
+  name: PendingChanges
+  nameWithType: NativeReference.PendingChanges
+  fullName: RimWeave.References.NativeReference.PendingChanges
+- uid: RimWeave.References.ReferenceChanges
+  commentId: T:RimWeave.References.ReferenceChanges
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceChanges.html
+  name: ReferenceChanges
+  nameWithType: ReferenceChanges
+  fullName: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.NativeReference.IsTracking*
+  commentId: Overload:RimWeave.References.NativeReference.IsTracking
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_IsTracking
+  name: IsTracking
+  nameWithType: NativeReference.IsTracking
+  fullName: RimWeave.References.NativeReference.IsTracking
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+- uid: RimWeave.References.NativeReference.TrackingCoverage*
+  commentId: Overload:RimWeave.References.NativeReference.TrackingCoverage
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_TrackingCoverage
+  name: TrackingCoverage
+  nameWithType: NativeReference.TrackingCoverage
+  fullName: RimWeave.References.NativeReference.TrackingCoverage
+- uid: RimWeave.References.ReferenceTrackingCoverage
+  commentId: T:RimWeave.References.ReferenceTrackingCoverage
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceTrackingCoverage.html
+  name: ReferenceTrackingCoverage
+  nameWithType: ReferenceTrackingCoverage
+  fullName: RimWeave.References.ReferenceTrackingCoverage
+- uid: RimWeave.References.NativeReference.Capture*
+  commentId: Overload:RimWeave.References.NativeReference.Capture
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_Capture
+  name: Capture
+  nameWithType: NativeReference.Capture
+  fullName: RimWeave.References.NativeReference.Capture
+- uid: RimWeave.References.NativeReferenceSnapshot
+  commentId: T:RimWeave.References.NativeReferenceSnapshot
+  parent: RimWeave.References
+  href: RimWeave.References.NativeReferenceSnapshot.html
+  name: NativeReferenceSnapshot
+  nameWithType: NativeReferenceSnapshot
+  fullName: RimWeave.References.NativeReferenceSnapshot
+- uid: RimWeave.References.NativeReference.StartTracking*
+  commentId: Overload:RimWeave.References.NativeReference.StartTracking
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_StartTracking
+  name: StartTracking
+  nameWithType: NativeReference.StartTracking
+  fullName: RimWeave.References.NativeReference.StartTracking
+- uid: RimWeave.References.NativeReference.StopTracking*
+  commentId: Overload:RimWeave.References.NativeReference.StopTracking
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_StopTracking
+  name: StopTracking
+  nameWithType: NativeReference.StopTracking
+  fullName: RimWeave.References.NativeReference.StopTracking
+- uid: RimWeave.References.NativeReference.TakeChanges*
+  commentId: Overload:RimWeave.References.NativeReference.TakeChanges
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_TakeChanges
+  name: TakeChanges
+  nameWithType: NativeReference.TakeChanges
+  fullName: RimWeave.References.NativeReference.TakeChanges
+- uid: RimWeave.References.NativeReference.Dispose*
+  commentId: Overload:RimWeave.References.NativeReference.Dispose
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_Dispose
+  name: Dispose
+  nameWithType: NativeReference.Dispose
+  fullName: RimWeave.References.NativeReference.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: RimWeave.References.NativeReference.ExposeData*
+  commentId: Overload:RimWeave.References.NativeReference.ExposeData
+  href: RimWeave.References.NativeReference.html#RimWeave_References_NativeReference_ExposeData
+  name: ExposeData
+  nameWithType: NativeReference.ExposeData
+  fullName: RimWeave.References.NativeReference.ExposeData
+- uid: Verse.IExposable.ExposeData
+  commentId: M:Verse.IExposable.ExposeData
+  parent: Verse.IExposable
+  isExternal: true
+  name: ExposeData()
+  nameWithType: IExposable.ExposeData()
+  fullName: Verse.IExposable.ExposeData()
+  spec.csharp:
+  - uid: Verse.IExposable.ExposeData
+    name: ExposeData
+    isExternal: true
+  - name: (
+  - name: )

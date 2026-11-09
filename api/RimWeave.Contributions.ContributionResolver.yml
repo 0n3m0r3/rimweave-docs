@@ -1,0 +1,424 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Contributions.ContributionResolver
+  commentId: T:RimWeave.Contributions.ContributionResolver
+  id: ContributionResolver
+  parent: RimWeave.Contributions
+  children:
+  - RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  - RimWeave.Contributions.ContributionResolver.Resolve``1(System.Collections.Generic.IEnumerable{``0},RimWeave.Contributions.ContributionId)
+  langs:
+  - csharp
+  name: ContributionResolver
+  nameWithType: ContributionResolver
+  fullName: RimWeave.Contributions.ContributionResolver
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionResolver.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionResolver
+    path: RimWeave/Contributions/ContributionResolver.cs
+    startLine: 7
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Resolves contributions in a caller-supplied scope without keeping a registry.
+  remarks: 'The caller selects the authoritative collection and target scope. Candidates are enumerated
+
+    once per query; their order never selects a winner. Use the owning domain''s mutation thread.'
+  example: []
+  syntax:
+    content: public static class ContributionResolver
+  inheritance:
+  - System.Object
+  inheritedMembers: []
+- uid: RimWeave.Contributions.ContributionResolver.Resolve``1(System.Collections.Generic.IEnumerable{``0},RimWeave.Contributions.ContributionId)
+  commentId: M:RimWeave.Contributions.ContributionResolver.Resolve``1(System.Collections.Generic.IEnumerable{``0},RimWeave.Contributions.ContributionId)
+  id: Resolve``1(System.Collections.Generic.IEnumerable{``0},RimWeave.Contributions.ContributionId)
+  parent: RimWeave.Contributions.ContributionResolver
+  langs:
+  - csharp
+  name: Resolve<T>(IEnumerable<T>, ContributionId)
+  nameWithType: ContributionResolver.Resolve<T>(IEnumerable<T>, ContributionId)
+  fullName: RimWeave.Contributions.ContributionResolver.Resolve<T>(System.Collections.Generic.IEnumerable<T>, RimWeave.Contributions.ContributionId)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionResolver.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Resolve
+    path: RimWeave/Contributions/ContributionResolver.cs
+    startLine: 18
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Returns every candidate with the requested identity, without modifying storage.
+  remarks: Enumeration and provider exceptions propagate. A match does not reserve an instance.
+  example: []
+  syntax:
+    content: 'public static ContributionLookupResult<T> Resolve<T>(IEnumerable<T> candidates, ContributionId identity)
+      where T : class, IContribution'
+    parameters:
+    - id: candidates
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The authoritative candidates in a scope already selected by the caller.
+    - id: identity
+      type: RimWeave.Contributions.ContributionId
+      description: The attribution value to match.
+    typeParameters:
+    - id: T
+      description: The caller's contribution type.
+    return:
+      type: RimWeave.Contributions.ContributionLookupResult{{T}}
+      description: A read-only snapshot reporting invalid metadata, no match, one match or multiple matches.
+  overload: RimWeave.Contributions.ContributionResolver.Resolve*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The sequence or identity is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The sequence contains a null candidate.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: A candidate exposes null metadata.
+- uid: RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  commentId: M:RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  id: ResolveExclusiveClaim``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  parent: RimWeave.Contributions.ContributionResolver
+  langs:
+  - csharp
+  name: ResolveExclusiveClaim<T>(IEnumerable<T>, string)
+  nameWithType: ContributionResolver.ResolveExclusiveClaim<T>(IEnumerable<T>, string)
+  fullName: RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim<T>(System.Collections.Generic.IEnumerable<T>,
+    string)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Contributions/ContributionResolver.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ResolveExclusiveClaim
+    path: RimWeave/Contributions/ContributionResolver.cs
+    startLine: 36
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Contributions
+  summary: Finds explicit exclusive claimants without treating ordinary observers as owners.
+  remarks: This query neither discovers arbitrary effects nor infers their gameplay compatibility.
+  example: []
+  syntax:
+    content: 'public static ContributionLookupResult<T> ResolveExclusiveClaim<T>(IEnumerable<T> candidates, string
+      responsibility) where T : class, IContribution'
+    parameters:
+    - id: candidates
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The authoritative candidates in one selected responsibility scope.
+    - id: responsibility
+      type: System.String
+      description: The exact, case-sensitive key agreed by cooperating providers.
+    typeParameters:
+    - id: T
+      description: The caller's contribution type.
+    return:
+      type: RimWeave.Contributions.ContributionLookupResult{{T}}
+      description: A snapshot reporting invalid metadata before considering the number of explicit claimants.
+  overload: RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The candidate sequence is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The key is invalid or a candidate is null.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: A candidate exposes null metadata.
+references:
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: RimWeave.Contributions.ContributionResolver.Resolve*
+  commentId: Overload:RimWeave.Contributions.ContributionResolver.Resolve
+  href: RimWeave.Contributions.ContributionResolver.html#RimWeave_Contributions_ContributionResolver_Resolve__1_System_Collections_Generic_IEnumerable___0__RimWeave_Contributions_ContributionId_
+  name: Resolve
+  nameWithType: ContributionResolver.Resolve
+  fullName: RimWeave.Contributions.ContributionResolver.Resolve
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Contributions.ContributionId
+  commentId: T:RimWeave.Contributions.ContributionId
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionId.html
+  name: ContributionId
+  nameWithType: ContributionId
+  fullName: RimWeave.Contributions.ContributionId
+- uid: RimWeave.Contributions.ContributionLookupResult{{T}}
+  commentId: T:RimWeave.Contributions.ContributionLookupResult{``0}
+  parent: RimWeave.Contributions
+  definition: RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<T>
+  nameWithType: ContributionLookupResult<T>
+  fullName: RimWeave.Contributions.ContributionLookupResult<T>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RimWeave.Contributions.ContributionLookupResult`1
+  commentId: T:RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<T>
+  nameWithType: ContributionLookupResult<T>
+  fullName: RimWeave.Contributions.ContributionLookupResult<T>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim*
+  commentId: Overload:RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim
+  href: RimWeave.Contributions.ContributionResolver.html#RimWeave_Contributions_ContributionResolver_ResolveExclusiveClaim__1_System_Collections_Generic_IEnumerable___0__System_String_
+  name: ResolveExclusiveClaim
+  nameWithType: ContributionResolver.ResolveExclusiveClaim
+  fullName: RimWeave.Contributions.ContributionResolver.ResolveExclusiveClaim
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string

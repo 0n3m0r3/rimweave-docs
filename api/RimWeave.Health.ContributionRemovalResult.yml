@@ -1,0 +1,376 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.ContributionRemovalResult
+  commentId: T:RimWeave.Health.ContributionRemovalResult
+  id: ContributionRemovalResult
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionRemovalResult.#ctor(RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff},RimWeave.Health.HediffRemovalResult)
+  - RimWeave.Health.ContributionRemovalResult.Lookup
+  - RimWeave.Health.ContributionRemovalResult.Removal
+  langs:
+  - csharp
+  name: ContributionRemovalResult
+  nameWithType: ContributionRemovalResult
+  fullName: RimWeave.Health.ContributionRemovalResult
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/ContributionRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionRemovalResult
+    path: RimWeave/Health/ContributionRemovalResult.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The resolved candidates and, when unique, the guarded removal outcome.
+  example: []
+  syntax:
+    content: 'public sealed record ContributionRemovalResult : IEquatable<ContributionRemovalResult>'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RimWeave.Health.ContributionRemovalResult}
+  inheritedMembers: []
+- uid: RimWeave.Health.ContributionRemovalResult.#ctor(RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff},RimWeave.Health.HediffRemovalResult)
+  commentId: M:RimWeave.Health.ContributionRemovalResult.#ctor(RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff},RimWeave.Health.HediffRemovalResult)
+  id: '#ctor(RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff},RimWeave.Health.HediffRemovalResult)'
+  parent: RimWeave.Health.ContributionRemovalResult
+  langs:
+  - csharp
+  name: ContributionRemovalResult(ContributionLookupResult<ContributionHediff>, HediffRemovalResult?)
+  nameWithType: ContributionRemovalResult.ContributionRemovalResult(ContributionLookupResult<ContributionHediff>,
+    HediffRemovalResult?)
+  fullName: RimWeave.Health.ContributionRemovalResult.ContributionRemovalResult(RimWeave.Contributions.ContributionLookupResult<RimWeave.Health.ContributionHediff>,
+    RimWeave.Health.HediffRemovalResult?)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/Health/ContributionRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/Health/ContributionRemovalResult.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The resolved candidates and, when unique, the guarded removal outcome.
+  example: []
+  syntax:
+    content: public ContributionRemovalResult(ContributionLookupResult<ContributionHediff> Lookup, HediffRemovalResult?
+      Removal)
+    parameters:
+    - id: Lookup
+      type: RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+      description: Membership observed before the removal attempt.
+    - id: Removal
+      type: RimWeave.Health.HediffRemovalResult
+      description: 'Null unless Lookup.Status is Found, including when scoped metadata is unreadable. A non-null
+        result does not necessarily mean
+
+        removal succeeded; inspect its status. Native exceptions propagate instead of returning a result.'
+  overload: RimWeave.Health.ContributionRemovalResult.#ctor*
+- uid: RimWeave.Health.ContributionRemovalResult.Lookup
+  commentId: P:RimWeave.Health.ContributionRemovalResult.Lookup
+  id: Lookup
+  parent: RimWeave.Health.ContributionRemovalResult
+  langs:
+  - csharp
+  name: Lookup
+  nameWithType: ContributionRemovalResult.Lookup
+  fullName: RimWeave.Health.ContributionRemovalResult.Lookup
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Lookup
+    path: RimWeave/Health/ContributionRemovalResult.cs
+    startLine: 11
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Membership observed before the removal attempt.
+  example: []
+  syntax:
+    content: public ContributionLookupResult<ContributionHediff> Lookup { get; init; }
+    parameters: []
+    return:
+      type: RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+  overload: RimWeave.Health.ContributionRemovalResult.Lookup*
+- uid: RimWeave.Health.ContributionRemovalResult.Removal
+  commentId: P:RimWeave.Health.ContributionRemovalResult.Removal
+  id: Removal
+  parent: RimWeave.Health.ContributionRemovalResult
+  langs:
+  - csharp
+  name: Removal
+  nameWithType: ContributionRemovalResult.Removal
+  fullName: RimWeave.Health.ContributionRemovalResult.Removal
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Removal
+    path: RimWeave/Health/ContributionRemovalResult.cs
+    startLine: 12
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: 'Null unless Lookup.Status is Found, including when scoped metadata is unreadable. A non-null result
+    does not necessarily mean
+
+    removal succeeded; inspect its status. Native exceptions propagate instead of returning a result.'
+  example: []
+  syntax:
+    content: public HediffRemovalResult? Removal { get; init; }
+    parameters: []
+    return:
+      type: RimWeave.Health.HediffRemovalResult
+  overload: RimWeave.Health.ContributionRemovalResult.Removal*
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.IEquatable{RimWeave.Health.ContributionRemovalResult}
+  commentId: T:System.IEquatable{RimWeave.Health.ContributionRemovalResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ContributionRemovalResult>
+  nameWithType: IEquatable<ContributionRemovalResult>
+  fullName: System.IEquatable<RimWeave.Health.ContributionRemovalResult>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RimWeave.Health.ContributionRemovalResult
+    name: ContributionRemovalResult
+    href: RimWeave.Health.ContributionRemovalResult.html
+  - name: '>'
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Health.ContributionRemovalResult.#ctor*
+  commentId: Overload:RimWeave.Health.ContributionRemovalResult.#ctor
+  href: RimWeave.Health.ContributionRemovalResult.html#RimWeave_Health_ContributionRemovalResult__ctor_RimWeave_Contributions_ContributionLookupResult_RimWeave_Health_ContributionHediff__RimWeave_Health_HediffRemovalResult_
+  name: ContributionRemovalResult
+  nameWithType: ContributionRemovalResult.ContributionRemovalResult
+  fullName: RimWeave.Health.ContributionRemovalResult.ContributionRemovalResult
+- uid: RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+  commentId: T:RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+  parent: RimWeave.Contributions
+  definition: RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<ContributionHediff>
+  nameWithType: ContributionLookupResult<ContributionHediff>
+  fullName: RimWeave.Contributions.ContributionLookupResult<RimWeave.Health.ContributionHediff>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - uid: RimWeave.Health.ContributionHediff
+    name: ContributionHediff
+    href: RimWeave.Health.ContributionHediff.html
+  - name: '>'
+- uid: RimWeave.Health.HediffRemovalResult
+  commentId: T:RimWeave.Health.HediffRemovalResult
+  parent: RimWeave.Health
+  href: RimWeave.Health.HediffRemovalResult.html
+  name: HediffRemovalResult
+  nameWithType: HediffRemovalResult
+  fullName: RimWeave.Health.HediffRemovalResult
+- uid: RimWeave.Contributions.ContributionLookupResult`1
+  commentId: T:RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<T>
+  nameWithType: ContributionLookupResult<T>
+  fullName: RimWeave.Contributions.ContributionLookupResult<T>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: RimWeave.Health.ContributionRemovalResult.Lookup*
+  commentId: Overload:RimWeave.Health.ContributionRemovalResult.Lookup
+  href: RimWeave.Health.ContributionRemovalResult.html#RimWeave_Health_ContributionRemovalResult_Lookup
+  name: Lookup
+  nameWithType: ContributionRemovalResult.Lookup
+  fullName: RimWeave.Health.ContributionRemovalResult.Lookup
+- uid: RimWeave.Health.ContributionRemovalResult.Removal*
+  commentId: Overload:RimWeave.Health.ContributionRemovalResult.Removal
+  href: RimWeave.Health.ContributionRemovalResult.html#RimWeave_Health_ContributionRemovalResult_Removal
+  name: Removal
+  nameWithType: ContributionRemovalResult.Removal
+  fullName: RimWeave.Health.ContributionRemovalResult.Removal

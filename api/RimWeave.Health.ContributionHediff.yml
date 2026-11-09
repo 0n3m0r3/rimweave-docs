@@ -1,0 +1,1670 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.ContributionHediff
+  commentId: T:RimWeave.Health.ContributionHediff
+  id: ContributionHediff
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionHediff.ExposeData
+  - RimWeave.Health.ContributionHediff.Metadata
+  - RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed
+  - RimWeave.Health.ContributionHediff.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  - RimWeave.Health.ContributionHediff.Notify_Resurrected
+  - RimWeave.Health.ContributionHediff.PostRemoved
+  - RimWeave.Health.ContributionHediff.TryMergeWith(Verse.Hediff)
+  langs:
+  - csharp
+  name: ContributionHediff
+  nameWithType: ContributionHediff
+  fullName: RimWeave.Health.ContributionHediff
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionHediff
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 13
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: A native health effect whose contribution must retain its own lifetime.
+  remarks: 'Opt in through an extension''s HediffDef. This does not alter ordinary Hediffs or
+
+    prevent unrelated patches from changing native behavior. Call on the simulation thread.'
+  example: []
+  syntax:
+    content: 'public class ContributionHediff : HediffWithComps, IExposable, ILoadReferenceable, IContribution'
+  inheritance:
+  - System.Object
+  - Verse.Hediff
+  - Verse.HediffWithComps
+  implements:
+  - Verse.IExposable
+  - Verse.ILoadReferenceable
+  - RimWeave.Contributions.IContribution
+  inheritedMembers: []
+- uid: RimWeave.Health.ContributionHediff.Metadata
+  commentId: P:RimWeave.Health.ContributionHediff.Metadata
+  id: Metadata
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: Metadata
+  nameWithType: ContributionHediff.Metadata
+  fullName: RimWeave.Health.ContributionHediff.Metadata
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Metadata
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 18
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The shared metadata restored with this native effect, including any load diagnostic.
+  example: []
+  syntax:
+    content: public ContributionMetadata Metadata { get; }
+    parameters: []
+    return:
+      type: RimWeave.Contributions.ContributionMetadata
+  overload: RimWeave.Health.ContributionHediff.Metadata*
+  implements:
+  - RimWeave.Contributions.IContribution.Metadata
+- uid: RimWeave.Health.ContributionHediff.ExposeData
+  commentId: M:RimWeave.Health.ContributionHediff.ExposeData
+  id: ExposeData
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: ExposeData()
+  nameWithType: ContributionHediff.ExposeData()
+  fullName: RimWeave.Health.ContributionHediff.ExposeData()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ExposeData
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 22
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Restores native health state and contribution metadata without replaying an effect.
+  remarks: Overrides in extensions must call base.ExposeData in every native save/load phase.
+  example: []
+  syntax:
+    content: public override void ExposeData()
+  overridden: Verse.HediffWithComps.ExposeData
+  overload: RimWeave.Health.ContributionHediff.ExposeData*
+- uid: RimWeave.Health.ContributionHediff.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  commentId: M:RimWeave.Health.ContributionHediff.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  id: Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: Notify_PawnDied(DamageInfo?, Hediff?)
+  nameWithType: ContributionHediff.Notify_PawnDied(DamageInfo?, Hediff?)
+  fullName: RimWeave.Health.ContributionHediff.Notify_PawnDied(Verse.DamageInfo?, Verse.Hediff?)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Notify_PawnDied
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 32
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Records the owner's death without deciding whether a consumer may still use its reference.
+  example: []
+  syntax:
+    content: public override void Notify_PawnDied(DamageInfo? dinfo, Hediff? culprit = null)
+    parameters:
+    - id: dinfo
+      type: System.Nullable{Verse.DamageInfo}
+    - id: culprit
+      type: Verse.Hediff
+  overridden: Verse.HediffWithComps.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  overload: RimWeave.Health.ContributionHediff.Notify_PawnDied*
+- uid: RimWeave.Health.ContributionHediff.Notify_Resurrected
+  commentId: M:RimWeave.Health.ContributionHediff.Notify_Resurrected
+  id: Notify_Resurrected
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: Notify_Resurrected()
+  nameWithType: ContributionHediff.Notify_Resurrected()
+  fullName: RimWeave.Health.ContributionHediff.Notify_Resurrected()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Notify_Resurrected
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 39
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Records native resurrection without restarting a consumer's activity.
+  example: []
+  syntax:
+    content: public override void Notify_Resurrected()
+  overridden: Verse.Hediff.Notify_Resurrected
+  overload: RimWeave.Health.ContributionHediff.Notify_Resurrected*
+- uid: RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed
+  commentId: M:RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed
+  id: Notify_PawnCorpseDestroyed
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: Notify_PawnCorpseDestroyed()
+  nameWithType: ContributionHediff.Notify_PawnCorpseDestroyed()
+  fullName: RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Notify_PawnCorpseDestroyed
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 46
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Distinguishes native pawn discard from destruction of its corpse alone.
+  example: []
+  syntax:
+    content: public override void Notify_PawnCorpseDestroyed()
+  overridden: Verse.Hediff.Notify_PawnCorpseDestroyed
+  overload: RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed*
+- uid: RimWeave.Health.ContributionHediff.PostRemoved
+  commentId: M:RimWeave.Health.ContributionHediff.PostRemoved
+  id: PostRemoved
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: PostRemoved()
+  nameWithType: ContributionHediff.PostRemoved()
+  fullName: RimWeave.Health.ContributionHediff.PostRemoved()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PostRemoved
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 54
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Records detachment of this exact instance and releases its active subscriptions.
+  example: []
+  syntax:
+    content: public override void PostRemoved()
+  overridden: Verse.HediffWithComps.PostRemoved
+  overload: RimWeave.Health.ContributionHediff.PostRemoved*
+- uid: RimWeave.Health.ContributionHediff.TryMergeWith(Verse.Hediff)
+  commentId: M:RimWeave.Health.ContributionHediff.TryMergeWith(Verse.Hediff)
+  id: TryMergeWith(Verse.Hediff)
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: TryMergeWith(Hediff)
+  nameWithType: ContributionHediff.TryMergeWith(Hediff)
+  fullName: RimWeave.Health.ContributionHediff.TryMergeWith(Verse.Hediff)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: TryMergeWith
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 65
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Declines every native merge request to preserve this instance's independent lifetime.
+  example: []
+  syntax:
+    content: public override sealed bool TryMergeWith(Hediff other)
+    parameters:
+    - id: other
+      type: Verse.Hediff
+      description: The native effect offered for merging.
+    return:
+      type: System.Boolean
+      description: Always false.
+  overridden: Verse.HediffWithComps.TryMergeWith(Verse.Hediff)
+  overload: RimWeave.Health.ContributionHediff.TryMergeWith*
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: Verse.Hediff
+  commentId: T:Verse.Hediff
+  parent: Verse
+  isExternal: true
+  name: Hediff
+  nameWithType: Hediff
+  fullName: Verse.Hediff
+- uid: Verse.HediffWithComps
+  commentId: T:Verse.HediffWithComps
+  parent: Verse
+  isExternal: true
+  name: HediffWithComps
+  nameWithType: HediffWithComps
+  fullName: Verse.HediffWithComps
+- uid: Verse.IExposable
+  commentId: T:Verse.IExposable
+  parent: Verse
+  isExternal: true
+  name: IExposable
+  nameWithType: IExposable
+  fullName: Verse.IExposable
+- uid: Verse.ILoadReferenceable
+  commentId: T:Verse.ILoadReferenceable
+  parent: Verse
+  isExternal: true
+  name: ILoadReferenceable
+  nameWithType: ILoadReferenceable
+  fullName: Verse.ILoadReferenceable
+- uid: RimWeave.Contributions.IContribution
+  commentId: T:RimWeave.Contributions.IContribution
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.IContribution.html
+  name: IContribution
+  nameWithType: IContribution
+  fullName: RimWeave.Contributions.IContribution
+- uid: Verse.HediffWithComps.comps
+  commentId: F:Verse.HediffWithComps.comps
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: comps
+  nameWithType: HediffWithComps.comps
+  fullName: Verse.HediffWithComps.comps
+- uid: Verse.HediffWithComps.GetGizmos
+  commentId: M:Verse.HediffWithComps.GetGizmos
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: GetGizmos()
+  nameWithType: HediffWithComps.GetGizmos()
+  fullName: Verse.HediffWithComps.GetGizmos()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.GetGizmos
+    name: GetGizmos
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.CopyFrom(Verse.Hediff)
+  commentId: M:Verse.HediffWithComps.CopyFrom(Verse.Hediff)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: CopyFrom(Hediff)
+  nameWithType: HediffWithComps.CopyFrom(Hediff)
+  fullName: Verse.HediffWithComps.CopyFrom(Verse.Hediff)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.CopyFrom(Verse.Hediff)
+    name: CopyFrom
+    isExternal: true
+  - name: (
+  - uid: Verse.Hediff
+    name: Hediff
+    isExternal: true
+  - name: )
+- uid: Verse.HediffWithComps.PostAdd(System.Nullable{Verse.DamageInfo})
+  commentId: M:Verse.HediffWithComps.PostAdd(System.Nullable{Verse.DamageInfo})
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: PostAdd(DamageInfo?)
+  nameWithType: HediffWithComps.PostAdd(DamageInfo?)
+  fullName: Verse.HediffWithComps.PostAdd(Verse.DamageInfo?)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.PostAdd(System.Nullable{Verse.DamageInfo})
+    name: PostAdd
+    isExternal: true
+  - name: (
+  - uid: Verse.DamageInfo
+    name: DamageInfo
+    isExternal: true
+  - name: '?'
+  - name: )
+- uid: Verse.HediffWithComps.PostTick
+  commentId: M:Verse.HediffWithComps.PostTick
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: PostTick()
+  nameWithType: HediffWithComps.PostTick()
+  fullName: Verse.HediffWithComps.PostTick()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.PostTick
+    name: PostTick
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.PostTickInterval(System.Int32)
+  commentId: M:Verse.HediffWithComps.PostTickInterval(System.Int32)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: PostTickInterval(int)
+  nameWithType: HediffWithComps.PostTickInterval(int)
+  fullName: Verse.HediffWithComps.PostTickInterval(int)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.PostTickInterval(System.Int32)
+    name: PostTickInterval
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Verse.HediffWithComps.Tended(System.Single,System.Single,System.Int32)
+  commentId: M:Verse.HediffWithComps.Tended(System.Single,System.Single,System.Int32)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: Tended(float, float, int)
+  nameWithType: HediffWithComps.Tended(float, float, int)
+  fullName: Verse.HediffWithComps.Tended(float, float, int)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Tended(System.Single,System.Single,System.Int32)
+    name: Tended
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: ' '
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: ' '
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Verse.HediffWithComps.Notify_PawnKilled
+  commentId: M:Verse.HediffWithComps.Notify_PawnKilled
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_PawnKilled()
+  nameWithType: HediffWithComps.Notify_PawnKilled()
+  fullName: Verse.HediffWithComps.Notify_PawnKilled()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_PawnKilled
+    name: Notify_PawnKilled
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.Notify_KilledPawn(Verse.Pawn,System.Nullable{Verse.DamageInfo})
+  commentId: M:Verse.HediffWithComps.Notify_KilledPawn(Verse.Pawn,System.Nullable{Verse.DamageInfo})
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_KilledPawn(Pawn, DamageInfo?)
+  nameWithType: HediffWithComps.Notify_KilledPawn(Pawn, DamageInfo?)
+  fullName: Verse.HediffWithComps.Notify_KilledPawn(Verse.Pawn, Verse.DamageInfo?)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_KilledPawn(Verse.Pawn,System.Nullable{Verse.DamageInfo})
+    name: Notify_KilledPawn
+    isExternal: true
+  - name: (
+  - uid: Verse.Pawn
+    name: Pawn
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: Verse.DamageInfo
+    name: DamageInfo
+    isExternal: true
+  - name: '?'
+  - name: )
+- uid: Verse.HediffWithComps.Notify_PawnPostApplyDamage(Verse.DamageInfo,System.Single)
+  commentId: M:Verse.HediffWithComps.Notify_PawnPostApplyDamage(Verse.DamageInfo,System.Single)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: Notify_PawnPostApplyDamage(DamageInfo, float)
+  nameWithType: HediffWithComps.Notify_PawnPostApplyDamage(DamageInfo, float)
+  fullName: Verse.HediffWithComps.Notify_PawnPostApplyDamage(Verse.DamageInfo, float)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_PawnPostApplyDamage(Verse.DamageInfo,System.Single)
+    name: Notify_PawnPostApplyDamage
+    isExternal: true
+  - name: (
+  - uid: Verse.DamageInfo
+    name: DamageInfo
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Verse.HediffWithComps.ModifyChemicalEffect(RimWorld.ChemicalDef,System.Single@)
+  commentId: M:Verse.HediffWithComps.ModifyChemicalEffect(RimWorld.ChemicalDef,System.Single@)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: ModifyChemicalEffect(ChemicalDef, ref float)
+  nameWithType: HediffWithComps.ModifyChemicalEffect(ChemicalDef, ref float)
+  fullName: Verse.HediffWithComps.ModifyChemicalEffect(RimWorld.ChemicalDef, ref float)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.ModifyChemicalEffect(RimWorld.ChemicalDef,System.Single@)
+    name: ModifyChemicalEffect
+    isExternal: true
+  - name: (
+  - uid: RimWorld.ChemicalDef
+    name: ChemicalDef
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - name: ref
+  - name: ' '
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Verse.HediffWithComps.Notify_PawnUsedVerb(Verse.Verb,Verse.LocalTargetInfo)
+  commentId: M:Verse.HediffWithComps.Notify_PawnUsedVerb(Verse.Verb,Verse.LocalTargetInfo)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_PawnUsedVerb(Verb, LocalTargetInfo)
+  nameWithType: HediffWithComps.Notify_PawnUsedVerb(Verb, LocalTargetInfo)
+  fullName: Verse.HediffWithComps.Notify_PawnUsedVerb(Verse.Verb, Verse.LocalTargetInfo)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_PawnUsedVerb(Verse.Verb,Verse.LocalTargetInfo)
+    name: Notify_PawnUsedVerb
+    isExternal: true
+  - name: (
+  - uid: Verse.Verb
+    name: Verb
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: Verse.LocalTargetInfo
+    name: LocalTargetInfo
+    isExternal: true
+  - name: )
+- uid: Verse.HediffWithComps.Notify_EntropyGained(System.Single,System.Single,Verse.Thing)
+  commentId: M:Verse.HediffWithComps.Notify_EntropyGained(System.Single,System.Single,Verse.Thing)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: Notify_EntropyGained(float, float, Thing)
+  nameWithType: HediffWithComps.Notify_EntropyGained(float, float, Thing)
+  fullName: Verse.HediffWithComps.Notify_EntropyGained(float, float, Verse.Thing)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_EntropyGained(System.Single,System.Single,Verse.Thing)
+    name: Notify_EntropyGained
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: ' '
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: ' '
+  - uid: Verse.Thing
+    name: Thing
+    isExternal: true
+  - name: )
+- uid: Verse.HediffWithComps.Notify_ImplantUsed(System.String,System.Single,System.Int32)
+  commentId: M:Verse.HediffWithComps.Notify_ImplantUsed(System.String,System.Single,System.Int32)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: Notify_ImplantUsed(string, float, int)
+  nameWithType: HediffWithComps.Notify_ImplantUsed(string, float, int)
+  fullName: Verse.HediffWithComps.Notify_ImplantUsed(string, float, int)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_ImplantUsed(System.String,System.Single,System.Int32)
+    name: Notify_ImplantUsed
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: ' '
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: ' '
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Verse.HediffWithComps.Notify_Spawned
+  commentId: M:Verse.HediffWithComps.Notify_Spawned
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_Spawned()
+  nameWithType: HediffWithComps.Notify_Spawned()
+  fullName: Verse.HediffWithComps.Notify_Spawned()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_Spawned
+    name: Notify_Spawned
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.Notify_SurgicallyRemoved(Verse.Pawn)
+  commentId: M:Verse.HediffWithComps.Notify_SurgicallyRemoved(Verse.Pawn)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_SurgicallyRemoved(Pawn)
+  nameWithType: HediffWithComps.Notify_SurgicallyRemoved(Pawn)
+  fullName: Verse.HediffWithComps.Notify_SurgicallyRemoved(Verse.Pawn)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_SurgicallyRemoved(Verse.Pawn)
+    name: Notify_SurgicallyRemoved
+    isExternal: true
+  - name: (
+  - uid: Verse.Pawn
+    name: Pawn
+    isExternal: true
+  - name: )
+- uid: Verse.HediffWithComps.Notify_SurgicallyReplaced(Verse.Pawn)
+  commentId: M:Verse.HediffWithComps.Notify_SurgicallyReplaced(Verse.Pawn)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_SurgicallyReplaced(Pawn)
+  nameWithType: HediffWithComps.Notify_SurgicallyReplaced(Pawn)
+  fullName: Verse.HediffWithComps.Notify_SurgicallyReplaced(Verse.Pawn)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_SurgicallyReplaced(Verse.Pawn)
+    name: Notify_SurgicallyReplaced
+    isExternal: true
+  - name: (
+  - uid: Verse.Pawn
+    name: Pawn
+    isExternal: true
+  - name: )
+- uid: Verse.HediffWithComps.PostMake
+  commentId: M:Verse.HediffWithComps.PostMake
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: PostMake()
+  nameWithType: HediffWithComps.PostMake()
+  fullName: Verse.HediffWithComps.PostMake()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.PostMake
+    name: PostMake
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.GetComp``1
+  commentId: M:Verse.HediffWithComps.GetComp``1
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: GetComp<T>()
+  nameWithType: HediffWithComps.GetComp<T>()
+  fullName: Verse.HediffWithComps.GetComp<T>()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.GetComp``1
+    name: GetComp
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.DebugString
+  commentId: M:Verse.HediffWithComps.DebugString
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: DebugString()
+  nameWithType: HediffWithComps.DebugString()
+  fullName: Verse.HediffWithComps.DebugString()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.DebugString
+    name: DebugString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.HediffWithComps.LabelBase
+  commentId: P:Verse.HediffWithComps.LabelBase
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: LabelBase
+  nameWithType: HediffWithComps.LabelBase
+  fullName: Verse.HediffWithComps.LabelBase
+- uid: Verse.HediffWithComps.LabelInBrackets
+  commentId: P:Verse.HediffWithComps.LabelInBrackets
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: LabelInBrackets
+  nameWithType: HediffWithComps.LabelInBrackets
+  fullName: Verse.HediffWithComps.LabelInBrackets
+- uid: Verse.HediffWithComps.ShouldRemove
+  commentId: P:Verse.HediffWithComps.ShouldRemove
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: ShouldRemove
+  nameWithType: HediffWithComps.ShouldRemove
+  fullName: Verse.HediffWithComps.ShouldRemove
+- uid: Verse.HediffWithComps.Visible
+  commentId: P:Verse.HediffWithComps.Visible
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Visible
+  nameWithType: HediffWithComps.Visible
+  fullName: Verse.HediffWithComps.Visible
+- uid: Verse.HediffWithComps.TipStringExtra
+  commentId: P:Verse.HediffWithComps.TipStringExtra
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: TipStringExtra
+  nameWithType: HediffWithComps.TipStringExtra
+  fullName: Verse.HediffWithComps.TipStringExtra
+- uid: Verse.HediffWithComps.Description
+  commentId: P:Verse.HediffWithComps.Description
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Description
+  nameWithType: HediffWithComps.Description
+  fullName: Verse.HediffWithComps.Description
+- uid: Verse.HediffWithComps.StateIcon
+  commentId: P:Verse.HediffWithComps.StateIcon
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: StateIcon
+  nameWithType: HediffWithComps.StateIcon
+  fullName: Verse.HediffWithComps.StateIcon
+- uid: Verse.Hediff.def
+  commentId: F:Verse.Hediff.def
+  parent: Verse.Hediff
+  isExternal: true
+  name: def
+  nameWithType: Hediff.def
+  fullName: Verse.Hediff.def
+- uid: Verse.Hediff.ageTicks
+  commentId: F:Verse.Hediff.ageTicks
+  parent: Verse.Hediff
+  isExternal: true
+  name: ageTicks
+  nameWithType: Hediff.ageTicks
+  fullName: Verse.Hediff.ageTicks
+- uid: Verse.Hediff.tickAdded
+  commentId: F:Verse.Hediff.tickAdded
+  parent: Verse.Hediff
+  isExternal: true
+  name: tickAdded
+  nameWithType: Hediff.tickAdded
+  fullName: Verse.Hediff.tickAdded
+- uid: Verse.Hediff.sourceLabel
+  commentId: F:Verse.Hediff.sourceLabel
+  parent: Verse.Hediff
+  isExternal: true
+  name: sourceLabel
+  nameWithType: Hediff.sourceLabel
+  fullName: Verse.Hediff.sourceLabel
+- uid: Verse.Hediff.sourceDef
+  commentId: F:Verse.Hediff.sourceDef
+  parent: Verse.Hediff
+  isExternal: true
+  name: sourceDef
+  nameWithType: Hediff.sourceDef
+  fullName: Verse.Hediff.sourceDef
+- uid: Verse.Hediff.sourceBodyPartGroup
+  commentId: F:Verse.Hediff.sourceBodyPartGroup
+  parent: Verse.Hediff
+  isExternal: true
+  name: sourceBodyPartGroup
+  nameWithType: Hediff.sourceBodyPartGroup
+  fullName: Verse.Hediff.sourceBodyPartGroup
+- uid: Verse.Hediff.sourceToolLabel
+  commentId: F:Verse.Hediff.sourceToolLabel
+  parent: Verse.Hediff
+  isExternal: true
+  name: sourceToolLabel
+  nameWithType: Hediff.sourceToolLabel
+  fullName: Verse.Hediff.sourceToolLabel
+- uid: Verse.Hediff.sourceHediffDef
+  commentId: F:Verse.Hediff.sourceHediffDef
+  parent: Verse.Hediff
+  isExternal: true
+  name: sourceHediffDef
+  nameWithType: Hediff.sourceHediffDef
+  fullName: Verse.Hediff.sourceHediffDef
+- uid: Verse.Hediff.loadID
+  commentId: F:Verse.Hediff.loadID
+  parent: Verse.Hediff
+  isExternal: true
+  name: loadID
+  nameWithType: Hediff.loadID
+  fullName: Verse.Hediff.loadID
+- uid: Verse.Hediff.severityInt
+  commentId: F:Verse.Hediff.severityInt
+  parent: Verse.Hediff
+  isExternal: true
+  name: severityInt
+  nameWithType: Hediff.severityInt
+  fullName: Verse.Hediff.severityInt
+- uid: Verse.Hediff.causesNoPain
+  commentId: F:Verse.Hediff.causesNoPain
+  parent: Verse.Hediff
+  isExternal: true
+  name: causesNoPain
+  nameWithType: Hediff.causesNoPain
+  fullName: Verse.Hediff.causesNoPain
+- uid: Verse.Hediff.combatLogEntry
+  commentId: F:Verse.Hediff.combatLogEntry
+  parent: Verse.Hediff
+  isExternal: true
+  name: combatLogEntry
+  nameWithType: Hediff.combatLogEntry
+  fullName: Verse.Hediff.combatLogEntry
+- uid: Verse.Hediff.combatLogText
+  commentId: F:Verse.Hediff.combatLogText
+  parent: Verse.Hediff
+  isExternal: true
+  name: combatLogText
+  nameWithType: Hediff.combatLogText
+  fullName: Verse.Hediff.combatLogText
+- uid: Verse.Hediff.temp_partIndexToSetLater
+  commentId: F:Verse.Hediff.temp_partIndexToSetLater
+  parent: Verse.Hediff
+  isExternal: true
+  name: temp_partIndexToSetLater
+  nameWithType: Hediff.temp_partIndexToSetLater
+  fullName: Verse.Hediff.temp_partIndexToSetLater
+- uid: Verse.Hediff.canBeThreateningToPart
+  commentId: F:Verse.Hediff.canBeThreateningToPart
+  parent: Verse.Hediff
+  isExternal: true
+  name: canBeThreateningToPart
+  nameWithType: Hediff.canBeThreateningToPart
+  fullName: Verse.Hediff.canBeThreateningToPart
+- uid: Verse.Hediff.pawn
+  commentId: F:Verse.Hediff.pawn
+  parent: Verse.Hediff
+  isExternal: true
+  name: pawn
+  nameWithType: Hediff.pawn
+  fullName: Verse.Hediff.pawn
+- uid: Verse.Hediff.TendableNow(System.Boolean)
+  commentId: M:Verse.Hediff.TendableNow(System.Boolean)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: TendableNow(bool)
+  nameWithType: Hediff.TendableNow(bool)
+  fullName: Verse.Hediff.TendableNow(bool)
+  spec.csharp:
+  - uid: Verse.Hediff.TendableNow(System.Boolean)
+    name: TendableNow
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Verse.Hediff.IsStageLifeThreatening(Verse.HediffStage)
+  commentId: M:Verse.Hediff.IsStageLifeThreatening(Verse.HediffStage)
+  parent: Verse.Hediff
+  isExternal: true
+  name: IsStageLifeThreatening(HediffStage)
+  nameWithType: Hediff.IsStageLifeThreatening(HediffStage)
+  fullName: Verse.Hediff.IsStageLifeThreatening(Verse.HediffStage)
+  spec.csharp:
+  - uid: Verse.Hediff.IsStageLifeThreatening(Verse.HediffStage)
+    name: IsStageLifeThreatening
+    isExternal: true
+  - name: (
+  - uid: Verse.HediffStage
+    name: HediffStage
+    isExternal: true
+  - name: )
+- uid: Verse.Hediff.IsAnyStageLifeThreatening
+  commentId: M:Verse.Hediff.IsAnyStageLifeThreatening
+  parent: Verse.Hediff
+  isExternal: true
+  name: IsAnyStageLifeThreatening()
+  nameWithType: Hediff.IsAnyStageLifeThreatening()
+  fullName: Verse.Hediff.IsAnyStageLifeThreatening()
+  spec.csharp:
+  - uid: Verse.Hediff.IsAnyStageLifeThreatening
+    name: IsAnyStageLifeThreatening
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.CanEverKill
+  commentId: M:Verse.Hediff.CanEverKill
+  parent: Verse.Hediff
+  isExternal: true
+  name: CanEverKill()
+  nameWithType: Hediff.CanEverKill()
+  fullName: Verse.Hediff.CanEverKill()
+  spec.csharp:
+  - uid: Verse.Hediff.CanEverKill
+    name: CanEverKill
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.SetVisible
+  commentId: M:Verse.Hediff.SetVisible
+  parent: Verse.Hediff
+  isExternal: true
+  name: SetVisible()
+  nameWithType: Hediff.SetVisible()
+  fullName: Verse.Hediff.SetVisible()
+  spec.csharp:
+  - uid: Verse.Hediff.SetVisible
+    name: SetVisible
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.OnStageIndexChanged(System.Int32)
+  commentId: M:Verse.Hediff.OnStageIndexChanged(System.Int32)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: OnStageIndexChanged(int)
+  nameWithType: Hediff.OnStageIndexChanged(int)
+  fullName: Verse.Hediff.OnStageIndexChanged(int)
+  spec.csharp:
+  - uid: Verse.Hediff.OnStageIndexChanged(System.Int32)
+    name: OnStageIndexChanged
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Verse.Hediff.Tick
+  commentId: M:Verse.Hediff.Tick
+  parent: Verse.Hediff
+  isExternal: true
+  name: Tick()
+  nameWithType: Hediff.Tick()
+  fullName: Verse.Hediff.Tick()
+  spec.csharp:
+  - uid: Verse.Hediff.Tick
+    name: Tick
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.TickInterval(System.Int32)
+  commentId: M:Verse.Hediff.TickInterval(System.Int32)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: TickInterval(int)
+  nameWithType: Hediff.TickInterval(int)
+  fullName: Verse.Hediff.TickInterval(int)
+  spec.csharp:
+  - uid: Verse.Hediff.TickInterval(System.Int32)
+    name: TickInterval
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Verse.Hediff.PreRemoved
+  commentId: M:Verse.Hediff.PreRemoved
+  parent: Verse.Hediff
+  isExternal: true
+  name: PreRemoved()
+  nameWithType: Hediff.PreRemoved()
+  fullName: Verse.Hediff.PreRemoved()
+  spec.csharp:
+  - uid: Verse.Hediff.PreRemoved
+    name: PreRemoved
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.Heal(System.Single)
+  commentId: M:Verse.Hediff.Heal(System.Single)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: Heal(float)
+  nameWithType: Hediff.Heal(float)
+  fullName: Verse.Hediff.Heal(float)
+  spec.csharp:
+  - uid: Verse.Hediff.Heal(System.Single)
+    name: Heal
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Verse.Hediff.CauseDeathNow
+  commentId: M:Verse.Hediff.CauseDeathNow
+  parent: Verse.Hediff
+  isExternal: true
+  name: CauseDeathNow()
+  nameWithType: Hediff.CauseDeathNow()
+  fullName: Verse.Hediff.CauseDeathNow()
+  spec.csharp:
+  - uid: Verse.Hediff.CauseDeathNow
+    name: CauseDeathNow
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.Notify_Downed
+  commentId: M:Verse.Hediff.Notify_Downed
+  parent: Verse.Hediff
+  isExternal: true
+  name: Notify_Downed()
+  nameWithType: Hediff.Notify_Downed()
+  fullName: Verse.Hediff.Notify_Downed()
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_Downed
+    name: Notify_Downed
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.Notify_PawnDamagedThing(Verse.Thing,Verse.DamageInfo,Verse.DamageWorker.DamageResult)
+  commentId: M:Verse.Hediff.Notify_PawnDamagedThing(Verse.Thing,Verse.DamageInfo,Verse.DamageWorker.DamageResult)
+  parent: Verse.Hediff
+  isExternal: true
+  name: Notify_PawnDamagedThing(Thing, DamageInfo, DamageResult)
+  nameWithType: Hediff.Notify_PawnDamagedThing(Thing, DamageInfo, DamageWorker.DamageResult)
+  fullName: Verse.Hediff.Notify_PawnDamagedThing(Verse.Thing, Verse.DamageInfo, Verse.DamageWorker.DamageResult)
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_PawnDamagedThing(Verse.Thing,Verse.DamageInfo,Verse.DamageWorker.DamageResult)
+    name: Notify_PawnDamagedThing
+    isExternal: true
+  - name: (
+  - uid: Verse.Thing
+    name: Thing
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: Verse.DamageInfo
+    name: DamageInfo
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: Verse.DamageWorker.DamageResult
+    name: DamageResult
+    isExternal: true
+  - name: )
+- uid: Verse.Hediff.Notify_RelationAdded(Verse.Pawn,RimWorld.PawnRelationDef)
+  commentId: M:Verse.Hediff.Notify_RelationAdded(Verse.Pawn,RimWorld.PawnRelationDef)
+  parent: Verse.Hediff
+  isExternal: true
+  name: Notify_RelationAdded(Pawn, PawnRelationDef)
+  nameWithType: Hediff.Notify_RelationAdded(Pawn, PawnRelationDef)
+  fullName: Verse.Hediff.Notify_RelationAdded(Verse.Pawn, RimWorld.PawnRelationDef)
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_RelationAdded(Verse.Pawn,RimWorld.PawnRelationDef)
+    name: Notify_RelationAdded
+    isExternal: true
+  - name: (
+  - uid: Verse.Pawn
+    name: Pawn
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: RimWorld.PawnRelationDef
+    name: PawnRelationDef
+    isExternal: true
+  - name: )
+- uid: Verse.Hediff.Notify_IngestedThing(Verse.Thing,System.Int32)
+  commentId: M:Verse.Hediff.Notify_IngestedThing(Verse.Thing,System.Int32)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: Notify_IngestedThing(Thing, int)
+  nameWithType: Hediff.Notify_IngestedThing(Thing, int)
+  fullName: Verse.Hediff.Notify_IngestedThing(Verse.Thing, int)
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_IngestedThing(Verse.Thing,System.Int32)
+    name: Notify_IngestedThing
+    isExternal: true
+  - name: (
+  - uid: Verse.Thing
+    name: Thing
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Verse.Hediff.Notify_PawnCorpseSpawned
+  commentId: M:Verse.Hediff.Notify_PawnCorpseSpawned
+  parent: Verse.Hediff
+  isExternal: true
+  name: Notify_PawnCorpseSpawned()
+  nameWithType: Hediff.Notify_PawnCorpseSpawned()
+  fullName: Verse.Hediff.Notify_PawnCorpseSpawned()
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_PawnCorpseSpawned
+    name: Notify_PawnCorpseSpawned
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.Notify_Regenerated(System.Single)
+  commentId: M:Verse.Hediff.Notify_Regenerated(System.Single)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: Notify_Regenerated(float)
+  nameWithType: Hediff.Notify_Regenerated(float)
+  fullName: Verse.Hediff.Notify_Regenerated(float)
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_Regenerated(System.Single)
+    name: Notify_Regenerated
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Verse.Hediff.GetInspectString
+  commentId: M:Verse.Hediff.GetInspectString
+  parent: Verse.Hediff
+  isExternal: true
+  name: GetInspectString()
+  nameWithType: Hediff.GetInspectString()
+  fullName: Verse.Hediff.GetInspectString()
+  spec.csharp:
+  - uid: Verse.Hediff.GetInspectString
+    name: GetInspectString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.GetTooltip(Verse.Pawn,System.Boolean)
+  commentId: M:Verse.Hediff.GetTooltip(Verse.Pawn,System.Boolean)
+  parent: Verse.Hediff
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: GetTooltip(Pawn, bool)
+  nameWithType: Hediff.GetTooltip(Pawn, bool)
+  fullName: Verse.Hediff.GetTooltip(Verse.Pawn, bool)
+  spec.csharp:
+  - uid: Verse.Hediff.GetTooltip(Verse.Pawn,System.Boolean)
+    name: GetTooltip
+    isExternal: true
+  - name: (
+  - uid: Verse.Pawn
+    name: Pawn
+    isExternal: true
+  - name: ','
+  - name: ' '
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Verse.Hediff.PostDebugAdd
+  commentId: M:Verse.Hediff.PostDebugAdd
+  parent: Verse.Hediff
+  isExternal: true
+  name: PostDebugAdd()
+  nameWithType: Hediff.PostDebugAdd()
+  fullName: Verse.Hediff.PostDebugAdd()
+  spec.csharp:
+  - uid: Verse.Hediff.PostDebugAdd
+    name: PostDebugAdd
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.SpecialDisplayStats(RimWorld.StatRequest)
+  commentId: M:Verse.Hediff.SpecialDisplayStats(RimWorld.StatRequest)
+  parent: Verse.Hediff
+  isExternal: true
+  name: SpecialDisplayStats(StatRequest)
+  nameWithType: Hediff.SpecialDisplayStats(StatRequest)
+  fullName: Verse.Hediff.SpecialDisplayStats(RimWorld.StatRequest)
+  spec.csharp:
+  - uid: Verse.Hediff.SpecialDisplayStats(RimWorld.StatRequest)
+    name: SpecialDisplayStats
+    isExternal: true
+  - name: (
+  - uid: RimWorld.StatRequest
+    name: StatRequest
+    isExternal: true
+  - name: )
+- uid: Verse.Hediff.ToString
+  commentId: M:Verse.Hediff.ToString
+  parent: Verse.Hediff
+  isExternal: true
+  name: ToString()
+  nameWithType: Hediff.ToString()
+  fullName: Verse.Hediff.ToString()
+  spec.csharp:
+  - uid: Verse.Hediff.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.GetUniqueLoadID
+  commentId: M:Verse.Hediff.GetUniqueLoadID
+  parent: Verse.Hediff
+  isExternal: true
+  name: GetUniqueLoadID()
+  nameWithType: Hediff.GetUniqueLoadID()
+  fullName: Verse.Hediff.GetUniqueLoadID()
+  spec.csharp:
+  - uid: Verse.Hediff.GetUniqueLoadID
+    name: GetUniqueLoadID
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.Hediff.LabelBaseCap
+  commentId: P:Verse.Hediff.LabelBaseCap
+  parent: Verse.Hediff
+  isExternal: true
+  name: LabelBaseCap
+  nameWithType: Hediff.LabelBaseCap
+  fullName: Verse.Hediff.LabelBaseCap
+- uid: Verse.Hediff.Label
+  commentId: P:Verse.Hediff.Label
+  parent: Verse.Hediff
+  isExternal: true
+  name: Label
+  nameWithType: Hediff.Label
+  fullName: Verse.Hediff.Label
+- uid: Verse.Hediff.LabelCap
+  commentId: P:Verse.Hediff.LabelCap
+  parent: Verse.Hediff
+  isExternal: true
+  name: LabelCap
+  nameWithType: Hediff.LabelCap
+  fullName: Verse.Hediff.LabelCap
+- uid: Verse.Hediff.LabelColor
+  commentId: P:Verse.Hediff.LabelColor
+  parent: Verse.Hediff
+  isExternal: true
+  name: LabelColor
+  nameWithType: Hediff.LabelColor
+  fullName: Verse.Hediff.LabelColor
+- uid: Verse.Hediff.SeverityLabel
+  commentId: P:Verse.Hediff.SeverityLabel
+  parent: Verse.Hediff
+  isExternal: true
+  name: SeverityLabel
+  nameWithType: Hediff.SeverityLabel
+  fullName: Verse.Hediff.SeverityLabel
+- uid: Verse.Hediff.UIGroupKey
+  commentId: P:Verse.Hediff.UIGroupKey
+  parent: Verse.Hediff
+  isExternal: true
+  name: UIGroupKey
+  nameWithType: Hediff.UIGroupKey
+  fullName: Verse.Hediff.UIGroupKey
+- uid: Verse.Hediff.CurStage
+  commentId: P:Verse.Hediff.CurStage
+  parent: Verse.Hediff
+  isExternal: true
+  name: CurStage
+  nameWithType: Hediff.CurStage
+  fullName: Verse.Hediff.CurStage
+- uid: Verse.Hediff.BleedRate
+  commentId: P:Verse.Hediff.BleedRate
+  parent: Verse.Hediff
+  isExternal: true
+  name: BleedRate
+  nameWithType: Hediff.BleedRate
+  fullName: Verse.Hediff.BleedRate
+- uid: Verse.Hediff.BleedRateScaled
+  commentId: P:Verse.Hediff.BleedRateScaled
+  parent: Verse.Hediff
+  isExternal: true
+  name: BleedRateScaled
+  nameWithType: Hediff.BleedRateScaled
+  fullName: Verse.Hediff.BleedRateScaled
+- uid: Verse.Hediff.Bleeding
+  commentId: P:Verse.Hediff.Bleeding
+  parent: Verse.Hediff
+  isExternal: true
+  name: Bleeding
+  nameWithType: Hediff.Bleeding
+  fullName: Verse.Hediff.Bleeding
+- uid: Verse.Hediff.PainOffset
+  commentId: P:Verse.Hediff.PainOffset
+  parent: Verse.Hediff
+  isExternal: true
+  name: PainOffset
+  nameWithType: Hediff.PainOffset
+  fullName: Verse.Hediff.PainOffset
+- uid: Verse.Hediff.PainFactor
+  commentId: P:Verse.Hediff.PainFactor
+  parent: Verse.Hediff
+  isExternal: true
+  name: PainFactor
+  nameWithType: Hediff.PainFactor
+  fullName: Verse.Hediff.PainFactor
+- uid: Verse.Hediff.CapMods
+  commentId: P:Verse.Hediff.CapMods
+  parent: Verse.Hediff
+  isExternal: true
+  name: CapMods
+  nameWithType: Hediff.CapMods
+  fullName: Verse.Hediff.CapMods
+- uid: Verse.Hediff.SummaryHealthPercentImpact
+  commentId: P:Verse.Hediff.SummaryHealthPercentImpact
+  parent: Verse.Hediff
+  isExternal: true
+  name: SummaryHealthPercentImpact
+  nameWithType: Hediff.SummaryHealthPercentImpact
+  fullName: Verse.Hediff.SummaryHealthPercentImpact
+- uid: Verse.Hediff.TendPriority
+  commentId: P:Verse.Hediff.TendPriority
+  parent: Verse.Hediff
+  isExternal: true
+  name: TendPriority
+  nameWithType: Hediff.TendPriority
+  fullName: Verse.Hediff.TendPriority
+- uid: Verse.Hediff.CurStageIndex
+  commentId: P:Verse.Hediff.CurStageIndex
+  parent: Verse.Hediff
+  isExternal: true
+  name: CurStageIndex
+  nameWithType: Hediff.CurStageIndex
+  fullName: Verse.Hediff.CurStageIndex
+- uid: Verse.Hediff.Severity
+  commentId: P:Verse.Hediff.Severity
+  parent: Verse.Hediff
+  isExternal: true
+  name: Severity
+  nameWithType: Hediff.Severity
+  fullName: Verse.Hediff.Severity
+- uid: Verse.Hediff.Part
+  commentId: P:Verse.Hediff.Part
+  parent: Verse.Hediff
+  isExternal: true
+  name: Part
+  nameWithType: Hediff.Part
+  fullName: Verse.Hediff.Part
+- uid: Verse.Hediff.IsLethal
+  commentId: P:Verse.Hediff.IsLethal
+  parent: Verse.Hediff
+  isExternal: true
+  name: IsLethal
+  nameWithType: Hediff.IsLethal
+  fullName: Verse.Hediff.IsLethal
+- uid: Verse.Hediff.IsCurrentlyLifeThreatening
+  commentId: P:Verse.Hediff.IsCurrentlyLifeThreatening
+  parent: Verse.Hediff
+  isExternal: true
+  name: IsCurrentlyLifeThreatening
+  nameWithType: Hediff.IsCurrentlyLifeThreatening
+  fullName: Verse.Hediff.IsCurrentlyLifeThreatening
+- uid: Verse.Hediff.AllAbilitiesForReading
+  commentId: P:Verse.Hediff.AllAbilitiesForReading
+  parent: Verse.Hediff
+  isExternal: true
+  name: AllAbilitiesForReading
+  nameWithType: Hediff.AllAbilitiesForReading
+  fullName: Verse.Hediff.AllAbilitiesForReading
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: RimWeave.Health.ContributionHediff.Metadata*
+  commentId: Overload:RimWeave.Health.ContributionHediff.Metadata
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_Metadata
+  name: Metadata
+  nameWithType: ContributionHediff.Metadata
+  fullName: RimWeave.Health.ContributionHediff.Metadata
+- uid: RimWeave.Contributions.IContribution.Metadata
+  commentId: P:RimWeave.Contributions.IContribution.Metadata
+  parent: RimWeave.Contributions.IContribution
+  href: RimWeave.Contributions.IContribution.html#RimWeave_Contributions_IContribution_Metadata
+  name: Metadata
+  nameWithType: IContribution.Metadata
+  fullName: RimWeave.Contributions.IContribution.Metadata
+- uid: RimWeave.Contributions.ContributionMetadata
+  commentId: T:RimWeave.Contributions.ContributionMetadata
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionMetadata.html
+  name: ContributionMetadata
+  nameWithType: ContributionMetadata
+  fullName: RimWeave.Contributions.ContributionMetadata
+- uid: Verse.HediffWithComps.ExposeData
+  commentId: M:Verse.HediffWithComps.ExposeData
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: ExposeData()
+  nameWithType: HediffWithComps.ExposeData()
+  fullName: Verse.HediffWithComps.ExposeData()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.ExposeData
+    name: ExposeData
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.ExposeData*
+  commentId: Overload:RimWeave.Health.ContributionHediff.ExposeData
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_ExposeData
+  name: ExposeData
+  nameWithType: ContributionHediff.ExposeData
+  fullName: RimWeave.Health.ContributionHediff.ExposeData
+- uid: Verse.HediffWithComps.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  commentId: M:Verse.HediffWithComps.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: Notify_PawnDied(DamageInfo?, Hediff)
+  nameWithType: HediffWithComps.Notify_PawnDied(DamageInfo?, Hediff)
+  fullName: Verse.HediffWithComps.Notify_PawnDied(Verse.DamageInfo?, Verse.Hediff)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
+    name: Notify_PawnDied
+    isExternal: true
+  - name: (
+  - uid: Verse.DamageInfo
+    name: DamageInfo
+    isExternal: true
+  - name: '?'
+  - name: ','
+  - name: ' '
+  - uid: Verse.Hediff
+    name: Hediff
+    isExternal: true
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.Notify_PawnDied*
+  commentId: Overload:RimWeave.Health.ContributionHediff.Notify_PawnDied
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_Notify_PawnDied_System_Nullable_Verse_DamageInfo__Verse_Hediff_
+  name: Notify_PawnDied
+  nameWithType: ContributionHediff.Notify_PawnDied
+  fullName: RimWeave.Health.ContributionHediff.Notify_PawnDied
+- uid: System.Nullable{Verse.DamageInfo}
+  commentId: T:System.Nullable{Verse.DamageInfo}
+  parent: System
+  definition: System.Nullable`1
+  name: DamageInfo?
+  nameWithType: DamageInfo?
+  fullName: Verse.DamageInfo?
+  spec.csharp:
+  - uid: Verse.DamageInfo
+    name: DamageInfo
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: Verse.Hediff.Notify_Resurrected
+  commentId: M:Verse.Hediff.Notify_Resurrected
+  parent: Verse.Hediff
+  isExternal: true
+  name: Notify_Resurrected()
+  nameWithType: Hediff.Notify_Resurrected()
+  fullName: Verse.Hediff.Notify_Resurrected()
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_Resurrected
+    name: Notify_Resurrected
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.Notify_Resurrected*
+  commentId: Overload:RimWeave.Health.ContributionHediff.Notify_Resurrected
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_Notify_Resurrected
+  name: Notify_Resurrected
+  nameWithType: ContributionHediff.Notify_Resurrected
+  fullName: RimWeave.Health.ContributionHediff.Notify_Resurrected
+- uid: Verse.Hediff.Notify_PawnCorpseDestroyed
+  commentId: M:Verse.Hediff.Notify_PawnCorpseDestroyed
+  parent: Verse.Hediff
+  isExternal: true
+  name: Notify_PawnCorpseDestroyed()
+  nameWithType: Hediff.Notify_PawnCorpseDestroyed()
+  fullName: Verse.Hediff.Notify_PawnCorpseDestroyed()
+  spec.csharp:
+  - uid: Verse.Hediff.Notify_PawnCorpseDestroyed
+    name: Notify_PawnCorpseDestroyed
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed*
+  commentId: Overload:RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_Notify_PawnCorpseDestroyed
+  name: Notify_PawnCorpseDestroyed
+  nameWithType: ContributionHediff.Notify_PawnCorpseDestroyed
+  fullName: RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed
+- uid: Verse.HediffWithComps.PostRemoved
+  commentId: M:Verse.HediffWithComps.PostRemoved
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: PostRemoved()
+  nameWithType: HediffWithComps.PostRemoved()
+  fullName: Verse.HediffWithComps.PostRemoved()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.PostRemoved
+    name: PostRemoved
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.PostRemoved*
+  commentId: Overload:RimWeave.Health.ContributionHediff.PostRemoved
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_PostRemoved
+  name: PostRemoved
+  nameWithType: ContributionHediff.PostRemoved
+  fullName: RimWeave.Health.ContributionHediff.PostRemoved
+- uid: Verse.HediffWithComps.TryMergeWith(Verse.Hediff)
+  commentId: M:Verse.HediffWithComps.TryMergeWith(Verse.Hediff)
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: TryMergeWith(Hediff)
+  nameWithType: HediffWithComps.TryMergeWith(Hediff)
+  fullName: Verse.HediffWithComps.TryMergeWith(Verse.Hediff)
+  spec.csharp:
+  - uid: Verse.HediffWithComps.TryMergeWith(Verse.Hediff)
+    name: TryMergeWith
+    isExternal: true
+  - name: (
+  - uid: Verse.Hediff
+    name: Hediff
+    isExternal: true
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.TryMergeWith*
+  commentId: Overload:RimWeave.Health.ContributionHediff.TryMergeWith
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_TryMergeWith_Verse_Hediff_
+  name: TryMergeWith
+  nameWithType: ContributionHediff.TryMergeWith
+  fullName: RimWeave.Health.ContributionHediff.TryMergeWith
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool

@@ -1,0 +1,14 @@
+AGENTS.md
+**/AGENTS.md
+.idea/
+.vscode/
+.local/
+.cache/
+.artifacts/
+_site/
+**/bin/
+**/obj/
+node_modules/
+.DS_Store
+__pycache__/
+*.py[cod]

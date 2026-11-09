@@ -1,0 +1,417 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.ReferenceTrackingMapComponent
+  commentId: T:RimWeave.References.ReferenceTrackingMapComponent
+  id: ReferenceTrackingMapComponent
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.ReferenceTrackingMapComponent.#ctor(Verse.Map)
+  - RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit
+  - RimWeave.References.ReferenceTrackingMapComponent.MapRemoved
+  langs:
+  - csharp
+  name: ReferenceTrackingMapComponent
+  nameWithType: ReferenceTrackingMapComponent
+  fullName: RimWeave.References.ReferenceTrackingMapComponent
+  type: Class
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingMapComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ReferenceTrackingMapComponent
+    path: RimWeave/References/ReferenceTrackingMapComponent.cs
+    startLine: 5
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Relays native map lifecycle facts to explicit subscriptions, without invoking extension behavior.
+  example: []
+  syntax:
+    content: 'public sealed class ReferenceTrackingMapComponent : MapComponent, IExposable'
+  inheritance:
+  - System.Object
+  - Verse.MapComponent
+  implements:
+  - Verse.IExposable
+  inheritedMembers: []
+- uid: RimWeave.References.ReferenceTrackingMapComponent.#ctor(Verse.Map)
+  commentId: M:RimWeave.References.ReferenceTrackingMapComponent.#ctor(Verse.Map)
+  id: '#ctor(Verse.Map)'
+  parent: RimWeave.References.ReferenceTrackingMapComponent
+  langs:
+  - csharp
+  name: ReferenceTrackingMapComponent(Map)
+  nameWithType: ReferenceTrackingMapComponent.ReferenceTrackingMapComponent(Map)
+  fullName: RimWeave.References.ReferenceTrackingMapComponent.ReferenceTrackingMapComponent(Verse.Map)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingMapComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/References/ReferenceTrackingMapComponent.cs
+    startLine: 11
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Associates the component with its game; event subscriptions begin after native map initialization.
+  example: []
+  syntax:
+    content: public ReferenceTrackingMapComponent(Map map)
+    parameters:
+    - id: map
+      type: Verse.Map
+  overload: RimWeave.References.ReferenceTrackingMapComponent.#ctor*
+- uid: RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit
+  commentId: M:RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit
+  id: FinalizeInit
+  parent: RimWeave.References.ReferenceTrackingMapComponent
+  langs:
+  - csharp
+  name: FinalizeInit()
+  nameWithType: ReferenceTrackingMapComponent.FinalizeInit()
+  fullName: RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingMapComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: FinalizeInit
+    path: RimWeave/References/ReferenceTrackingMapComponent.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Subscribes only the final component instance retained by native map loading.
+  example: []
+  syntax:
+    content: public override void FinalizeInit()
+  overridden: Verse.MapComponent.FinalizeInit
+  overload: RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit*
+- uid: RimWeave.References.ReferenceTrackingMapComponent.MapRemoved
+  commentId: M:RimWeave.References.ReferenceTrackingMapComponent.MapRemoved
+  id: MapRemoved
+  parent: RimWeave.References.ReferenceTrackingMapComponent
+  langs:
+  - csharp
+  name: MapRemoved()
+  nameWithType: ReferenceTrackingMapComponent.MapRemoved()
+  fullName: RimWeave.References.ReferenceTrackingMapComponent.MapRemoved()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingMapComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: MapRemoved
+    path: RimWeave/References/ReferenceTrackingMapComponent.cs
+    startLine: 41
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Releases this map's handlers and records context loss without declaring its former pawns destroyed.
+  example: []
+  syntax:
+    content: public override void MapRemoved()
+  overridden: Verse.MapComponent.MapRemoved
+  overload: RimWeave.References.ReferenceTrackingMapComponent.MapRemoved*
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: Verse.MapComponent
+  commentId: T:Verse.MapComponent
+  parent: Verse
+  isExternal: true
+  name: MapComponent
+  nameWithType: MapComponent
+  fullName: Verse.MapComponent
+- uid: Verse.IExposable
+  commentId: T:Verse.IExposable
+  parent: Verse
+  isExternal: true
+  name: IExposable
+  nameWithType: IExposable
+  fullName: Verse.IExposable
+- uid: Verse.MapComponent.map
+  commentId: F:Verse.MapComponent.map
+  parent: Verse.MapComponent
+  isExternal: true
+  name: map
+  nameWithType: MapComponent.map
+  fullName: Verse.MapComponent.map
+- uid: Verse.MapComponent.MapComponentUpdate
+  commentId: M:Verse.MapComponent.MapComponentUpdate
+  parent: Verse.MapComponent
+  isExternal: true
+  name: MapComponentUpdate()
+  nameWithType: MapComponent.MapComponentUpdate()
+  fullName: Verse.MapComponent.MapComponentUpdate()
+  spec.csharp:
+  - uid: Verse.MapComponent.MapComponentUpdate
+    name: MapComponentUpdate
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.MapComponent.MapComponentTick
+  commentId: M:Verse.MapComponent.MapComponentTick
+  parent: Verse.MapComponent
+  isExternal: true
+  name: MapComponentTick()
+  nameWithType: MapComponent.MapComponentTick()
+  fullName: Verse.MapComponent.MapComponentTick()
+  spec.csharp:
+  - uid: Verse.MapComponent.MapComponentTick
+    name: MapComponentTick
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.MapComponent.MapComponentOnGUI
+  commentId: M:Verse.MapComponent.MapComponentOnGUI
+  parent: Verse.MapComponent
+  isExternal: true
+  name: MapComponentOnGUI()
+  nameWithType: MapComponent.MapComponentOnGUI()
+  fullName: Verse.MapComponent.MapComponentOnGUI()
+  spec.csharp:
+  - uid: Verse.MapComponent.MapComponentOnGUI
+    name: MapComponentOnGUI
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.MapComponent.MapComponentDraw
+  commentId: M:Verse.MapComponent.MapComponentDraw
+  parent: Verse.MapComponent
+  isExternal: true
+  name: MapComponentDraw()
+  nameWithType: MapComponent.MapComponentDraw()
+  fullName: Verse.MapComponent.MapComponentDraw()
+  spec.csharp:
+  - uid: Verse.MapComponent.MapComponentDraw
+    name: MapComponentDraw
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.MapComponent.ExposeData
+  commentId: M:Verse.MapComponent.ExposeData
+  parent: Verse.MapComponent
+  isExternal: true
+  name: ExposeData()
+  nameWithType: MapComponent.ExposeData()
+  fullName: Verse.MapComponent.ExposeData()
+  spec.csharp:
+  - uid: Verse.MapComponent.ExposeData
+    name: ExposeData
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.MapComponent.MapGenerated
+  commentId: M:Verse.MapComponent.MapGenerated
+  parent: Verse.MapComponent
+  isExternal: true
+  name: MapGenerated()
+  nameWithType: MapComponent.MapGenerated()
+  fullName: Verse.MapComponent.MapGenerated()
+  spec.csharp:
+  - uid: Verse.MapComponent.MapGenerated
+    name: MapGenerated
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.References.ReferenceTrackingMapComponent.#ctor*
+  commentId: Overload:RimWeave.References.ReferenceTrackingMapComponent.#ctor
+  href: RimWeave.References.ReferenceTrackingMapComponent.html#RimWeave_References_ReferenceTrackingMapComponent__ctor_Verse_Map_
+  name: ReferenceTrackingMapComponent
+  nameWithType: ReferenceTrackingMapComponent.ReferenceTrackingMapComponent
+  fullName: RimWeave.References.ReferenceTrackingMapComponent.ReferenceTrackingMapComponent
+- uid: Verse.Map
+  commentId: T:Verse.Map
+  parent: Verse
+  isExternal: true
+  name: Map
+  nameWithType: Map
+  fullName: Verse.Map
+- uid: Verse.MapComponent.FinalizeInit
+  commentId: M:Verse.MapComponent.FinalizeInit
+  parent: Verse.MapComponent
+  isExternal: true
+  name: FinalizeInit()
+  nameWithType: MapComponent.FinalizeInit()
+  fullName: Verse.MapComponent.FinalizeInit()
+  spec.csharp:
+  - uid: Verse.MapComponent.FinalizeInit
+    name: FinalizeInit
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit*
+  commentId: Overload:RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit
+  href: RimWeave.References.ReferenceTrackingMapComponent.html#RimWeave_References_ReferenceTrackingMapComponent_FinalizeInit
+  name: FinalizeInit
+  nameWithType: ReferenceTrackingMapComponent.FinalizeInit
+  fullName: RimWeave.References.ReferenceTrackingMapComponent.FinalizeInit
+- uid: Verse.MapComponent.MapRemoved
+  commentId: M:Verse.MapComponent.MapRemoved
+  parent: Verse.MapComponent
+  isExternal: true
+  name: MapRemoved()
+  nameWithType: MapComponent.MapRemoved()
+  fullName: Verse.MapComponent.MapRemoved()
+  spec.csharp:
+  - uid: Verse.MapComponent.MapRemoved
+    name: MapRemoved
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.References.ReferenceTrackingMapComponent.MapRemoved*
+  commentId: Overload:RimWeave.References.ReferenceTrackingMapComponent.MapRemoved
+  href: RimWeave.References.ReferenceTrackingMapComponent.html#RimWeave_References_ReferenceTrackingMapComponent_MapRemoved
+  name: MapRemoved
+  nameWithType: ReferenceTrackingMapComponent.MapRemoved
+  fullName: RimWeave.References.ReferenceTrackingMapComponent.MapRemoved

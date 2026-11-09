@@ -1,0 +1,381 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.ReferenceTrackingGameComponent
+  commentId: T:RimWeave.References.ReferenceTrackingGameComponent
+  id: ReferenceTrackingGameComponent
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.ReferenceTrackingGameComponent.#ctor(Verse.Game)
+  - RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit
+  langs:
+  - csharp
+  name: ReferenceTrackingGameComponent
+  nameWithType: ReferenceTrackingGameComponent
+  fullName: RimWeave.References.ReferenceTrackingGameComponent
+  type: Class
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingGameComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ReferenceTrackingGameComponent
+    path: RimWeave/References/ReferenceTrackingGameComponent.cs
+    startLine: 6
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Owns explicit subscriptions for one game, without owning or mirroring native world state.
+  example: []
+  syntax:
+    content: 'public sealed class ReferenceTrackingGameComponent : GameComponent, IExposable'
+  inheritance:
+  - System.Object
+  - Verse.GameComponent
+  implements:
+  - Verse.IExposable
+  inheritedMembers: []
+- uid: RimWeave.References.ReferenceTrackingGameComponent.#ctor(Verse.Game)
+  commentId: M:RimWeave.References.ReferenceTrackingGameComponent.#ctor(Verse.Game)
+  id: '#ctor(Verse.Game)'
+  parent: RimWeave.References.ReferenceTrackingGameComponent
+  langs:
+  - csharp
+  name: ReferenceTrackingGameComponent(Game)
+  nameWithType: ReferenceTrackingGameComponent.ReferenceTrackingGameComponent(Game)
+  fullName: RimWeave.References.ReferenceTrackingGameComponent.ReferenceTrackingGameComponent(Verse.Game)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingGameComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/References/ReferenceTrackingGameComponent.cs
+    startLine: 11
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Creates an empty subscription scope; no targets are tracked automatically.
+  example: []
+  syntax:
+    content: public ReferenceTrackingGameComponent(Game game)
+    parameters:
+    - id: game
+      type: Verse.Game
+  overload: RimWeave.References.ReferenceTrackingGameComponent.#ctor*
+- uid: RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit
+  commentId: M:RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit
+  id: FinalizeInit
+  parent: RimWeave.References.ReferenceTrackingGameComponent
+  langs:
+  - csharp
+  name: FinalizeInit()
+  nameWithType: ReferenceTrackingGameComponent.FinalizeInit()
+  fullName: RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/ReferenceTrackingGameComponent.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: FinalizeInit
+    path: RimWeave/References/ReferenceTrackingGameComponent.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Makes tracking available before consumers receive LoadedGame or StartedNewGame.
+  example: []
+  syntax:
+    content: public override void FinalizeInit()
+  overridden: Verse.GameComponent.FinalizeInit
+  overload: RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit*
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: Verse.GameComponent
+  commentId: T:Verse.GameComponent
+  parent: Verse
+  isExternal: true
+  name: GameComponent
+  nameWithType: GameComponent
+  fullName: Verse.GameComponent
+- uid: Verse.IExposable
+  commentId: T:Verse.IExposable
+  parent: Verse
+  isExternal: true
+  name: IExposable
+  nameWithType: IExposable
+  fullName: Verse.IExposable
+- uid: Verse.GameComponent.GameComponentUpdate
+  commentId: M:Verse.GameComponent.GameComponentUpdate
+  parent: Verse.GameComponent
+  isExternal: true
+  name: GameComponentUpdate()
+  nameWithType: GameComponent.GameComponentUpdate()
+  fullName: Verse.GameComponent.GameComponentUpdate()
+  spec.csharp:
+  - uid: Verse.GameComponent.GameComponentUpdate
+    name: GameComponentUpdate
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.GameComponent.GameComponentTick
+  commentId: M:Verse.GameComponent.GameComponentTick
+  parent: Verse.GameComponent
+  isExternal: true
+  name: GameComponentTick()
+  nameWithType: GameComponent.GameComponentTick()
+  fullName: Verse.GameComponent.GameComponentTick()
+  spec.csharp:
+  - uid: Verse.GameComponent.GameComponentTick
+    name: GameComponentTick
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.GameComponent.GameComponentOnGUI
+  commentId: M:Verse.GameComponent.GameComponentOnGUI
+  parent: Verse.GameComponent
+  isExternal: true
+  name: GameComponentOnGUI()
+  nameWithType: GameComponent.GameComponentOnGUI()
+  fullName: Verse.GameComponent.GameComponentOnGUI()
+  spec.csharp:
+  - uid: Verse.GameComponent.GameComponentOnGUI
+    name: GameComponentOnGUI
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.GameComponent.ExposeData
+  commentId: M:Verse.GameComponent.ExposeData
+  parent: Verse.GameComponent
+  isExternal: true
+  name: ExposeData()
+  nameWithType: GameComponent.ExposeData()
+  fullName: Verse.GameComponent.ExposeData()
+  spec.csharp:
+  - uid: Verse.GameComponent.ExposeData
+    name: ExposeData
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.GameComponent.StartedNewGame
+  commentId: M:Verse.GameComponent.StartedNewGame
+  parent: Verse.GameComponent
+  isExternal: true
+  name: StartedNewGame()
+  nameWithType: GameComponent.StartedNewGame()
+  fullName: Verse.GameComponent.StartedNewGame()
+  spec.csharp:
+  - uid: Verse.GameComponent.StartedNewGame
+    name: StartedNewGame
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.GameComponent.LoadedGame
+  commentId: M:Verse.GameComponent.LoadedGame
+  parent: Verse.GameComponent
+  isExternal: true
+  name: LoadedGame()
+  nameWithType: GameComponent.LoadedGame()
+  fullName: Verse.GameComponent.LoadedGame()
+  spec.csharp:
+  - uid: Verse.GameComponent.LoadedGame
+    name: LoadedGame
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Verse.GameComponent.AppendDebugString(System.Text.StringBuilder)
+  commentId: M:Verse.GameComponent.AppendDebugString(System.Text.StringBuilder)
+  parent: Verse.GameComponent
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: AppendDebugString(StringBuilder)
+  nameWithType: GameComponent.AppendDebugString(StringBuilder)
+  fullName: Verse.GameComponent.AppendDebugString(System.Text.StringBuilder)
+  spec.csharp:
+  - uid: Verse.GameComponent.AppendDebugString(System.Text.StringBuilder)
+    name: AppendDebugString
+    isExternal: true
+  - name: (
+  - uid: System.Text.StringBuilder
+    name: StringBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.References.ReferenceTrackingGameComponent.#ctor*
+  commentId: Overload:RimWeave.References.ReferenceTrackingGameComponent.#ctor
+  href: RimWeave.References.ReferenceTrackingGameComponent.html#RimWeave_References_ReferenceTrackingGameComponent__ctor_Verse_Game_
+  name: ReferenceTrackingGameComponent
+  nameWithType: ReferenceTrackingGameComponent.ReferenceTrackingGameComponent
+  fullName: RimWeave.References.ReferenceTrackingGameComponent.ReferenceTrackingGameComponent
+- uid: Verse.Game
+  commentId: T:Verse.Game
+  parent: Verse
+  isExternal: true
+  name: Game
+  nameWithType: Game
+  fullName: Verse.Game
+- uid: Verse.GameComponent.FinalizeInit
+  commentId: M:Verse.GameComponent.FinalizeInit
+  parent: Verse.GameComponent
+  isExternal: true
+  name: FinalizeInit()
+  nameWithType: GameComponent.FinalizeInit()
+  fullName: Verse.GameComponent.FinalizeInit()
+  spec.csharp:
+  - uid: Verse.GameComponent.FinalizeInit
+    name: FinalizeInit
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit*
+  commentId: Overload:RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit
+  href: RimWeave.References.ReferenceTrackingGameComponent.html#RimWeave_References_ReferenceTrackingGameComponent_FinalizeInit
+  name: FinalizeInit
+  nameWithType: ReferenceTrackingGameComponent.FinalizeInit
+  fullName: RimWeave.References.ReferenceTrackingGameComponent.FinalizeInit

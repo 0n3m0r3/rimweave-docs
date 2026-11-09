@@ -1,0 +1,187 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.NativeReferenceResolution
+  commentId: T:RimWeave.References.NativeReferenceResolution
+  id: NativeReferenceResolution
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.NativeReferenceResolution.DifferentGame
+  - RimWeave.References.NativeReferenceResolution.Loading
+  - RimWeave.References.NativeReferenceResolution.Mismatch
+  - RimWeave.References.NativeReferenceResolution.Resolved
+  - RimWeave.References.NativeReferenceResolution.Unresolved
+  langs:
+  - csharp
+  name: NativeReferenceResolution
+  nameWithType: NativeReferenceResolution
+  fullName: RimWeave.References.NativeReferenceResolution
+  type: Enum
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: NativeReferenceResolution
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 5
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Whether the exact native objects named by a reference are available.
+  example: []
+  syntax:
+    content: public enum NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceResolution.Unresolved
+  commentId: F:RimWeave.References.NativeReferenceResolution.Unresolved
+  id: Unresolved
+  parent: RimWeave.References.NativeReferenceResolution
+  langs:
+  - csharp
+  name: Unresolved
+  nameWithType: NativeReferenceResolution.Unresolved
+  fullName: RimWeave.References.NativeReferenceResolution.Unresolved
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Unresolved
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 8
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: A target is unavailable; this does not establish permanent disappearance.
+  example: []
+  syntax:
+    content: Unresolved = 0
+    return:
+      type: RimWeave.References.NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceResolution.Loading
+  commentId: F:RimWeave.References.NativeReferenceResolution.Loading
+  id: Loading
+  parent: RimWeave.References.NativeReferenceResolution
+  langs:
+  - csharp
+  name: Loading
+  nameWithType: NativeReferenceResolution.Loading
+  fullName: RimWeave.References.NativeReferenceResolution.Loading
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Loading
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Native loading has not completed reference resolution.
+  example: []
+  syntax:
+    content: Loading = 1
+    return:
+      type: RimWeave.References.NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceResolution.Resolved
+  commentId: F:RimWeave.References.NativeReferenceResolution.Resolved
+  id: Resolved
+  parent: RimWeave.References.NativeReferenceResolution
+  langs:
+  - csharp
+  name: Resolved
+  nameWithType: NativeReferenceResolution.Resolved
+  fullName: RimWeave.References.NativeReferenceResolution.Resolved
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Resolved
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 12
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The exact native objects are available, independently of their current usability.
+  example: []
+  syntax:
+    content: Resolved = 2
+    return:
+      type: RimWeave.References.NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceResolution.Mismatch
+  commentId: F:RimWeave.References.NativeReferenceResolution.Mismatch
+  id: Mismatch
+  parent: RimWeave.References.NativeReferenceResolution
+  langs:
+  - csharp
+  name: Mismatch
+  nameWithType: NativeReferenceResolution.Mismatch
+  fullName: RimWeave.References.NativeReferenceResolution.Mismatch
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Mismatch
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The resolved objects do not match the saved identity or owner association.
+  example: []
+  syntax:
+    content: Mismatch = 3
+    return:
+      type: RimWeave.References.NativeReferenceResolution
+- uid: RimWeave.References.NativeReferenceResolution.DifferentGame
+  commentId: F:RimWeave.References.NativeReferenceResolution.DifferentGame
+  id: DifferentGame
+  parent: RimWeave.References.NativeReferenceResolution
+  langs:
+  - csharp
+  name: DifferentGame
+  nameWithType: NativeReferenceResolution.DifferentGame
+  fullName: RimWeave.References.NativeReferenceResolution.DifferentGame
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: DifferentGame
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 16
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The handle belongs to a different game instance and cannot be reused in this game.
+  example: []
+  syntax:
+    content: DifferentGame = 4
+    return:
+      type: RimWeave.References.NativeReferenceResolution
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: RimWeave.References.NativeReferenceResolution
+  commentId: T:RimWeave.References.NativeReferenceResolution
+  parent: RimWeave.References
+  href: RimWeave.References.NativeReferenceResolution.html
+  name: NativeReferenceResolution
+  nameWithType: NativeReferenceResolution
+  fullName: RimWeave.References.NativeReferenceResolution

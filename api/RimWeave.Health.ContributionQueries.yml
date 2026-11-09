@@ -1,0 +1,506 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.ContributionQueries
+  commentId: T:RimWeave.Health.ContributionQueries
+  id: ContributionQueries
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionQueries.Find(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  - RimWeave.Health.ContributionQueries.Resolve(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  - RimWeave.Health.ContributionQueries.ResolveExclusiveClaim(Verse.Pawn,System.String,Verse.BodyPartRecord)
+  langs:
+  - csharp
+  name: ContributionQueries
+  nameWithType: ContributionQueries
+  fullName: RimWeave.Health.ContributionQueries
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/ContributionQueries.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionQueries
+    path: RimWeave/Health/ContributionQueries.cs
+    startLine: 6
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Queries cooperating ContributionHediff instances in authoritative native health storage.
+  example: []
+  syntax:
+    content: public static class ContributionQueries
+  inheritance:
+  - System.Object
+  inheritedMembers: []
+- uid: RimWeave.Health.ContributionQueries.Find(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  commentId: M:RimWeave.Health.ContributionQueries.Find(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  id: Find(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  parent: RimWeave.Health.ContributionQueries
+  langs:
+  - csharp
+  name: Find(Pawn, ContributionId, BodyPartRecord?)
+  nameWithType: ContributionQueries.Find(Pawn, ContributionId, BodyPartRecord?)
+  fullName: RimWeave.Health.ContributionQueries.Find(Verse.Pawn, RimWeave.Contributions.ContributionId, Verse.BodyPartRecord?)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionQueries.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Find
+    path: RimWeave/Health/ContributionQueries.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Reads exact matches from native health state. Null part means whole-body only.
+  remarks: 'The returned collection is a snapshot of references, not a frozen copy of the effects.
+
+    A BodyPartRecord identifies a native body slot, not the lifetime of a biological organ.
+
+    Read on the simulation thread. The native health list remains authoritative.'
+  example: []
+  syntax:
+    content: public static IReadOnlyList<ContributionHediff> Find(Pawn pawn, ContributionId contribution, BodyPartRecord?
+      part = null)
+    parameters:
+    - id: pawn
+      type: Verse.Pawn
+      description: The native owner with an initialized health tracker.
+    - id: contribution
+      type: RimWeave.Contributions.ContributionId
+      description: The identity to match.
+    - id: part
+      type: Verse.BodyPartRecord
+      description: The exact body-part reference, or null for whole-body effects only.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{RimWeave.Health.ContributionHediff}
+      description: A read-only membership snapshot of all matching contribution effects.
+  overload: RimWeave.Health.ContributionQueries.Find*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The pawn or identity is null.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Saved metadata in the scope is unreadable; use Resolve to inspect the incomplete result.
+- uid: RimWeave.Health.ContributionQueries.Resolve(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  commentId: M:RimWeave.Health.ContributionQueries.Resolve(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  id: Resolve(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
+  parent: RimWeave.Health.ContributionQueries
+  langs:
+  - csharp
+  name: Resolve(Pawn, ContributionId, BodyPartRecord?)
+  nameWithType: ContributionQueries.Resolve(Pawn, ContributionId, BodyPartRecord?)
+  fullName: RimWeave.Health.ContributionQueries.Resolve(Verse.Pawn, RimWeave.Contributions.ContributionId, Verse.BodyPartRecord?)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionQueries.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Resolve
+    path: RimWeave/Health/ContributionQueries.cs
+    startLine: 36
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Resolves an identity on one pawn and one exact native body-part scope.
+  remarks: Call on the simulation thread. Only ContributionHediff instances are selected.
+  example: []
+  syntax:
+    content: public static ContributionLookupResult<ContributionHediff> Resolve(Pawn pawn, ContributionId contribution,
+      BodyPartRecord? part = null)
+    parameters:
+    - id: pawn
+      type: Verse.Pawn
+      description: The native owner with an initialized health tracker.
+    - id: contribution
+      type: RimWeave.Contributions.ContributionId
+      description: The identity to match.
+    - id: part
+      type: Verse.BodyPartRecord
+      description: The exact body-part reference, or null for whole-body effects only.
+    return:
+      type: RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+      description: Unreadable metadata, no match, one match or ambiguity; no native mutation is performed.
+  overload: RimWeave.Health.ContributionQueries.Resolve*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The pawn or identity is null.
+- uid: RimWeave.Health.ContributionQueries.ResolveExclusiveClaim(Verse.Pawn,System.String,Verse.BodyPartRecord)
+  commentId: M:RimWeave.Health.ContributionQueries.ResolveExclusiveClaim(Verse.Pawn,System.String,Verse.BodyPartRecord)
+  id: ResolveExclusiveClaim(Verse.Pawn,System.String,Verse.BodyPartRecord)
+  parent: RimWeave.Health.ContributionQueries
+  langs:
+  - csharp
+  name: ResolveExclusiveClaim(Pawn, string, BodyPartRecord?)
+  nameWithType: ContributionQueries.ResolveExclusiveClaim(Pawn, string, BodyPartRecord?)
+  fullName: RimWeave.Health.ContributionQueries.ResolveExclusiveClaim(Verse.Pawn, string, Verse.BodyPartRecord?)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionQueries.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ResolveExclusiveClaim
+    path: RimWeave/Health/ContributionQueries.cs
+    startLine: 48
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Reports an explicit exclusive-ownership conflict without selecting a winner.
+  remarks: Native callback observers are not claimants. Unclaimed effects do not compete here.
+  example: []
+  syntax:
+    content: public static ContributionLookupResult<ContributionHediff> ResolveExclusiveClaim(Pawn pawn, string
+      responsibility, BodyPartRecord? part = null)
+    parameters:
+    - id: pawn
+      type: Verse.Pawn
+      description: The native owner with an initialized health tracker.
+    - id: responsibility
+      type: System.String
+      description: The exact exclusive responsibility key to match.
+    - id: part
+      type: Verse.BodyPartRecord
+      description: The exact body-part reference, or null for whole-body effects only.
+    return:
+      type: RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+      description: The explicit claimants and unreadable candidates; InvalidMetadata takes precedence over claim
+        counts.
+  overload: RimWeave.Health.ContributionQueries.ResolveExclusiveClaim*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The pawn is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The responsibility key is null, blank or has surrounding whitespace.
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: RimWeave.Health.ContributionQueries.Find*
+  commentId: Overload:RimWeave.Health.ContributionQueries.Find
+  href: RimWeave.Health.ContributionQueries.html#RimWeave_Health_ContributionQueries_Find_Verse_Pawn_RimWeave_Contributions_ContributionId_Verse_BodyPartRecord_
+  name: Find
+  nameWithType: ContributionQueries.Find
+  fullName: RimWeave.Health.ContributionQueries.Find
+- uid: Verse.Pawn
+  commentId: T:Verse.Pawn
+  parent: Verse
+  isExternal: true
+  name: Pawn
+  nameWithType: Pawn
+  fullName: Verse.Pawn
+- uid: RimWeave.Contributions.ContributionId
+  commentId: T:RimWeave.Contributions.ContributionId
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionId.html
+  name: ContributionId
+  nameWithType: ContributionId
+  fullName: RimWeave.Contributions.ContributionId
+- uid: Verse.BodyPartRecord
+  commentId: T:Verse.BodyPartRecord
+  parent: Verse
+  isExternal: true
+  name: BodyPartRecord
+  nameWithType: BodyPartRecord
+  fullName: Verse.BodyPartRecord
+- uid: System.Collections.Generic.IReadOnlyList{RimWeave.Health.ContributionHediff}
+  commentId: T:System.Collections.Generic.IReadOnlyList{RimWeave.Health.ContributionHediff}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ContributionHediff>
+  nameWithType: IReadOnlyList<ContributionHediff>
+  fullName: System.Collections.Generic.IReadOnlyList<RimWeave.Health.ContributionHediff>
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: RimWeave.Health.ContributionHediff
+    name: ContributionHediff
+    href: RimWeave.Health.ContributionHediff.html
+  - name: '>'
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RimWeave.Health.ContributionQueries.Resolve*
+  commentId: Overload:RimWeave.Health.ContributionQueries.Resolve
+  href: RimWeave.Health.ContributionQueries.html#RimWeave_Health_ContributionQueries_Resolve_Verse_Pawn_RimWeave_Contributions_ContributionId_Verse_BodyPartRecord_
+  name: Resolve
+  nameWithType: ContributionQueries.Resolve
+  fullName: RimWeave.Health.ContributionQueries.Resolve
+- uid: RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+  commentId: T:RimWeave.Contributions.ContributionLookupResult{RimWeave.Health.ContributionHediff}
+  parent: RimWeave.Contributions
+  definition: RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<ContributionHediff>
+  nameWithType: ContributionLookupResult<ContributionHediff>
+  fullName: RimWeave.Contributions.ContributionLookupResult<RimWeave.Health.ContributionHediff>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - uid: RimWeave.Health.ContributionHediff
+    name: ContributionHediff
+    href: RimWeave.Health.ContributionHediff.html
+  - name: '>'
+- uid: RimWeave.Contributions.ContributionLookupResult`1
+  commentId: T:RimWeave.Contributions.ContributionLookupResult`1
+  href: RimWeave.Contributions.ContributionLookupResult-1.html
+  name: ContributionLookupResult<T>
+  nameWithType: ContributionLookupResult<T>
+  fullName: RimWeave.Contributions.ContributionLookupResult<T>
+  spec.csharp:
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult
+    href: RimWeave.Contributions.ContributionLookupResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: RimWeave.Health.ContributionQueries.ResolveExclusiveClaim*
+  commentId: Overload:RimWeave.Health.ContributionQueries.ResolveExclusiveClaim
+  href: RimWeave.Health.ContributionQueries.html#RimWeave_Health_ContributionQueries_ResolveExclusiveClaim_Verse_Pawn_System_String_Verse_BodyPartRecord_
+  name: ResolveExclusiveClaim
+  nameWithType: ContributionQueries.ResolveExclusiveClaim
+  fullName: RimWeave.Health.ContributionQueries.ResolveExclusiveClaim
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string

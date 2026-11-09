@@ -1,0 +1,100 @@
+### YamlMime:TableOfContent
+items:
+- name: API overview
+  href: index.md
+- uid: RimWeave.Contributions
+  name: RimWeave.Contributions
+  type: Namespace
+  items:
+  - uid: RimWeave.Contributions.ContributionId
+    name: ContributionId
+    type: Class
+  - uid: RimWeave.Contributions.ContributionLookupResult`1
+    name: ContributionLookupResult<T>
+    type: Class
+  - uid: RimWeave.Contributions.ContributionLookupStatus
+    name: ContributionLookupStatus
+    type: Enum
+  - uid: RimWeave.Contributions.ContributionMetadata
+    name: ContributionMetadata
+    type: Class
+  - uid: RimWeave.Contributions.ContributionOrigin
+    name: ContributionOrigin
+    type: Class
+  - uid: RimWeave.Contributions.ContributionOriginType
+    name: ContributionOriginType
+    type: Class
+  - uid: RimWeave.Contributions.ContributionResolver
+    name: ContributionResolver
+    type: Class
+  - uid: RimWeave.Contributions.IContribution
+    name: IContribution
+    type: Interface
+- uid: RimWeave.Health
+  name: RimWeave.Health
+  type: Namespace
+  items:
+  - uid: RimWeave.Health.ContributionHediff
+    name: ContributionHediff
+    type: Class
+  - uid: RimWeave.Health.ContributionOperations
+    name: ContributionOperations
+    type: Class
+  - uid: RimWeave.Health.ContributionQueries
+    name: ContributionQueries
+    type: Class
+  - uid: RimWeave.Health.ContributionRemovalResult
+    name: ContributionRemovalResult
+    type: Class
+  - uid: RimWeave.Health.HediffOperations
+    name: HediffOperations
+    type: Class
+  - uid: RimWeave.Health.HediffRemovalResult
+    name: HediffRemovalResult
+    type: Class
+  - uid: RimWeave.Health.HediffRemovalStatus
+    name: HediffRemovalStatus
+    type: Enum
+- uid: RimWeave.Logging
+  name: RimWeave.Logging
+  type: Namespace
+  items:
+  - uid: RimWeave.Logging.RimWeaveLog
+    name: RimWeaveLog
+    type: Class
+- uid: RimWeave.Persistence
+  name: RimWeave.Persistence
+  type: Namespace
+  items:
+  - uid: RimWeave.Persistence.ContributionMetadataScribe
+    name: ContributionMetadataScribe
+    type: Class
+- uid: RimWeave.References
+  name: RimWeave.References
+  type: Namespace
+  items:
+  - uid: RimWeave.References.NativeReference
+    name: NativeReference
+    type: Class
+  - uid: RimWeave.References.NativeReferenceResolution
+    name: NativeReferenceResolution
+    type: Enum
+  - uid: RimWeave.References.NativeReferenceSnapshot
+    name: NativeReferenceSnapshot
+    type: Class
+  - uid: RimWeave.References.ReferenceChangeTracker
+    name: ReferenceChangeTracker
+    type: Class
+  - uid: RimWeave.References.ReferenceChanges
+    name: ReferenceChanges
+    type: Enum
+  - uid: RimWeave.References.ReferenceTrackingCoverage
+    name: ReferenceTrackingCoverage
+    type: Enum
+  - uid: RimWeave.References.ReferenceTrackingGameComponent
+    name: ReferenceTrackingGameComponent
+    type: Class
+  - uid: RimWeave.References.ReferenceTrackingMapComponent
+    name: ReferenceTrackingMapComponent
+    type: Class
+memberLayout: SamePage

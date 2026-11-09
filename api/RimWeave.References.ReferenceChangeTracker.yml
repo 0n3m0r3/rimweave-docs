@@ -1,0 +1,289 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.ReferenceChangeTracker
+  commentId: T:RimWeave.References.ReferenceChangeTracker
+  id: ReferenceChangeTracker
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.ReferenceChangeTracker.Pending
+  - RimWeave.References.ReferenceChangeTracker.Record(RimWeave.References.ReferenceChanges)
+  - RimWeave.References.ReferenceChangeTracker.TakeChanges
+  langs:
+  - csharp
+  name: ReferenceChangeTracker
+  nameWithType: ReferenceChangeTracker
+  fullName: RimWeave.References.ReferenceChangeTracker
+  type: Class
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChangeTracker.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ReferenceChangeTracker
+    path: RimWeave/References/ReferenceChangeTracker.cs
+    startLine: 7
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Retains unacknowledged transition kinds independently of a provider's entities or storage.
+  remarks: 'Use on the simulation thread. Recording never invokes a consumer or decides a gameplay outcome.
+
+    Each consumer owns its tracker; acknowledging one tracker cannot consume another''s observations.'
+  example: []
+  syntax:
+    content: public sealed class ReferenceChangeTracker
+  inheritance:
+  - System.Object
+  inheritedMembers: []
+- uid: RimWeave.References.ReferenceChangeTracker.Pending
+  commentId: P:RimWeave.References.ReferenceChangeTracker.Pending
+  id: Pending
+  parent: RimWeave.References.ReferenceChangeTracker
+  langs:
+  - csharp
+  name: Pending
+  nameWithType: ReferenceChangeTracker.Pending
+  fullName: RimWeave.References.ReferenceChangeTracker.Pending
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChangeTracker.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Pending
+    path: RimWeave/References/ReferenceChangeTracker.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Transition kinds recorded since the last acknowledgement.
+  example: []
+  syntax:
+    content: public ReferenceChanges Pending { get; }
+    parameters: []
+    return:
+      type: RimWeave.References.ReferenceChanges
+  overload: RimWeave.References.ReferenceChangeTracker.Pending*
+- uid: RimWeave.References.ReferenceChangeTracker.Record(RimWeave.References.ReferenceChanges)
+  commentId: M:RimWeave.References.ReferenceChangeTracker.Record(RimWeave.References.ReferenceChanges)
+  id: Record(RimWeave.References.ReferenceChanges)
+  parent: RimWeave.References.ReferenceChangeTracker
+  langs:
+  - csharp
+  name: Record(ReferenceChanges)
+  nameWithType: ReferenceChangeTracker.Record(ReferenceChanges)
+  fullName: RimWeave.References.ReferenceChangeTracker.Record(RimWeave.References.ReferenceChanges)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChangeTracker.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Record
+    path: RimWeave/References/ReferenceChangeTracker.cs
+    startLine: 13
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Records provider-observed transitions without deducing them from a final state.
+  example: []
+  syntax:
+    content: public void Record(ReferenceChanges changes)
+    parameters:
+    - id: changes
+      type: RimWeave.References.ReferenceChanges
+  overload: RimWeave.References.ReferenceChangeTracker.Record*
+- uid: RimWeave.References.ReferenceChangeTracker.TakeChanges
+  commentId: M:RimWeave.References.ReferenceChangeTracker.TakeChanges
+  id: TakeChanges
+  parent: RimWeave.References.ReferenceChangeTracker
+  langs:
+  - csharp
+  name: TakeChanges()
+  nameWithType: ReferenceChangeTracker.TakeChanges()
+  fullName: RimWeave.References.ReferenceChangeTracker.TakeChanges()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChangeTracker.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: TakeChanges
+    path: RimWeave/References/ReferenceChangeTracker.cs
+    startLine: 16
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Returns and clears this consumer's pending transition kinds.
+  example: []
+  syntax:
+    content: public ReferenceChanges TakeChanges()
+    return:
+      type: RimWeave.References.ReferenceChanges
+  overload: RimWeave.References.ReferenceChangeTracker.TakeChanges*
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RimWeave.References.ReferenceChangeTracker.Pending*
+  commentId: Overload:RimWeave.References.ReferenceChangeTracker.Pending
+  href: RimWeave.References.ReferenceChangeTracker.html#RimWeave_References_ReferenceChangeTracker_Pending
+  name: Pending
+  nameWithType: ReferenceChangeTracker.Pending
+  fullName: RimWeave.References.ReferenceChangeTracker.Pending
+- uid: RimWeave.References.ReferenceChanges
+  commentId: T:RimWeave.References.ReferenceChanges
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceChanges.html
+  name: ReferenceChanges
+  nameWithType: ReferenceChanges
+  fullName: RimWeave.References.ReferenceChanges
+- uid: RimWeave.References.ReferenceChangeTracker.Record*
+  commentId: Overload:RimWeave.References.ReferenceChangeTracker.Record
+  href: RimWeave.References.ReferenceChangeTracker.html#RimWeave_References_ReferenceChangeTracker_Record_RimWeave_References_ReferenceChanges_
+  name: Record
+  nameWithType: ReferenceChangeTracker.Record
+  fullName: RimWeave.References.ReferenceChangeTracker.Record
+- uid: RimWeave.References.ReferenceChangeTracker.TakeChanges*
+  commentId: Overload:RimWeave.References.ReferenceChangeTracker.TakeChanges
+  href: RimWeave.References.ReferenceChangeTracker.html#RimWeave_References_ReferenceChangeTracker_TakeChanges
+  name: TakeChanges
+  nameWithType: ReferenceChangeTracker.TakeChanges
+  fullName: RimWeave.References.ReferenceChangeTracker.TakeChanges

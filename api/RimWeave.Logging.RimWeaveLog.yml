@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Logging.RimWeaveLog
+  commentId: T:RimWeave.Logging.RimWeaveLog
+  id: RimWeaveLog
+  parent: RimWeave.Logging
+  children:
+  - RimWeave.Logging.RimWeaveLog.Message(System.String)
+  langs:
+  - csharp
+  name: RimWeaveLog
+  nameWithType: RimWeaveLog
+  fullName: RimWeave.Logging.RimWeaveLog
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Logging/RimWeaveLog.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: RimWeaveLog
+    path: RimWeave/Logging/RimWeaveLog.cs
+    startLine: 5
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Logging
+  summary: Writes framework diagnostics through RimWorld's native log.
+  example: []
+  syntax:
+    content: public static class RimWeaveLog
+  inheritance:
+  - System.Object
+  inheritedMembers: []
+- uid: RimWeave.Logging.RimWeaveLog.Message(System.String)
+  commentId: M:RimWeave.Logging.RimWeaveLog.Message(System.String)
+  id: Message(System.String)
+  parent: RimWeave.Logging.RimWeaveLog
+  langs:
+  - csharp
+  name: Message(string)
+  nameWithType: RimWeaveLog.Message(string)
+  fullName: RimWeave.Logging.RimWeaveLog.Message(string)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Logging/RimWeaveLog.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Message
+    path: RimWeave/Logging/RimWeaveLog.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Logging
+  summary: Writes a message with the RimWeave prefix on every normalized line.
+  remarks: This logger does not infer errors, log operation results automatically or open a console.
+  example: []
+  syntax:
+    content: public static void Message(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The non-null diagnostic text. Trailing line breaks are removed.
+  overload: RimWeave.Logging.RimWeaveLog.Message*
+references:
+- uid: RimWeave.Logging
+  commentId: N:RimWeave.Logging
+  name: RimWeave.Logging
+  nameWithType: RimWeave.Logging
+  fullName: RimWeave.Logging
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Logging
+    name: Logging
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RimWeave.Logging.RimWeaveLog.Message*
+  commentId: Overload:RimWeave.Logging.RimWeaveLog.Message
+  href: RimWeave.Logging.RimWeaveLog.html#RimWeave_Logging_RimWeaveLog_Message_System_String_
+  name: Message
+  nameWithType: RimWeaveLog.Message
+  fullName: RimWeave.Logging.RimWeaveLog.Message
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string

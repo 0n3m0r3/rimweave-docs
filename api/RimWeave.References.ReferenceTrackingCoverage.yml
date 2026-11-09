@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.References.ReferenceTrackingCoverage
+  commentId: T:RimWeave.References.ReferenceTrackingCoverage
+  id: ReferenceTrackingCoverage
+  parent: RimWeave.References
+  children:
+  - RimWeave.References.ReferenceTrackingCoverage.CooperatingHealthEffect
+  - RimWeave.References.ReferenceTrackingCoverage.Maps
+  - RimWeave.References.ReferenceTrackingCoverage.None
+  langs:
+  - csharp
+  name: ReferenceTrackingCoverage
+  nameWithType: ReferenceTrackingCoverage
+  fullName: RimWeave.References.ReferenceTrackingCoverage
+  type: Enum
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ReferenceTrackingCoverage
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 30
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Native notifications available to an active reference in the initial integration.
+  example: []
+  syntax:
+    content: '[Flags]
+
+      public enum ReferenceTrackingCoverage'
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: RimWeave.References.ReferenceTrackingCoverage.None
+  commentId: F:RimWeave.References.ReferenceTrackingCoverage.None
+  id: None
+  parent: RimWeave.References.ReferenceTrackingCoverage
+  langs:
+  - csharp
+  name: None
+  nameWithType: ReferenceTrackingCoverage.None
+  fullName: RimWeave.References.ReferenceTrackingCoverage.None
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: None
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 34
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: No active subscription.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: RimWeave.References.ReferenceTrackingCoverage
+- uid: RimWeave.References.ReferenceTrackingCoverage.Maps
+  commentId: F:RimWeave.References.ReferenceTrackingCoverage.Maps
+  id: Maps
+  parent: RimWeave.References.ReferenceTrackingCoverage
+  langs:
+  - csharp
+  name: Maps
+  nameWithType: ReferenceTrackingCoverage.Maps
+  fullName: RimWeave.References.ReferenceTrackingCoverage.Maps
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Maps
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 36
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Native map entry, departure and removal notifications.
+  example: []
+  syntax:
+    content: Maps = 1
+    return:
+      type: RimWeave.References.ReferenceTrackingCoverage
+- uid: RimWeave.References.ReferenceTrackingCoverage.CooperatingHealthEffect
+  commentId: F:RimWeave.References.ReferenceTrackingCoverage.CooperatingHealthEffect
+  id: CooperatingHealthEffect
+  parent: RimWeave.References.ReferenceTrackingCoverage
+  langs:
+  - csharp
+  name: CooperatingHealthEffect
+  nameWithType: ReferenceTrackingCoverage.CooperatingHealthEffect
+  fullName: RimWeave.References.ReferenceTrackingCoverage.CooperatingHealthEffect
+  type: Field
+  source:
+    remote:
+      path: RimWeave/References/ReferenceChanges.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: CooperatingHealthEffect
+    path: RimWeave/References/ReferenceChanges.cs
+    startLine: 38
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: Callbacks forwarded by the exact cooperating effect; native paths omitting those callbacks still require
+    revalidation.
+  example: []
+  syntax:
+    content: CooperatingHealthEffect = 2
+    return:
+      type: RimWeave.References.ReferenceTrackingCoverage
+references:
+- uid: RimWeave.References
+  commentId: N:RimWeave.References
+  name: RimWeave.References
+  nameWithType: RimWeave.References
+  fullName: RimWeave.References
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.References
+    name: References
+- uid: RimWeave.References.ReferenceTrackingCoverage
+  commentId: T:RimWeave.References.ReferenceTrackingCoverage
+  parent: RimWeave.References
+  href: RimWeave.References.ReferenceTrackingCoverage.html
+  name: ReferenceTrackingCoverage
+  nameWithType: ReferenceTrackingCoverage
+  fullName: RimWeave.References.ReferenceTrackingCoverage

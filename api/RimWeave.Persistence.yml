@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Persistence
+  commentId: N:RimWeave.Persistence
+  id: RimWeave.Persistence
+  children:
+  - RimWeave.Persistence.ContributionMetadataScribe
+  langs:
+  - csharp
+  name: RimWeave.Persistence
+  nameWithType: RimWeave.Persistence
+  fullName: RimWeave.Persistence
+  type: Namespace
+  assemblies:
+  - RimWeave
+references:
+- uid: RimWeave.Persistence.ContributionMetadataScribe
+  commentId: T:RimWeave.Persistence.ContributionMetadataScribe
+  href: RimWeave.Persistence.ContributionMetadataScribe.html
+  name: ContributionMetadataScribe
+  nameWithType: ContributionMetadataScribe
+  fullName: RimWeave.Persistence.ContributionMetadataScribe

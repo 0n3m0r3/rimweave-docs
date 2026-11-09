@@ -1,0 +1,159 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.HediffRemovalStatus
+  commentId: T:RimWeave.Health.HediffRemovalStatus
+  id: HediffRemovalStatus
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.HediffRemovalStatus.NotPresent
+  - RimWeave.Health.HediffRemovalStatus.PawnMismatch
+  - RimWeave.Health.HediffRemovalStatus.Removed
+  - RimWeave.Health.HediffRemovalStatus.StillPresent
+  langs:
+  - csharp
+  name: HediffRemovalStatus
+  nameWithType: HediffRemovalStatus
+  fullName: RimWeave.Health.HediffRemovalStatus
+  type: Enum
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: HediffRemovalStatus
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 5
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The observed outcome of a guarded native removal request.
+  example: []
+  syntax:
+    content: public enum HediffRemovalStatus
+- uid: RimWeave.Health.HediffRemovalStatus.Removed
+  commentId: F:RimWeave.Health.HediffRemovalStatus.Removed
+  id: Removed
+  parent: RimWeave.Health.HediffRemovalStatus
+  langs:
+  - csharp
+  name: Removed
+  nameWithType: HediffRemovalStatus.Removed
+  fullName: RimWeave.Health.HediffRemovalStatus.Removed
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Removed
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 8
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance is absent from the requested pawn after the native call.
+  example: []
+  syntax:
+    content: Removed = 0
+    return:
+      type: RimWeave.Health.HediffRemovalStatus
+- uid: RimWeave.Health.HediffRemovalStatus.NotPresent
+  commentId: F:RimWeave.Health.HediffRemovalStatus.NotPresent
+  id: NotPresent
+  parent: RimWeave.Health.HediffRemovalStatus
+  langs:
+  - csharp
+  name: NotPresent
+  nameWithType: HediffRemovalStatus.NotPresent
+  fullName: RimWeave.Health.HediffRemovalStatus.NotPresent
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: NotPresent
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 11
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance was absent; no native removal was called.
+  example: []
+  syntax:
+    content: NotPresent = 1
+    return:
+      type: RimWeave.Health.HediffRemovalStatus
+- uid: RimWeave.Health.HediffRemovalStatus.PawnMismatch
+  commentId: F:RimWeave.Health.HediffRemovalStatus.PawnMismatch
+  id: PawnMismatch
+  parent: RimWeave.Health.HediffRemovalStatus
+  langs:
+  - csharp
+  name: PawnMismatch
+  nameWithType: HediffRemovalStatus.PawnMismatch
+  fullName: RimWeave.Health.HediffRemovalStatus.PawnMismatch
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PawnMismatch
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance refers to another pawn; no native removal was called.
+  example: []
+  syntax:
+    content: PawnMismatch = 2
+    return:
+      type: RimWeave.Health.HediffRemovalStatus
+- uid: RimWeave.Health.HediffRemovalStatus.StillPresent
+  commentId: F:RimWeave.Health.HediffRemovalStatus.StillPresent
+  id: StillPresent
+  parent: RimWeave.Health.HediffRemovalStatus
+  langs:
+  - csharp
+  name: StillPresent
+  nameWithType: HediffRemovalStatus.StillPresent
+  fullName: RimWeave.Health.HediffRemovalStatus.StillPresent
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: c8f93e20616e173069bc07b0aa1eb7e055ff51b8
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: StillPresent
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 17
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance is still attached after the native call; side effects may have occurred.
+  example: []
+  syntax:
+    content: StillPresent = 3
+    return:
+      type: RimWeave.Health.HediffRemovalStatus
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: RimWeave.Health.HediffRemovalStatus
+  commentId: T:RimWeave.Health.HediffRemovalStatus
+  parent: RimWeave.Health
+  href: RimWeave.Health.HediffRemovalStatus.html
+  name: HediffRemovalStatus
+  nameWithType: HediffRemovalStatus
+  fullName: RimWeave.Health.HediffRemovalStatus

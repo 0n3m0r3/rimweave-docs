@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  id: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionHediff
+  - RimWeave.Health.ContributionOperations
+  - RimWeave.Health.ContributionQueries
+  - RimWeave.Health.ContributionRemovalResult
+  - RimWeave.Health.HediffOperations
+  - RimWeave.Health.HediffRemovalResult
+  - RimWeave.Health.HediffRemovalStatus
+  langs:
+  - csharp
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  type: Namespace
+  assemblies:
+  - RimWeave
+references:
+- uid: RimWeave.Health.ContributionHediff
+  commentId: T:RimWeave.Health.ContributionHediff
+  href: RimWeave.Health.ContributionHediff.html
+  name: ContributionHediff
+  nameWithType: ContributionHediff
+  fullName: RimWeave.Health.ContributionHediff
+- uid: RimWeave.Health.ContributionOperations
+  commentId: T:RimWeave.Health.ContributionOperations
+  href: RimWeave.Health.ContributionOperations.html
+  name: ContributionOperations
+  nameWithType: ContributionOperations
+  fullName: RimWeave.Health.ContributionOperations
+- uid: RimWeave.Health.ContributionQueries
+  commentId: T:RimWeave.Health.ContributionQueries
+  href: RimWeave.Health.ContributionQueries.html
+  name: ContributionQueries
+  nameWithType: ContributionQueries
+  fullName: RimWeave.Health.ContributionQueries
+- uid: RimWeave.Health.ContributionRemovalResult
+  commentId: T:RimWeave.Health.ContributionRemovalResult
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionRemovalResult.html
+  name: ContributionRemovalResult
+  nameWithType: ContributionRemovalResult
+  fullName: RimWeave.Health.ContributionRemovalResult
+- uid: RimWeave.Health.HediffOperations
+  commentId: T:RimWeave.Health.HediffOperations
+  href: RimWeave.Health.HediffOperations.html
+  name: HediffOperations
+  nameWithType: HediffOperations
+  fullName: RimWeave.Health.HediffOperations
+- uid: RimWeave.Health.HediffRemovalStatus
+  commentId: T:RimWeave.Health.HediffRemovalStatus
+  parent: RimWeave.Health
+  href: RimWeave.Health.HediffRemovalStatus.html
+  name: HediffRemovalStatus
+  nameWithType: HediffRemovalStatus
+  fullName: RimWeave.Health.HediffRemovalStatus
+- uid: RimWeave.Health.HediffRemovalResult
+  commentId: T:RimWeave.Health.HediffRemovalResult
+  parent: RimWeave.Health
+  href: RimWeave.Health.HediffRemovalResult.html
+  name: HediffRemovalResult
+  nameWithType: HediffRemovalResult
+  fullName: RimWeave.Health.HediffRemovalResult
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health

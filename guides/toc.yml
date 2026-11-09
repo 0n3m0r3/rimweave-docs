@@ -1,0 +1,10 @@
+- name: Add information to a health effect
+  href: health-effects.md
+- name: Remove one effect
+  href: removal.md
+- name: Keep information through a save
+  href: persistence.md
+- name: Inspect and debug
+  href: debugging.md
+- name: Check your integration
+  href: testing.md

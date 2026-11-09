@@ -1,0 +1,6 @@
+- name: Which mod added this effect?
+  href: contributions.md
+- name: What caused this effect?
+  href: origins.md
+- name: When do mods conflict?
+  href: cooperation.md
