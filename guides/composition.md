@@ -52,7 +52,7 @@ Restart the game after each mod-list change. Use a fresh colony for each row:
 
 For each single-consumer run, also save and reload before removal, then again after removal. Inspect before another producer command: the contribution should survive the first reload and remain absent after the second.
 
-Keep the tested game build, source revision and enabled mods with the result. Single-consumer runs start fresh: they do not validate loading a save after uninstalling one of its providers.
+Keep the tested game build, source revision and enabled mods with the result. Single-consumer runs start fresh: they do not validate loading a save after uninstalling one of its providers. The separate [missing-provider procedure](provider-removal.md) compares an untouched original with a copy saved while B is absent.
 
 ## What this scenario establishes
 

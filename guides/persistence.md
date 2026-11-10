@@ -15,7 +15,7 @@ For a `ContributionHediff`, RimWeave saves the declared identity, exclusive resp
 
 Loading restores that information. It does **not** equip the glove again, add another effect, remove an effect or repeat the original command. The game's health system restores the existing native effect; the mod still owns its gameplay rules.
 
-The initial supported scope assumes the same game, framework and mod configuration, with the needed classes and definitions available. This is not a promise that arbitrary mod removal or version changes can be recovered.
+The initial supported scope assumes the same game, framework and mod configuration, with the needed classes and definitions available. This is not a promise that arbitrary mod removal or version changes can be recovered. To investigate a specific configuration, [compare the original and a save made without its provider](provider-removal.md); these are separate recovery paths.
 
 ## How a mod participates
 

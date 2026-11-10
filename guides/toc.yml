@@ -8,5 +8,7 @@
   href: debugging.md
 - name: Verify two independent mods
   href: composition.md
+- name: Check a missing provider
+  href: provider-removal.md
 - name: Check your integration
   href: testing.md

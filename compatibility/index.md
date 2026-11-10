@@ -34,6 +34,26 @@ The tested target was the Human body's first native hand, at body-part index 28 
 
 After each load, native IDs, metadata, target and cardinality were checked before any producer call. These observations establish persistence without duplicate contributions in this scenario; no callback counter was instrumented. Calls used the public producers and guarded developer entry points programmatically, without manual menu clicks. The solo runs do not test uninstalling a provider from an existing save. No third-party addon, migration, multiplayer or universal compatibility claim follows. Native engine logs included warnings; the compiler result does not describe the game console. The temporary driver was removed and the original mod installation restored.
 
+## Provider removal and return
+
+The [missing-provider procedure](../guides/provider-removal.md) compares an untouched original AB save, loading without B, and returning B to either the original or a file saved during its absence. It uses the consumers already published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). B supplies its effect definition; the effect class remains available from the framework. The API snapshot is unchanged.
+
+On 11 November 2026 (UTC+1), the published source passed 249 tests in Debug and 234 in Release against the installed game assemblies, with no build warnings or errors. The native investigation ran on **RimWorld 1.7.5005 rev1082**, separately from the earlier composition run on 1.7.5000. Core, Royalty, Ideology, Biotech, Odyssey, the framework, A and a temporary driver stayed fixed; only B varied.
+
+Five separate game processes completed 90 protocol and observed-state checks, with two native saves and five native loads. These counts describe completed verification, not successful recovery of every contribution:
+
+| Run | Observed state after loading | Checks |
+| --- | --- | --- |
+| Create AB source and reload its control | A and B retained their original native identities, declarations and targets. | 25 |
+| Load an original copy without B, without saving | Loading completed; A remained intact and B was absent. | 15 |
+| Restore B and load another original copy | Both original contributions returned intact. | 18 |
+| Load a fresh original copy without B and save under another name | A remained intact; B was absent from the derived save. | 18 |
+| Restore B and load the derived save | A remained intact; B was still absent despite its provider being active. | 14 |
+
+Each load without B completed with three native errors: B's missing definition, a `NullReferenceException` in native `HediffWithComps.InitializeComps` during loading, and cleanup of null health entries. B was not retained despite the framework class remaining available. This was not a clean uninstall or a warning-free load. Independent XML inspection found both effects in the original and only A in the derived file, with no remaining B definition or encoded owner declaration. A's native ID, metadata, body target, severity and creation tick were identical in both files. The master and every branch input retained their original file hashes.
+
+The driver made two producer calls to create the source contributions and none afterward. All post-load observations preceded any producer command. Native identities, declarations and counts were checked, without instrumenting callback counts or clicking the UI manually. This establishes recovery from the preserved original in this configuration, **not recovery of B from the derived save**. It does not test missing provider classes, arbitrary addons, migrations or irreversible gameplay consequences. The temporary driver was removed, the original mod installation restored and normal game configuration left unchanged.
+
 ## Targeted addition
 
 The [explicit addition adapter](../guides/health-effects.md#observe-the-addition) is included in the documented revision and published in [framework commit ce48935](https://github.com/0n3m0r3/rimweave/commit/ce48935b3f2414aa140b731e0fc3486cdc4bc273). It requests native addition of one prepared `ContributionHediff` and reports the exact instance's observed attachment. Same-instance repetition and reentrancy guards do not impose a stacking policy or reject distinct objects merely because their contribution identities match.
