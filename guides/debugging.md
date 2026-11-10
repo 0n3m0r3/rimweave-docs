@@ -90,7 +90,7 @@ A save holds one scenario. Starting again is refused; there is no automatic rese
 
 ## Verify two independent consumers
 
-The [two-mod composition scenario](composition.md) uses separately loadable Example and Example Peer consumers on the same hand. It checks coexistence, an explicit shared claim, native save/reload and withdrawal of one contribution while preserving the other. Its prepared commands and verification limits are documented separately from the reference scenario above.
+The [two-mod composition scenario](composition.md) uses separately loadable Example and Example Peer consumers on the same hand. It checks coexistence, an explicit shared claim, native save/reload and withdrawal of one contribution while preserving the other. Its commands and verification limits are documented separately from the reference scenario above.
 
 ## When an action is absent
 

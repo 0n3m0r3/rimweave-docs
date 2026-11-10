@@ -10,7 +10,7 @@ One mod supplies a medical contribution to a character's hand; another supplies 
 RimWorld already stores and saves the health effects. Each example mod owns its declarations and explicit add/remove commands; RimWeave supplies the existing identity, query, addition, removal and persistence contracts. The examples add technical markers, not medical or equipment gameplay rules.
 
 > [!NOTE]
-> This scenario is prepared locally after the [documented `ce48935` framework revision](../compatibility/versions.md). The public API snapshot is unchanged; the new consumer commands are not available in that published revision. [Support and evidence](../compatibility/index.md#prepared-two-consumer-scenario) records this scenario's verification separately.
+> This scenario is published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). It uses the unchanged public API documented at [`ce48935`](../compatibility/versions.md); the consumer commands require the later scenario revision. [Support and evidence](../compatibility/index.md#two-consumer-scenario) records its verification and limits.
 
 ## Install two separate consumers
 
