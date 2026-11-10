@@ -28,6 +28,17 @@ This method also accepts ordinary `Hediff` objects without RimWeave metadata. It
 
 If the first call removes the effect, another call with the same absent instance returns `NotPresent` without repeating native removal. Reattaching that instance changes the situation: there is no permanent “already removed” flag.
 
+## When a removal callback requests the same removal
+
+> [!NOTE]
+> This correction is prepared for a framework build after `2f6be47`. It is not part of the [documented `dd5d0e3` API baseline](../compatibility/versions.md).
+
+A native callback may request removal again before the first call has detached the effect. In the corrected build, that nested request returns `AlreadyRemoving` without invoking native removal a second time. The outer request still reports what happened after its own native call; the nested result is not another success or a queued retry.
+
+The guard applies to the exact effect instance. Removing another effect inside a callback remains possible, and finishing the first call releases the guard. Exceptions also release it and continue to the caller: this permits a later attempt, but does not roll back any native side effects. After a completed removal, reattaching the same instance permits a new removal request.
+
+The identity-based operation below preserves `AlreadyRemoving` in its removal result when its unique match is already being removed. These guarantees apply to calls through RimWeave on the simulation thread; direct native calls by other mods remain outside the guard.
+
 ## When you know its identity and target
 
 If Field Gear knows its effect's identity and the left hand rather than retaining the effect object, it can use <xref:RimWeave.Health.ContributionOperations>:

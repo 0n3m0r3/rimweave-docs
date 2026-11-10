@@ -21,6 +21,26 @@ Select one character on the map. RimWorld calls these entities pawns; animals an
 
 The report lists body slots, parent slots, definitions, labels, directly missing parts and attached health effects. An index identifies a slot in that inspected body list; it is not a permanent organ ID. The command reads state and logs a snapshot without applying effects or consuming simulation randomness.
 
+## Inspect declared health contributions
+
+> [!NOTE]
+> This diagnostic is published in [framework commit 2f6be47](https://github.com/0n3m0r3/rimweave/commit/2f6be47). It is newer than the [documented `dd5d0e3` API baseline](../compatibility/versions.md); the generated public C# API snapshot has not yet been refreshed.
+
+The glove mod and the surgical mod can both affect the same hand. To understand which declarations are actually present, select the character, enable developer mode, and choose **Inspect selected pawn health contributions** in the debug actions menu. This command belongs to the framework; the optional example mod is not required. It opens a scrollable **Health contributions** report without writing the report to the log automatically.
+
+Read each effect's native identity and exact body-part occurrence before comparing its metadata. Whole-body effects form a separate scope. The declaring mod's identifier is a supplied attribution, not proof that this code created the effect or that its provider is currently installed. **Definition package** separately names the package that supplied the effect's definition; it does not identify the code that added this instance. `ContributionHediff` supplies the inspected metadata. Other `Hediff` classes are reported as non-cooperating; the report does not guess their attribution.
+
+The report keeps these cases separate:
+
+- Several effects declaring the same contribution identity make an identity lookup ambiguous. Matching native IDs identify the candidates, including when a long displayed key is shortened.
+- Several effects declaring the same exclusive responsibility make competing claims. This does not choose a winner or prove a gameplay conflict.
+- An unreadable metadata record makes conclusions in its scope incomplete, even when readable matches exist. The report does not repair it.
+- An omitted origin, an explicitly unknown origin and a custom origin retain their distinct meanings. An opaque source reference is shown only as present or absent; its value is not printed.
+
+The report reads up to 40 attached effects and caps the output at 16,000 characters. Omitting effects or report content is marked as an incomplete diagnostic. Long fields are marked separately: at most 120 source characters are retained, then escaped for display. It reads the supplied health adapter's metadata; it does not call arbitrary providers to reconstruct ownership or history. These declarations do not explain a missing provider or a gameplay refusal by themselves.
+
+Inspection does not apply or remove an effect, start tracking, acknowledge observations, repair metadata or consume simulation randomness. Close and reopen to read the current state; an open report is a snapshot. There is no background collection, automatic file export or retained diagnostic history. The [recorded colony check](../compatibility/index.md#health-contribution-diagnostic) exercised the actual dialog's opening, repaint and closing paths; debug-menu clicks and mouse-wheel interactions remain untested.
+
 ## Add and remove the example marker
 
 1. In the debug actions menu, search for **marker**. The filter matches action names, not just category names.
@@ -52,6 +72,9 @@ Each observer ran once on the first removal and zero times on the repeated call.
 This scenario uses two consumers, A and B, following the same character and the same exact health effect. A second, similar effect must remain untouched. The example adds two whole-body markers with the same definition and contribution identity: their distinct native identities are what tell them apart. This is separate from the hand-marker example above.
 
 Use a disposable colony with the Debug example installed. Search for **Reference scenario** in the debug actions menu. Each report appears in a message window and the native log.
+
+> [!NOTE]
+> A presentation correction is prepared after `2f6be47`. Earlier reference-scenario reports consume simulation randomness through their native notification and dialog sounds. The corrected build preserves the random state around notification, opening, rendering and closing, including presentation failures. This protection covers presentation only; the scenario's requested mutations retain their native random behavior. See [the correction evidence](../compatibility/index.md#prepared-corrections).
 
 1. Select **T: Reference scenario: start**, click a living pawn directly on the current map, and confirm **Start reference scenario on …**. Expect `START PASS` with two markers. Opening the selection menu does not start the scenario; developer mode, the selected game and the pawn are checked again when you confirm.
 2. Run **Reference scenario: departure and return**, then **Reference scenario: acknowledge A**. The first command briefly removes the pawn from the map and puts it back on the same cell through native operations. Expect `DEPARTURE/RETURN PASS` and `ACKNOWLEDGE A PASS`: A has no pending changes, while B still holds `LeftContext` and `EnteredContext` for both its pawn and effect references. These are change kinds, without ordering or counts.

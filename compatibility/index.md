@@ -24,6 +24,16 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The native example contains two observers in one example mod. It is not proof of compatibility between arbitrary independent mods.
 
+## Health contribution diagnostic
+
+The [health contribution report](../guides/debugging.md#inspect-declared-health-contributions) is published in [framework commit 2f6be47](https://github.com/0n3m0r3/rimweave/commit/2f6be47), after the documented `dd5d0e3` API baseline. It inspects one pawn's attached health effects and declared metadata, with explicit bounds and incomplete-result markers. It does not establish the actual origin of an undeclared effect, provider presence, gameplay eligibility or general compatibility.
+
+On 9 November 2026, the full suite with this diagnostic passed 205 tests in Debug and 203 in Release; both builds completed without warnings or errors. Release inspection confirmed no debug actions, and no game assemblies were copied into the installable mod.
+
+A temporary verification driver passed 35 assertions in a disposable RimWorld 1.7.5000 rev1275 colony with Core, Royalty, Ideology, Biotech, Odyssey and the Debug framework, without the optional example. Checks distinguished identity ambiguity from an exclusive claim conflict on one hand, kept the other hand separate, retained unknown and unreadable states, refreshed after native removal and marked the 40-effect limit. Reports preserved exact effects, severity, targets, consumer tracking and simulation randomness; opaque source values and raw errors stayed hidden.
+
+The actual dialog's opening, isolated repaint and closing paths also preserved simulation randomness. Two native screenshots were reviewed for readability. Scroll position was set programmatically; debug-menu clicks and mouse-wheel interaction were not tested. Unreadable metadata was injected as a controlled failure state, so this run adds no Scribe save/load evidence. These checks cover that diagnostic and its fixtures, not arbitrary providers or multiplayer configurations.
+
 ## Native reference tracking
 
 The documented framework revision includes exact native references and per-consumer observations of supported transitions. Automated checks cover current-state inspection, native map event adapters, cooperating health callbacks and native Scribe reference resolution, including rejection of references created or loaded without an owning game. On 9 November 2026, the framework and example described below passed 192 tests in Debug and 190 in Release, with no build warnings or errors. No game assemblies were copied into the installable mod directories.
@@ -37,6 +47,18 @@ On 9 November 2026, a disposable colony ran on RimWorld 1.7.5000 rev1275 with Co
 All 34 assertions passed, including direct native departure and return, independent acknowledgement by two consumers, exact-effect removal with the similar effect preserved, and two complete native colony save/load cycles. Loading preserved observations and diagnostic identities without automatically resuming tracking or replaying scenario commands. After the second load, the removed target remained unresolved and the similar effect stayed attached. Starting with developer mode disabled was refused before adding markers; an untouched game and passive inspection created no scenario.
 
 Native save/load warnings for the removed effect are expected in this scenario: no owner serializes that detached target. Its reference retains the diagnostic identity, becomes unresolved after loading and never substitutes the surviving effect. This result does not promise warning-free native serialization. It also does not establish caravan or container transport, death/resurrection behavior, UI interactions, or compatibility with arbitrary providers. See [the reproducible scenario](../guides/debugging.md#verify-native-references-across-a-reload).
+
+## Prepared corrections
+
+A later independent review reproduced two defects in the published framework on RimWorld 1.7.5000 rev1275: a reentrant exact-effect removal invoked both native removal callbacks twice, and the reference scenario's report changed simulation randomness at opening and closing. These observations supplement the earlier checks; they do not invalidate the narrower results those checks measured.
+
+Corrections are prepared after `2f6be47`: [an explicit result for reentrant removal](../guides/removal.md#when-a-removal-callback-requests-the-same-removal) and [passive reference-report presentation](../guides/debugging.md#verify-native-references-across-a-reload). The generated API remains pinned to `dd5d0e3` until the corrected framework is committed and the documentation is re-exported.
+
+On 9 November 2026, the final corrected working tree passed 212 tests in Debug and 207 in Release, with no build warnings or errors. An independent review checked both fixes. The presentation helper and debug commands are absent from Release.
+
+A temporary driver passed 35 assertions in a disposable RimWorld 1.7.5000 rev1275 colony with Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework and example. The nested removal returned `AlreadyRemoving`, the outer call returned `Removed`, and each before/after callback ran once. A later attempt after an exception, reattachment of the same instance and nested removal of another instance also passed. Opening, one isolated repaint and closing both report dialogs preserved simulation randomness. A real scenario removal command retained a native observer's random draw, confirming that presentation isolation did not rewind the gameplay action.
+
+Two native screenshots were reviewed for readability. These checks used programmatic entry points and rendering instrumentation, not manual menu or mouse interactions; they do not establish compatibility with arbitrary providers. They validate the prepared fixes, not the older API baseline.
 
 ## Explicit limitations
 
