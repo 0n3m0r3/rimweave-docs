@@ -24,6 +24,16 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The native example contains two observers in one example mod. It is not proof of compatibility between arbitrary independent mods.
 
+## Prepared targeted addition
+
+The [explicit addition adapter](../guides/health-effects.md#prepared-observe-an-addition) is prepared locally and is not part of the documented `bbed0b6` API snapshot. It requests native addition of one prepared `ContributionHediff` and reports the exact instance's observed attachment. Same-instance repetition and reentrancy guards do not impose a stacking policy or reject distinct objects merely because their contribution identities match.
+
+The published API and compiled recipe exports remain unchanged until the framework change is committed and re-exported. On 10 November 2026, the local framework passed 229 tests in Debug and 224 in Release, including 17 targeted addition tests; both builds completed without warnings or errors. Independent review found no material defect in the code, tests or guide. The new guide excerpt also compiled separately against the local assembly; this was not an execution of native addition.
+
+A temporary driver passed 52 assertions and observed all 11 addition statuses in a disposable RimWorld 1.7.5000 rev1275 colony with Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework and the example. Checks covered independent same-definition contributions, the opposite hand, shared body-part records, whole-body targeting, refusals, repetition and reentrancy. Native `PostAdd` and later `HediffGiver.OnHediffAdded` callbacks exercised removal and changed owner/part fields before the result was captured. Exceptions preserved partial changes and allowed a later attempt; legitimate mutation randomness was not rewound. The extension API also worked without developer mode.
+
+Absorption by an ordinary effect used a deliberately constructed mixed-class fixture, not an actual third-party addon. The run exercised programmatic native calls, with no manual UI or new save/load test. These results cover the tested configuration, not arbitrary providers or universal compatibility. The temporary driver was removed and the original mod installation restored.
+
 ## Health contribution diagnostic
 
 The [health contribution report](../guides/debugging.md#inspect-declared-health-contributions) was introduced in [framework commit 2f6be47](https://github.com/0n3m0r3/rimweave/commit/2f6be47af59a84b5bb041bd541f11989cfbe7a23) and is included in the documented revision. It inspects one pawn's attached health effects and declared metadata, with explicit bounds and incomplete-result markers. It does not establish the actual origin of an undeclared effect, provider presence, gameplay eligibility or general compatibility.
