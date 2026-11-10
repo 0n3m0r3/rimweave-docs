@@ -5,6 +5,7 @@ items:
   id: HediffRemovalStatus
   parent: RimWeave.Health
   children:
+  - RimWeave.Health.HediffRemovalStatus.AlreadyRemoving
   - RimWeave.Health.HediffRemovalStatus.NotPresent
   - RimWeave.Health.HediffRemovalStatus.PawnMismatch
   - RimWeave.Health.HediffRemovalStatus.Removed
@@ -18,7 +19,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: HediffRemovalStatus
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -43,7 +44,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Removed
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -70,7 +71,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: NotPresent
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -97,7 +98,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PawnMismatch
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -124,7 +125,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: StillPresent
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -136,6 +137,33 @@ items:
   example: []
   syntax:
     content: StillPresent = 3
+    return:
+      type: RimWeave.Health.HediffRemovalStatus
+- uid: RimWeave.Health.HediffRemovalStatus.AlreadyRemoving
+  commentId: F:RimWeave.Health.HediffRemovalStatus.AlreadyRemoving
+  id: AlreadyRemoving
+  parent: RimWeave.Health.HediffRemovalStatus
+  langs:
+  - csharp
+  name: AlreadyRemoving
+  nameWithType: HediffRemovalStatus.AlreadyRemoving
+  fullName: RimWeave.Health.HediffRemovalStatus.AlreadyRemoving
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/HediffRemovalResult.cs
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: AlreadyRemoving
+    path: RimWeave/Health/HediffRemovalResult.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: A removal call for this attached instance is already in progress; no native removal was called again.
+  example: []
+  syntax:
+    content: AlreadyRemoving = 4
     return:
       type: RimWeave.Health.HediffRemovalStatus
 references:

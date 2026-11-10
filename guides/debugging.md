@@ -24,7 +24,7 @@ The report lists body slots, parent slots, definitions, labels, directly missing
 ## Inspect declared health contributions
 
 > [!NOTE]
-> This diagnostic is published in [framework commit 2f6be47](https://github.com/0n3m0r3/rimweave/commit/2f6be47). It is newer than the [documented `dd5d0e3` API baseline](../compatibility/versions.md); the generated public C# API snapshot has not yet been refreshed.
+> This diagnostic was introduced in [framework commit 2f6be47](https://github.com/0n3m0r3/rimweave/commit/2f6be47af59a84b5bb041bd541f11989cfbe7a23) and is included in the [documented revision](../compatibility/versions.md).
 
 The glove mod and the surgical mod can both affect the same hand. To understand which declarations are actually present, select the character, enable developer mode, and choose **Inspect selected pawn health contributions** in the debug actions menu. This command belongs to the framework; the optional example mod is not required. It opens a scrollable **Health contributions** report without writing the report to the log automatically.
 
@@ -67,14 +67,14 @@ Each observer ran once on the first removal and zero times on the repeated call.
 ## Verify native references across a reload
 
 > [!NOTE]
-> These reference-check commands are included in [framework commit dd5d0e3](https://github.com/0n3m0r3/rimweave/commit/dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2). The public framework API is unchanged. The recorded in-game run called the guarded command entry point programmatically; the menu interactions below have not been checked. See [Support and evidence](../compatibility/index.md#in-game-reference-scenario).
+> These reference-check commands are included in [framework commit dd5d0e3](https://github.com/0n3m0r3/rimweave/commit/dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2). The recorded in-game run called the guarded command entry point programmatically; the menu interactions below have not been checked. See [Support and evidence](../compatibility/index.md#in-game-reference-scenario).
 
 This scenario uses two consumers, A and B, following the same character and the same exact health effect. A second, similar effect must remain untouched. The example adds two whole-body markers with the same definition and contribution identity: their distinct native identities are what tell them apart. This is separate from the hand-marker example above.
 
 Use a disposable colony with the Debug example installed. Search for **Reference scenario** in the debug actions menu. Each report appears in a message window and the native log.
 
 > [!NOTE]
-> A presentation correction is prepared after `2f6be47`. Earlier reference-scenario reports consume simulation randomness through their native notification and dialog sounds. The corrected build preserves the random state around notification, opening, rendering and closing, including presentation failures. This protection covers presentation only; the scenario's requested mutations retain their native random behavior. See [the correction evidence](../compatibility/index.md#prepared-corrections).
+> Earlier reference-scenario reports consumed simulation randomness through their native notification and dialog sounds. The documented revision includes the correction published in [framework commit bbed0b6](https://github.com/0n3m0r3/rimweave/commit/bbed0b63b9d93722bca5c7227972e38b629f6b63): notification, opening, rendering and closing preserve the random state, including presentation failures. This protection covers presentation only; the scenario's requested mutations retain their native random behavior. See [the correction evidence](../compatibility/index.md#published-corrections).
 
 1. Select **T: Reference scenario: start**, click a living pawn directly on the current map, and confirm **Start reference scenario on …**. Expect `START PASS` with two markers. Opening the selection menu does not start the scenario; developer mode, the selected game and the pawn are checked again when you confirm.
 2. Run **Reference scenario: departure and return**, then **Reference scenario: acknowledge A**. The first command briefly removes the pawn from the map and puts it back on the same cell through native operations. Expect `DEPARTURE/RETURN PASS` and `ACKNOWLEDGE A PASS`: A has no pending changes, while B still holds `LeftContext` and `EnteredContext` for both its pawn and effect references. These are change kinds, without ordering or counts.

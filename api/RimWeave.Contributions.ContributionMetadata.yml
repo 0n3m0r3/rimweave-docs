@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionMetadata
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Identity
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -85,7 +85,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ExclusiveResponsibility
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -114,7 +114,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Origin
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -145,7 +145,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: LoadError
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -175,7 +175,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: AssignIdentity
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -212,7 +212,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ClaimExclusiveResponsibility
     path: RimWeave/Contributions/ContributionMetadata.cs
@@ -250,7 +250,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionMetadata.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: DescribeOrigin
     path: RimWeave/Contributions/ContributionMetadata.cs

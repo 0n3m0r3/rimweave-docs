@@ -21,7 +21,7 @@ A working-tree preview must be re-exported after the framework changes are commi
 - Typed lookup and explicit exclusive-responsibility queries.
 - Extensible origins with optional source references.
 - Exact pawn/body-part health targeting and independent contribution effects.
-- Guarded native removal by instance or resolved contribution identity.
+- Guarded native removal by instance or resolved contribution identity, including an explicit `AlreadyRemoving` result for a reentrant request on the same attached instance.
 - Metadata saved through the native Scribe process, with explicit handling of unreadable saved information.
 
 ## Native reference tracking
@@ -29,6 +29,10 @@ A working-tree preview must be re-exported after the framework changes are commi
 The documented framework revision also includes exact native pawn and health-effect references, current-state inspection, explicitly activated tracking of supported native callbacks, and saved reference resolution with an explicit interruption at load. See [the reference scenario](../guides/health-effects.md#keep-a-reference-when-the-character-moves) and [its save/load boundary](../guides/persistence.md#save-an-exact-reference-separately).
 
 This increment does not supply persistent organ identity, an activity's reservation cleanup or universal lifecycle notifications for every mod.
+
+## Developer diagnostics
+
+The documented revision includes the bounded [health contribution report](../guides/debugging.md#inspect-declared-health-contributions) and passive presentation for both developer reports. The health report reads declared information; it does not establish undeclared provenance or general compatibility. See [the recorded correction checks](index.md#published-corrections) for their verification limits.
 
 ## Evolution policy
 

@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffOperations.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: HediffOperations
     path: RimWeave/Health/HediffOperations.cs
@@ -23,7 +23,7 @@ items:
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
-  summary: Guards native health-effect removal against stale instances and mismatched owners.
+  summary: Guards native health-effect removal against stale instances, mismatched owners and reentrancy.
   example: []
   syntax:
     content: public static class HediffOperations
@@ -43,11 +43,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffOperations.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Remove
     path: RimWeave/Health/HediffOperations.cs
-    startLine: 19
+    startLine: 25
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -56,7 +56,11 @@ items:
 
     requested pawn after a normal return; it does not describe all side effects.
 
-    Native exceptions propagate and may follow partial changes.'
+    Reentrant removal of the same attached instance returns AlreadyRemoving without invoking
+
+    native callbacks again. Other instances and later removal attempts remain independent.
+
+    Native exceptions propagate and may follow partial changes; the temporary guard is always released.'
   example: []
   syntax:
     content: public static HediffRemovalResult Remove(Pawn pawn, Hediff hediff)

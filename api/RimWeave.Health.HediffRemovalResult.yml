@@ -19,11 +19,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: HediffRemovalResult
     path: RimWeave/Health/HediffRemovalResult.cs
-    startLine: 25
+    startLine: 28
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -50,11 +50,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/Health/HediffRemovalResult.cs
-    startLine: 25
+    startLine: 28
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -89,11 +89,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Status
     path: RimWeave/Health/HediffRemovalResult.cs
-    startLine: 26
+    startLine: 29
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -118,11 +118,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Pawn
     path: RimWeave/Health/HediffRemovalResult.cs
-    startLine: 27
+    startLine: 30
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -147,11 +147,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Hediff
     path: RimWeave/Health/HediffRemovalResult.cs
-    startLine: 28
+    startLine: 31
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -176,11 +176,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: dd5d0e36a4ebaec7b34e61f6474d006c4149f2d2
+      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Part
     path: RimWeave/Health/HediffRemovalResult.cs
-    startLine: 29
+    startLine: 32
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
