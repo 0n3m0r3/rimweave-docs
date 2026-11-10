@@ -88,6 +88,10 @@ After removal, save and reload once more, then inspect before another scenario a
 
 A save holds one scenario. Starting again is refused; there is no automatic reset or cleanup, and the surviving marker remains in that disposable save. Use a fresh disposable colony for another run. Direct departure and return do not validate caravan travel, carried pawns, arbitrary third-party callbacks or compatibility between independent mods. Recorded results belong in [Support and evidence](../compatibility/index.md).
 
+## Verify two independent consumers
+
+The [two-mod composition scenario](composition.md) uses separately loadable Example and Example Peer consumers on the same hand. It checks coexistence, an explicit shared claim, native save/reload and withdrawal of one contribution while preserving the other. Its prepared commands and verification limits are documented separately from the reference scenario above.
+
 ## When an action is absent
 
 Check that the installed files came from the last **Debug** build, that the separate example is enabled, and that the game has been restarted after replacing assemblies. Search for the action name while playing on a map. A successful IDE build is not proof that the running game loaded the new files.

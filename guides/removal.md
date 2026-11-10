@@ -61,4 +61,4 @@ The operation does not log automatically. Your mod decides whether an already ab
 
 The [developer example](debugging.md#verify-repeated-removal) retains one marker instance and removes it twice. Two observers should each run once for the first removal and zero times for the second. Also check that a marker on the other hand remains.
 
-That recorded scenario exercises exact-instance removal. The identity-based entry point has automated lookup and guard checks; its successful native removal needs a separate in-game scenario.
+That recorded scenario exercises exact-instance removal. The separate [two-mod composition scenario](composition.md) verifies successful removal by contribution identity after a native reload, preserving the other consumer's exact effect. Its recorded evidence covers the two cooperating examples, not arbitrary providers.

@@ -42,6 +42,6 @@ These tests run without a live colony. They do not establish that every other mo
 
 Use a disposable colony. Record the game build, framework revision, participating mods, target and expected result. Execute the action your integration is meant to support, then inspect the actual health state and relevant callbacks.
 
-The supplied [developer example](debugging.md) checks repeated exact-instance removal. It contains two observers in one example mod. To claim cooperation between independent mods, test independent mods; two classes in one example are a narrower check.
+The original [developer example](debugging.md#verify-repeated-removal) checks repeated exact-instance removal with two observers in one mod. The separate [two-mod composition scenario](composition.md) uses independently loadable consumers, a native reload, targeted withdrawal, reversed load order and fresh single-consumer runs. Its procedure and recorded evidence keep those scopes distinct.
 
 Record failures and scenarios you have not run. A passing build or unit test is useful evidence for its own scope, not proof of an unrelated save migration, mod removal or multiplayer configuration.

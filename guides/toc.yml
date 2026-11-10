@@ -6,5 +6,7 @@
   href: persistence.md
 - name: Inspect and debug
   href: debugging.md
+- name: Verify two independent mods
+  href: composition.md
 - name: Check your integration
   href: testing.md
