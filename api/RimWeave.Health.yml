@@ -4,6 +4,8 @@ items:
   commentId: N:RimWeave.Health
   id: RimWeave.Health
   children:
+  - RimWeave.Health.ContributionAdditionResult
+  - RimWeave.Health.ContributionAdditionStatus
   - RimWeave.Health.ContributionHediff
   - RimWeave.Health.ContributionOperations
   - RimWeave.Health.ContributionQueries
@@ -20,8 +22,23 @@ items:
   assemblies:
   - RimWeave
 references:
+- uid: RimWeave.Health.ContributionAdditionStatus
+  commentId: T:RimWeave.Health.ContributionAdditionStatus
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionAdditionStatus.html
+  name: ContributionAdditionStatus
+  nameWithType: ContributionAdditionStatus
+  fullName: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionResult
+  commentId: T:RimWeave.Health.ContributionAdditionResult
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionAdditionResult.html
+  name: ContributionAdditionResult
+  nameWithType: ContributionAdditionResult
+  fullName: RimWeave.Health.ContributionAdditionResult
 - uid: RimWeave.Health.ContributionHediff
   commentId: T:RimWeave.Health.ContributionHediff
+  parent: RimWeave.Health
   href: RimWeave.Health.ContributionHediff.html
   name: ContributionHediff
   nameWithType: ContributionHediff

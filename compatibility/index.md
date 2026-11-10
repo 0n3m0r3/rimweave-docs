@@ -24,11 +24,11 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The native example contains two observers in one example mod. It is not proof of compatibility between arbitrary independent mods.
 
-## Prepared targeted addition
+## Targeted addition
 
-The [explicit addition adapter](../guides/health-effects.md#prepared-observe-an-addition) is prepared locally and is not part of the documented `bbed0b6` API snapshot. It requests native addition of one prepared `ContributionHediff` and reports the exact instance's observed attachment. Same-instance repetition and reentrancy guards do not impose a stacking policy or reject distinct objects merely because their contribution identities match.
+The [explicit addition adapter](../guides/health-effects.md#observe-the-addition) is included in the documented revision and published in [framework commit ce48935](https://github.com/0n3m0r3/rimweave/commit/ce48935b3f2414aa140b731e0fc3486cdc4bc273). It requests native addition of one prepared `ContributionHediff` and reports the exact instance's observed attachment. Same-instance repetition and reentrancy guards do not impose a stacking policy or reject distinct objects merely because their contribution identities match.
 
-The published API and compiled recipe exports remain unchanged until the framework change is committed and re-exported. On 10 November 2026, the local framework passed 229 tests in Debug and 224 in Release, including 17 targeted addition tests; both builds completed without warnings or errors. Independent review found no material defect in the code, tests or guide. The new guide excerpt also compiled separately against the local assembly; this was not an execution of native addition.
+On 10 November 2026, this increment passed 229 tests in Debug and 224 in Release, including 17 targeted addition tests; both builds completed without warnings or errors. Independent review found no material defect in the code, tests or guide. The documentation recipe is compiled against the documented framework revision during API export; compilation does not execute native addition.
 
 A temporary driver passed 52 assertions and observed all 11 addition statuses in a disposable RimWorld 1.7.5000 rev1275 colony with Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework and the example. Checks covered independent same-definition contributions, the opposite hand, shared body-part records, whole-body targeting, refusals, repetition and reentrancy. Native `PostAdd` and later `HediffGiver.OnHediffAdded` callbacks exercised removal and changed owner/part fields before the result was captured. Exceptions preserved partial changes and allowed a later attempt; legitimate mutation randomness was not rewound. The extension API also worked without developer mode.
 

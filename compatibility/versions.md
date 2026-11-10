@@ -21,6 +21,7 @@ A working-tree preview must be re-exported after the framework changes are commi
 - Typed lookup and explicit exclusive-responsibility queries.
 - Extensible origins with optional source references.
 - Exact pawn/body-part health targeting and independent contribution effects.
+- [Targeted native addition](../guides/health-effects.md#observe-the-addition) with an explicit part or whole-body target and the attachment observed after the complete native call.
 - Guarded native removal by instance or resolved contribution identity, including an explicit `AlreadyRemoving` result for a reentrant request on the same attached instance.
 - Metadata saved through the native Scribe process, with explicit handling of unreadable saved information.
 

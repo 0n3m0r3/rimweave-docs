@@ -8,8 +8,8 @@ namespace RimWeave.Documentation.Examples;
 internal static class HealthRecipes
 {
     #region attach
-    internal static ContributionHediff Attach(
-        Pawn pawn, HediffDef definition, BodyPartRecord part,
+    internal static ContributionAdditionResult Attach(
+        Pawn pawn, HediffDef definition, BodyPartRecord? part,
         ContributionId identity, ContributionOrigin origin)
     {
         var nativeEffect = HediffMaker.MakeHediff(definition, pawn, part);
@@ -18,8 +18,7 @@ internal static class HealthRecipes
 
         effect.Metadata.AssignIdentity(identity);
         effect.Metadata.DescribeOrigin(origin);
-        pawn.health.AddHediff(effect, part);
-        return effect;
+        return ContributionOperations.Add(pawn, effect, part);
     }
     #endregion
 

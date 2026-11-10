@@ -26,33 +26,25 @@ Configure your mod's `HediffDef` to use <xref:RimWeave.Health.ContributionHediff
 
 An existing `ContributionHediff` refuses native merging so cooperating instances can keep their own identities and lifetimes. An ordinary health effect already on the pawn can still absorb an incoming contribution through its own native merge behavior. `ContributionHediff` saves its metadata with the effect; it does not change unrelated `Hediff` classes or decide which effects your mod is allowed to add.
 
-The following recipe assumes your mod already has that definition, the pawn and a valid part from that pawn's body. It is not a complete glove mod: deciding when a glove should add an effect is still your mod's work.
+The following recipe assumes your mod already has that definition, an initialized pawn and an explicit target: a part from that pawn's body, or `null` for the whole body. It is not a complete glove mod: deciding when a glove should add an effect is still your mod's work.
 
 ## Create, describe, then attach
 
 [!code-csharp[Create and attach](../examples/Recipes/Health.cs#attach)]
 
-`HediffMaker.MakeHediff` asks the game's factory to create the effect described by the definition. The type check catches a definition configured with the wrong class. The two metadata calls describe the new effect. Finally, `AddHediff` requests attachment through the game's normal health operation. Its return does not by itself establish that this exact instance remains attached after merging and callbacks.
+`HediffMaker.MakeHediff` asks the game's factory to create the effect described by the definition. The type check catches a definition configured with the wrong class. The two metadata calls describe the new effect. Finally, <xref:RimWeave.Health.ContributionOperations> validates the prepared target and, when accepted, calls native `pawn.health.AddHediff`. It returns the observed outcome after that complete native call, including merging and callbacks.
 
-That last call is the point where game state changes. Your mod must first decide whether the target is available, whether this effect is allowed and whether another instance should coexist with it. The recipe supplies none of those gameplay decisions.
+`Add` is the point where this recipe requests attachment through the native health tracker. Your mod must first decide whether this effect is allowed and whether another instance should coexist with it. The recipe supplies none of those gameplay decisions.
 
 Use native health operations on the game's simulation thread. Normal API calls from a mod do not require developer mode. The separate developer example requires developer mode because its commands deliberately modify a test colony.
 
-## Prepared: observe an addition
+## Observe the addition
 
-> [!NOTE]
-> The addition API below is prepared locally. It is not included in the [documented `bbed0b6` revision](../compatibility/versions.md) or its generated API and compiled recipe snapshot. Use a framework build containing this change. [Support and evidence](../compatibility/index.md#prepared-targeted-addition) records its verification separately.
-
-Suppose the glove mod adds its effect to the left hand while a surgical contribution must remain independent. In the prepared build, keep the factory and metadata steps above, then use `ContributionOperations.Add` **instead of** the direct `pawn.health.AddHediff` call:
-
-```csharp
-ContributionAdditionResult result =
-    ContributionOperations.Add(pawn, effect, part);
-```
+The glove mod needs to know whether its effect remains on the left hand while the surgical contribution stays independent. The recipe returns <xref:RimWeave.Health.ContributionAdditionResult>, not an effect assumed to be attached. Read `result.Status` before treating `result.Hediff` as an attached effect. `Added` confirms that a new native call ended with the exact instance on the requested pawn and part; `AlreadyPresent` means it was already there and no new native call ran.
 
 Prepare `effect` with `HediffMaker.MakeHediff(definition, pawn, part)` using the same pawn and exact part passed to `Add`. The part argument is mandatory: explicitly pass `null` for a whole-body request. A definition with `defaultInstallPart` is refused for that request because the native operation would select a part. The adapter does not silently retarget a prepared effect or select another hand.
 
-Read `result.Status` before reacting. Only `Added`, `NotAttached` and `AttachmentChanged` follow a new native addition; the other results return without calling it.
+The <xref:RimWeave.Health.ContributionAdditionStatus> values describe these outcomes. Only `Added`, `NotAttached` and `AttachmentChanged` follow a new native addition; the other results return without calling it.
 
 | Status | Observation or refusal |
 | --- | --- |
@@ -106,4 +98,4 @@ Read the current snapshot before acting. Dispose the reference when observation 
 
 `ContributionHediff` participates in the game's saving process. If a subclass overrides `ExposeData`, it must call the base implementation in every save/load phase. Read the [save/load guide](persistence.md) for what is restored and what happens if the information cannot be read.
 
-The exported recipes are compiled against the documented framework and game references; the separately marked prepared API is outside that snapshot. The automated suite checks targeting, merging refusal and removal guards. Applying your effect and observing its full behavior in a colony still needs an integration test.
+The recipes are compiled against the documented framework and game references. The [recorded addition checks](../compatibility/index.md#targeted-addition) cover a controlled native scenario. Your mod's complete behavior still needs its own integration test.

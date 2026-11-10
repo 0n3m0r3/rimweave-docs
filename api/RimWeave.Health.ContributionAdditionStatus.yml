@@ -1,0 +1,355 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.ContributionAdditionStatus
+  commentId: T:RimWeave.Health.ContributionAdditionStatus
+  id: ContributionAdditionStatus
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionAdditionStatus.Added
+  - RimWeave.Health.ContributionAdditionStatus.AlreadyAdding
+  - RimWeave.Health.ContributionAdditionStatus.AlreadyPresent
+  - RimWeave.Health.ContributionAdditionStatus.AttachmentChanged
+  - RimWeave.Health.ContributionAdditionStatus.IncompatibleTarget
+  - RimWeave.Health.ContributionAdditionStatus.InvalidDefinition
+  - RimWeave.Health.ContributionAdditionStatus.InvalidPart
+  - RimWeave.Health.ContributionAdditionStatus.MissingPart
+  - RimWeave.Health.ContributionAdditionStatus.NotAttached
+  - RimWeave.Health.ContributionAdditionStatus.PartMismatch
+  - RimWeave.Health.ContributionAdditionStatus.PawnMismatch
+  langs:
+  - csharp
+  name: ContributionAdditionStatus
+  nameWithType: ContributionAdditionStatus
+  fullName: RimWeave.Health.ContributionAdditionStatus
+  type: Enum
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionAdditionStatus
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 5
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The observed outcome of an explicitly targeted contribution addition.
+  example: []
+  syntax:
+    content: public enum ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.Added
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.Added
+  id: Added
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: Added
+  nameWithType: ContributionAdditionStatus.Added
+  fullName: RimWeave.Health.ContributionAdditionStatus.Added
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Added
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 8
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The native call returned with the exact instance attached to the requested pawn and part.
+  example: []
+  syntax:
+    content: Added = 0
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.NotAttached
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.NotAttached
+  id: NotAttached
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: NotAttached
+  nameWithType: ContributionAdditionStatus.NotAttached
+  fullName: RimWeave.Health.ContributionAdditionStatus.NotAttached
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: NotAttached
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 10
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance is absent from the requested pawn after the native call; its cause is not inferred.
+  example: []
+  syntax:
+    content: NotAttached = 1
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.AttachmentChanged
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.AttachmentChanged
+  id: AttachmentChanged
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: AttachmentChanged
+  nameWithType: ContributionAdditionStatus.AttachmentChanged
+  fullName: RimWeave.Health.ContributionAdditionStatus.AttachmentChanged
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: AttachmentChanged
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 12
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance is listed on the requested pawn, but its owner or part field changed during the native call.
+  example: []
+  syntax:
+    content: AttachmentChanged = 2
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.AlreadyPresent
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.AlreadyPresent
+  id: AlreadyPresent
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: AlreadyPresent
+  nameWithType: ContributionAdditionStatus.AlreadyPresent
+  fullName: RimWeave.Health.ContributionAdditionStatus.AlreadyPresent
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: AlreadyPresent
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance was already attached to the requested pawn and part; no native addition was called.
+  example: []
+  syntax:
+    content: AlreadyPresent = 3
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.AlreadyAdding
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.AlreadyAdding
+  id: AlreadyAdding
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: AlreadyAdding
+  nameWithType: ContributionAdditionStatus.AlreadyAdding
+  fullName: RimWeave.Health.ContributionAdditionStatus.AlreadyAdding
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: AlreadyAdding
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 16
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: An addition of this exact instance is in progress; no native addition was called again.
+  example: []
+  syntax:
+    content: AlreadyAdding = 4
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.PawnMismatch
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.PawnMismatch
+  id: PawnMismatch
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: PawnMismatch
+  nameWithType: ContributionAdditionStatus.PawnMismatch
+  fullName: RimWeave.Health.ContributionAdditionStatus.PawnMismatch
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PawnMismatch
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 18
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The prepared instance refers to a different or null pawn; no native addition was called.
+  example: []
+  syntax:
+    content: PawnMismatch = 5
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.PartMismatch
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.PartMismatch
+  id: PartMismatch
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: PartMismatch
+  nameWithType: ContributionAdditionStatus.PartMismatch
+  fullName: RimWeave.Health.ContributionAdditionStatus.PartMismatch
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PartMismatch
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The prepared instance's part differs from the explicit target; no native addition was called.
+  example: []
+  syntax:
+    content: PartMismatch = 6
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.InvalidPart
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.InvalidPart
+  id: InvalidPart
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: InvalidPart
+  nameWithType: ContributionAdditionStatus.InvalidPart
+  fullName: RimWeave.Health.ContributionAdditionStatus.InvalidPart
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: InvalidPart
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 22
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The part is not an occurrence in the requested pawn's BodyDef; no native addition was called.
+  example: []
+  syntax:
+    content: InvalidPart = 7
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.MissingPart
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.MissingPart
+  id: MissingPart
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: MissingPart
+  nameWithType: ContributionAdditionStatus.MissingPart
+  fullName: RimWeave.Health.ContributionAdditionStatus.MissingPart
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: MissingPart
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 24
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The native health tracker excludes the requested part as missing; no native addition was called.
+  example: []
+  syntax:
+    content: MissingPart = 8
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.IncompatibleTarget
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.IncompatibleTarget
+  id: IncompatibleTarget
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: IncompatibleTarget
+  nameWithType: ContributionAdditionStatus.IncompatibleTarget
+  fullName: RimWeave.Health.ContributionAdditionStatus.IncompatibleTarget
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: IncompatibleTarget
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 26
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: A whole-body request would select the definition's default part; no native addition was called.
+  example: []
+  syntax:
+    content: IncompatibleTarget = 9
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+- uid: RimWeave.Health.ContributionAdditionStatus.InvalidDefinition
+  commentId: F:RimWeave.Health.ContributionAdditionStatus.InvalidDefinition
+  id: InvalidDefinition
+  parent: RimWeave.Health.ContributionAdditionStatus
+  langs:
+  - csharp
+  name: InvalidDefinition
+  nameWithType: ContributionAdditionStatus.InvalidDefinition
+  fullName: RimWeave.Health.ContributionAdditionStatus.InvalidDefinition
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: InvalidDefinition
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 28
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The prepared instance has no definition; no native addition was called.
+  example: []
+  syntax:
+    content: InvalidDefinition = 10
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: RimWeave.Health.ContributionAdditionStatus
+  commentId: T:RimWeave.Health.ContributionAdditionStatus
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionAdditionStatus.html
+  name: ContributionAdditionStatus
+  nameWithType: ContributionAdditionStatus
+  fullName: RimWeave.Health.ContributionAdditionStatus

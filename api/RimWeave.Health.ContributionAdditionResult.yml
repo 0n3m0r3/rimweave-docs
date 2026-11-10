@@ -1,0 +1,513 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.ContributionAdditionResult
+  commentId: T:RimWeave.Health.ContributionAdditionResult
+  id: ContributionAdditionResult
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionAdditionResult.#ctor(RimWeave.Health.ContributionAdditionStatus,Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord,Verse.Pawn,Verse.BodyPartRecord)
+  - RimWeave.Health.ContributionAdditionResult.Hediff
+  - RimWeave.Health.ContributionAdditionResult.ObservedPart
+  - RimWeave.Health.ContributionAdditionResult.ObservedPawn
+  - RimWeave.Health.ContributionAdditionResult.Part
+  - RimWeave.Health.ContributionAdditionResult.Pawn
+  - RimWeave.Health.ContributionAdditionResult.Status
+  langs:
+  - csharp
+  name: ContributionAdditionResult
+  nameWithType: ContributionAdditionResult
+  fullName: RimWeave.Health.ContributionAdditionResult
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionAdditionResult
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 38
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: An addition outcome captured at return, without inferring the cause of an absent instance.
+  example: []
+  syntax:
+    content: 'public sealed record ContributionAdditionResult : IEquatable<ContributionAdditionResult>'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RimWeave.Health.ContributionAdditionResult}
+  inheritedMembers: []
+- uid: RimWeave.Health.ContributionAdditionResult.#ctor(RimWeave.Health.ContributionAdditionStatus,Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord,Verse.Pawn,Verse.BodyPartRecord)
+  commentId: M:RimWeave.Health.ContributionAdditionResult.#ctor(RimWeave.Health.ContributionAdditionStatus,Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord,Verse.Pawn,Verse.BodyPartRecord)
+  id: '#ctor(RimWeave.Health.ContributionAdditionStatus,Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord,Verse.Pawn,Verse.BodyPartRecord)'
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: ContributionAdditionResult(ContributionAdditionStatus, Pawn, ContributionHediff, BodyPartRecord?, Pawn?,
+    BodyPartRecord?)
+  nameWithType: ContributionAdditionResult.ContributionAdditionResult(ContributionAdditionStatus, Pawn, ContributionHediff,
+    BodyPartRecord?, Pawn?, BodyPartRecord?)
+  fullName: RimWeave.Health.ContributionAdditionResult.ContributionAdditionResult(RimWeave.Health.ContributionAdditionStatus,
+    Verse.Pawn, RimWeave.Health.ContributionHediff, Verse.BodyPartRecord?, Verse.Pawn?, Verse.BodyPartRecord?)
+  type: Constructor
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: .ctor
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 38
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: An addition outcome captured at return, without inferring the cause of an absent instance.
+  example: []
+  syntax:
+    content: public ContributionAdditionResult(ContributionAdditionStatus Status, Pawn Pawn, ContributionHediff
+      Hediff, BodyPartRecord? Part, Pawn? ObservedPawn, BodyPartRecord? ObservedPart)
+    parameters:
+    - id: Status
+      type: RimWeave.Health.ContributionAdditionStatus
+      description: The request outcome; only Added confirms a new native call with matching final attachment.
+    - id: Pawn
+      type: Verse.Pawn
+      description: The requested native owner.
+    - id: Hediff
+      type: RimWeave.Health.ContributionHediff
+      description: The exact contribution requested for addition.
+    - id: Part
+      type: Verse.BodyPartRecord
+      description: The requested part reference, or null for the whole body.
+    - id: ObservedPawn
+      type: Verse.Pawn
+      description: The instance's owner field at return; this alone does not prove list membership.
+    - id: ObservedPart
+      type: Verse.BodyPartRecord
+      description: The instance's part field at return, which may differ after callbacks.
+  overload: RimWeave.Health.ContributionAdditionResult.#ctor*
+- uid: RimWeave.Health.ContributionAdditionResult.Status
+  commentId: P:RimWeave.Health.ContributionAdditionResult.Status
+  id: Status
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: Status
+  nameWithType: ContributionAdditionResult.Status
+  fullName: RimWeave.Health.ContributionAdditionResult.Status
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Status
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 39
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The request outcome; only Added confirms a new native call with matching final attachment.
+  example: []
+  syntax:
+    content: public ContributionAdditionStatus Status { get; init; }
+    parameters: []
+    return:
+      type: RimWeave.Health.ContributionAdditionStatus
+  overload: RimWeave.Health.ContributionAdditionResult.Status*
+- uid: RimWeave.Health.ContributionAdditionResult.Pawn
+  commentId: P:RimWeave.Health.ContributionAdditionResult.Pawn
+  id: Pawn
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: Pawn
+  nameWithType: ContributionAdditionResult.Pawn
+  fullName: RimWeave.Health.ContributionAdditionResult.Pawn
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Pawn
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 40
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The requested native owner.
+  example: []
+  syntax:
+    content: public Pawn Pawn { get; init; }
+    parameters: []
+    return:
+      type: Verse.Pawn
+  overload: RimWeave.Health.ContributionAdditionResult.Pawn*
+- uid: RimWeave.Health.ContributionAdditionResult.Hediff
+  commentId: P:RimWeave.Health.ContributionAdditionResult.Hediff
+  id: Hediff
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: Hediff
+  nameWithType: ContributionAdditionResult.Hediff
+  fullName: RimWeave.Health.ContributionAdditionResult.Hediff
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Hediff
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 41
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The exact contribution requested for addition.
+  example: []
+  syntax:
+    content: public ContributionHediff Hediff { get; init; }
+    parameters: []
+    return:
+      type: RimWeave.Health.ContributionHediff
+  overload: RimWeave.Health.ContributionAdditionResult.Hediff*
+- uid: RimWeave.Health.ContributionAdditionResult.Part
+  commentId: P:RimWeave.Health.ContributionAdditionResult.Part
+  id: Part
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: Part
+  nameWithType: ContributionAdditionResult.Part
+  fullName: RimWeave.Health.ContributionAdditionResult.Part
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Part
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 42
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The requested part reference, or null for the whole body.
+  example: []
+  syntax:
+    content: public BodyPartRecord? Part { get; init; }
+    parameters: []
+    return:
+      type: Verse.BodyPartRecord
+  overload: RimWeave.Health.ContributionAdditionResult.Part*
+- uid: RimWeave.Health.ContributionAdditionResult.ObservedPawn
+  commentId: P:RimWeave.Health.ContributionAdditionResult.ObservedPawn
+  id: ObservedPawn
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: ObservedPawn
+  nameWithType: ContributionAdditionResult.ObservedPawn
+  fullName: RimWeave.Health.ContributionAdditionResult.ObservedPawn
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ObservedPawn
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 43
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance's owner field at return; this alone does not prove list membership.
+  example: []
+  syntax:
+    content: public Pawn? ObservedPawn { get; init; }
+    parameters: []
+    return:
+      type: Verse.Pawn
+  overload: RimWeave.Health.ContributionAdditionResult.ObservedPawn*
+- uid: RimWeave.Health.ContributionAdditionResult.ObservedPart
+  commentId: P:RimWeave.Health.ContributionAdditionResult.ObservedPart
+  id: ObservedPart
+  parent: RimWeave.Health.ContributionAdditionResult
+  langs:
+  - csharp
+  name: ObservedPart
+  nameWithType: ContributionAdditionResult.ObservedPart
+  fullName: RimWeave.Health.ContributionAdditionResult.ObservedPart
+  type: Property
+  source:
+    remote:
+      path: RimWeave/Health/ContributionAdditionResult.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ObservedPart
+    path: RimWeave/Health/ContributionAdditionResult.cs
+    startLine: 44
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The instance's part field at return, which may differ after callbacks.
+  example: []
+  syntax:
+    content: public BodyPartRecord? ObservedPart { get; init; }
+    parameters: []
+    return:
+      type: Verse.BodyPartRecord
+  overload: RimWeave.Health.ContributionAdditionResult.ObservedPart*
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: System.IEquatable{RimWeave.Health.ContributionAdditionResult}
+  commentId: T:System.IEquatable{RimWeave.Health.ContributionAdditionResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ContributionAdditionResult>
+  nameWithType: IEquatable<ContributionAdditionResult>
+  fullName: System.IEquatable<RimWeave.Health.ContributionAdditionResult>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RimWeave.Health.ContributionAdditionResult
+    name: ContributionAdditionResult
+    href: RimWeave.Health.ContributionAdditionResult.html
+  - name: '>'
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: RimWeave.Health.ContributionAdditionResult.#ctor*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.#ctor
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult__ctor_RimWeave_Health_ContributionAdditionStatus_Verse_Pawn_RimWeave_Health_ContributionHediff_Verse_BodyPartRecord_Verse_Pawn_Verse_BodyPartRecord_
+  name: ContributionAdditionResult
+  nameWithType: ContributionAdditionResult.ContributionAdditionResult
+  fullName: RimWeave.Health.ContributionAdditionResult.ContributionAdditionResult
+- uid: RimWeave.Health.ContributionAdditionStatus
+  commentId: T:RimWeave.Health.ContributionAdditionStatus
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionAdditionStatus.html
+  name: ContributionAdditionStatus
+  nameWithType: ContributionAdditionStatus
+  fullName: RimWeave.Health.ContributionAdditionStatus
+- uid: Verse.Pawn
+  commentId: T:Verse.Pawn
+  parent: Verse
+  isExternal: true
+  name: Pawn
+  nameWithType: Pawn
+  fullName: Verse.Pawn
+- uid: RimWeave.Health.ContributionHediff
+  commentId: T:RimWeave.Health.ContributionHediff
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionHediff.html
+  name: ContributionHediff
+  nameWithType: ContributionHediff
+  fullName: RimWeave.Health.ContributionHediff
+- uid: Verse.BodyPartRecord
+  commentId: T:Verse.BodyPartRecord
+  parent: Verse
+  isExternal: true
+  name: BodyPartRecord
+  nameWithType: BodyPartRecord
+  fullName: Verse.BodyPartRecord
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.Health.ContributionAdditionResult.Status*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.Status
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult_Status
+  name: Status
+  nameWithType: ContributionAdditionResult.Status
+  fullName: RimWeave.Health.ContributionAdditionResult.Status
+- uid: RimWeave.Health.ContributionAdditionResult.Pawn*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.Pawn
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult_Pawn
+  name: Pawn
+  nameWithType: ContributionAdditionResult.Pawn
+  fullName: RimWeave.Health.ContributionAdditionResult.Pawn
+- uid: RimWeave.Health.ContributionAdditionResult.Hediff*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.Hediff
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult_Hediff
+  name: Hediff
+  nameWithType: ContributionAdditionResult.Hediff
+  fullName: RimWeave.Health.ContributionAdditionResult.Hediff
+- uid: RimWeave.Health.ContributionAdditionResult.Part*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.Part
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult_Part
+  name: Part
+  nameWithType: ContributionAdditionResult.Part
+  fullName: RimWeave.Health.ContributionAdditionResult.Part
+- uid: RimWeave.Health.ContributionAdditionResult.ObservedPawn*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.ObservedPawn
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult_ObservedPawn
+  name: ObservedPawn
+  nameWithType: ContributionAdditionResult.ObservedPawn
+  fullName: RimWeave.Health.ContributionAdditionResult.ObservedPawn
+- uid: RimWeave.Health.ContributionAdditionResult.ObservedPart*
+  commentId: Overload:RimWeave.Health.ContributionAdditionResult.ObservedPart
+  href: RimWeave.Health.ContributionAdditionResult.html#RimWeave_Health_ContributionAdditionResult_ObservedPart
+  name: ObservedPart
+  nameWithType: ContributionAdditionResult.ObservedPart
+  fullName: RimWeave.Health.ContributionAdditionResult.ObservedPart

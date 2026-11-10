@@ -5,6 +5,7 @@ items:
   id: ContributionOperations
   parent: RimWeave.Health
   children:
+  - RimWeave.Health.ContributionOperations.Add(Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord)
   - RimWeave.Health.ContributionOperations.Remove(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
   langs:
   - csharp
@@ -15,7 +16,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionOperations.cs
-      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionOperations
     path: RimWeave/Health/ContributionOperations.cs
@@ -23,13 +24,78 @@ items:
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
-  summary: Performs native health operations on an unambiguously resolved contribution.
+  summary: Performs guarded native health operations on contributions.
   example: []
   syntax:
     content: public static class ContributionOperations
   inheritance:
   - System.Object
   inheritedMembers: []
+- uid: RimWeave.Health.ContributionOperations.Add(Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord)
+  commentId: M:RimWeave.Health.ContributionOperations.Add(Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord)
+  id: Add(Verse.Pawn,RimWeave.Health.ContributionHediff,Verse.BodyPartRecord)
+  parent: RimWeave.Health.ContributionOperations
+  langs:
+  - csharp
+  name: Add(Pawn, ContributionHediff, BodyPartRecord?)
+  nameWithType: ContributionOperations.Add(Pawn, ContributionHediff, BodyPartRecord?)
+  fullName: RimWeave.Health.ContributionOperations.Add(Verse.Pawn, RimWeave.Health.ContributionHediff, Verse.BodyPartRecord?)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionOperations.cs
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Add
+    path: RimWeave/Health/ContributionOperations.cs
+    startLine: 30
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Adds a prepared contribution to its explicit target and observes its final attachment.
+  remarks: 'Prepare the instance with HediffMaker.MakeHediff using the same pawn and part.
+
+    Null explicitly means whole body, and is refused when the definition would select a default part.
+
+    The part must belong to the pawn''s BodyDef and be present according to the native health tracker.
+
+    Body-part records are shared by pawns using the same BodyDef; they are not individual organ identities.
+
+    Call on the simulation thread. Requests for an already attached instance, and reentrant requests
+
+    for an addition in progress, do not invoke native addition again. Later attempts after detachment
+
+    remain possible. Other instances remain independent; attribution conflicts are not admission rules.
+
+    The result is a snapshot after the complete native call, not a promise of continued attachment.
+
+    NotAttached does not identify a cause: existing ordinary effects can absorb an incoming contribution,
+
+    and callbacks can remove it. Native exceptions and legitimate random draws are preserved.
+
+    Exceptions may follow partial changes; the temporary guard is released, but no rollback is performed.'
+  example: []
+  syntax:
+    content: public static ContributionAdditionResult Add(Pawn pawn, ContributionHediff hediff, BodyPartRecord?
+      part)
+    parameters:
+    - id: pawn
+      type: Verse.Pawn
+      description: The prepared instance's owner, with an initialized native health tracker.
+    - id: hediff
+      type: RimWeave.Health.ContributionHediff
+      description: The exact contribution instance prepared by the extension.
+    - id: part
+      type: Verse.BodyPartRecord
+      description: The prepared instance's exact part, or explicitly null for the whole body.
+    return:
+      type: RimWeave.Health.ContributionAdditionResult
+      description: The request outcome and the owner and part fields observed when returning.
+  overload: RimWeave.Health.ContributionOperations.Add*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The pawn or contribution is null.
 - uid: RimWeave.Health.ContributionOperations.Remove(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
   commentId: M:RimWeave.Health.ContributionOperations.Remove(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
   id: Remove(Verse.Pawn,RimWeave.Contributions.ContributionId,Verse.BodyPartRecord)
@@ -43,11 +109,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionOperations.cs
-      branch: bbed0b63b9d93722bca5c7227972e38b629f6b63
+      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Remove
     path: RimWeave/Health/ContributionOperations.cs
-    startLine: 20
+    startLine: 94
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -244,12 +310,12 @@ references:
   name: ArgumentNullException
   nameWithType: ArgumentNullException
   fullName: System.ArgumentNullException
-- uid: RimWeave.Health.ContributionOperations.Remove*
-  commentId: Overload:RimWeave.Health.ContributionOperations.Remove
-  href: RimWeave.Health.ContributionOperations.html#RimWeave_Health_ContributionOperations_Remove_Verse_Pawn_RimWeave_Contributions_ContributionId_Verse_BodyPartRecord_
-  name: Remove
-  nameWithType: ContributionOperations.Remove
-  fullName: RimWeave.Health.ContributionOperations.Remove
+- uid: RimWeave.Health.ContributionOperations.Add*
+  commentId: Overload:RimWeave.Health.ContributionOperations.Add
+  href: RimWeave.Health.ContributionOperations.html#RimWeave_Health_ContributionOperations_Add_Verse_Pawn_RimWeave_Health_ContributionHediff_Verse_BodyPartRecord_
+  name: Add
+  nameWithType: ContributionOperations.Add
+  fullName: RimWeave.Health.ContributionOperations.Add
 - uid: Verse.Pawn
   commentId: T:Verse.Pawn
   parent: Verse
@@ -257,13 +323,13 @@ references:
   name: Pawn
   nameWithType: Pawn
   fullName: Verse.Pawn
-- uid: RimWeave.Contributions.ContributionId
-  commentId: T:RimWeave.Contributions.ContributionId
-  parent: RimWeave.Contributions
-  href: RimWeave.Contributions.ContributionId.html
-  name: ContributionId
-  nameWithType: ContributionId
-  fullName: RimWeave.Contributions.ContributionId
+- uid: RimWeave.Health.ContributionHediff
+  commentId: T:RimWeave.Health.ContributionHediff
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionHediff.html
+  name: ContributionHediff
+  nameWithType: ContributionHediff
+  fullName: RimWeave.Health.ContributionHediff
 - uid: Verse.BodyPartRecord
   commentId: T:Verse.BodyPartRecord
   parent: Verse
@@ -271,6 +337,32 @@ references:
   name: BodyPartRecord
   nameWithType: BodyPartRecord
   fullName: Verse.BodyPartRecord
+- uid: RimWeave.Health.ContributionAdditionResult
+  commentId: T:RimWeave.Health.ContributionAdditionResult
+  parent: RimWeave.Health
+  href: RimWeave.Health.ContributionAdditionResult.html
+  name: ContributionAdditionResult
+  nameWithType: ContributionAdditionResult
+  fullName: RimWeave.Health.ContributionAdditionResult
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: RimWeave.Health.ContributionOperations.Remove*
+  commentId: Overload:RimWeave.Health.ContributionOperations.Remove
+  href: RimWeave.Health.ContributionOperations.html#RimWeave_Health_ContributionOperations_Remove_Verse_Pawn_RimWeave_Contributions_ContributionId_Verse_BodyPartRecord_
+  name: Remove
+  nameWithType: ContributionOperations.Remove
+  fullName: RimWeave.Health.ContributionOperations.Remove
+- uid: RimWeave.Contributions.ContributionId
+  commentId: T:RimWeave.Contributions.ContributionId
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionId.html
+  name: ContributionId
+  nameWithType: ContributionId
+  fullName: RimWeave.Contributions.ContributionId
 - uid: RimWeave.Health.ContributionRemovalResult
   commentId: T:RimWeave.Health.ContributionRemovalResult
   parent: RimWeave.Health
@@ -278,12 +370,6 @@ references:
   name: ContributionRemovalResult
   nameWithType: ContributionRemovalResult
   fullName: RimWeave.Health.ContributionRemovalResult
-- uid: Verse
-  commentId: N:Verse
-  isExternal: true
-  name: Verse
-  nameWithType: Verse
-  fullName: Verse
 - uid: RimWeave.Contributions
   commentId: N:RimWeave.Contributions
   name: RimWeave.Contributions

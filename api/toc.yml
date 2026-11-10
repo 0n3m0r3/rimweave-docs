@@ -34,6 +34,12 @@ items:
   name: RimWeave.Health
   type: Namespace
   items:
+  - uid: RimWeave.Health.ContributionAdditionResult
+    name: ContributionAdditionResult
+    type: Class
+  - uid: RimWeave.Health.ContributionAdditionStatus
+    name: ContributionAdditionStatus
+    type: Enum
   - uid: RimWeave.Health.ContributionHediff
     name: ContributionHediff
     type: Class
