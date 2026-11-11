@@ -33,6 +33,28 @@ Open <http://127.0.0.1:8087/rimweave-docs/>. The preview uses the subdirectory e
 
 The build treats DocFX warnings as errors, checks links and anchors, and verifies the API and example fingerprints. It checks public output for private references and binaries. Generated output goes to ignored `_site/`; the diagnostic manifest stays in `.local/` because it contains machine-specific paths.
 
+## Maintain search
+
+Search accepts plain text, including copied guide titles and qualified API names.
+All meaningful words are required; common English words ignored by the index are
+ignored in queries too. An empty or whitespace-only query restores the page.
+Queries containing only ignored words show the usual no-results message.
+Advanced Lunr query operators are not supported by this plain-text field.
+
+`templates/rimweave/public/search-text.js` reuses the bundled Lunr tokenizer,
+English filters and index search pipeline. DocFX still owns indexing, ranking,
+caching and result rendering. `tools/search.py` connects this function to the
+pinned DocFX 2.81.0 assets during `tools/build.py`; it also normalizes whitespace
+and initializes the same tokenizer when an index is restored from cache.
+Do not edit `_site/` manually or bypass the build script.
+
+The adapter stops the build if its expected DocFX version or integration points
+change. Review it when upgrading DocFX or changing the site's English search
+configuration. Modified bundles retain dependency notices; their original source
+maps and signatures are removed because they no longer describe those files.
+Run the browser checks below after rebuilding to exercise full titles, API names,
+empty queries, cache restoration and mobile search.
+
 ## Refresh the generated API
 
 Public signatures and precise method contracts come from the framework source and its XML comments. Fix those comments at the source rather than editing generated API files. This project owns the explanatory guides and navigation.
