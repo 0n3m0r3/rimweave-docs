@@ -62,3 +62,5 @@ The operation does not log automatically. Your mod decides whether an already ab
 The [developer example](debugging.md#verify-repeated-removal) retains one marker instance and removes it twice. Two observers should each run once for the first removal and zero times for the second. Also check that a marker on the other hand remains.
 
 That recorded scenario exercises exact-instance removal. The separate [two-mod composition scenario](composition.md) verifies successful removal by contribution identity after a native reload, preserving the other consumer's exact effect. Its recorded evidence covers the two cooperating examples, not arbitrary providers.
+
+To disable the provider afterward, follow the [prepared-removal procedure](prepared-removal.md). It checks the saved result with the provider present, absent and restored; removing one known effect is not a global uninstall operation.

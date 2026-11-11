@@ -54,6 +54,24 @@ Each load without B completed with three native errors: B's missing definition, 
 
 The driver made two producer calls to create the source contributions and none afterward. All post-load observations preceded any producer command. Native identities, declarations and counts were checked, without instrumenting callback counts or clicking the UI manually. This establishes recovery from the preserved original in this configuration, **not recovery of B from the derived save**. It does not test missing provider classes, arbitrary addons, migrations or irreversible gameplay consequences. The temporary driver was removed, the original mod installation restored and normal game configuration left unchanged.
 
+## Prepared provider removal
+
+The [prepared-removal procedure](../guides/prepared-removal.md) withdraws B while its provider is still loaded, saves that state, then verifies it without B and after B returns. It reuses the consumers and removal API published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6); no production code or API snapshot changed.
+
+On 11 November 2026 (UTC+1), three separate **RimWorld 1.7.5005 rev1082** processes completed 84 checks, four native loads and one native save. They used the protected AB original from the missing-provider investigation, the same frozen Debug artifacts, Core, Royalty, Ideology, Biotech and Odyssey. A temporary driver remained fixed across these runs; only B's active-package state varied.
+
+| Run | Observed result | Checks |
+| --- | --- | --- |
+| Load original AB, withdraw B, save and reload with B active | Both original effects were verified before withdrawal. B's first removal returned `Found` / `Removed`; repetition returned `NotPresent` without requesting native removal. The prepared reload retained A and no B. | 44 |
+| Restart without B and load a prepared copy | B's package, assembly and definition were absent. A retained its identity, declarations, target and severity; B remained absent. | 20 |
+| Restart with B restored and load another prepared copy | A retained those same fields; B remained absent before any producer command. | 20 |
+
+The driver made two explicit removal requests during preparation and no addition calls. The absence and return processes made no producer calls. Each prepared-state observation resolved the shared exclusive claim uniquely to A. No native save/load error was recorded, including the missing-definition, initialization exception and null-entry cleanup seen in the unprepared-removal investigation. Graphics startup diagnostics and engine warnings remained; this is not a claim that the entire console was empty.
+
+A separate XML audit confirmed that the prepared file contained A's contribution and no B effect definition or encoded owner metadata. A's saved native ID, contribution metadata, definition, exact target, severity and creation tick were unchanged. Its native age and visibility fields did change (`ageTicks=3`, `visible=True`), while the saved game tick advanced from 1 to 3. These fields are updated by native ticking; the checks do not establish that every field of A or the simulation remained frozen. Both protected originals, the prepared source and every branch input kept their file hashes.
+
+The helper used programmatic native loading and the provider's public removal API, without manual menu interaction or a global callback counter. This result concerns one known marker on one known pawn and part. It does not certify global provider cleanup, absent custom classes, automatic producers in other mods, or reversal of irreversible effects. The original installation was restored, the helper removed and the normal game configuration verified unchanged.
+
 ## Targeted addition
 
 The [explicit addition adapter](../guides/health-effects.md#observe-the-addition) is included in the documented revision and published in [framework commit ce48935](https://github.com/0n3m0r3/rimweave/commit/ce48935b3f2414aa140b731e0fc3486cdc4bc273). It requests native addition of one prepared `ContributionHediff` and reports the exact instance's observed attachment. Same-instance repetition and reentrancy guards do not impose a stacking policy or reject distinct objects merely because their contribution identities match.

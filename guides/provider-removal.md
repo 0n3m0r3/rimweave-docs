@@ -11,6 +11,8 @@ RimWorld loads the saved health objects and resolves their definitions. RimWeave
 
 This procedure uses the two consumers published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6), with the unchanged [documented API](../compatibility/versions.md). Follow the [composition setup](composition.md#install-two-separate-consumers) for the separate packages and explicit commands. [Support and evidence](../compatibility/index.md#provider-removal-and-return) records the outcomes separately from the earlier composition checks.
 
+If B is still installed and its contribution may be withdrawn, use the separate [prepared-removal procedure](prepared-removal.md) before disabling the provider. It verifies a deliberate withdrawal; it does not repair an effect already lost from a rewritten save.
+
 ## Fix the configuration and preserve the original
 
 Use a disposable colony. Keep the same game build, framework, consumer versions, other mods and any verification instrumentation throughout. Only B's active-package state changes between the comparison runs. Restart the game after each mod-list change.
