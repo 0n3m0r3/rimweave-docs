@@ -24,6 +24,16 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Native hand loss and restoration
+
+On 12 November 2026, the [lost-hand scenario](../guides/hand-restoration.md) passed **103 checks**, with three native saves and three complete reloads in one **RimWorld 1.7.5005 rev1082** process. The configuration contained Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary verification driver. Runtime code was unchanged from [5c7bf7a](https://github.com/0n3m0r3/rimweave/commit/5c7bf7a833ae3cd456599409adcbab0bcb6007cc); the local guard test was strengthened. The complete working-tree suites passed **269 Debug / 254 Release tests**, without build warnings or errors.
+
+A and B were attached to the Human body's hand at native index 28, with independent A/B controls at index 39. Native loss removed both targeted markers and stopped their active observers. Both providers refused additions to the missing hand without selecting the other hand. Native restoration, followed by reloading, left the restored slot empty. Only new explicit applications created replacement effects, with distinct native IDs. The saved original references remained unresolved, even after the new matching contributions were saved and loaded.
+
+Counters recorded six addition callbacks and two contribution-removal callbacks across the entire run; loading did not replay additions. Passive reference and contribution queries preserved the simulation random state and health list. A separate XML audit checked all three saves: the original removed effects were absent, the four references retained their original diagnostic identities, and the other hand's controls kept their native IDs, target, metadata, severity and creation ticks. Final local binaries matched the tested artifacts. Installed mod files were restored and the normal player configuration was unchanged.
+
+Both marker definitions use `keepOnBodyPartRestoration = false`. The first save/load emitted the expected native warnings for two referenced effects that were no longer saved; their diagnostic identities remained available. Engine/graphics and temporary-driver manifest warnings were also present. This is not a warning-free game run, a manual UI/surgery test, a separate-process reload test or evidence for prostheses, altered anatomies and arbitrary providers. No new runtime API or automatic anatomical behavior was added.
+
 ## XML contribution declarations
 
 The [XML declaration adapter](../guides/xml-declarations.md) is included in the documented revision, published in [framework commit 5c7bf7a](https://github.com/0n3m0r3/rimweave/commit/5c7bf7a833ae3cd456599409adcbab0bcb6007cc). It adds optional creation defaults for `ContributionHediff`; the saved metadata format remains version `1`. B's example now reads its identity and claim from its native XML definition, while A keeps its C# initialization. The API snapshot is exported from that committed framework revision, with source links pinned to it.

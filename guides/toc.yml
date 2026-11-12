@@ -10,6 +10,8 @@
   href: debugging.md
 - name: Verify two independent mods
   href: composition.md
+- name: Check a lost and restored hand
+  href: hand-restoration.md
 - name: Prepare a provider removal
   href: prepared-removal.md
 - name: Check a missing provider
