@@ -17,7 +17,7 @@ Pass the exact instance to <xref:RimWeave.Health.HediffOperations>:
 
 [!code-csharp[Remove a native instance](../examples/Recipes/Health.cs#remove-instance)]
 
-This method also accepts ordinary `Hediff` objects without RimWeave metadata. It uses the object you passed, not a search for similar effects.
+This method also accepts ordinary `Hediff` objects without RimWeave metadata. It uses the object you passed, not a search for similar effects. Removing a health effect does not invoke a surgery recipe or request its implant recovery; native removal callbacks still run. For an anatomical operation, use its owning native mechanism and inspect the actual result; see [removing and reinstalling a prosthetic arm](native-prosthesis-removal.md).
 
 | Status | What it means | Did this call invoke native removal? |
 | --- | --- | --- |

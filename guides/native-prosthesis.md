@@ -9,6 +9,8 @@ Two mods put independent effects on a character's arm and hand. A native bionic 
 
 RimWorld owns the installation and the health list. RimWeave preserves exact targeting and observes individual contributions. The consumer owns treatment rules, eligibility on artificial parts and any explicit reapplication.
 
+The direct-placement scenario on this page supplies an `Arm` record to the health tracker. The native `InstallBionicArm` surgery recipe instead selects `Shoulder`, leaving its natural arm and hand descendants missing. Follow [removal and reinstallation through native recipes](native-prosthesis-removal.md) for that layout; the implant's name does not identify its body-part target.
+
 ## The arm and its hand are different targets
 
 A `BodyPartRecord` describes an anatomical slot, not the identity of a permanent organ. On the inspected game build, adding `BionicArm` keeps the selected arm slot available. Its native `Hediff_AddedPart` cleanup removes ordinary effects on that slot and its descendants, then marks the natural descendants missing. The hand record still exists in the body definition, but it is no longer an available target.
@@ -41,4 +43,4 @@ Use a disposable colony with a native human body, two natural arms and hands, th
 
 ## Boundaries
 
-The [recorded run](../compatibility/index.md#native-prosthetic-arm) uses programmatic native health calls and the two example markers. It does not exercise the surgery recipe, a doctor's work, ingredient consumption, operation failure or the manual UI. Prosthesis removal, altered races, third-party prostheses, arbitrary callbacks and provider removal require their own checks. The separate [lost-hand scenario](hand-restoration.md) covers native loss and restoration.
+The [recorded run](../compatibility/index.md#native-prosthetic-arm) uses programmatic native health calls and the two example markers. It does not exercise the surgery recipe, a doctor's work, ingredient consumption, operation failure or the manual UI. The [separate recipe-worker run](native-prosthesis-removal.md) covers removal and reinstallation at the native shoulder site. Altered races, third-party prostheses, arbitrary callbacks and provider removal require their own checks. The separate [lost-hand scenario](hand-restoration.md) covers native loss and restoration.
