@@ -28,6 +28,8 @@ An existing `ContributionHediff` refuses native merging so cooperating instances
 
 The following recipe assumes your mod already has that definition, an initialized pawn and an explicit target: a part from that pawn's body, or `null` for the whole body. It is not a complete glove mod: deciding when a glove should add an effect is still your mod's work.
 
+Identity and an optional exclusive claim can also be [declared in XML](xml-declarations.md). The C# recipe below works without that declaration; if both are used, its identity must match the XML identity.
+
 ## Create, describe, then attach
 
 [!code-csharp[Create and attach](../examples/Recipes/Health.cs#attach)]

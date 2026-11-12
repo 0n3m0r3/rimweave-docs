@@ -10,7 +10,7 @@ One mod supplies a medical contribution to a character's hand; another supplies 
 RimWorld already stores and saves the health effects. Each example mod owns its declarations and explicit add/remove commands; RimWeave supplies the existing identity, query, addition, removal and persistence contracts. The examples add technical markers, not medical or equipment gameplay rules.
 
 > [!NOTE]
-> This scenario is published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). It uses the unchanged public API documented at [`ce48935`](../compatibility/versions.md); the consumer commands require the later scenario revision. [Support and evidence](../compatibility/index.md#two-consumer-scenario) records its verification and limits.
+> The original scenario is published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). Since [framework commit 5c7bf7a](https://github.com/0n3m0r3/rimweave/commit/5c7bf7a833ae3cd456599409adcbab0bcb6007cc), B reads its unchanged identity and claim from [XML](xml-declarations.md); A keeps its C# initialization. The commands and expected outcomes below are unchanged. [Support and evidence](../compatibility/index.md#two-consumer-scenario) distinguishes the original four-configuration checks from the newer XML verification.
 
 ## Install two separate consumers
 

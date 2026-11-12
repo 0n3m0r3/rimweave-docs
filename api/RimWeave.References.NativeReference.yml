@@ -26,7 +26,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: NativeReference
     path: RimWeave/References/NativeReference.cs
@@ -70,7 +70,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/References/NativeReference.cs
@@ -96,7 +96,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/References/NativeReference.cs
@@ -129,7 +129,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/References/NativeReference.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PendingChanges
     path: RimWeave/References/NativeReference.cs
@@ -191,7 +191,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: IsTracking
     path: RimWeave/References/NativeReference.cs
@@ -220,7 +220,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: TrackingCoverage
     path: RimWeave/References/NativeReference.cs
@@ -249,7 +249,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Capture
     path: RimWeave/References/NativeReference.cs
@@ -277,7 +277,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: StartTracking
     path: RimWeave/References/NativeReference.cs
@@ -315,7 +315,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: StopTracking
     path: RimWeave/References/NativeReference.cs
@@ -341,7 +341,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: TakeChanges
     path: RimWeave/References/NativeReference.cs
@@ -369,7 +369,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Dispose
     path: RimWeave/References/NativeReference.cs
@@ -397,7 +397,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReference.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ExposeData
     path: RimWeave/References/NativeReference.cs

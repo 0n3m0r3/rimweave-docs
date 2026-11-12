@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: RimWeave/Persistence/ContributionMetadataScribe.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionMetadataScribe
     path: RimWeave/Persistence/ContributionMetadataScribe.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: RimWeave/Persistence/ContributionMetadataScribe.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Metadata
     path: RimWeave/Persistence/ContributionMetadataScribe.cs
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: RimWeave/Persistence/ContributionMetadataScribe.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ExposeData
     path: RimWeave/Persistence/ContributionMetadataScribe.cs

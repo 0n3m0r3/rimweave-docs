@@ -20,6 +20,7 @@ A working-tree preview must be re-exported after the framework changes are commi
 - Shared contribution identity and metadata owned by each contribution.
 - Typed lookup and explicit exclusive-responsibility queries.
 - Extensible origins with optional source references.
+- [Optional XML attribution](../guides/xml-declarations.md) for newly created cooperating health effects, with existing saved metadata kept authoritative.
 - Exact pawn/body-part health targeting and independent contribution effects.
 - [Targeted native addition](../guides/health-effects.md#observe-the-addition) with an explicit part or whole-body target and the attachment observed after the complete native call.
 - Guarded native removal by instance or resolved contribution identity, including an explicit `AlreadyRemoving` result for a reentrant request on the same attached instance.

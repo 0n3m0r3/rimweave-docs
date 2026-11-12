@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: RimWeave.Health.ContributionDefExtension
+  commentId: T:RimWeave.Health.ContributionDefExtension
+  id: ContributionDefExtension
+  parent: RimWeave.Health
+  children:
+  - RimWeave.Health.ContributionDefExtension.ConfigErrors
+  - RimWeave.Health.ContributionDefExtension.Read(Verse.HediffDef)
+  - RimWeave.Health.ContributionDefExtension.ResolveReferences(Verse.Def)
+  - RimWeave.Health.ContributionDefExtension.exclusiveResponsibility
+  - RimWeave.Health.ContributionDefExtension.localId
+  - RimWeave.Health.ContributionDefExtension.ownerId
+  langs:
+  - csharp
+  name: ContributionDefExtension
+  nameWithType: ContributionDefExtension
+  fullName: RimWeave.Health.ContributionDefExtension
+  type: Class
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ContributionDefExtension
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 11
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Declares initial attribution in a cooperating health effect's native XML definition.
+  remarks: 'Add at most one instance to a HediffDef using ContributionHediff or a subclass.
+
+    Declarations affect newly created instances only; saved metadata remains authoritative.
+
+    Definitions may share an identity. This declaration neither registers nor applies an effect.'
+  example: []
+  syntax:
+    content: 'public sealed class ContributionDefExtension : DefModExtension'
+  inheritance:
+  - System.Object
+  - Verse.DefModExtension
+  inheritedMembers: []
+- uid: RimWeave.Health.ContributionDefExtension.ownerId
+  commentId: F:RimWeave.Health.ContributionDefExtension.ownerId
+  id: ownerId
+  parent: RimWeave.Health.ContributionDefExtension
+  langs:
+  - csharp
+  name: ownerId
+  nameWithType: ContributionDefExtension.ownerId
+  fullName: RimWeave.Health.ContributionDefExtension.ownerId
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ownerId
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 14
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The contribution owner's namespace, using the shared identity validation rules.
+  example: []
+  syntax:
+    content: public string ownerId
+    return:
+      type: System.String
+- uid: RimWeave.Health.ContributionDefExtension.localId
+  commentId: F:RimWeave.Health.ContributionDefExtension.localId
+  id: localId
+  parent: RimWeave.Health.ContributionDefExtension
+  langs:
+  - csharp
+  name: localId
+  nameWithType: ContributionDefExtension.localId
+  fullName: RimWeave.Health.ContributionDefExtension.localId
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: localId
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 17
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: The owner's case-sensitive local contribution identifier.
+  example: []
+  syntax:
+    content: public string localId
+    return:
+      type: System.String
+- uid: RimWeave.Health.ContributionDefExtension.exclusiveResponsibility
+  commentId: F:RimWeave.Health.ContributionDefExtension.exclusiveResponsibility
+  id: exclusiveResponsibility
+  parent: RimWeave.Health.ContributionDefExtension
+  langs:
+  - csharp
+  name: exclusiveResponsibility
+  nameWithType: ContributionDefExtension.exclusiveResponsibility
+  fullName: RimWeave.Health.ContributionDefExtension.exclusiveResponsibility
+  type: Field
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: exclusiveResponsibility
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 20
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: An optional exclusive responsibility; null leaves the contribution unclaimed.
+  example: []
+  syntax:
+    content: public string? exclusiveResponsibility
+    return:
+      type: System.String
+- uid: RimWeave.Health.ContributionDefExtension.ResolveReferences(Verse.Def)
+  commentId: M:RimWeave.Health.ContributionDefExtension.ResolveReferences(Verse.Def)
+  id: ResolveReferences(Verse.Def)
+  parent: RimWeave.Health.ContributionDefExtension
+  langs:
+  - csharp
+  name: ResolveReferences(Def)
+  nameWithType: ContributionDefExtension.ResolveReferences(Def)
+  fullName: RimWeave.Health.ContributionDefExtension.ResolveReferences(Verse.Def)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ResolveReferences
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 26
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Retains native definition context for configuration diagnostics without creating effects.
+  example: []
+  syntax:
+    content: public override void ResolveReferences(Def parentDef)
+    parameters:
+    - id: parentDef
+      type: Verse.Def
+      description: The definition owning this extension.
+  overridden: Verse.DefModExtension.ResolveReferences(Verse.Def)
+  overload: RimWeave.Health.ContributionDefExtension.ResolveReferences*
+- uid: RimWeave.Health.ContributionDefExtension.ConfigErrors
+  commentId: M:RimWeave.Health.ContributionDefExtension.ConfigErrors
+  id: ConfigErrors
+  parent: RimWeave.Health.ContributionDefExtension
+  langs:
+  - csharp
+  name: ConfigErrors()
+  nameWithType: ContributionDefExtension.ConfigErrors()
+  fullName: RimWeave.Health.ContributionDefExtension.ConfigErrors()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ConfigErrors
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 34
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Reports an invalid declaration with its native definition and supplying mod.
+  example: []
+  syntax:
+    content: public override IEnumerable<string> ConfigErrors()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Configuration errors, or an empty sequence for a valid declaration.
+  overridden: Verse.DefModExtension.ConfigErrors
+  overload: RimWeave.Health.ContributionDefExtension.ConfigErrors*
+- uid: RimWeave.Health.ContributionDefExtension.Read(Verse.HediffDef)
+  commentId: M:RimWeave.Health.ContributionDefExtension.Read(Verse.HediffDef)
+  id: Read(Verse.HediffDef)
+  parent: RimWeave.Health.ContributionDefExtension
+  langs:
+  - csharp
+  name: Read(HediffDef)
+  nameWithType: ContributionDefExtension.Read(HediffDef)
+  fullName: RimWeave.Health.ContributionDefExtension.Read(Verse.HediffDef)
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionDefExtension.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: Read
+    path: RimWeave/Health/ContributionDefExtension.cs
+    startLine: 59
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Reads a fresh metadata snapshot from an optional health definition declaration.
+  remarks: 'Uses the same validation as native configuration diagnostics and effect creation.
+
+    Editing the returned metadata does not change the definition or any other instance.
+
+    Origin and source remain the consumer''s responsibility. No gameplay operation is performed.'
+  example: []
+  syntax:
+    content: public static ContributionMetadata? Read(HediffDef definition)
+    parameters:
+    - id: definition
+      type: Verse.HediffDef
+      description: The native definition to inspect on the simulation thread.
+    return:
+      type: RimWeave.Contributions.ContributionMetadata
+      description: Independent metadata, or null when the definition has no contribution declaration.
+  overload: RimWeave.Health.ContributionDefExtension.Read*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: The definition is null.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The declaration is invalid, duplicated or incompatible.
+references:
+- uid: RimWeave.Health
+  commentId: N:RimWeave.Health
+  name: RimWeave.Health
+  nameWithType: RimWeave.Health
+  fullName: RimWeave.Health
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Health
+    name: Health
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+- uid: Verse.DefModExtension
+  commentId: T:Verse.DefModExtension
+  parent: Verse
+  isExternal: true
+  name: DefModExtension
+  nameWithType: DefModExtension
+  fullName: Verse.DefModExtension
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: ' '
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Verse
+  commentId: N:Verse
+  isExternal: true
+  name: Verse
+  nameWithType: Verse
+  fullName: Verse
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+- uid: Verse.DefModExtension.ResolveReferences(Verse.Def)
+  commentId: M:Verse.DefModExtension.ResolveReferences(Verse.Def)
+  parent: Verse.DefModExtension
+  isExternal: true
+  name: ResolveReferences(Def)
+  nameWithType: DefModExtension.ResolveReferences(Def)
+  fullName: Verse.DefModExtension.ResolveReferences(Verse.Def)
+  spec.csharp:
+  - uid: Verse.DefModExtension.ResolveReferences(Verse.Def)
+    name: ResolveReferences
+    isExternal: true
+  - name: (
+  - uid: Verse.Def
+    name: Def
+    isExternal: true
+  - name: )
+- uid: RimWeave.Health.ContributionDefExtension.ResolveReferences*
+  commentId: Overload:RimWeave.Health.ContributionDefExtension.ResolveReferences
+  href: RimWeave.Health.ContributionDefExtension.html#RimWeave_Health_ContributionDefExtension_ResolveReferences_Verse_Def_
+  name: ResolveReferences
+  nameWithType: ContributionDefExtension.ResolveReferences
+  fullName: RimWeave.Health.ContributionDefExtension.ResolveReferences
+- uid: Verse.Def
+  commentId: T:Verse.Def
+  parent: Verse
+  isExternal: true
+  name: Def
+  nameWithType: Def
+  fullName: Verse.Def
+- uid: Verse.DefModExtension.ConfigErrors
+  commentId: M:Verse.DefModExtension.ConfigErrors
+  parent: Verse.DefModExtension
+  isExternal: true
+  name: ConfigErrors()
+  nameWithType: DefModExtension.ConfigErrors()
+  fullName: Verse.DefModExtension.ConfigErrors()
+  spec.csharp:
+  - uid: Verse.DefModExtension.ConfigErrors
+    name: ConfigErrors
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.Health.ContributionDefExtension.ConfigErrors*
+  commentId: Overload:RimWeave.Health.ContributionDefExtension.ConfigErrors
+  href: RimWeave.Health.ContributionDefExtension.html#RimWeave_Health_ContributionDefExtension_ConfigErrors
+  name: ConfigErrors
+  nameWithType: ContributionDefExtension.ConfigErrors
+  fullName: RimWeave.Health.ContributionDefExtension.ConfigErrors
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: RimWeave.Health.ContributionDefExtension.Read*
+  commentId: Overload:RimWeave.Health.ContributionDefExtension.Read
+  href: RimWeave.Health.ContributionDefExtension.html#RimWeave_Health_ContributionDefExtension_Read_Verse_HediffDef_
+  name: Read
+  nameWithType: ContributionDefExtension.Read
+  fullName: RimWeave.Health.ContributionDefExtension.Read
+- uid: Verse.HediffDef
+  commentId: T:Verse.HediffDef
+  parent: Verse
+  isExternal: true
+  name: HediffDef
+  nameWithType: HediffDef
+  fullName: Verse.HediffDef
+- uid: RimWeave.Contributions.ContributionMetadata
+  commentId: T:RimWeave.Contributions.ContributionMetadata
+  parent: RimWeave.Contributions
+  href: RimWeave.Contributions.ContributionMetadata.html
+  name: ContributionMetadata
+  nameWithType: ContributionMetadata
+  fullName: RimWeave.Contributions.ContributionMetadata
+- uid: RimWeave.Contributions
+  commentId: N:RimWeave.Contributions
+  name: RimWeave.Contributions
+  nameWithType: RimWeave.Contributions
+  fullName: RimWeave.Contributions
+  spec.csharp:
+  - uid: RimWeave
+    name: RimWeave
+  - name: .
+  - uid: RimWeave.Contributions
+    name: Contributions

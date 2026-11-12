@@ -40,6 +40,9 @@ items:
   - uid: RimWeave.Health.ContributionAdditionStatus
     name: ContributionAdditionStatus
     type: Enum
+  - uid: RimWeave.Health.ContributionDefExtension
+    name: ContributionDefExtension
+    type: Class
   - uid: RimWeave.Health.ContributionHediff
     name: ContributionHediff
     type: Class

@@ -6,6 +6,7 @@ items:
   children:
   - RimWeave.Health.ContributionAdditionResult
   - RimWeave.Health.ContributionAdditionStatus
+  - RimWeave.Health.ContributionDefExtension
   - RimWeave.Health.ContributionHediff
   - RimWeave.Health.ContributionOperations
   - RimWeave.Health.ContributionQueries
@@ -36,6 +37,12 @@ references:
   name: ContributionAdditionResult
   nameWithType: ContributionAdditionResult
   fullName: RimWeave.Health.ContributionAdditionResult
+- uid: RimWeave.Health.ContributionDefExtension
+  commentId: T:RimWeave.Health.ContributionDefExtension
+  href: RimWeave.Health.ContributionDefExtension.html
+  name: ContributionDefExtension
+  nameWithType: ContributionDefExtension
+  fullName: RimWeave.Health.ContributionDefExtension
 - uid: RimWeave.Health.ContributionHediff
   commentId: T:RimWeave.Health.ContributionHediff
   parent: RimWeave.Health

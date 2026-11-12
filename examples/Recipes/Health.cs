@@ -22,6 +22,28 @@ internal static class HealthRecipes
     }
     #endregion
 
+    #region xml-attach
+    internal static ContributionAdditionResult AttachDeclared(
+        Pawn pawn, HediffDef definition, BodyPartRecord? part, ContributionOrigin origin)
+    {
+        if (ContributionDefExtension.Read(definition) is null)
+            throw new InvalidOperationException("The definition must declare contribution metadata.");
+        var effect = (ContributionHediff)HediffMaker.MakeHediff(definition, pawn, part);
+        effect.Metadata.DescribeOrigin(origin);
+        return ContributionOperations.Add(pawn, effect, part);
+    }
+    #endregion
+
+    #region xml-query
+    internal static ContributionLookupResult<ContributionHediff> FindDeclaredOnPart(
+        Pawn pawn, HediffDef definition, BodyPartRecord part)
+    {
+        var declaration = ContributionDefExtension.Read(definition)
+            ?? throw new InvalidOperationException("The definition must declare contribution metadata.");
+        return ContributionQueries.Resolve(pawn, declaration.Identity!, part);
+    }
+    #endregion
+
     #region query
     internal static ContributionLookupResult<ContributionHediff> FindOnPart(
         Pawn pawn, ContributionId identity, BodyPartRecord part)

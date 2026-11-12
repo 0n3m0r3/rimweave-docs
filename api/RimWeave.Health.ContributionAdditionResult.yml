@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionAdditionResult
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -100,7 +100,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Status
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -129,7 +129,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Pawn
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -158,7 +158,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Hediff
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -187,7 +187,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Part
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -216,7 +216,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ObservedPawn
     path: RimWeave/Health/ContributionAdditionResult.cs
@@ -245,7 +245,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionAdditionResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ObservedPart
     path: RimWeave/Health/ContributionAdditionResult.cs

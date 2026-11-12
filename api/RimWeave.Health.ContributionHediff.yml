@@ -10,6 +10,7 @@ items:
   - RimWeave.Health.ContributionHediff.Notify_PawnCorpseDestroyed
   - RimWeave.Health.ContributionHediff.Notify_PawnDied(System.Nullable{Verse.DamageInfo},Verse.Hediff)
   - RimWeave.Health.ContributionHediff.Notify_Resurrected
+  - RimWeave.Health.ContributionHediff.PostMake
   - RimWeave.Health.ContributionHediff.PostRemoved
   - RimWeave.Health.ContributionHediff.TryMergeWith(Verse.Hediff)
   langs:
@@ -21,7 +22,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionHediff
     path: RimWeave/Health/ContributionHediff.cs
@@ -58,7 +59,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Metadata
     path: RimWeave/Health/ContributionHediff.cs
@@ -76,6 +77,40 @@ items:
   overload: RimWeave.Health.ContributionHediff.Metadata*
   implements:
   - RimWeave.Contributions.IContribution.Metadata
+- uid: RimWeave.Health.ContributionHediff.PostMake
+  commentId: M:RimWeave.Health.ContributionHediff.PostMake
+  id: PostMake
+  parent: RimWeave.Health.ContributionHediff
+  langs:
+  - csharp
+  name: PostMake()
+  nameWithType: ContributionHediff.PostMake()
+  fullName: RimWeave.Health.ContributionHediff.PostMake()
+  type: Method
+  source:
+    remote:
+      path: RimWeave/Health/ContributionHediff.cs
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: PostMake
+    path: RimWeave/Health/ContributionHediff.cs
+    startLine: 26
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.Health
+  summary: Initializes optional XML attribution before native creation callbacks.
+  remarks: 'Use HediffMaker.MakeHediff for creation. Native Scribe loading does not call this method.
+
+    Subclasses must call base.PostMake; invalid declarations fail before native creation callbacks.'
+  example: []
+  syntax:
+    content: public override void PostMake()
+  overridden: Verse.HediffWithComps.PostMake
+  overload: RimWeave.Health.ContributionHediff.PostMake*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Declared attribution is invalid or conflicts with existing metadata.
 - uid: RimWeave.Health.ContributionHediff.ExposeData
   commentId: M:RimWeave.Health.ContributionHediff.ExposeData
   id: ExposeData
@@ -89,11 +124,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ExposeData
     path: RimWeave/Health/ContributionHediff.cs
-    startLine: 22
+    startLine: 40
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -117,11 +152,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Notify_PawnDied
     path: RimWeave/Health/ContributionHediff.cs
-    startLine: 32
+    startLine: 50
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -149,11 +184,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Notify_Resurrected
     path: RimWeave/Health/ContributionHediff.cs
-    startLine: 39
+    startLine: 57
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -176,11 +211,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Notify_PawnCorpseDestroyed
     path: RimWeave/Health/ContributionHediff.cs
-    startLine: 46
+    startLine: 64
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -203,11 +238,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PostRemoved
     path: RimWeave/Health/ContributionHediff.cs
-    startLine: 54
+    startLine: 72
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -230,11 +265,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: TryMergeWith
     path: RimWeave/Health/ContributionHediff.cs
-    startLine: 65
+    startLine: 83
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -627,19 +662,6 @@ references:
   - uid: Verse.Pawn
     name: Pawn
     isExternal: true
-  - name: )
-- uid: Verse.HediffWithComps.PostMake
-  commentId: M:Verse.HediffWithComps.PostMake
-  parent: Verse.HediffWithComps
-  isExternal: true
-  name: PostMake()
-  nameWithType: HediffWithComps.PostMake()
-  fullName: Verse.HediffWithComps.PostMake()
-  spec.csharp:
-  - uid: Verse.HediffWithComps.PostMake
-    name: PostMake
-    isExternal: true
-  - name: (
   - name: )
 - uid: Verse.HediffWithComps.GetComp``1
   commentId: M:Verse.HediffWithComps.GetComp``1
@@ -1507,6 +1529,32 @@ references:
   name: ContributionMetadata
   nameWithType: ContributionMetadata
   fullName: RimWeave.Contributions.ContributionMetadata
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Verse.HediffWithComps.PostMake
+  commentId: M:Verse.HediffWithComps.PostMake
+  parent: Verse.HediffWithComps
+  isExternal: true
+  name: PostMake()
+  nameWithType: HediffWithComps.PostMake()
+  fullName: Verse.HediffWithComps.PostMake()
+  spec.csharp:
+  - uid: Verse.HediffWithComps.PostMake
+    name: PostMake
+    isExternal: true
+  - name: (
+  - name: )
+- uid: RimWeave.Health.ContributionHediff.PostMake*
+  commentId: Overload:RimWeave.Health.ContributionHediff.PostMake
+  href: RimWeave.Health.ContributionHediff.html#RimWeave_Health_ContributionHediff_PostMake
+  name: PostMake
+  nameWithType: ContributionHediff.PostMake
+  fullName: RimWeave.Health.ContributionHediff.PostMake
 - uid: Verse.HediffWithComps.ExposeData
   commentId: M:Verse.HediffWithComps.ExposeData
   parent: Verse.HediffWithComps

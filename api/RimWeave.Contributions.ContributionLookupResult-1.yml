@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionLookupResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionLookupResult
     path: RimWeave/Contributions/ContributionLookupResult.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionLookupResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Matches
     path: RimWeave/Contributions/ContributionLookupResult.cs
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionLookupResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: InvalidCandidates
     path: RimWeave/Contributions/ContributionLookupResult.cs
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionLookupResult.cs
-      branch: ce48935b3f2414aa140b731e0fc3486cdc4bc273
+      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Status
     path: RimWeave/Contributions/ContributionLookupResult.cs

@@ -26,6 +26,7 @@ The [first C# example](../getting-started/first-contribution.md) shows these dec
 | What you want to do | API |
 | --- | --- |
 | Use a health effect that carries and saves RimWeave information | <xref:RimWeave.Health.ContributionHediff> |
+| Declare initial health contribution attribution in XML or read its snapshot | <xref:RimWeave.Health.ContributionDefExtension> |
 | Find effects on one pawn and one particular body part | <xref:RimWeave.Health.ContributionQueries> |
 | Remove a specific effect object after checking its owner and presence | <xref:RimWeave.Health.HediffOperations> |
 | Read what the removal actually observed | <xref:RimWeave.Health.HediffRemovalResult> |

@@ -1,5 +1,7 @@
 - name: Add information to a health effect
   href: health-effects.md
+- name: Declare health contributions in XML
+  href: xml-declarations.md
 - name: Remove one effect
   href: removal.md
 - name: Keep information through a save

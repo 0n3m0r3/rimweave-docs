@@ -24,9 +24,23 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## XML contribution declarations
+
+The [XML declaration adapter](../guides/xml-declarations.md) is included in the documented revision, published in [framework commit 5c7bf7a](https://github.com/0n3m0r3/rimweave/commit/5c7bf7a833ae3cd456599409adcbab0bcb6007cc). It adds optional creation defaults for `ContributionHediff`; the saved metadata format remains version `1`. B's example now reads its identity and claim from its native XML definition, while A keeps its C# initialization. The API snapshot is exported from that committed framework revision, with source links pinned to it.
+
+On 11 November 2026, the final framework tree passed **269 tests in Debug and 254 in Release**, without build warnings or errors. Targeted checks cover the real peer XML through the native parser, shared validation, independent metadata, passive reads, creation callback order and saved metadata after definition changes. Controlled Scribe tests also preserve missing and unreadable metadata instead of substituting XML defaults. A separate counter-analysis strengthened the callback test to capture values at callback time.
+
+Two completed **RimWorld 1.7.5005 rev1082** processes passed **69 checks** (29 and 40), with two native saves and three native loads. Each used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, A, B and a temporary explicitly invoked verification driver. Both installed providers remained present. The target was the Human body's first hand, at native index 28 in the fixture.
+
+The first run created A and B, then saved and loaded them. The second restarted with B's XML owner, local identity and claim changed, loaded a copy of that original, created a new B and saved and loaded again. The old effects kept their native IDs, saved declarations, target, severity and origins. The new B received the new XML values and coexisted with both originals. Counters verified that metadata was present during B's creation callback and that no creation or addition callback was replayed on load. Looking up the new identity did not silently select old B. Removing new B preserved old B and A; explicitly removing old B by its saved identity preserved A.
+
+An independent XML audit confirmed unchanged original attribution fields in the derived save and separately encoded new B metadata. Native age and visibility fields changed during loading and ticking; these checks do not establish that the whole simulation was frozen. Source save hashes were preserved. No managed exception or native save/load error occurred in the two completed runs; graphics startup diagnostics and engine warnings remained. Two preliminary attempts required fixes in the disposable driver's diagnostics and JSON reporting, without changing the framework implementation. The original mod installation was restored, the helper removed and normal game configuration verified unchanged.
+
+This run used programmatic native calls, with no manual UI test. It does not repeat the earlier four-configuration load-order matrix or test missing providers, custom subclass migration, arbitrary addons or multiplayer. Missing and unreadable metadata were tested in controlled Scribe graphs, not deliberately corrupted full colonies.
+
 ## Two-consumer scenario
 
-The [composition procedure](../guides/composition.md) uses RimWeave Example and RimWeave Example Peer as independently loadable consumers, published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). It targets the same first native hand, keeps owner-qualified identities separate and reports a deliberately shared exclusive claim without arbitration. The public framework API is unchanged; its documented snapshot remains pinned to `ce48935`.
+The [composition procedure](../guides/composition.md) uses RimWeave Example and RimWeave Example Peer as independently loadable consumers, published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). It targets the same first native hand, keeps owner-qualified identities separate and reports a deliberately shared exclusive claim without arbitration. That scenario increment did not change the public framework API; its documentation snapshot was pinned to `ce48935`.
 
 On 10 November 2026, this increment passed 249 tests in Debug and 234 in Release; both builds completed without warnings or errors. A temporary driver then passed 272 assertions across four separate RimWorld 1.7.5000 rev1275 processes: A then B (82), B then A (82), A alone (54) and B alone (54). Each used a fresh colony with Core, Royalty, Ideology, Biotech and Odyssey, plus the Debug framework and the stated consumers. All four completed two native saves and reloads, for eight complete cycles.
 
@@ -36,7 +50,7 @@ After each load, native IDs, metadata, target and cardinality were checked befor
 
 ## Provider removal and return
 
-The [missing-provider procedure](../guides/provider-removal.md) compares an untouched original AB save, loading without B, and returning B to either the original or a file saved during its absence. It uses the consumers already published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). B supplies its effect definition; the effect class remains available from the framework. The API snapshot is unchanged.
+The [missing-provider procedure](../guides/provider-removal.md) compares an untouched original AB save, loading without B, and returning B to either the original or a file saved during its absence. It uses the consumers already published in [framework commit 189137c](https://github.com/0n3m0r3/rimweave/commit/189137ca1655ba74a530c646492198de6d0ed1c6). B supplies its effect definition; the effect class remains available from the framework. That investigation did not change the API snapshot.
 
 On 11 November 2026 (UTC+1), the published source passed 249 tests in Debug and 234 in Release against the installed game assemblies, with no build warnings or errors. The native investigation ran on **RimWorld 1.7.5005 rev1082**, separately from the earlier composition run on 1.7.5000. Core, Royalty, Ideology, Biotech, Odyssey, the framework, A and a temporary driver stayed fixed; only B varied.
 
