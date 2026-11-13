@@ -24,6 +24,20 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Native holder context
+
+Framework commit [edb7e42](https://github.com/0n3m0r3/rimweave/commit/edb7e42be6cb241bd39373d47312d34b8bc099f1) adds `ParentHolder` and `MapHeld` to `NativeReferenceSnapshot`. It reads the pawn's native properties without changing `Map` or `Spawned`, storing a holder graph, modifying the reference save format or expanding notification coverage. Six new automated cases cover pawn/effect references, nested holders, off-map holders, fresh captures and unavailable references. The full working-tree suites passed **277 Debug / 262 Release tests**, with a final Debug build and no compiler warnings or errors.
+
+On 13 November 2026, the [casket scenario](../guides/held-references.md) passed **167 checks** in one **RimWorld 1.7.5005 rev1082** process, with two native saves and two complete reloads. It used Core, Royalty, Ideology, Biotech, Odyssey, the prepared Debug framework, both composition examples and an explicitly invoked temporary driver.
+
+The direct-spawned pawn had its map as its immediate native holder. Entering a cryptosleep casket kept the pawn and its two hand contributions resolved; `Map` became null and `Spawned` false, while `ParentHolder` named the casket and `MapHeld` named its map. Temporarily despawning the occupied casket made only the held map unavailable; respawning it restored that observation. Captures preserved the simulation random state, native health list, ownership and pending observations.
+
+Loading while contained retained the same pawn and effects without restarting tracking or replaying additions. After an explicit tracking restart, native ejection reported direct map entry. The released state survived the second reload. Counters recorded two contribution additions and no contribution removals. A separate XML audit confirmed native containment only in the first save, unchanged effect identities and metadata in both files, and no added holder/map fields in the three saved references.
+
+The final Debug artifacts matched those used by the game run. Installed mod files were restored, the helper removed and normal player configuration was unchanged. Graphics startup, temporary-driver manifest, ideology and shutdown-allocation warnings remained. Ejection used the native cryptosleep-sickness behavior; this check preserves the two contributions, not the entire health list across that operation.
+
+This is a programmatic native casket test, not manual UI validation, transport-history tracking or evidence for arbitrary containers, caravans, destruction and separate-process loading. Nested-holder behavior is covered by controlled fixtures. The API snapshot is exported from that clean framework commit; website deployment and a framework release remain separate steps.
+
 ## Native prosthesis removal and reinstallation
 
 On 12 November 2026, the [native recipe-worker scenario](../guides/native-prosthesis-removal.md) passed **164 checks**, with three native saves and three complete reloads in one **RimWorld 1.7.5005 rev1082** process. It used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver. Framework source and binaries were unchanged from published [b74b256](https://github.com/0n3m0r3/rimweave/commit/b74b256a3dbe11f889d6d1a74b599e2b97e27e8e); this increment adds documentation, not a new runtime API. The driver compiled without warnings or errors.

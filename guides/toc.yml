@@ -6,6 +6,8 @@
   href: removal.md
 - name: Keep information through a save
   href: persistence.md
+- name: Follow a character inside a container
+  href: held-references.md
 - name: Inspect and debug
   href: debugging.md
 - name: Verify two independent mods

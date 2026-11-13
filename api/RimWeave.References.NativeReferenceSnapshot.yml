@@ -12,6 +12,8 @@ items:
   - RimWeave.References.NativeReferenceSnapshot.EffectAttached
   - RimWeave.References.NativeReferenceSnapshot.EffectIdentity
   - RimWeave.References.NativeReferenceSnapshot.Map
+  - RimWeave.References.NativeReferenceSnapshot.MapHeld
+  - RimWeave.References.NativeReferenceSnapshot.ParentHolder
   - RimWeave.References.NativeReferenceSnapshot.Pawn
   - RimWeave.References.NativeReferenceSnapshot.PawnIdentity
   - RimWeave.References.NativeReferenceSnapshot.Resolution
@@ -25,7 +27,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: NativeReferenceSnapshot
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -60,7 +62,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolution
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -89,7 +91,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PawnIdentity
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -118,7 +120,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectIdentity
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -147,7 +149,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Pawn
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -176,7 +178,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Effect
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -205,7 +207,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Map
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -221,6 +223,72 @@ items:
     return:
       type: Verse.Map
   overload: RimWeave.References.NativeReferenceSnapshot.Map*
+- uid: RimWeave.References.NativeReferenceSnapshot.MapHeld
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.MapHeld
+  id: MapHeld
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: MapHeld
+  nameWithType: NativeReferenceSnapshot.MapHeld
+  fullName: RimWeave.References.NativeReferenceSnapshot.MapHeld
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: MapHeld
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 44
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The native map occupied directly or reached through the pawn's holders, if any.
+  remarks: 'Reads Pawn.MapHeld at capture time. A held map does not imply direct spawning or accessibility.
+
+    Holder movements between captures are outside the reference''s notification coverage.'
+  example: []
+  syntax:
+    content: public Map? MapHeld { get; init; }
+    parameters: []
+    return:
+      type: Verse.Map
+  overload: RimWeave.References.NativeReferenceSnapshot.MapHeld*
+- uid: RimWeave.References.NativeReferenceSnapshot.ParentHolder
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.ParentHolder
+  id: ParentHolder
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: ParentHolder
+  nameWithType: NativeReferenceSnapshot.ParentHolder
+  fullName: RimWeave.References.NativeReferenceSnapshot.ParentHolder
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: ParentHolder
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 51
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The pawn's immediate native holder when observed, if any; not the root holder.
+  remarks: 'Reads Pawn.ParentHolder at capture time without retaining a separate ownership graph.
+
+    Null can mean a resolved pawn has no holder; inspect Resolution separately.
+
+    The native holder remains mutable and is not persisted by this snapshot.'
+  example: []
+  syntax:
+    content: public IThingHolder? ParentHolder { get; init; }
+    parameters: []
+    return:
+      type: Verse.IThingHolder
+  overload: RimWeave.References.NativeReferenceSnapshot.ParentHolder*
 - uid: RimWeave.References.NativeReferenceSnapshot.Spawned
   commentId: P:RimWeave.References.NativeReferenceSnapshot.Spawned
   id: Spawned
@@ -234,11 +302,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Spawned
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 40
+    startLine: 53
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -263,11 +331,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Dead
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 42
+    startLine: 55
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -292,11 +360,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Destroyed
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 44
+    startLine: 57
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -321,11 +389,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Discarded
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 46
+    startLine: 59
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -350,11 +418,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 5c7bf7a833ae3cd456599409adcbab0bcb6007cc
+      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectAttached
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 48
+    startLine: 61
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -618,6 +686,25 @@ references:
   name: Map
   nameWithType: Map
   fullName: Verse.Map
+- uid: RimWeave.References.NativeReferenceSnapshot.MapHeld*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.MapHeld
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_MapHeld
+  name: MapHeld
+  nameWithType: NativeReferenceSnapshot.MapHeld
+  fullName: RimWeave.References.NativeReferenceSnapshot.MapHeld
+- uid: RimWeave.References.NativeReferenceSnapshot.ParentHolder*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.ParentHolder
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_ParentHolder
+  name: ParentHolder
+  nameWithType: NativeReferenceSnapshot.ParentHolder
+  fullName: RimWeave.References.NativeReferenceSnapshot.ParentHolder
+- uid: Verse.IThingHolder
+  commentId: T:Verse.IThingHolder
+  parent: Verse
+  isExternal: true
+  name: IThingHolder
+  nameWithType: IThingHolder
+  fullName: Verse.IThingHolder
 - uid: RimWeave.References.NativeReferenceSnapshot.Spawned*
   commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Spawned
   href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Spawned
