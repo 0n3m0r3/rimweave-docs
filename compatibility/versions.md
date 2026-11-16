@@ -15,6 +15,16 @@ The [API snapshot manifest](../api/snapshot.json) records the framework baseline
 
 A working-tree preview must be re-exported after the framework changes are committed before it can be publicly published by the prepared workflow. Source links are omitted in that preview so changed line numbers do not point to unrelated committed code.
 
+## Choose required game content
+
+Suppose your mod adds a removable effect to a character's hand and keeps an exact reference through a save. The current contribution and reference contracts do not require a DLC. The framework manifest declares no DLC dependency; the two optional composition examples require only the framework. Their [Core-only verification](index.md#core-only-configuration) covers loading, native health operations and a fresh-process reload with all DLC activation flags false.
+
+Your mod still owns the dependencies of its own gameplay. If a feature uses Biotech or Ideology, declare or guard that dependency through RimWorld's mechanisms before using its APIs. Native `ModsConfig` activation properties, such as `BiotechActive` and `IdeologyActive`, describe the running configuration. An installed expansion is not necessarily active, and an active package alone does not establish compatibility with a particular provider version. RimWeave supplies neither a replacement DLC nor a general provider-version negotiation service.
+
+For a Core-only test, use an isolated native mod configuration and verify the packages actually loaded. On the tested game build, the native `-mod` shortcut also enables installed compatible official expansions; naming only the framework there does not isolate Core. A newly detected expansion can also be enabled by the native configuration loader. Inspect the active flags and saved package list instead of inferring the result from the requested list.
+
+This evidence concerns the documented framework revision and the stated scenarios. It does not certify every DLC combination, third-party race or addon, a physical DLC uninstall, or a mod's own DLC-dependent behavior.
+
 ## Contracts covered here
 
 - Shared contribution identity and metadata owned by each contribution.

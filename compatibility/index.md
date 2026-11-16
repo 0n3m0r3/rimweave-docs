@@ -22,9 +22,27 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
 | Unreadable saved metadata | Automated rejection/preservation tests and [84 native checks across three processes](#unreadable-metadata-across-restarts) | Native run covers an unsupported metadata version and an absent record; no migration, save repair or missing-class recovery. |
+| Core without active DLC | [81 native checks across four processes](#core-only-configuration), with and without the optional examples | Bounded loading, health and reference checks; no full neutrality comparison or physical DLC uninstall. |
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Core-only configuration
+
+On 16 November 2026, framework [e306982](https://github.com/0n3m0r3/rimweave/commit/e306982326fa9f96738063a527c43c22913efa66) passed **81 native checks** on **RimWorld 1.7.5011 rev24**, without a framework change. **57 existing Debug tests** covering composition, resolution, contribution operations, persisted references and body-part snapshots also passed. See [how to choose required content](versions.md#choose-required-game-content) for the distinction between framework capabilities and an extension's own DLC dependencies.
+
+Four distinct processes used two disposable profiles, with two native saves and two direct loads. The actual running package lists contained Core, the framework and one explicitly invoked temporary observer; the composition profile additionally loaded A and B. All five native DLC activation flags were false in every process. The source saves and their direct-load inputs had identical hashes.
+
+| Profile | Checks by process | Observed result |
+| --- | --- | --- |
+| Framework without the examples | 14 creation / 15 load | No example assembly or health definition loaded, and no contribution added. A passive pawn reference resolved; toggling developer mode and inspecting it preserved the observed health fields and simulation randomness. The new process restored the selected pawn's native identity and recorded health fields. Its explicitly saved reference loaded with interrupted tracking and no automatic resumption. |
+| Framework with A and B | 25 creation / 27 load | Three explicit additions succeeded through the ordinary extension API while developer mode was disabled. A/B targeted one human hand and B the other. Five exact references, metadata, severity and creation ticks survived the new process without replayed additions or implicit tracking. |
+
+The two consumers retained distinct identities while their shared first-hand responsibility remained ambiguous. After loading, removing B by identity on the first hand preserved A and the other-hand B. Two explicitly resumed B observers recorded detachment and stopped. Repetition returned absent without another callback, and the shared claim then resolved uniquely to A. The final withdrawal was verified in memory only; no post-withdrawal save was made. Composition counters recorded additions **3/0**, post-load callbacks **0/3**, and one explicit removal after the second process had verified its loaded state.
+
+The independent save audit found no contribution metadata in the framework-only save, and exactly three native contributions plus five references in the composition save. It verified owner-qualified metadata, the native hand indices, source values and the saved package lists without DLC entries. Queries and captures preserved health-list membership and simulation randomness. Installed artifact hashes matched the committed Debug outputs; all four processes exited successfully. The original installation was restored, both observers removed and all 25 normal configuration files remained unchanged.
+
+Logs contained the graphics-layer Fossilize error, loader and shutdown allocation warnings. No unexpected native error or reference-resolution warning was found. This configuration disables DLC activation; it does not test physically uninstalling DLC files. The observer itself was loaded, the checks were programmatic, and the framework-only phase did not compare every simulation or UI behavior against a game without the framework. No general neutrality, performance, Release game-run, third-party or multiplayer certification follows.
 
 ## Unreadable metadata across restarts
 
