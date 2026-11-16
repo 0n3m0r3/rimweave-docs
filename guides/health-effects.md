@@ -116,7 +116,9 @@ The subscription store uses weak keys. If the consumer drops the entire referenc
 
 After the last observer is disposed or collected, the next notification can still scan the old table once. When it finds no live registrations, RimWeave releases that table. Later empty notifications avoid the enumeration and its managed allocation, until a consumer explicitly starts tracking again. No periodic world scan or live-observer counter is introduced. Map removal uses the same empty-table reconciliation.
 
-Active notification cost still depends on the subscription population in the game, including observers whose targets do not match the current event. The [measured reference-tracking workload](../compatibility/index.md#reference-tracking-cost-and-lifetime) covers 0 to 10,000 retained observers, explicit disposal, abandoned references and restart. Its timings describe one synchronous handler on the recorded machine, not a colony tick-rate guarantee or an approved global performance budget.
+Active delivery walks the weak registrations directly instead of copying all observers into an array. If removing an effect stops several subscriptions during delivery, each retained observer of that exact effect still receives its own detachment; other effects and pawns keep their subscriptions. Delivery invokes no extension callback. Keep all reference access on the simulation thread.
+
+The traversal still visits the subscription population in the game, including observers whose targets do not match the event. Removing the temporary array reduces managed allocation; it does not make the work independent of observer count. The [measured active-delivery workload](../compatibility/index.md#active-reference-delivery) compares 0 to 10,000 retained observers, disposal, collection and restart. The [earlier empty-session measurement](../compatibility/index.md#reference-tracking-cost-and-lifetime) explains why the first notification after cleanup still reconciles the old table. These timings describe one synchronous handler on the recorded machine, not a colony tick-rate guarantee or an approved global performance budget.
 
 ## Capture the observed body part
 

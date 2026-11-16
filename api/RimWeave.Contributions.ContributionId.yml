@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionId.cs
-      branch: 7d492f3419368e52ca120636087140fe366e4dd7
+      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionId
     path: RimWeave/Contributions/ContributionId.cs
@@ -47,7 +47,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionId.cs
-      branch: 7d492f3419368e52ca120636087140fe366e4dd7
+      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: OwnerId
     path: RimWeave/Contributions/ContributionId.cs
@@ -76,7 +76,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionId.cs
-      branch: 7d492f3419368e52ca120636087140fe366e4dd7
+      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: LocalId
     path: RimWeave/Contributions/ContributionId.cs
@@ -105,7 +105,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionId.cs
-      branch: 7d492f3419368e52ca120636087140fe366e4dd7
+      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/Contributions/ContributionId.cs

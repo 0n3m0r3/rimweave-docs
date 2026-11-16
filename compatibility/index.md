@@ -32,6 +32,47 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Active reference delivery
+
+When several mods retain observers, a notification used to copy every live registration into a temporary array before recording any facts. The [framework change](https://github.com/0n3m0r3/rimweave/commit/dc5a296a3444a5d3e84a2991496a651d68aa537c) now walks the same weak table directly, disposing its enumerator after delivery. It preserves the earlier empty-table release and adds no target index, world cache, periodic scan, extension callback, public signature or save format.
+
+On 16 November 2026, **144 functional checks** passed in four independent **RimWorld 1.7.5011 rev24** processes, 36 per process: two with the previous revision and two with the change. The same temporary driver and measurement protocol ran in all four. Configuration: Core, Royalty, Ideology, Biotech, Odyssey, Debug framework, both examples and the explicitly invoked driver. Hardware: Ryzen 9 7900X3D, 12 cores/24 logical processors, approximately 31.1 GiB physical memory; Windows build 26300, x64, `.NET 10.0.15-waylithclr.dev`.
+
+### Active allocation comparison
+
+The [handler protocol below](#measured-handler-and-protocol) was repeated: paused disposable colony, one already-spawned pawn, delegate bound to RimWeave's actual map spawn handler outside measurement, 512 warm-up calls and 51 batches of 128 calls per workload. It measures the framework handler, not repeated spawning or the complete native event chain. Construction, registration, checks, logging and forced collection were outside timed batches; no build or test suite ran concurrently. All retained observers in each timed workload targeted the same pawn.
+
+Ranges are the two process medians in microseconds per notification. Allocation medians matched across both runs of each revision. Two baseline batches contained extra allocations (536 and 7,240 bytes for the entire batch); their medians were unaffected. Every changed-revision batch had the allocation shown below. The previous revision already includes the empty-session correction.
+
+| Workload | Before, median µs/event | After, median µs/event | Bytes per event, before / after |
+| --- | --- | --- | --- |
+| Initially empty | 0.030–0.041 | 0.040–0.048 | 0 / 0 |
+| 1 active observer | 0.291–0.328 | 0.159–0.182 | 136 / 48 |
+| 100 active observers | 7.521–7.680 | 3.071–3.456 | 928 / 48 |
+| 1,000 active observers | 71.545–71.955 | 30.040–33.311 | 8,128 / 48 |
+| 10,000 active observers | 303.700–305.285 | 319.190–376.917 | 80,128 / 48 |
+| Empty after 10,000 disposals | 0.028–0.041 | 0.030–0.071 | 0 / 0 |
+| Empty after 10,000 abandoned observers collected | 0.028–0.041 | 0.030–0.033 | 0 / 0 |
+| 1 observer restarted | 0.191–0.316 | 0.157–0.172 | 136 / 48 |
+
+The observed active allocation is **48 bytes per notification**, independent of the tested population from 1 to 10,000; it is not allocation-free delivery or a promise for other runtimes. The first empty notification after disposal or collection still scans the old table: **41.8–45.2 µs and 48 bytes** after the change, versus **43.6–56.0 µs and 104 bytes** before. Later empty notifications allocate zero measured bytes, and explicit tracking can restart.
+
+Timings do **not** show a universal speedup. At 10,000 observers the changed medians were higher than the baseline; p95 batch averages were **319.889–350.913 µs/event before** and **356.080–416.713 after**. At 1,000, the corresponding p95 ranges were **79.414–96.346** and **31.012–35.013**. These are percentiles of batch averages, not individual-event latency. Traversal still scales with the subscription population. The demonstrated benefit is reduced temporary allocation; JIT tiering, scheduling, GC and machine load remain uncontrolled, and no global CPU non-regression budget is established.
+
+### Removal during delivery
+
+Each native run also registered 128 observers of one effect interleaved with 128 observers of another effect on the same pawn, plus pawn-only and unrelated-pawn witnesses. Native removal of the first effect notified all its observers and stopped them, while the other subscriptions stayed active. Removing the second effect later notified all its own observers. Pending flags were checked before snapshot reconciliation could hide a missed callback. Historical references kept their exact detached objects. These normal health operations ran with developer mode disabled after explicit fixture setup; they were outside the benchmark.
+
+The handler workloads preserved health, location, identity and simulation randomness. Separate observers retained independent pending facts. Explicit disposal and collection of 10,000 abandoned observers were verified while the native world still owned the pawn; forced collection is a test technique, not a gameplay recommendation.
+
+Three new regression cases cover population-independent allocation on both notification paths and interleaved detachment. Both allocation cases failed before the change. Existing weak-lifetime tests now deliver an event before abandoning the observer. **21 focused tests, 325 Debug tests and 306 Release tests** passed; builds reported no warnings or errors.
+
+After committing and refreshing API metadata, a separate verification ran the rebuilt published Debug binary: **36 further checks passed**, bringing the complete-run total to **180**. Its installed DLL hash matched the final local artifact. This confirmation is separate from the four-process comparison above; it does not add a third timing sample to those ranges.
+
+All five complete runs restored the installed mods, removed the helper and preserved all 25 normal configuration files. An earlier pilot completed its measurements but failed when its removal fixture selected an ordinary `HediffWithComps` definition; it is excluded from the comparison and check total. The fixture was corrected to use a `ContributionHediff` definition, and that pilot's installation was also restored. Logs retain graphics/loader, temporary-manifest and shutdown allocation diagnostics.
+
+No colony tick-rate, retained-heap, renderer, health-delivery timing, save/load, third-party or multiplayer benchmark was executed. The measurements do not establish a global performance budget. See [consumer ownership and release](../guides/health-effects.md#release-observers-when-work-ends).
+
 ## Reference tracking cost and lifetime
 
 A consumer can finish thousands of activities and release every observer, yet still pay for the old subscription table on each later notification. Two baseline runs reproduced that residual cost. The correction releases a table once an existing notification finds it empty, allocating a new table only when tracking starts again. No target index, live-key counter or polling loop was added. The [framework correction](https://github.com/0n3m0r3/rimweave/commit/7d492f3419368e52ca120636087140fe366e4dd7) changes no public signature or save format.
@@ -62,7 +103,7 @@ Ranges below are the two process medians for each revision. Allocation counts ma
 
 The **first** corrected notification after disposal or collection took **44.1–65.0 µs and 104 bytes**: reconciliation is deferred to that existing event. Subsequent empty batches had p95 averages of **0.032–0.045 µs/event**. Starting one observer again measured **0.208–0.280 µs/event and 136 bytes**, with normal independent observation.
 
-Active-load timings varied: for 10,000 observers, the baseline p95 batch averages were 409.927–460.241 µs/event and corrected values were 460.188–500.813 µs/event. These short Debug runs do not establish an active-load speedup or a general non-regression budget. The demonstrated improvement is the empty-session path; active notification allocations remain linear in the enumerated population. JIT tiering, scheduling, GC pauses within batches and machine load are not isolated. Managed thread allocation is not retained heap size, native memory or total GC cost.
+Active-load timings varied: for 10,000 observers, the baseline p95 batch averages were 409.927–460.241 µs/event and corrected values were 460.188–500.813 µs/event. These short Debug runs do not establish an active-load speedup or a general non-regression budget. The demonstrated improvement at that revision is the empty-session path; active notification allocations were still linear in the enumerated population. The subsequent [active-delivery measurement](#active-reference-delivery) addresses those allocations separately. JIT tiering, scheduling, GC pauses within batches and machine load are not isolated. Managed thread allocation is not retained heap size, native memory or total GC cost.
 
 ### Functional and cleanup boundaries
 

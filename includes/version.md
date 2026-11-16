@@ -1,1 +1,1 @@
-**Committed preview.** Framework baseline: [7d492f3](https://github.com/0n3m0r3/rimweave/commit/7d492f3419368e52ca120636087140fe366e4dd7). Target: RimWorld 1.7 / .NET 10. The API is experimental.
+**Committed preview.** Framework baseline: [dc5a296](https://github.com/0n3m0r3/rimweave/commit/dc5a296a3444a5d3e84a2991496a651d68aa537c). Target: RimWorld 1.7 / .NET 10. The API is experimental.
