@@ -35,6 +35,8 @@ These observations concern direct map transitions. They do not promise notificat
 
 Two references to B have separate pending observations even though they resolve the same effect. Acknowledging one does not clear the other. The witness remaining on the map receives neither the traveller's departure nor its return.
 
+If the former map is removed while the character is away, distinguish `ContextRemoved` from target loss. See [keeping references when a map is removed](map-removal.md) for subscription history, world-only saves and a new map at the same world tile.
+
 ## Reload without replaying the journey
 
 Native saving stores the travelling pawn and its effects in `WorldPawns`; the caravan saves a reference to that pawn. After entry, the pawn is saved on its map and the empty caravan is gone. The [audited saves](../compatibility/index.md#caravan-departure-and-return) contain one native pawn, not a separate copy owned by each consumer.

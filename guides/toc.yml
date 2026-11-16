@@ -10,6 +10,8 @@
   href: held-references.md
 - name: Follow a character through a caravan
   href: caravan-references.md
+- name: Keep references when a map is removed
+  href: map-removal.md
 - name: Keep references through death and resurrection
   href: death-and-resurrection.md
 - name: Distinguish a missing corpse from a discarded pawn

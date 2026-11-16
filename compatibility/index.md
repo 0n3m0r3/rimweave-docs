@@ -24,6 +24,20 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Removal of a former map
+
+On 16 November 2026, framework [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [map-removal scenario](../guides/map-removal.md) on **RimWorld 1.7.5011 rev24**, without a framework change. The isolated profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both unchanged composition examples and an explicitly invoked temporary driver. The 11 existing reference-tracking tests also passed in Debug, including event-adapter checks for handler removal and a target whose latest map differs from the removed one.
+
+The final native run passed **189 checks** across three distinct processes, two saves and two direct loads, with successful process exits. The traveller departed with A/B; its references acknowledged `LeftContext`. Native `Game.DeinitAndRemoveMap` then removed the only map, recording `ContextRemoved` on the four traveller observers without destroying or discarding the pawn or stopping its subscriptions. The witness had entered a separate caravan before its two subscriptions started; those observers received no historical map-removal flag. Acknowledging one B observer left the other pending.
+
+A new process loaded the world-only save. Both pawns and all three effects resolved through native world storage, the removed map stayed absent, and all subscriptions remained stopped until explicitly resumed. Native map generation at the traveller's world tile produced a different map identity without moving either referenced pawn. The driver selected that map as the current local context before native caravan entry. Entry recorded `EnteredContext`, preserved A/B and removed only the traveller's empty caravan. The independent witness remained in its own caravan. Another complete restart restored only the new map and the correct native owners.
+
+Fresh per-process counters recorded additions **3/0/0**, removals **0/0/0**, and native post-load callbacks **0/3/3**. Neither loading process created a new colony or replayed a producer action. Exact effect identities, metadata, targets, severity and creation ticks survived; snapshots preserved native health and simulation randomness. Tracking was never resumed implicitly.
+
+An independent XML audit found no local map in the first save and only the new map in the second. Both characters were initially saved once in `WorldPawns`; after arrival only the traveller moved to map storage. Caravan contents referenced those native pawns. All three contributions, six exact-reference records, pending observations and explicit tracking boundaries were audited. Native autostart copies were byte-identical and tested file hashes matched the committed Debug build. The installation was restored, the helper removed and all 25 normal configuration files were unchanged.
+
+The final run had no unresolved, unsaved-effect or discarded-pawn reference warning and no native error beyond the separately identified graphics startup message. Temporary manifest, ritual-precept and shutdown-allocation messages remained. This paused, programmatic path does not test the abandonment interface, the fate of characters left behind, pocket or third-party maps, arbitrary native relation persistence, changed providers or activity-resource cleanup. Website deployment and a framework release remain separate.
+
 ## Caravan departure and return
 
 On 16 November 2026, framework [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [caravan reference scenario](../guides/caravan-references.md) on **RimWorld 1.7.5011 rev24**, without a framework change. The isolated profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both unchanged composition examples and an explicitly invoked temporary driver.
