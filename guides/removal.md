@@ -49,6 +49,24 @@ If the lookup returns `NotPresent`, `Ambiguous` or `InvalidMetadata`, `Removal` 
 
 When `Removal` is present, inspect its status. “A match was found” does not mean “the effect was removed.” A separate exclusive-responsibility conflict does not prevent removal of a uniquely identified contribution; withdrawing that contribution may be the mod's intended response.
 
+## When a callback fails or puts the effect back
+
+The glove mod can find its exact effect and still fail to withdraw it. For example, its removal callback may update another system and then throw, or deliberately reattach the same effect. Neither a successful lookup nor a caught exception tells you the final attachment state.
+
+For the tested native path, RimWorld calls `PreRemoved`, removes the instance from the health list, then calls `PostRemoved`. Exceptions interrupt that sequence. RimWeave releases its temporary guard and propagates the original exception; it returns no `ContributionRemovalResult` or `HediffRemovalResult` for that call.
+
+| Callback behavior | Observed outcome | Consumer decision |
+| --- | --- | --- |
+| `PreRemoved` throws before target detachment | The target can remain attached; a nested operation on another effect may already have completed. | Inspect both the target and your own recorded side effects before deciding whether to retry. |
+| `PostRemoved` throws after target detachment | The target can already be absent; earlier callback effects remain. | Do not treat the exception as proof that removal never happened. A later request for this absent instance returns `NotPresent` without replaying callbacks. |
+| `PostRemoved` reattaches the same instance and returns normally | `Removal.Status` is `StillPresent`, even though removal and addition callbacks ran. | Reconcile the policy that reattached it before another attempt; a retry loop could repeat those side effects. |
+
+These are observed examples, not an exhaustive classification of arbitrary callbacks. Another mod can make additional mutations before throwing. A previously returned lookup still contains its original matches; query again or inspect exact current membership rather than treating that old result as current state. Preserve the exception and the affected contribution's identity in your own diagnostic. RimWeave neither compensates your external effects nor decides that retrying is safe.
+
+A transient detachment also matters to observers. In the verified reattachment case, the subclass called `ContributionHediff.PostRemoved` before reattaching. Both exact references recorded `EffectDetached` and stopped tracking. A fresh `Capture()` then showed the same effect attached again, but did not resume tracking. Each consumer can acknowledge and explicitly restart its own reference after revalidating its policy. `StillPresent` describes final attachment, not uninterrupted presence. See [reference tracking](health-effects.md#keep-a-reference-when-the-character-moves).
+
+The [recorded callback checks](../compatibility/index.md#interrupted-removal-and-reattachment) exercise these paths in the native game, including an independent provider and the same contribution identity on the other hand. They do not establish recovery from a crash, incomplete save or arbitrary third-party failure.
+
 ## What the result does and does not describe
 
 The result describes whether that particular effect is attached after a normal return. The game and other mods may run additional code during their callbacks. RimWeave does not undo those callbacks or promise to roll back partial changes if native code throws an exception.

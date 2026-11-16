@@ -18,11 +18,28 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Exact-instance native removal | Manual prototype check on RimWorld 1.7.5000 rev1275: first removal succeeded, second returned absent, callback deltas were `[1,1]` then `[0,0]` | Specific framework/example configuration, recorded on 8 November 2026. |
 | Independent hand targets | Manual prototype check preserved the other hand's marker | Does not establish general transformation reversal. |
 | Removal by contribution identity | Automated lookup and guard checks; successful native withdrawal after a reload in the [two-consumer scenario](#two-consumer-scenario) | Verified with the two cooperating examples; no general provider-removal guarantee. |
+| Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated tests using the native Scribe save/load phases for a health effect and a separate data owner | Does not establish full-colony reload behavior or arbitrary provider compatibility. |
 | Unreadable saved metadata | Automated rejection of unsupported or malformed metadata, preservation for later saves, and incomplete-query results | Does not repair a damaged save or replace missing third-party classes. |
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Interrupted removal and reattachment
+
+On 16 November 2026, framework [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed **60 native checks** for [callback failures and reattachment](../guides/removal.md#when-a-callback-fails-or-puts-the-effect-back) on **RimWorld 1.7.5011 rev24**, without a framework change. The isolated profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver. The driver substituted an instrumented `ContributionHediff` subclass for B's definition in memory, preserving its base lifecycle calls. The public example files were unchanged. **44 existing tests** covering addition, removal, resolution and guards also passed in Debug.
+
+One pawn carried A/B on one hand and B on the other. A separate whole-body B instance served as a deliberately nested removal target. All health mutations went through native operations via the existing adapters; the checks ran programmatically while paused:
+
+- Two requested removals by identity reached a failing `PreRemoved` callback. Each propagated the same exception object, kept the target attached and released the guard. Nested removal of that same target returned `AlreadyRemoving`. Removal of the whole-body instance completed once inside the first callback; its absence and counted side effect survived the outer exception. The second attempt returned absent for that independent instance without another callback.
+- After disabling the failure, a new explicit removal succeeded. Following explicit reattachment, a `PostRemoved` callback changed a counter and threw. The target was already absent, its observers had recorded detachment, and the counter remained changed. A historical lookup still held the target object; a new identity lookup returned `NotPresent` with null `Removal`. An exact-instance retry returned `NotPresent` without repeating callbacks. Reattachment followed by a successful removal established that the guard had also been released after this exception.
+- Another `PostRemoved` callback reattached the same target through `ContributionOperations.Add`. The outer identity-based operation returned `Found` with `StillPresent`; another removal requested inside that callback returned `AlreadyRemoving`. The two target references retained the transient detachment and stayed stopped despite final attachment. Acknowledging and restarting one left the other unchanged. Disabling reattachment allowed a later removal to return `Removed`, followed by an absent retry with no callbacks.
+
+Across these controlled operations, the target recorded five additions, seven `PreRemoved` calls and five `PostRemoved` calls. The three deliberately counted callback side effects were retained. A and the other-hand B kept their exact instances, attribution, targets, severity and creation ticks; their observers remained active without unrelated changes. Inspection preserved health-list membership and simulation randomness.
+
+The process exited successfully. Installed artifact hashes matched the working-tree Debug outputs; the original installation was restored, the temporary helper removed, and all 25 normal configuration files remained unchanged. The log contained the graphics-layer Fossilize error, a loader warning, temporary-manifest metadata warning and shutdown allocation warnings. Expected callback exceptions were caught and compared by the driver; no unexpected native health error was found. This is not a warning-free startup claim.
+
+This proof covers the stated callback ordering and instrumented subclass. It does not exercise UI actions, save/load, interrupted writes, process crashes, general compensation, cross-thread calls or arbitrary third-party patches. It adds no retry loop, transaction engine or callback isolation.
 
 ## Caravan division and merging
 
