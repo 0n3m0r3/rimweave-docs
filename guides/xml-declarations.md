@@ -46,6 +46,25 @@ Origin and source are contextual C# data; they are not XML fields in this adapte
 
 Use the native factory rather than `new ContributionHediff()`, which does not run the initialization hook. A subclass overriding `PostMake` must call `base.PostMake()`. Without an XML declaration, the [existing C# initialization recipe](health-effects.md#create-describe-then-attach) remains available. With XML, a later `AssignIdentity` must agree with the already assigned identity; changing it is rejected by the shared metadata contract.
 
+## Combine constructor attribution with XML
+
+Suppose your effect subclass declares an exclusive claim in its constructor, while its XML definition supplies the identity and another claim. Those values conflict. RimWeave rejects the XML attribution **before changing either metadata field** and before invoking native component creation callbacks. The constructor's identity, claim and origin remain as they were; an XML identity is not left behind after a claim conflict.
+
+The same shared rules apply to code and XML:
+
+| Prepared metadata | XML declaration | Creation result |
+| --- | --- | --- |
+| No identity, compatible claim | Identity and the same claim | Completes the identity before component callbacks. |
+| Existing identity and claim | Equal identity and claim | Accepts the repeated values. |
+| Existing claim | Identity with no declared claim | Completes the identity and preserves the existing claim. |
+| Conflicting identity or claim | A different value for that field | Throws `InvalidOperationException` without changing the prepared metadata. |
+
+Invalid declaration fields are rejected before attribution too. Origin remains contextual data supplied by your mod; neither an omitted claim nor an absent declaration clears existing constructor metadata. Use one consistent attribution across your constructor and XML, or keep attribution in code when it varies per instance.
+
+This guarantee covers RimWeave's initial attribution, on the simulation thread. It is not a transaction around `HediffMaker.MakeHediff`: constructor work has already happened, and later callbacks can have effects of their own. In the verified game version, RimWorld logs and catches a failing component's `CompPostMake`, so the factory can return an effect despite that component error. An exception thrown by a subclass after `base.PostMake()` propagates; attribution already applied by the base call remains. Do not assume that a returned object proves every component initialized successfully, or that an exception rolled back creation.
+
+See the [constructor-attribution verification](../compatibility/index.md#constructor-attribution-conflicts) for the tested cases and limits.
+
 ## Read the declaration without applying it
 
 [!code-csharp[Find the current declared identity](../examples/Recipes/Health.cs#xml-query)]
@@ -66,7 +85,7 @@ Suppose a provider renames its local contribution from `hand-effect` to `revised
 | --- | --- | --- |
 | Original declaration | Keep their saved attribution. | Receive the original identity and optional claim. |
 | Changed identity or claim | Still keep their saved attribution. | Receive the changed defaults. |
-| Declaration removed, definition/class retained | Still keep their saved attribution. | Start without an identity or claim; contextual origin also remains unset until supplied in code. |
+| Declaration removed, definition/class retained | Still keep their saved attribution. | Receive no XML attribution. A base `ContributionHediff` starts unset; subclass constructor metadata remains its own. |
 
 Resolve claims and identities from the actual instance metadata. Reading today's declaration only describes today's creation defaults. A helper that derives its lookup identity from that declaration will not find an old-generation effect under a renamed identity. It must not treat “not present” as permission to remove a different matching definition.
 

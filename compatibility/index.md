@@ -22,6 +22,7 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Observed native body part | Ten snapshot tests and [60 native checks](#observed-body-part-snapshots), including a fresh-process load | Snapshot of an effect's declared slot; no organ identity, anatomical validation or part-change notification. |
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
+| Constructor attribution conflicts | [73 native checks](#constructor-attribution-conflicts), nine new regression cases and an observed failing regression before correction | Complete initial attribution is validated before mutation; no rollback of constructors or later native callbacks. |
 | Changed XML creation defaults | [104 native checks across three processes](#changed-declaration-defaults), plus creation and repeated-save regression cases | Definition and class stay available; no automatic migration, missing-class recovery or general versioning policy. |
 | Unreadable saved metadata | Automated rejection/preservation tests and [84 native checks across three processes](#unreadable-metadata-across-restarts) | Native run covers an unsupported metadata version and an absent record; no migration, save repair or missing-class recovery. |
 | Core without active DLC | [81 native checks across four processes](#core-only-configuration), with and without the optional examples | Bounded loading, health and reference checks; no full neutrality comparison or physical DLC uninstall. |
@@ -29,6 +30,20 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Constructor attribution conflicts
+
+On 16 November 2026, **73 checks** passed in an isolated **RimWorld 1.7.5011 rev24** process after correcting partial XML attribution. A regression first reproduced the defect: a conflicting pre-existing claim caused creation to throw after the XML identity had already been assigned. The [framework correction](https://github.com/0n3m0r3/rimweave/commit/0915975a52b7bc9ed63665b645c4487da93ff056) validates the complete attribution before writing either field, using the shared metadata invariants. Public signatures and the saved format are unchanged.
+
+The native fixture used a temporary subclass with constructor-supplied metadata and an instrumented component. Core, Royalty, Ideology, Biotech, Odyssey, the framework and both examples were enabled. Nine cases exercised identity and claim conflicts, an invalid XML claim, compatible and repeated values, an omitted claim, an absent declaration and two later failure paths. Calls used the native factory with developer mode disabled after explicit test setup.
+
+Conflicts and invalid fields left constructor identity, claim and origin intact, invoked no component creation callback, attached nothing and consumed no simulation randomness in this fixture. Compatible values were available at the component's first callback; an omitted XML claim and an absent declaration preserved constructor metadata. Explicit addition and exact-identity cleanup preserved another provider on the same hand and a witness on the other hand.
+
+The failure paths distinguish native behavior from attribution validation. RimWorld caught and logged the injected `CompPostMake` exception and returned the effect with its completed attribution. A subclass exception after `base.PostMake()` propagated while that attribution remained. Constructor work, callback effects and legitimate native random draws are not rolled back. An earlier verification attempt incorrectly expected component exceptions to propagate; its assertion failed. The final run checks the observed native handling and the propagated subclass exception separately.
+
+**315 Debug and 296 Release tests** passed, including **41 focused declaration/metadata cases** and nine new regression cases. Builds completed without warnings or errors. Installed runtime hashes matched the tested Debug outputs. Both disposable runs exited and restored the installed mods; the temporary driver was removed and 25 normal configuration files were unchanged. Logs include the deliberately injected component error, graphics/loader, temporary-manifest and shutdown allocation diagnostics; this is not an error-free native log.
+
+This verification uses programmatic calls and in-memory definition instrumentation, not a real third-party constructor or XML patch pack. It includes no save/load, interrupted write, migration, rollback or multiplayer check. See [combining constructor attribution with XML](../guides/xml-declarations.md#combine-constructor-attribution-with-xml).
 
 ## Changed declaration defaults
 
