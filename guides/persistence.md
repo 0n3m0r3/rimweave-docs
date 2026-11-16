@@ -53,6 +53,8 @@ The [caravan scenario](caravan-references.md) verifies another native owner: a l
 
 The [map-removal scenario](map-removal.md) also loads a game with no local map. Pending observations survive; the old map is not recreated, and a later native map at the same world tile has its own identity. Restarting a subscription does not reconstruct its earlier last-map history.
 
+The [split/merge scenario](caravan-references.md#split-and-merge-without-entering-a-map) verifies native caravan membership across two complete restarts. Pawn/effect identities stay exact while the holder changes; the merge removes the empty caravan without destroying or replacing its former pawn.
+
 ## An old save may contain no description
 
 If the effect was saved before it carried RimWeave metadata, there is nothing to restore. It remains without a declared identity or origin. RimWeave does not infer those values from its class or invent a history.

@@ -1,6 +1,6 @@
 ---
 title: Follow a character through a caravan
-description: Preserve exact native references across caravan departure, a game restart and return to the original map.
+description: Preserve exact native references through caravan departure, splitting, merging, game restarts and return to a map.
 ---
 
 # Follow a character through a caravan
@@ -52,3 +52,21 @@ Use a disposable profile with the framework and both composition examples. Keep 
 3. **Load the returned state.** In another fresh process, verify the same targets on the original map, no recreated caravan, no replayed additions or removals, and no automatic tracking restart.
 
 The [recorded run](../compatibility/index.md#caravan-departure-and-return) checks inspection against native health and simulation randomness, audits both save graphs and restores the installed files. It exercises programmatic native transition entry points with the simulation paused. Formation UI, a travelling route, caravan simulation over time, splitting or merging, transport pods, third-party holders, changed provider configurations and activity resumption remain outside this proof.
+
+## Split and merge without entering a map
+
+The character can also move between caravans while remaining outside every local map. In the [verified split/merge path](../compatibility/index.md#caravan-division-and-merging), a native split moves the traveller into a new caravan. A later merge transfers that same pawn back into the larger original caravan and destroys the emptied one. Its A/B effects remain attached throughout; the witness stays in the original caravan with its independent A.
+
+A fresh `Capture()` reports the traveller's current `ParentHolder`. `Map` and `MapHeld` stay null and `Spawned` stays false. An earlier snapshot still refers to the former caravan object; that object remains mutable and may now be empty or destroyed. Destroying a former holder does not mean that its transferred pawn was destroyed.
+
+**An empty `PendingChanges` value does not prove that the holder is unchanged.** These native transfers do not generate a supported direct map transition or cooperating health lifecycle event. Subscriptions stay active, with no invented `EnteredContext`, `LeftContext`, `ContextRemoved` or target-loss flag. `Capture()` refreshes current context; it does not reconstruct an intermediate holder history. An extension must revalidate the holder before a decision that depends on caravan membership. This proof does not add a world-transition notification contract.
+
+Saving keeps each pawn once in `WorldPawns`; the caravans serialize native references to their members. Both complete restarts preserve the exact effect targets and current memberships, with no replayed addition, removal, split or merge. Loading leaves subscriptions stopped until explicitly resumed. The emptied caravan is absent after the merge save is loaded.
+
+To reproduce this separate boundary in a disposable profile with the same versions and providers:
+
+1. **Split and save.** Put three colonists in one native caravan: the traveller with A/B, a witness with A and an unmodified companion. Start six references while already off map. Use the native split path to move only the traveller. Check the refreshed holder, exact effects and empty pending flags. Stop, acknowledge and restart one B observer without interrupting the other. Save and exit.
+2. **Load and merge.** In a fresh process, verify the split membership and stopped subscriptions before any producer action. Resume explicitly, select both caravans and invoke the native merge command. With two colonists versus one, the original caravan is retained. Check the transferred pawn, destroyed empty holder, unchanged effects and witness, active subscriptions and empty pending flags. Save and exit again.
+3. **Load the merged state.** In another fresh process, verify one surviving caravan with all three colonists, exact A/B/witness references, no recreated split caravan and no automatic tracking restart.
+
+The temporary verification driver invoked the installed game's internal split routine by reflection after preparing native transferables, then used `CaravanMergeUtility.TryMergeSelectedCaravans`. That internal call is test instrumentation, not a public RimWeave integration API. The run did not exercise mouse clicks, travelling over time, shuttle merging, prisoners, exhaustive cargo/nutrition behavior, third-party caravans, changed provider configurations or activity continuation.
