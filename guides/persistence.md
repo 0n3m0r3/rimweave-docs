@@ -57,7 +57,7 @@ The [split/merge scenario](caravan-references.md#split-and-merge-without-enterin
 
 ## An old save may contain no description
 
-If the effect was saved before it carried RimWeave metadata, there is nothing to restore. It remains without a declared identity or origin. RimWeave does not infer those values from its class or invent a history.
+If the effect was saved before it carried RimWeave metadata, there is nothing to restore. It remains without a declared identity, exclusive responsibility or origin, and `Metadata.LoadError` stays empty. RimWeave does not infer those values from its class or the definition's XML defaults, or invent a history.
 
 Completely empty metadata adds no extra save node. This keeps “nothing was declared” distinct from a description that failed to load.
 
@@ -71,8 +71,18 @@ Queries return `InvalidMetadata` when an unreadable record is present in the sel
 
 Unreadable XML is kept as text in later saves without interpreting its fields. It is not silently replaced by empty values or automatically repaired. This preserves the record for a possible recovery policy; it does not make a missing third-party class loadable or repair a malformed save file.
 
+## Keep an unreadable record across restarts
+
+Suppose A and B both affect the same hand, but B's saved description uses a format this version cannot read. A still has readable attribution; that alone does not prove A is the only match. Inspect the incomplete scope through `Resolve`. Treat `InvalidMetadata` as uncertainty, rather than treating B as absent or choosing A anyway. A valid B on the other hand remains queryable in its own scope.
+
+An exact `NativeReference` can still resolve B and its native body part. Reference resolution identifies the object; it does not validate the object's contribution description. Loading neither removes the native effect nor stops its own gameplay behavior. The provider owns any decision to pause, recover or explicitly remove that known instance. The unreadable metadata cannot be changed through the normal metadata mutators.
+
+A later save wraps the retained XML and diagnostic as opaque data. Loading and saving that wrapper again preserves the same payload without nesting another wrapper around it. This is retention, not migration or repair, and does not promise byte-for-byte preservation of the entire save file. Keep an untouched original before investigating a copy.
+
+The [recorded native check](../compatibility/index.md#unreadable-metadata-across-restarts) used an unsupported metadata version and a separate effect with no metadata node. Two fresh-process loads preserved that distinction, the exact references and the other effects. Explicit removal of the unreadable instance was checked afterward in memory; that cleanup was not saved or reloaded.
+
 ## Details for inspecting the saved format
 
 The current metadata format is version `1`, with strings encoded as `utf16le-base64`. This preserves the exact .NET string contents, including characters that XML cannot represent directly. A saved source reference remains a string: loading it does not look up its object or prove that the source still exists.
 
-Automated tests exercise save/load round trips through RimWorld's Scribe APIs outside a running colony. Full-colony loading, third-party callbacks and resuming a mod's own activities require their own game checks. See [what has been verified](../compatibility/index.md).
+Automated tests exercise save/load round trips through RimWorld's Scribe APIs outside a running colony. The recorded native checks cover specific colony scenarios; third-party callbacks and resuming a mod's own activities still require their own game checks. See [what has been verified](../compatibility/index.md).

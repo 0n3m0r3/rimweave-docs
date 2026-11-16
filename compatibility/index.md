@@ -20,11 +20,29 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Removal by contribution identity | Automated lookup and guard checks; successful native withdrawal after a reload in the [two-consumer scenario](#two-consumer-scenario) | Verified with the two cooperating examples; no general provider-removal guarantee. |
 | Observed native body part | Ten snapshot tests and [60 native checks](#observed-body-part-snapshots), including a fresh-process load | Snapshot of an effect's declared slot; no organ identity, anatomical validation or part-change notification. |
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
-| Saving contribution metadata | Automated tests using the native Scribe save/load phases for a health effect and a separate data owner | Does not establish full-colony reload behavior or arbitrary provider compatibility. |
-| Unreadable saved metadata | Automated rejection of unsupported or malformed metadata, preservation for later saves, and incomplete-query results | Does not repair a damaged save or replace missing third-party classes. |
+| Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
+| Unreadable saved metadata | Automated rejection/preservation tests and [84 native checks across three processes](#unreadable-metadata-across-restarts) | Native run covers an unsupported metadata version and an absent record; no migration, save repair or missing-class recovery. |
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Unreadable metadata across restarts
+
+On 16 November 2026, framework [e306982](https://github.com/0n3m0r3/rimweave/commit/e306982326fa9f96738063a527c43c22913efa66) passed **84 native checks** on **RimWorld 1.7.5011 rev24**, without a framework change. **50 existing Debug tests** covering metadata serialization, persistence, resolution and contribution operations also passed. The [persistence guide](../guides/persistence.md#keep-an-unreadable-record-across-restarts) explains the consumer decision.
+
+The isolated profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver. The driver added a counting component to the two example definitions in memory without replacing their `ContributionHediff` class. Three distinct processes completed three native saves and two direct loads: **12/33/39 checks**, respectively.
+
+The first process created A/B on one human hand, B on the other and a whole-body B control, plus six exact references including two observers of the first B. An untouched source save was retained. A separate copy changed only the first B's metadata version from `1` to unsupported `2` and removed the whole-body control's metadata node; an XML audit verified those two semantic edits.
+
+Both subsequent loads preserved all four native effects, their IDs, parts, severity and creation ticks. The first B's entire description was unavailable, with `LoadError` and one diagnostic naming its definition and native ID. The whole-body control had normally absent metadata, no load error and no reconstruction from XML defaults. All six references resolved their original targets; tracking remained stopped and interrupted observations survived. Additions were **4/0/0**, post-load callbacks **0/4/4**, and no removal occurred during loading.
+
+On the first hand, identity and exclusive-claim resolution returned `InvalidMetadata` with the readable A match and the unreadable B candidate. The list-only query threw; removal by identity requested no native removal. The other hand's B remained uniquely queryable. Inspection and refused operations preserved the health list and simulation randomness. An attempted metadata mutation was refused without clearing the error.
+
+Both later saves retained the original unknown XML in the opaque wrapper. Decoding those saves found identical payloads and diagnostics, no nested wrapper, unchanged valid metadata and no recreated metadata node on the whole-body control. The original save's hash stayed unchanged. After the last save, explicit exact-instance removal of the unreadable B succeeded once, stopped its two resumed observers and preserved A and both controls. A repeated removal returned absent without another callback. **That final cleanup was verified only in memory, not saved or reloaded.**
+
+All three processes exited successfully; installed artifact hashes matched the committed Debug outputs. The installation was restored and all 25 normal configuration files remained unchanged. Logs included the graphics-layer Fossilize error, loader and temporary-manifest warnings, a ritual-precept restoration warning during the first load, and shutdown allocation warnings. No native reference-resolution warning or unexpected native error was found.
+
+This verifies retention and explicit refusal for the tested unknown format, not recovery, version migration, arbitrary malformed colony files, missing provider classes, crash recovery, UI operations or multiplayer behavior. An unreadable description does not disable the effect's native gameplay behavior.
 
 ## Observed body-part snapshots
 
