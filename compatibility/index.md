@@ -22,6 +22,7 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Observed native body part | Ten snapshot tests and [60 native checks](#observed-body-part-snapshots), including a fresh-process load | Snapshot of an effect's declared slot; no organ identity, anatomical validation or part-change notification. |
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
+| Reference tracking cost and lifetime | [Four native processes and 112 checks](#reference-tracking-cost-and-lifetime), with before/after handler measurements and seven new regression cases | Empty-table reconciliation removes residual enumeration cost; no colony tick-rate or global performance budget is certified. |
 | Constructor attribution conflicts | [73 native checks](#constructor-attribution-conflicts), nine new regression cases and an observed failing regression before correction | Complete initial attribution is validated before mutation; no rollback of constructors or later native callbacks. |
 | Changed XML creation defaults | [104 native checks across three processes](#changed-declaration-defaults), plus creation and repeated-save regression cases | Definition and class stay available; no automatic migration, missing-class recovery or general versioning policy. |
 | Unreadable saved metadata | Automated rejection/preservation tests and [84 native checks across three processes](#unreadable-metadata-across-restarts) | Native run covers an unsupported metadata version and an absent record; no migration, save repair or missing-class recovery. |
@@ -30,6 +31,44 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Reference tracking cost and lifetime
+
+A consumer can finish thousands of activities and release every observer, yet still pay for the old subscription table on each later notification. Two baseline runs reproduced that residual cost. The correction releases a table once an existing notification finds it empty, allocating a new table only when tracking starts again. No target index, live-key counter or polling loop was added. The [framework correction](https://github.com/0n3m0r3/rimweave/commit/7d492f3419368e52ca120636087140fe366e4dd7) changes no public signature or save format.
+
+On 16 November 2026, **112 functional checks** passed across four independent **RimWorld 1.7.5011 rev24** processes: two before the correction (27 each), then two after (29 each). The configuration contained Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both examples and a temporary verification driver. Hardware was an AMD Ryzen 9 7900X3D, 12 cores/24 logical processors, with approximately 31.1 GiB total physical memory reported by Windows. The game reported Windows build 26300, x64 and `.NET 10.0.15-waylithclr.dev`.
+
+### Measured handler and protocol
+
+The disposable colony was paused. The driver bound the existing map component's `OnSpawned` handler to a delegate once, outside the measurement. It invoked that actual RimWeave handler with the same already-spawned pawn; it did **not** repeatedly spawn the pawn or time the complete native `MapEvents` subscriber list. Native object state and simulation randomness were checked before and after the workload.
+
+Each workload retained 0, 1, 100, 1,000 or 10,000 pawn observers. Registration counts were verified outside measurement. There were **512 warm-up calls**, then **51 batches of 128 notifications**. `Stopwatch` used a 10 MHz counter; allocation deltas came from `GC.GetAllocatedBytesForCurrentThread`. Median and percentile values summarize per-notification averages for those batches, not individual-event latency. Reference construction, registration, state checks, logging and rendering were outside the timed batches. No compilation or test suite ran concurrently with the measurements.
+
+After 10,000 explicit disposals, the retained historical references were still readable. Another 10,000 references were abandoned; forced collections outside the measured interval verified their release while the native world continued to own the pawn. The corrected runs measured the first empty notification separately and verified that a new observer could then receive its own events.
+
+### Recorded results
+
+Ranges below are the two process medians for each revision. Allocation counts matched between the two runs for each revision.
+
+| Workload | Before, median µs/event | After, median µs/event | Bytes per event, before / after |
+| --- | --- | --- | --- |
+| Initially empty | 0.240–0.263 | 0.030–0.031 | 104 / 0 |
+| 1 active observer | 0.345–0.380 | 0.352–0.366 | 136 / 136 |
+| 100 active observers | 7.645–8.795 | 8.921–9.740 | 928 / 928 |
+| 1,000 active observers | 75.455–86.655 | 88.980–96.471 | 8,128 / 8,128 |
+| 10,000 active observers | 362.485–374.105 | 390.483–445.196 | 80,128 / 80,128 |
+| Empty after 10,000 disposals | 40.946–46.044 | 0.030–0.033 | 104 / 0 |
+| Empty after 10,000 abandoned observers collected | 41.364–44.325 | 0.030–0.031 | 104 / 0 |
+
+The **first** corrected notification after disposal or collection took **44.1–65.0 µs and 104 bytes**: reconciliation is deferred to that existing event. Subsequent empty batches had p95 averages of **0.032–0.045 µs/event**. Starting one observer again measured **0.208–0.280 µs/event and 136 bytes**, with normal independent observation.
+
+Active-load timings varied: for 10,000 observers, the baseline p95 batch averages were 409.927–460.241 µs/event and corrected values were 460.188–500.813 µs/event. These short Debug runs do not establish an active-load speedup or a general non-regression budget. The demonstrated improvement is the empty-session path; active notification allocations remain linear in the enumerated population. JIT tiering, scheduling, GC pauses within batches and machine load are not isolated. Managed thread allocation is not retained heap size, native memory or total GC cost.
+
+### Functional and cleanup boundaries
+
+Seven new regression cases verify that a retained session does not keep abandoned pawn/effect observers alive, that disposal releases a session while preserving historical identity, and that both notification paths work after reconciliation and restart. Four empty-session allocation cases failed against the original runtime and pass after correction. **322 Debug and 303 Release tests** passed. Native checks preserved health, location, identity and simulation randomness; separate consumers retained independent observations. The game owns its living pawn throughout; collectability of a target without another owner is established by the minimal-object tests, not by deleting a live world pawn.
+
+All four native processes exited and the installed mods were restored after each run. The temporary helper was removed; 25 normal configuration files remained unchanged. Logs contain graphics/loader, temporary-manifest and shutdown allocation diagnostics. No save/load, colony tick-rate, renderer, health-notification timing, third-party provider or multiplayer benchmark was executed. These results are a bounded baseline and correction, not an approved global budget. See [releasing observers when work ends](../guides/health-effects.md#release-observers-when-work-ends).
 
 ## Constructor attribution conflicts
 

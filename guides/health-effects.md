@@ -108,6 +108,16 @@ Read the current snapshot before acting. Dispose the reference when observation 
 
 For a concrete anatomical transition, see [a lost and restored hand](hand-restoration.md). Native cleanup can remove both independent contributions on that slot; restoring the slot does not reapply them or redirect their old exact references. The [native prosthetic-arm scenario](native-prosthesis.md) distinguishes an available artificial arm from its missing natural hand; a request for the hand never falls back to the arm.
 
+## Release observers when work ends
+
+Suppose a mod finishes a batch of activities that each retained a reference. Call `StopTracking()` or `Dispose()` when an activity no longer needs notifications. Each call ends only that subscription and keeps its pending observations and historical identity readable. Keeping the `NativeReference` object also keeps its native target references; stopping tracking does not erase those fields or ask RimWorld to discard a pawn.
+
+The subscription store uses weak keys. If the consumer drops the entire reference, that subscription alone does not keep the observer or its target alive. Collection timing belongs to the runtime, and native world owners can still retain the pawn. Use explicit disposal for predictable subscription release; do not force garbage collection during gameplay.
+
+After the last observer is disposed or collected, the next notification can still scan the old table once. When it finds no live registrations, RimWeave releases that table. Later empty notifications avoid the enumeration and its managed allocation, until a consumer explicitly starts tracking again. No periodic world scan or live-observer counter is introduced. Map removal uses the same empty-table reconciliation.
+
+Active notification cost still depends on the subscription population in the game, including observers whose targets do not match the current event. The [measured reference-tracking workload](../compatibility/index.md#reference-tracking-cost-and-lifetime) covers 0 to 10,000 retained observers, explicit disposal, abandoned references and restart. Its timings describe one synchronous handler on the recorded machine, not a colony tick-rate guarantee or an approved global performance budget.
+
 ## Capture the observed body part
 
 The glove mod remembers an effect on the left hand. Later, its own integration explicitly removes that effect and attaches the same instance to the right hand. A reference to the effect still names the same object; it does not reserve the original hand. To compare observations, use <xref:RimWeave.References.NativeReferenceSnapshot.EffectPart>.
