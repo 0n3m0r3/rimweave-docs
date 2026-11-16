@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 8b4e4f3585eb77cf2a30f282b8a0cc606d6b9282
+      branch: 46c3bc79accfc7864a1e75b9f70b48aef9f839cf
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionQueries
     path: RimWeave/Health/ContributionQueries.cs
@@ -45,7 +45,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 8b4e4f3585eb77cf2a30f282b8a0cc606d6b9282
+      branch: 46c3bc79accfc7864a1e75b9f70b48aef9f839cf
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Find
     path: RimWeave/Health/ContributionQueries.cs
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 8b4e4f3585eb77cf2a30f282b8a0cc606d6b9282
+      branch: 46c3bc79accfc7864a1e75b9f70b48aef9f839cf
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolve
     path: RimWeave/Health/ContributionQueries.cs
@@ -142,7 +142,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 8b4e4f3585eb77cf2a30f282b8a0cc606d6b9282
+      branch: 46c3bc79accfc7864a1e75b9f70b48aef9f839cf
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ResolveExclusiveClaim
     path: RimWeave/Health/ContributionQueries.cs

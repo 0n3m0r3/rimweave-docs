@@ -8,6 +8,16 @@ namespace RimWeave.Documentation.Examples;
 // These native recipes are compiled but are not invoked by the standalone checks.
 internal static class HealthRecipes
 {
+    #region repeated-parts
+    internal static IReadOnlyList<BodyPartRecord> PresentParts(
+        Pawn pawn, BodyPartDef definition)
+    {
+        return pawn.health.hediffSet.GetNotMissingParts()
+            .Where(part => part.def == definition)
+            .ToArray();
+    }
+    #endregion
+
     #region attach
     internal static ContributionAdditionResult Attach(
         Pawn pawn, HediffDef definition, BodyPartRecord? part,

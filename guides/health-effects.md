@@ -20,6 +20,8 @@ RimWorld's names are not always obvious from outside its modding API:
 
 A definition for “hand” and a particular character's left hand are different things. Both hands can share the same kind of part while remaining distinct targets. Pawns with the same `BodyDef` also share its `BodyPartRecord` objects: target the pawn and part together. A part record alone is not an individual organ identity or proof that it came from one particular pawn.
 
+The same targeting contract applies to native animal bodies. See [targeting one non-human part](target-repeated-parts.md) for four matching legs, a hoof and a second animal.
+
 ## Use a health effect that carries RimWeave information
 
 Configure your mod's `HediffDef` to use <xref:RimWeave.Health.ContributionHediff>, or a subclass of it. This is a native health effect with the metadata described in the earlier pages. The effect remains in the game's health list.
@@ -37,6 +39,8 @@ Identity and an optional exclusive claim can also be [declared in XML](xml-decla
 `HediffMaker.MakeHediff` asks the game's factory to create the effect described by the definition. The type check catches a definition configured with the wrong class. The two metadata calls describe the new effect. Finally, <xref:RimWeave.Health.ContributionOperations> validates the prepared target and, when accepted, calls native `pawn.health.AddHediff`. It returns the observed outcome after that complete native call, including merging and callbacks.
 
 `Add` is the point where this recipe requests attachment through the native health tracker. Your mod must first decide whether this effect is allowed and whether another instance should coexist with it. The recipe supplies none of those gameplay decisions.
+
+Creating an effect with `HediffMaker.MakeHediff` can consume native simulation randomness before the adapter receives it. A later refused attachment does not undo that preparation. Passive inspection uses queries and snapshots, not effect construction.
 
 Use native health operations on the game's simulation thread. Normal API calls from a mod do not require developer mode. The separate developer example requires developer mode because its commands deliberately modify a test colony.
 

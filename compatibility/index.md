@@ -18,6 +18,7 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Exact-instance native removal | Manual prototype check on RimWorld 1.7.5000 rev1275: first removal succeeded, second returned absent, callback deltas were `[1,1]` then `[0,0]` | Specific framework/example configuration, recorded on 8 November 2026. |
 | Independent hand targets | Manual prototype check preserved the other hand's marker | Does not establish general transformation reversal. |
 | Removal by contribution identity | Automated lookup and guard checks; successful native withdrawal after a reload in the [two-consumer scenario](#two-consumer-scenario) | Verified with the two cooperating examples; no general provider-removal guarantee. |
+| Non-human repeated parts | Eight regression cases and [176 native checks across three processes](#non-human-body-targeting) on two muffalo | Native quadruped body only; no modded anatomy, organ transfer or player-operated selection UI. |
 | Observed native body part | Ten snapshot tests and [60 native checks](#observed-body-part-snapshots), including a fresh-process load | Snapshot of an effect's declared slot; no organ identity, anatomical validation or part-change notification. |
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
@@ -27,6 +28,24 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Non-human body targeting
+
+On 16 November 2026, **176 checks** passed across three independent **RimWorld 1.7.5011 rev24** processes, with two saves and two direct loads. The configuration included Core, Royalty, Ideology, Biotech, Odyssey, the framework, both composition examples and an explicitly invoked temporary verification driver. The [framework test commit](https://github.com/0n3m0r3/rimweave/commit/46c3bc79accfc7864a1e75b9f70b48aef9f839cf) adds eight regression cases; it changes no runtime code or public API. Installed runtime hashes matched the existing Debug artifacts.
+
+Two native muffalo used `QuadrupedAnimalWithHooves`. Four `Leg` records shared one definition; each had a `Hoof` child. Both animals shared those body records but kept independent health storage. With developer mode disabled, explicit calls attached eight effects: provider A on all four legs of the first animal, provider B on its rear left leg, another A on that leg's hoof, an A on the whole body and an A on the second animal's corresponding leg. Whole-body attachment used the framework API directly because the example's convenience method requires a part.
+
+The first process passed **38 checks**, saved eight effects and ten references, then exited. The second passed **72 checks**: direct loading preserved each native pawn/effect identity, slot, metadata, severity and creation tick, with eight post-load callbacks and no repeated addition/removal. Tracking stayed stopped until explicitly restarted. Queries and captures preserved both observed health lists and simulation randomness.
+
+Native leg loss removed its two leg effects and hoof effect, recorded both slots as missing and preserved five independent witnesses. Adding already prepared contributions was refused on the missing leg and hoof without substitution or random draws. Native construction through `HediffMaker` is a separate preparation step that can consume randomness; it is not claimed to be passive. Native restoration made the slots available without recreating any contribution. Three explicit reapplications received new effect identities; old in-memory references retained their old, detached objects.
+
+After the second save, the third process passed **66 checks**. The three removed effects were unresolved, never rebound to matching replacements; eight surviving/reapplied effects retained their saved identities and slots. Loading ran eight post-load callbacks and no addition/removal. Removing A on another leg called its removal callback once and preserved the peer, remaining limbs, hoof, whole-body effect and other animal. Repeating removal returned absent without another callback. This final cleanup was checked in memory only.
+
+**303 Debug and 284 Release tests** passed. Eight new cases use a synthetic four-branch topology to check repeated definitions/labels, owner scopes and refusal on a missing descendant; they do not substitute for native animal validation. The candidate-list documentation recipe compiled successfully. No new anatomical API, persistence format or provider policy was introduced.
+
+All three processes exited successfully. The original installation was restored, the temporary driver removed and 25 normal configuration files stayed unchanged. Logs included expected not-deep-saved and unresolved-reference warnings for the three removed effects, native hidden-funeral-precept warnings, graphics/loader warnings, the temporary manifest warning and shutdown allocation warnings; no unexpected native error was found.
+
+These were programmatic native operations on an unmodified muffalo body, with no surgery UI or player-driven selection flow. They do not certify other species, third-party bodies, changed body definitions between saves, permanent individual organ identities or arbitrary external providers. See [targeting a non-human part](../guides/target-repeated-parts.md).
 
 ## Deferred command selection
 

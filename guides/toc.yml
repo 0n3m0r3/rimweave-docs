@@ -1,5 +1,7 @@
 - name: Add information to a health effect
   href: health-effects.md
+- name: Target one part on a non-human body
+  href: target-repeated-parts.md
 - name: Declare health contributions in XML
   href: xml-declarations.md
 - name: Remove one effect
