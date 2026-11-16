@@ -41,6 +41,12 @@ Pending change kinds survive the save. If tracking was active, loading also reco
 
 These guarantees assume the required native objects, definitions and provider classes can be loaded. They do not preserve every historical target, provide persistent organ identity or resolve an opaque `SourceReference`. The reference tests use native Scribe resolution with controlled pawn and health graphs; they do not demonstrate loading an entire colony or resuming every provider's activity. The [developer scenario](debugging.md#verify-native-references-across-a-reload) also exercises saved observations and explicit resumption in a real colony. Its [recorded run](../compatibility/index.md#in-game-reference-scenario) covers two complete save/load cycles using the published example, including loading after the exact effect was removed. It does not establish compatibility with arbitrary providers.
 
+## Continue after closing the game
+
+A new process has new C# objects and no subscriptions from the previous session. Native loading restores serialized targets and resolves their saved references; their native identities can remain the same without reusing the previous objects in memory. Read the loaded owner and reference again, inspect their state, and decide whether to resume tracking explicitly.
+
+The [three-process death/resurrection scenario](death-and-resurrection.md#quit-and-reload-in-a-new-process) checks a dead pawn and its effects after one full restart, then the surviving and replaced effects after another. Fresh counters distinguish native post-load callbacks from replayed producer actions. Its [recorded evidence](../compatibility/index.md#references-across-game-restarts) applies to the tested game and provider configuration; it does not establish migration, recovery from an interrupted write or arbitrary provider removal.
+
 ## An old save may contain no description
 
 If the effect was saved before it carried RimWeave metadata, there is nothing to restore. It remains without a declared identity or origin. RimWeave does not infer those values from its class or invent a history.

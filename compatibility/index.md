@@ -24,6 +24,24 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## References across game restarts
+
+On 16 November 2026, framework commit [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [three-process death/resurrection check](../guides/death-and-resurrection.md#quit-and-reload-in-a-new-process) on **RimWorld 1.7.5011 rev24**. The existing implementation needed no change. A disposable profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver. The game and mod configuration stayed the same across all three processes.
+
+The final run passed **164 checks**, with two saves, two direct loads and three distinct process IDs, all exiting successfully. The driver initialized fresh callback counters before native loading in each process. Expected identities and metadata were kept externally for comparison only; native saves restored the objects. Diagnostic records were frozen at capture, so later actions could not change earlier counter observations.
+
+| Process | Native operation | Contribution additions | Contribution removals | Native post-load callbacks |
+| --- | --- | --- | --- | --- |
+| 1 | Create the disposable colony, explicitly add A/B, kill the pawn, save and exit | 2 explicit additions | 0 | 0 |
+| 2 | Directly load the dead pawn, explicitly resume tracking, resurrect, create a new B, save and exit | 0 during load; 1 explicit replacement afterward | 0; native resurrection bypasses `PostRemoved` | 1 each for original A/B |
+| 3 | Directly load the resurrected pawn and inspect | 0 | 0 | 1 each for A/new B |
+
+The dead load retained the original pawn, corpse, two effects, metadata and pending observations. All subscriptions stayed stopped until explicit resumption; acknowledging one loaded observer left the other untouched. The final load retained A and the new B with their own native identities, while both old B references remained unresolved and retained their diagnostic identity. The temporary B-definition flag was configured independently in each process; the shipped example XML remained unchanged.
+
+An independent XML audit checked both saves for native ownership, effect identities, metadata, target, severity, creation ticks and saved reference state. Byte-identical autostart copies were verified; the two loading processes created no new colony. The tested files matched the committed Debug build. Installed files were restored, the temporary driver removed and all 25 normal configuration files remained unchanged.
+
+The old B target produced one expected save warning and two unresolved-reference warnings on the final load. Graphics startup, temporary manifest, ritual-precept and shutdown-allocation messages also occurred. This is not a warning-free serialization claim. The run covers programmatic native operations and clean process exits with one fixed configuration. Menu interactions, interrupted writes, version or provider changes, third-party resurrection, corpse cleanup and activity resumption remain unverified. The API snapshot remains pinned to 8e0d7b1; website deployment and a framework release remain separate.
+
 ## Native death and resurrection
 
 Framework commit [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) fixes subscription loss after native death. On **RimWorld 1.7.5011 rev24**, `Pawn.Kill` sets both `Dead` and `Destroyed` while the corpse retains the pawn. The previous implementation stopped tracking at inspection and rejected restarting it. An initial native run reproduced the failure at its 52nd check; two new automated cases also failed before the correction.

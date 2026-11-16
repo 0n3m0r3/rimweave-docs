@@ -43,6 +43,20 @@ Use a disposable human colony with the framework and both [composition examples]
 4. Invoke native resurrection. Verify A is unchanged, B is removed by its native definition flag and the pawn is alive on the map. Only surviving effects report resurrection. Both B references reconcile detachment and stop. Explicitly create a new B and verify neither old reference selects it.
 5. Save under another name and reload. Verify A and the new B, unresolved old B references, no replayed additions and no implicit tracking restart. Compare the native save graph and callback counts.
 
+## Quit and reload in a new process
+
+A player can close the game while the character is dead and return in another session. Reloading within one running process does not prove this case: a verification tool might accidentally retain expected objects, subscriptions or counters in static fields.
+
+Use the same game, framework and provider configuration for three separate processes. Native save files must restore the objects. External records may hold expected identities and values for comparison; they must not recreate effects or reconnect references.
+
+1. **Save the dead character and exit.** Create A and B explicitly, start the four references, invoke native death and save. Record the pawn, corpse and effect identities, metadata, pending observations and tracking flags. Wait for the process to end before launching another.
+2. **Load, resurrect, save and exit.** Load the dead save directly in a fresh process. Before producer actions, check the original pawn, corpse and effects, saved observations and stopped tracking. With fresh callback counters, loading must add or remove no contribution. Resume explicitly, resurrect, verify A and the detached B references, then create a replacement B and save under a second name. Exit again.
+3. **Load the resurrected character.** In a third process, check A and the replacement B against their recorded native identities and metadata. Both old B references must remain unresolved with their diagnostic identities. Check that no producer action or automatic tracking restart occurred during loading.
+
+In every new process, install test observers before native loading and start their counters empty. Compare native `PostLoadInit` callbacks separately from additions and removals. Freeze each diagnostic record when recording it so later counter changes cannot alter earlier evidence. An external record used for comparison is not part of RimWeave's save format.
+
+The [recorded restart check](../compatibility/index.md#references-across-game-restarts) used native developer-mode autostart loading in an isolated profile, with byte-identical copies of the named saves. The two loading processes created no new colony. This is a programmatic persistence check, not a test of menu interactions.
+
 ## Boundaries
 
-The [recorded run](../compatibility/index.md#native-death-and-resurrection) exercises the native programmatic operations and two reloads in one process. It does not test a fatal attack, a resurrection item, UI interactions, corpse decay or destruction, caravans, third-party resurrection or a separate-process reload. Discard and destroyed-living-pawn guards have controlled automated coverage; this is not a complete native cleanup test.
+The [initial recorded run](../compatibility/index.md#native-death-and-resurrection) exercises the native programmatic operations and two reloads in one process. The [restart check](../compatibility/index.md#references-across-game-restarts) separately covers two loads across three processes with the same configuration. Neither tests a fatal attack, a resurrection item, UI interactions, corpse decay or destruction, caravans, third-party resurrection, configuration changes or interruption while writing a save. Discard and destroyed-living-pawn guards have controlled automated coverage; this is not a complete native cleanup test.
