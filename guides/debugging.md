@@ -52,6 +52,14 @@ Developer mode and target availability are checked again when the hand action ex
 
 The marker currently uses an ordinary `HediffWithComps`, with two native callback observers. It demonstrates the exact-instance removal guard; it is not an example of `ContributionHediff` attribution or identity-based lookup.
 
+## Prepare a command without applying it
+
+Opening the hand menu or the reference-scenario confirmation is preparation, not permission to modify the pawn later. If developer mode is disabled before the option executes, the command refuses it. A pawn that has left the map is also refused; the command does not choose another pawn. Close the menu to abandon the selection without applying an effect.
+
+The documented revision isolates the native menu's presentation randomness, including opening, rendering and closing. A selected action runs after that presentation scope has ended, so a legitimate random draw in the native health operation is retained. Refusal notifications and the example's completion messages are presentation too; they do not rewind earlier gameplay. If an action fails after changing state, that partial state is not rolled back or automatically retried.
+
+The [deferred-selection check](../compatibility/index.md#deferred-command-selection) reproduced a random-state change in the old hand menu, then exercised the corrected menus, real repaint callbacks and native option-selection callbacks. The selections were invoked programmatically; manual pointer interaction and arbitrary third-party menus were not certified. The ordinary extension API remains usable without developer mode, and these developer presentation helpers are absent from Release builds.
+
 ## Verify repeated removal
 
 Add a marker, then select **T: Verify repeated marker removal**, click the same pawn and select the same hand. The check retains the instance and requests removal twice.

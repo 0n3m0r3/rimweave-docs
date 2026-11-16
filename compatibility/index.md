@@ -23,9 +23,24 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
 | Unreadable saved metadata | Automated rejection/preservation tests and [84 native checks across three processes](#unreadable-metadata-across-restarts) | Native run covers an unsupported metadata version and an absent record; no migration, save repair or missing-class recovery. |
 | Core without active DLC | [81 native checks across four processes](#core-only-configuration), with and without the optional examples | Bounded loading, health and reference checks; no full neutrality comparison or physical DLC uninstall. |
+| Deferred developer selections | Four regression tests and [55 native checks](#deferred-command-selection) on the committed correction | Actual repaint and programmatic native selection callbacks; no manual pointer or arbitrary menu certification. |
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Deferred command selection
+
+On 16 November 2026, an isolated **RimWorld 1.7.5011 rev24** run reproduced simulation-randomness consumption when the old hand-marker selection menu opened and closed on framework [e306982](https://github.com/0n3m0r3/rimweave/commit/e306982326fa9f96738063a527c43c22913efa66). It added no effect. The reference-scenario menu used the same native presentation path but did not change randomness in that particular measurement; sound playback does not necessarily consume randomness on every opening.
+
+The correction in [8b4e4f3](https://github.com/0n3m0r3/rimweave/commit/8b4e4f3585eb77cf2a30f282b8a0cc606d6b9282) makes both selections share isolated presentation and executes a chosen action after that scope ends. Hand-marker refusal and completion notifications are isolated separately. No public API or saved format changed. **295 Debug and 276 Release tests** passed, including four new regression cases covering selection order, cancellation, presentation failure and gameplay failure without replay or rollback. Release inspection confirmed the developer helpers/actions were absent while persistent reference types and extension producers remained.
+
+The committed Debug artifacts passed **55 native checks** in a fresh disposable colony with Core, Royalty, Ideology, Biotech, Odyssey, both composition examples and an explicitly invoked temporary driver. The driver prepared the actual menus through their debug entry points and measured their real repaint callbacks. For each menu, opening, repainting and closing preserved simulation randomness and applied no marker or scenario. A native option prepared before disabling developer mode was refused without mutation; a prepared option targeting a pawn subsequently despawned was also refused without substitution.
+
+Authorized selections added one hand marker and the reference scenario's two markers exactly once. A temporary native health component drew from simulation randomness during each addition; the observed final state retained the last callback draw, demonstrating that presentation did not rewind the mutation. A later empty presentation did not replay the choice. A separately added contribution remained attached, and the ordinary producer API succeeded with developer mode disabled. Refusal reports and their closing paths also preserved randomness.
+
+Selections used the native option callback inside the same presentation boundary as the menu renderer; no mouse click was simulated. The real repaint check is distinct from that programmatic selection. This run did not add save/load, physical pointer interaction, arbitrary provider exceptions, every developer command or a universal command/transaction service. Unit tests, rather than the native driver, exercised failure after selection and partial gameplay failure.
+
+Installed hashes matched the committed Debug outputs. The process exited successfully, the original installation was restored, the temporary driver was removed and all 25 normal configuration files remained unchanged. Logs contained the graphics-layer Fossilize error, loader and temporary-manifest warnings, and shutdown allocation warnings; no unexpected native error was found. See [preparing a command](../guides/debugging.md#prepare-a-command-without-applying-it) for the consumer-facing behavior and boundaries.
 
 ## Core-only configuration
 
