@@ -8,6 +8,8 @@
   href: persistence.md
 - name: Follow a character inside a container
   href: held-references.md
+- name: Keep references through death and resurrection
+  href: death-and-resurrection.md
 - name: Inspect and debug
   href: debugging.md
 - name: Verify two independent mods

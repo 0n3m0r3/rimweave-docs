@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: NativeReferenceSnapshot
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolution
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -91,7 +91,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PawnIdentity
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectIdentity
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -149,7 +149,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Pawn
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -178,7 +178,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Effect
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -207,7 +207,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Map
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -236,7 +236,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: MapHeld
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -268,7 +268,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ParentHolder
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -302,7 +302,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Spawned
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -331,7 +331,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Dead
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -360,7 +360,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Destroyed
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -368,7 +368,7 @@ items:
   assemblies:
   - RimWeave
   namespace: RimWeave.References
-  summary: The observed native destruction state, independent of death and map presence.
+  summary: The observed native destruction state, also set by native death; not proof of irreversible disappearance.
   example: []
   syntax:
     content: public bool? Destroyed { get; init; }
@@ -389,7 +389,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Discarded
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -418,7 +418,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: edb7e42be6cb241bd39373d47312d34b8bc099f1
+      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectAttached
     path: RimWeave/References/NativeReferenceSnapshot.cs

@@ -96,6 +96,8 @@ Call `StartTracking()` on the simulation thread, from `LoadedGame`, `StartedNewG
 
 For a character in a casket, distinguish direct map presence from its native holder and held map; see [following a character inside a container](held-references.md).
 
+Native death can set both `Dead` and `Destroyed`. A dead pawn that has not been discarded can remain tracked; a destroyed living pawn or detached effect cannot. See [keeping references through death and resurrection](death-and-resurrection.md) for surviving effects, native cleanup and the save boundary.
+
 Read the current snapshot before acting. Dispose the reference when observation is no longer needed; this ends its subscription while retaining readable identity and pending observations. Reattaching the same effect does not restart a stopped subscription automatically. Tracking adds no health effect, reservation or rule about which activity can continue. See [saving an exact reference](persistence.md#save-an-exact-reference-separately) for the load boundary.
 
 For a concrete anatomical transition, see [a lost and restored hand](hand-restoration.md). Native cleanup can remove both independent contributions on that slot; restoring the slot does not reapply them or redirect their old exact references. The [native prosthetic-arm scenario](native-prosthesis.md) distinguishes an available artificial arm from its missing natural hand; a request for the hand never falls back to the arm.

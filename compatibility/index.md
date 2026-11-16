@@ -24,6 +24,20 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Native death and resurrection
+
+Framework commit [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) fixes subscription loss after native death. On **RimWorld 1.7.5011 rev24**, `Pawn.Kill` sets both `Dead` and `Destroyed` while the corpse retains the pawn. The previous implementation stopped tracking at inspection and rejected restarting it. An initial native run reproduced the failure at its 52nd check; two new automated cases also failed before the correction.
+
+The corrected implementation shares one eligibility rule between inspection and subscription start. Dead, non-discarded pawns can remain tracked; discarded pawns, destroyed living pawns and detached effects cannot. Four new automated cases cover native corpse state for pawn/effect references, dead-pawn discard and independent reconciliation of a silently removed effect. The full working-tree suites passed **281 Debug / 266 Release tests**.
+
+On 16 November 2026, the [death/resurrection scenario](../guides/death-and-resurrection.md) passed **139 checks**, with two native saves and two complete reloads in one game process. It used Core, Royalty, Ideology, Biotech, Odyssey, the prepared Debug framework, both composition examples and an explicitly invoked temporary driver. B's definition temporarily used `forceRemoveOnResurrection` in that process; the shipped example XML was unchanged.
+
+Death retained the exact pawn, its corpse and both effects. The dead save kept the same native identities, metadata and pending observations without resuming tracking on load. After an explicit restart, native resurrection retained A and removed B without `PostRemoved`. Only A reported resurrection. Both old B observers reconciled detachment and stopped; neither selected an explicitly created replacement B. The second reload retained A and the new B while both old references became unresolved. Counters recorded exactly three explicit additions and no removal callbacks.
+
+An independent XML audit confirmed native pawn/corpse storage, effect identities, metadata, target, severity and creation ticks in both saves. The final Debug artifacts matched those used in the successful run. Inspection preserved native health, ownership and simulation random state. Installed files were restored, the temporary helper removed and normal player configuration unchanged.
+
+The removed B reference produced the expected native save warning and two unresolved-reference warnings on load. Graphics startup (including a Fossilize filter error), temporary-driver manifest, ritual-precept and shutdown-allocation messages also occurred. This is not a warning-free serialization claim. Fatal attacks, resurrection items, manual UI, corpse decay/destruction, caravans, third-party resurrection and separate-process loading remain outside this run. The API snapshot is exported from the clean corrected framework commit; website deployment and a framework release remain separate steps.
+
 ## Native holder context
 
 Framework commit [edb7e42](https://github.com/0n3m0r3/rimweave/commit/edb7e42be6cb241bd39373d47312d34b8bc099f1) adds `ParentHolder` and `MapHeld` to `NativeReferenceSnapshot`. It reads the pawn's native properties without changing `Map` or `Spawned`, storing a holder graph, modifying the reference save format or expanding notification coverage. Six new automated cases cover pawn/effect references, nested holders, off-map holders, fresh captures and unavailable references. The full working-tree suites passed **277 Debug / 262 Release tests**, with a final Debug build and no compiler warnings or errors.
