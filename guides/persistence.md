@@ -49,6 +49,8 @@ A new process has new C# objects and no subscriptions from the previous session.
 
 The [three-process death/resurrection scenario](death-and-resurrection.md#quit-and-reload-in-a-new-process) checks a dead pawn and its effects after one full restart, then the surviving and replaced effects after another. Fresh counters distinguish native post-load callbacks from replayed producer actions. Its [recorded evidence](../compatibility/index.md#references-across-game-restarts) applies to the tested game and provider configuration; it does not establish migration, recovery from an interrupted write or arbitrary provider removal.
 
+The [caravan scenario](caravan-references.md) verifies another native owner: a living pawn saved in `WorldPawns` while travelling, then saved on its original map after returning. Both complete restarts preserve exact targets and metadata without replaying additions or resuming subscriptions automatically.
+
 ## An old save may contain no description
 
 If the effect was saved before it carried RimWeave metadata, there is nothing to restore. It remains without a declared identity or origin. RimWeave does not infer those values from its class or invent a history.

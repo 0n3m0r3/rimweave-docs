@@ -24,6 +24,20 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Caravan departure and return
+
+On 16 November 2026, framework [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [caravan reference scenario](../guides/caravan-references.md) on **RimWorld 1.7.5011 rev24**, without a framework change. The isolated profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both unchanged composition examples and an explicitly invoked temporary driver.
+
+The run passed **168 checks** across three distinct processes, two saves and two direct loads, with successful process exits. Native `CaravanMaker.MakeCaravan` moved the traveller off the map; four observers recorded `LeftContext`. Its snapshots retained the exact pawn and A/B effects, with null `Map`/`MapHeld`, the native caravan as `ParentHolder` and `Spawned = false`. The witness stayed on the original map with its independent A unchanged.
+
+The first fresh process restored the traveller from `WorldPawns` and resolved the caravan's native pawn reference. All six subscriptions remained stopped until explicitly resumed. Native `CaravanEnterMapUtility.Enter` then returned the pawn to its original map, delivering `EnteredContext` to its four observers and removing the empty caravan. All six subscriptions remained active; acknowledging one B observer left the other pending. The next restart retained the returned targets and observations without recreating the caravan or automatically restarting tracking.
+
+Fresh per-process counters recorded additions **3/0/0**, removals **0/0/0**, and native post-load callbacks **0/3/3**. Both loading processes created no colony and ran no producer action. Exact effect identities, metadata, body-part targets, severity and creation ticks were preserved. Snapshot inspection left native health and simulation randomness unchanged.
+
+An independent XML audit found one copy of the traveller under `worldPawns/pawnsAlive` in the first save, referenced by the caravan, and on the original map in the second save. The witness remained on that map. Both saves retained the same three contributions and six exact-reference records; native autostart copies were byte-identical. Tested file hashes matched the committed Debug build. Installation was restored, the helper removed and all 25 normal configuration files were unchanged.
+
+No unresolved, unsaved-effect or discarded-pawn reference warning occurred. Graphics startup, temporary manifest, ritual-precept and shutdown-allocation messages still occurred. This paused, programmatic path does not test formation UI, a travelling route, caravan simulation over time, splitting or merging, transport pods, third-party holders, configuration changes or activity resumption. It adds no broader caravan notification contract. Website deployment and a framework release remain separate.
+
 ## Corpse destruction and native discard
 
 On 16 November 2026, framework [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [corpse/discard scenario](../guides/corpse-and-discard.md) on **RimWorld 1.7.5011 rev24**, without a framework change. It used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver in an isolated profile. The shipped example definitions were unchanged.
