@@ -19,6 +19,8 @@ The snapshot reports `Dead = true`, `Destroyed = true` and `Discarded = false`. 
 
 A dead pawn that has not been discarded can keep or explicitly start tracking. A destroyed living pawn, a discarded pawn or a detached effect cannot remain tracked. The same rule applies when starting a subscription and when reconciling it during inspection. This does not register a native retention claim or prevent world-pawn cleanup.
 
+The [corpse/discard guide](corpse-and-discard.md) covers the separate case where the body is destroyed, the world retains the dead pawn, and native cleanup later discards it. This does not imply that a bodyless pawn is eligible for resurrection.
+
 ## Distinguish surviving and removed effects
 
 An exact `ContributionHediff` forwards its native death and resurrection callbacks to its subscribers. A pawn-only reference receives the supported map notifications; it does not borrow health callbacks from effects on that pawn. Acknowledging one consumer's observations leaves another consumer's observations intact.
@@ -59,4 +61,4 @@ The [recorded restart check](../compatibility/index.md#references-across-game-re
 
 ## Boundaries
 
-The [initial recorded run](../compatibility/index.md#native-death-and-resurrection) exercises the native programmatic operations and two reloads in one process. The [restart check](../compatibility/index.md#references-across-game-restarts) separately covers two loads across three processes with the same configuration. Neither tests a fatal attack, a resurrection item, UI interactions, corpse decay or destruction, caravans, third-party resurrection, configuration changes or interruption while writing a save. Discard and destroyed-living-pawn guards have controlled automated coverage; this is not a complete native cleanup test.
+The [initial recorded run](../compatibility/index.md#native-death-and-resurrection) exercises the native programmatic operations and two reloads in one process. The [restart check](../compatibility/index.md#references-across-game-restarts) separately covers two loads across three processes with the same configuration. Neither tests a fatal attack, a resurrection item, UI interactions, natural corpse decay, caravans, third-party resurrection, configuration changes or interruption while writing a save. Programmatic corpse destruction and explicit native discard have a [separate recorded check](../compatibility/index.md#corpse-destruction-and-native-discard); automatic cleanup policy and destroyed-living-pawn paths are not established by these game runs.

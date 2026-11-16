@@ -10,6 +10,8 @@
   href: held-references.md
 - name: Keep references through death and resurrection
   href: death-and-resurrection.md
+- name: Distinguish a missing corpse from a discarded pawn
+  href: corpse-and-discard.md
 - name: Inspect and debug
   href: debugging.md
 - name: Verify two independent mods

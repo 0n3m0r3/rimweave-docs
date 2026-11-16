@@ -24,6 +24,20 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Corpse destruction and native discard
+
+On 16 November 2026, framework [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [corpse/discard scenario](../guides/corpse-and-discard.md) on **RimWorld 1.7.5011 rev24**, without a framework change. It used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver in an isolated profile. The shipped example definitions were unchanged.
+
+The run passed **137 checks** across three distinct processes, two saves and two direct loads, with successful process exits. After native death, destroying the corpse left the same dead pawn in `WorldPawns`, with A/B attached, no holder or map and all six subscriptions active. No native retention rule was added by RimWeave. The independent witness retained its own A contribution.
+
+After the first restart, native world storage restored the dead pawn and its effects. Explicit `RemoveAndDiscardPawnViaGC` then removed and discarded it. Health callbacks immediately stopped the three effect observers; the pawn-only reference reconciled discard at inspection. Managed references still resolved the exact discarded objects, but all four refused tracking restart. Acknowledging one B observer preserved the other. The witness's two subscriptions remained active and unchanged.
+
+After the second restart, the four discarded-target references were unresolved with their diagnostic identities and saved observations intact. The witness and its contribution resolved normally, without substitution or automatic tracking. Fresh per-process counters recorded additions **3/0/0**, removal callbacks **0/0/0**, and native post-load callbacks **0/3/1**. The two loading processes created no colony and invoked no producer action.
+
+An independent XML audit found the dead pawn under native `worldPawns/pawnsDead` only in the first save, no copy of its corpse in either save, and the witness on its original map in both. It checked all six references, effect identities, metadata, target, severity, creation ticks and tracking boundaries. Native autostart copies were byte-identical. Tested file hashes matched the committed Debug build; installation was restored, the helper removed and all 25 normal configuration files were unchanged.
+
+Native warnings included four discarded-pawn reference writes from RimWeave, one native log target, two unsaved-effect warnings and three unresolved-effect links on load. Scribe omitted the discarded pawn links. Graphics startup, temporary manifest, ritual-precept and shutdown-allocation messages also occurred. This is not a warning-free serialization claim or a test of automatic garbage-collector selection, natural decay, combat, arbitrary off-map destruction, third-party cleanup, configuration changes or activity resumption. Website deployment and a framework release remain separate.
+
 ## References across game restarts
 
 On 16 November 2026, framework commit [8e0d7b1](https://github.com/0n3m0r3/rimweave/commit/8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22) passed the [three-process death/resurrection check](../guides/death-and-resurrection.md#quit-and-reload-in-a-new-process) on **RimWorld 1.7.5011 rev24**. The existing implementation needed no change. A disposable profile used Core, Royalty, Ideology, Biotech, Odyssey, the Debug framework, both composition examples and an explicitly invoked temporary driver. The game and mod configuration stayed the same across all three processes.
