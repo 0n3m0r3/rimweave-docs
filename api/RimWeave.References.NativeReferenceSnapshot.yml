@@ -11,6 +11,7 @@ items:
   - RimWeave.References.NativeReferenceSnapshot.Effect
   - RimWeave.References.NativeReferenceSnapshot.EffectAttached
   - RimWeave.References.NativeReferenceSnapshot.EffectIdentity
+  - RimWeave.References.NativeReferenceSnapshot.EffectPart
   - RimWeave.References.NativeReferenceSnapshot.Map
   - RimWeave.References.NativeReferenceSnapshot.MapHeld
   - RimWeave.References.NativeReferenceSnapshot.ParentHolder
@@ -27,7 +28,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: NativeReferenceSnapshot
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -62,7 +63,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolution
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -91,7 +92,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PawnIdentity
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -120,7 +121,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectIdentity
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -149,7 +150,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Pawn
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -178,7 +179,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Effect
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -194,6 +195,46 @@ items:
     return:
       type: Verse.Hediff
   overload: RimWeave.References.NativeReferenceSnapshot.Effect*
+- uid: RimWeave.References.NativeReferenceSnapshot.EffectPart
+  commentId: P:RimWeave.References.NativeReferenceSnapshot.EffectPart
+  id: EffectPart
+  parent: RimWeave.References.NativeReferenceSnapshot
+  langs:
+  - csharp
+  name: EffectPart
+  nameWithType: NativeReferenceSnapshot.EffectPart
+  fullName: RimWeave.References.NativeReferenceSnapshot.EffectPart
+  type: Property
+  source:
+    remote:
+      path: RimWeave/References/NativeReferenceSnapshot.cs
+      branch: e306982326fa9f96738063a527c43c22913efa66
+      repo: https://github.com/0n3m0r3/rimweave.git
+    id: EffectPart
+    path: RimWeave/References/NativeReferenceSnapshot.cs
+    startLine: 46
+  assemblies:
+  - RimWeave
+  namespace: RimWeave.References
+  summary: The resolved effect's native part when observed, or null when no part is available.
+  remarks: 'Reads Hediff.Part at capture time, including for a detached effect. Null can mean a whole-body
+
+    effect, a pawn-only reference, or unavailable resolution; inspect Resolution and Effect separately.
+
+    Pair this record with Pawn: BodyPartRecord objects are shared by pawns using the same BodyDef.
+
+    This is an observed slot reference, not an individual organ identity or proof that the part is present.
+
+    Later reassignment of Hediff.Part does not change this value; referenced native objects remain mutable.
+
+    No part-change notification, retargeting operation or additional persistence is provided.'
+  example: []
+  syntax:
+    content: public BodyPartRecord? EffectPart { get; init; }
+    parameters: []
+    return:
+      type: Verse.BodyPartRecord
+  overload: RimWeave.References.NativeReferenceSnapshot.EffectPart*
 - uid: RimWeave.References.NativeReferenceSnapshot.Map
   commentId: P:RimWeave.References.NativeReferenceSnapshot.Map
   id: Map
@@ -207,11 +248,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Map
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 38
+    startLine: 48
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -236,11 +277,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: MapHeld
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 44
+    startLine: 54
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -268,11 +309,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ParentHolder
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 51
+    startLine: 61
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -302,11 +343,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Spawned
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 53
+    startLine: 63
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -331,11 +372,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Dead
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 55
+    startLine: 65
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -360,11 +401,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Destroyed
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 57
+    startLine: 67
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -389,11 +430,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Discarded
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 59
+    startLine: 69
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -418,11 +459,11 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 8e0d7b14f8574028a9c0c68ebc3b44f95c90cf22
+      branch: e306982326fa9f96738063a527c43c22913efa66
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectAttached
     path: RimWeave/References/NativeReferenceSnapshot.cs
-    startLine: 61
+    startLine: 71
   assemblies:
   - RimWeave
   namespace: RimWeave.References
@@ -673,6 +714,19 @@ references:
   name: Hediff
   nameWithType: Hediff
   fullName: Verse.Hediff
+- uid: RimWeave.References.NativeReferenceSnapshot.EffectPart*
+  commentId: Overload:RimWeave.References.NativeReferenceSnapshot.EffectPart
+  href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_EffectPart
+  name: EffectPart
+  nameWithType: NativeReferenceSnapshot.EffectPart
+  fullName: RimWeave.References.NativeReferenceSnapshot.EffectPart
+- uid: Verse.BodyPartRecord
+  commentId: T:Verse.BodyPartRecord
+  parent: Verse
+  isExternal: true
+  name: BodyPartRecord
+  nameWithType: BodyPartRecord
+  fullName: Verse.BodyPartRecord
 - uid: RimWeave.References.NativeReferenceSnapshot.Map*
   commentId: Overload:RimWeave.References.NativeReferenceSnapshot.Map
   href: RimWeave.References.NativeReferenceSnapshot.html#RimWeave_References_NativeReferenceSnapshot_Map

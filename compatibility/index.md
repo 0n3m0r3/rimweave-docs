@@ -18,12 +18,27 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Exact-instance native removal | Manual prototype check on RimWorld 1.7.5000 rev1275: first removal succeeded, second returned absent, callback deltas were `[1,1]` then `[0,0]` | Specific framework/example configuration, recorded on 8 November 2026. |
 | Independent hand targets | Manual prototype check preserved the other hand's marker | Does not establish general transformation reversal. |
 | Removal by contribution identity | Automated lookup and guard checks; successful native withdrawal after a reload in the [two-consumer scenario](#two-consumer-scenario) | Verified with the two cooperating examples; no general provider-removal guarantee. |
+| Observed native body part | Ten snapshot tests and [60 native checks](#observed-body-part-snapshots), including a fresh-process load | Snapshot of an effect's declared slot; no organ identity, anatomical validation or part-change notification. |
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated tests using the native Scribe save/load phases for a health effect and a separate data owner | Does not establish full-colony reload behavior or arbitrary provider compatibility. |
 | Unreadable saved metadata | Automated rejection of unsupported or malformed metadata, preservation for later saves, and incomplete-query results | Does not repair a damaged save or replace missing third-party classes. |
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Observed body-part snapshots
+
+On 16 November 2026, framework [e306982](https://github.com/0n3m0r3/rimweave/commit/e306982326fa9f96738063a527c43c22913efa66) added <xref:RimWeave.References.NativeReferenceSnapshot.EffectPart>. It captures the resolved effect's native part without changing targeting, subscription coverage or persistence. **291 Debug and 276 Release tests** passed, including ten new cases covering ordinary and cooperating effects, old versus current observations, detached effects, shared records, whole-body and pawn-only references, and unavailable or loading references. The [body-part guide](../guides/health-effects.md#capture-the-observed-body-part) includes a compiled observation recipe.
+
+The committed Debug artifacts passed **60 native checks** on **RimWorld 1.7.5011 rev24** across two distinct processes, one save and one direct load. The isolated profile used Core, Royalty, Ideology, Biotech, Odyssey, both composition examples and an explicitly invoked temporary driver. The driver substituted an instrumented subclass for B in memory and preserved its base lifecycle callbacks; the public examples were unchanged.
+
+A pawn began with A/B on the first human hand slot and another B on the second. A controlled removal callback explicitly reassigned the target B's native `Part` and reattached that same instance to the second hand. This was the verification consumer's operation, not a new framework retargeting service. The original snapshot retained the first part while its `Effect.Part` now pointed to the second. A snapshot taken while detached kept the declared first part with `EffectAttached == false`; new captures after reattachment reported the second part. The two exact B observers recorded the native detachment and stayed stopped until explicit resumption. No part-change event was added.
+
+The same-identity B effects on the second hand made identity lookup ambiguous, while each exact reference still named its original instance. A and the other B retained their targets, attribution, severity and creation ticks. Snapshot and query inspection left health-list membership and simulation randomness unchanged. Only one B observer resumed before saving; the other kept its own detachment observations.
+
+A fresh process restored all five references and the three exact effects, including B's current native part and each consumer's pending observations. No tracking resumed implicitly. Per-process counters recorded additions **4/0**, removals **1/0**, and post-load callbacks **0/3**. The save audit found the three parts in native health data and no duplicate part storage in RimWeave references. Both processes exited successfully. Installed artifact hashes matched the committed Debug outputs, the installation was restored, and all 25 normal configuration files remained unchanged.
+
+The logs contained the graphics-layer Fossilize error, loader and temporary-manifest warnings, native ritual-precept restoration warnings during loading, and shutdown allocation warnings; no native reference-resolution warning or unexpected native error was found. The evidence is limited to the human body, the stated callback ordering and the instrumented subclass. It does not certify anatomical presence, individual organ identity, arbitrary retargeting, third-party races, migrations, UI operations or multiplayer behavior.
 
 ## Interrupted removal and reattachment
 

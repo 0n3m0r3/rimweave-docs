@@ -104,6 +104,22 @@ Read the current snapshot before acting. Dispose the reference when observation 
 
 For a concrete anatomical transition, see [a lost and restored hand](hand-restoration.md). Native cleanup can remove both independent contributions on that slot; restoring the slot does not reapply them or redirect their old exact references. The [native prosthetic-arm scenario](native-prosthesis.md) distinguishes an available artificial arm from its missing natural hand; a request for the hand never falls back to the arm.
 
+## Capture the observed body part
+
+The glove mod remembers an effect on the left hand. Later, its own integration explicitly removes that effect and attaches the same instance to the right hand. A reference to the effect still names the same object; it does not reserve the original hand. To compare observations, use <xref:RimWeave.References.NativeReferenceSnapshot.EffectPart>.
+
+`Capture()` copies the current `Hediff.Part` reference into `EffectPart`. An earlier snapshot keeps its observed part even if the effect's `Part` field is reassigned later. Reading `oldSnapshot.Effect.Part` follows a mutable native object and can instead give the new part. The part record itself remains a native object, not a frozen copy of the body.
+
+Always pair the observed part with `snapshot.Pawn`: pawns using the same `BodyDef` share part records. Two hands with the same part definition remain distinct occurrences. A captured slot is neither an individual organ identity nor proof that the anatomy is present or usable.
+
+[!code-csharp[Observe attachment to an explicit target](../examples/Recipes/Health.cs#observe-part)]
+
+This recipe checks the exact referenced effect's observed attachment, pawn and part. It provides no reservation, gameplay permission or guarantee of continued attachment. Explicit `null` means whole body only after a resolved effect has been established. `EffectPart` is also null for a pawn-only reference or an unresolved, loading, mismatched or foreign-game reference; inspect `Resolution` and `Effect` before interpreting it.
+
+A detached but still resolved effect can keep its declared part: `EffectPart` does not replace `EffectAttached`. Neither reading the property nor taking another snapshot retargets anything, starts tracking, or creates a part-change notification. Empty pending flags do not establish that the part stayed unchanged. If removal callbacks ran during a retarget, their existing detachment notifications remain relevant even when the final instance is attached again.
+
+RimWorld saves the effect's current part. RimWeave stores no extra part in its reference and does not serialize snapshots. After loading, take a fresh snapshot of the resolved exact effect; no earlier observed part is reconstructed. The [recorded body-part snapshot scenario](../compatibility/index.md#observed-body-part-snapshots) verifies this distinction with two hand slots, a same-identity witness and a fresh-process load. It does not provide a general anatomical migration or retargeting API.
+
 ## Keep the information through a save
 
 `ContributionHediff` participates in the game's saving process. If a subclass overrides `ExposeData`, it must call the base implementation in every save/load phase. Read the [save/load guide](persistence.md) for what is restored and what happens if the information cannot be read.

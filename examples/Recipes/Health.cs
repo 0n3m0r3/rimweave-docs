@@ -1,5 +1,6 @@
 using RimWeave.Contributions;
 using RimWeave.Health;
+using RimWeave.References;
 using Verse;
 
 namespace RimWeave.Documentation.Examples;
@@ -49,6 +50,19 @@ internal static class HealthRecipes
         Pawn pawn, ContributionId identity, BodyPartRecord part)
     {
         return ContributionQueries.Resolve(pawn, identity, part);
+    }
+    #endregion
+
+    #region observe-part
+    internal static bool IsAttachedTo(
+        NativeReference reference, Pawn expectedPawn, BodyPartRecord? expectedPart)
+    {
+        var snapshot = reference.Capture();
+        return snapshot.Resolution == NativeReferenceResolution.Resolved
+            && snapshot.Effect is not null
+            && snapshot.EffectAttached == true
+            && ReferenceEquals(snapshot.Pawn, expectedPawn)
+            && ReferenceEquals(snapshot.EffectPart, expectedPart);
     }
     #endregion
 
