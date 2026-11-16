@@ -22,12 +22,29 @@ The framework is experimental. This matrix separates an implemented contract fro
 | Observed native body part | Ten snapshot tests and [60 native checks](#observed-body-part-snapshots), including a fresh-process load | Snapshot of an effect's declared slot; no organ identity, anatomical validation or part-change notification. |
 | Interrupted removal and reattachment | [60 native callback checks](#interrupted-removal-and-reattachment), including propagated exceptions, partial changes and `StillPresent` | Instrumented subclass; no rollback, automatic retry or arbitrary provider isolation. |
 | Saving contribution metadata | Automated native Scribe checks and the bounded colony scenarios below | Does not establish arbitrary provider compatibility or migration. |
+| Changed XML creation defaults | [104 native checks across three processes](#changed-declaration-defaults), plus creation and repeated-save regression cases | Definition and class stay available; no automatic migration, missing-class recovery or general versioning policy. |
 | Unreadable saved metadata | Automated rejection/preservation tests and [84 native checks across three processes](#unreadable-metadata-across-restarts) | Native run covers an unsupported metadata version and an absent record; no migration, save repair or missing-class recovery. |
 | Core without active DLC | [81 native checks across four processes](#core-only-configuration), with and without the optional examples | Bounded loading, health and reference checks; no full neutrality comparison or physical DLC uninstall. |
 | Deferred developer selections | Four regression tests and [55 native checks](#deferred-command-selection) on the committed correction | Actual repaint and programmatic native selection callbacks; no manual pointer or arbitrary menu certification. |
 | Passive inspection | Implemented as native state reads and diagnostic output | Full neutrality across all game configurations is not certified. |
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
+
+## Changed declaration defaults
+
+On 16 November 2026, **104 checks** passed in three independent **RimWorld 1.7.5011 rev24** processes using original, changed and removed XML contribution declarations. The same native definition name and `ContributionHediff` class stayed available. Only the installed disposable provider XML was changed between processes, before native loading; the source checkout stayed intact. The configuration contained Core, Royalty, Ideology, Biotech, Odyssey, the framework, both examples and an explicitly invoked temporary observer.
+
+The first process passed **18 checks**, explicitly attaching A and B to one hand and B to the other hand with developer mode disabled. It saved three effects and four exact references. The second passed **40 checks** after changing B's owner namespace, local identity and claim in XML: all saved instances retained their original attribution, origin, native ID, target, severity and creation tick. Native loading ran three post-load callbacks and no creation, addition or removal. Tracking stayed stopped.
+
+The current-definition lookup and removal found no old effect under the new identity and never substituted one. One explicitly created B then received the new identity and claim. Old and new instances coexisted on the same part and definition, with separate identity and claim lookups. A second save retained all four effects.
+
+The third process passed **46 checks** with the declaration removed from XML. Loading restored all four saved effects with their own metadata, four post-load callbacks and no `PostMake`, addition or removal. Reading the declaration returned `null`; creating a fresh effect left its identity, claim and origin unset without attaching it. The verification consumer explicitly attributed and attached that instance through the ordinary API. Removing the old B identity affected only that instance: the newer generation, A, the other-hand B and the explicitly attributed effect remained unchanged. Repeated removal returned absent without another callback; the old exact reference stayed detached instead of choosing a replacement.
+
+Declaration reads, instance queries and reference captures preserved observed health state and simulation randomness. Both source saves retained their original hashes through the later loads. The final C# attribution and cleanup were verified in memory only, not through another save. This is evidence about creation defaults and stored instance metadata, not an implemented migration or permission to rename/remove native definitions and classes.
+
+The [test commit](https://github.com/0n3m0r3/rimweave/commit/8d30e526ea60a2bc7d42f6dbb4e5934fdaf64bf2) adds creation-change/removal cases and expands persistence checks to a second save/load with preserved origin and claim. **306 Debug and 287 Release tests** passed, including **29 focused XML/persistence cases**. Runtime code, public API and saved format did not change; installed runtime hashes matched the Debug outputs.
+
+All three native processes exited successfully. Original mod files were restored, the observer removed and all 25 normal configuration files remained unchanged. Logs contained graphics/loader, temporary-manifest, native hidden-funeral-precept and shutdown allocation warnings; no unexpected native error was found. No missing-class behavior, arbitrary provider upgrade, invalid new declaration, migration rollback or surgery/UI flow was tested. See [changing defaults while preserving saved attribution](../guides/xml-declarations.md#keep-saved-attribution-authoritative).
 
 ## Non-human body targeting
 

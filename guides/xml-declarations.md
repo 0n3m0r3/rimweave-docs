@@ -58,4 +58,22 @@ Changing XML affects newly created instances. Scribe loading does not run `PostM
 
 If an update changes `ownerId` or `localId`, the recipe above looks for the **new** identity. It does not find or remove effects saved under the old identity. Those effects can coexist with new ones. Inspect the saved contribution and use its exact identity and target for deliberate cleanup; changing XML is not a migration policy.
 
-The [two-consumer example](composition.md) keeps A's initialization in C# and declares B's identity and claim in XML. See [the recorded XML verification](../compatibility/index.md#xml-contribution-declarations) for actual creation, reload and changed-definition checks. No general migration, uninstall or third-party compatibility guarantee follows.
+### Change defaults without rewriting existing effects
+
+Suppose a provider renames its local contribution from `hand-effect` to `revised-effect` and changes its exclusive claim. A colony already contains the old effect. The next load keeps that instance's saved attribution; an explicitly created effect receives the new values. Both can share the same `HediffDef` and exact body part without becoming the same contribution.
+
+| Current definition | Previously saved instances | Newly created instances |
+| --- | --- | --- |
+| Original declaration | Keep their saved attribution. | Receive the original identity and optional claim. |
+| Changed identity or claim | Still keep their saved attribution. | Receive the changed defaults. |
+| Declaration removed, definition/class retained | Still keep their saved attribution. | Start without an identity or claim; contextual origin also remains unset until supplied in code. |
+
+Resolve claims and identities from the actual instance metadata. Reading today's declaration only describes today's creation defaults. A helper that derives its lookup identity from that declaration will not find an old-generation effect under a renamed identity. It must not treat “not present” as permission to remove a different matching definition.
+
+### Remove a declaration without removing the native definition
+
+Removing only `ContributionDefExtension` does not remove the `HediffDef`, its class or existing effects. `ContributionDefExtension.Read` now returns `null`. That is normal absence of a declaration, distinct from unreadable saved metadata. A fresh effect can be explicitly attributed through the ordinary C# recipe; XML no longer supplies defaults.
+
+An example convenience method that requires a declaration may refuse to operate after its removal. The underlying health API can still query and deliberately remove an old effect using its saved identity and exact target. The provider must choose how to maintain old identities, migrate data or clean up obsolete effects. Changing or deleting defaults supplies none of those policies automatically.
+
+The [definition-evolution verification](../compatibility/index.md#changed-declaration-defaults) exercises the original, changed and absent declaration in three separate native processes. It keeps the definition name and class available throughout; removing either is a different compatibility problem. The [original XML verification](../compatibility/index.md#xml-contribution-declarations) covers initial declaration parsing and creation. No general migration, uninstall or third-party compatibility guarantee follows.
