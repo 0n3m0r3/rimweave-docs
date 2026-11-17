@@ -38,7 +38,7 @@ Use at most one <xref:RimWeave.Health.ContributionDefExtension> per definition, 
 
 ## Diagnose the declared class
 
-The declared effect class must be concrete and closed: abstract classes and types with unresolved generic parameters cannot be instantiated. Both `Read` and native configuration diagnostics reject them with the definition and supplying mod. A concrete subclass or a closed generic subclass remains eligible.
+The declared effect class must be concrete and closed: abstract classes and types with unresolved generic parameters cannot be instantiated. Both `Read` and native configuration diagnostics reject them with the definition and supplying mod. A concrete subclass or a closed generic subclass also needs the native-compatible constructor described below.
 
 Inspection uses type information only. It does not run a constructor or creation callback to test the class. Passing this check does not prove that its constructor or callbacks will succeed; exceptions during actual native creation retain their normal behavior. Definitions without a contribution declaration are outside this validation.
 
@@ -70,6 +70,22 @@ Invalid declaration fields are rejected before attribution too. Origin remains c
 This guarantee covers RimWeave's initial attribution, on the simulation thread. It is not a transaction around `HediffMaker.MakeHediff`: constructor work has already happened, and later callbacks can have effects of their own. In the verified game version, RimWorld logs and catches a failing component's `CompPostMake`, so the factory can return an effect despite that component error. An exception thrown by a subclass after `base.PostMake()` propagates; attribution already applied by the base call remains. Do not assume that a returned object proves every component initialized successfully, or that an exception rolled back creation.
 
 See the [constructor-attribution verification](../compatibility/index.md#constructor-attribution-conflicts) for the tested cases and limits.
+
+## Require a native-compatible constructor
+
+RimWorld creates a declared health class with `Activator.CreateInstance(Type)`.
+A concrete, closed subclass therefore also needs a public parameterless constructor.
+A class with only a private constructor or constructors requiring arguments cannot
+be created by this factory. Declaration inspection and native configuration checks
+report that problem with the definition name and supplying package before an
+extension attempts creation.
+
+These checks inspect the type only. They never call its constructor, allocate an
+effect, attach it or draw simulation randomness. A public constructor that throws
+is structurally valid but can still fail during actual creation; its behavior remains
+the provider's responsibility. The regression suite verifies both native factory
+rejections and the matching passive declaration diagnostics against the installed
+1.7.5011 rev24 assembly. No new colony execution is claimed for this check.
 
 ## Read the declaration without applying it
 
