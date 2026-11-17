@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffOperations.cs
-      branch: 0eb783bdaed0281a181efb8252fe677172a58385
+      branch: 46fffca6d83b1f7c525f0cec41fcc49e6dd848a8
       repo: https://github.com/0n3m0r3/rimweave.git
     id: HediffOperations
     path: RimWeave/Health/HediffOperations.cs
@@ -43,7 +43,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffOperations.cs
-      branch: 0eb783bdaed0281a181efb8252fe677172a58385
+      branch: 46fffca6d83b1f7c525f0cec41fcc49e6dd848a8
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Remove
     path: RimWeave/Health/HediffOperations.cs

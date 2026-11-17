@@ -93,7 +93,13 @@ definition and effect class. An empty file with a valid `Defs` root, an extra
 definition or an accidental rename is rejected. Conditional, inherited or abstract
 XML declarations are outside these four explicit fixtures and are rejected too. For these technical markers,
 `isBad`, `makesAlert`, `everCurableByItem`, `tendable` and `scenarioCanAdd` must each
-appear once with `false`. This catches accidental changes that expose an example
+appear once with `false`. Every required identity, class and flag value must also
+be a scalar element with no attributes or nested elements. A field is rejected
+when it contains additional structure even if its initial text matches the expected
+value; the diagnostic identifies its file and field. The checker does not interpret
+conditional attributes to guess an effective value.
+
+This catches accidental changes that expose an example
 through ordinary scenario selection or change its declared medical behavior.
 
 These are checks of the repository's explicit source contract. They do not run
@@ -122,7 +128,7 @@ python3 -m unittest discover -s tools -p 'test_*.py' -v
 ```
 
 They cover complete folders, missing and empty files, foreign assemblies, manifest
-contracts, invalid XML, links and command exit codes. Their placeholder assembly
+contracts, invalid XML, structured required fields, links and command exit codes. Their placeholder assembly
 bytes are intentional: these tests prove structural checking, not game loading.
 
 ## What GitHub checks automatically
