@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionDefExtension
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -29,7 +29,7 @@ items:
   - RimWeave
   namespace: RimWeave.Health
   summary: Declares initial attribution in a cooperating health effect's native XML definition.
-  remarks: 'Add at most one instance to a HediffDef using ContributionHediff or a subclass.
+  remarks: 'Add at most one instance to a HediffDef using ContributionHediff or a concrete, closed subclass.
 
     Declarations affect newly created instances only; saved metadata remains authoritative.
 
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ownerId
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: localId
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -108,7 +108,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: exclusiveResponsibility
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ResolveReferences
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -166,7 +166,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ConfigErrors
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -196,7 +196,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Read
     path: RimWeave/Health/ContributionDefExtension.cs

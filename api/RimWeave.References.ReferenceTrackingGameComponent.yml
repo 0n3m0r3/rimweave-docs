@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingGameComponent.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ReferenceTrackingGameComponent
     path: RimWeave/References/ReferenceTrackingGameComponent.cs
@@ -47,7 +47,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingGameComponent.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/References/ReferenceTrackingGameComponent.cs
@@ -76,7 +76,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingGameComponent.cs
-      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
+      branch: d49b8813c8b326e1bf554d7f3df43df8a5d501d5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: FinalizeInit
     path: RimWeave/References/ReferenceTrackingGameComponent.cs

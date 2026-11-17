@@ -36,6 +36,12 @@ This complete definition describes a technical marker. It introduces no glove be
 
 Use at most one <xref:RimWeave.Health.ContributionDefExtension> per definition, with `ContributionHediff` or a subclass. Invalid fields, multiple declarations and an incompatible effect class produce native configuration diagnostics naming the definition and its supplying mod. Direct reads and creation also reject invalid declarations. Separate definitions may share an identity: ambiguity is determined among actual instances on the requested target, not in a global definition registry.
 
+## Diagnose the declared class
+
+The declared effect class must be concrete and closed: abstract classes and types with unresolved generic parameters cannot be instantiated. Both `Read` and native configuration diagnostics reject them with the definition and supplying mod. A concrete subclass or a closed generic subclass remains eligible.
+
+Inspection uses type information only. It does not run a constructor or creation callback to test the class. Passing this check does not prove that its constructor or callbacks will succeed; exceptions during actual native creation retain their normal behavior. Definitions without a contribution declaration are outside this validation.
+
 ## Create an effect explicitly
 
 [!code-csharp[Create from XML attribution](../examples/Recipes/Health.cs#xml-attach)]
