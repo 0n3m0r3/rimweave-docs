@@ -51,6 +51,9 @@ Three regression cases call the installed 1.7.5011 rev24 lock-list methods on
 isolated native trackers: repeated requests and one unlock, two items with the
 same definition, and passive reads of a locked item that is not worn. They preserve
 unrelated entries and random state during reads. The read recipe is compiled.
-These checks do not certify equipment jobs, keys, actual removal prevention,
-save/load, third-party locks or a loaded colony. Extensions own those integrations
-and their consequences; RimWeave installs no lock automatically.
+The [retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+also called the native lock methods on actual worn garments. Repeated locking and
+unlocking one garment preserved the other item's flag; a fresh-process load
+restored the exact remaining lock and apparel holders. Equipment jobs, keys, actual
+removal prevention and third-party locks remain unverified. Extensions own those
+integrations and their consequences; RimWeave installs no lock automatically.

@@ -32,6 +32,65 @@ The framework is experimental. This matrix separates an implemented contract fro
 
 The original repeated-removal example contains two observers in one mod. That check is distinct from the [two-consumer scenario](#two-consumer-scenario) below; neither establishes compatibility between arbitrary independent mods.
 
+## Retrospective integration audit
+
+The cumulative state at framework [46fffca](https://github.com/0n3m0r3/rimweave/commit/46fffca6d83b1f7c525f0cec41fcc49e6dd848a8)
+and documentation [45f12e3](https://github.com/0n3m0r3/rimweave-docs/commit/45f12e39e7b47d985d4c590d77c8d77d7f1f3c88)
+was rechecked on 17 November 2026. The review covered all **28 framework and 36
+documentation commits** dated 16 or 17 November in Europe/Paris, up to those heads.
+Runtime checks exercised their integrated result; each historical binary was not
+rebuilt and rerun separately.
+
+**41 fresh RimWorld 1.7.5011 rev24 processes completed 1740 assertions.** These
+were automated scenarios inside the actual game, using disposable colonies and
+separate save-data folders. Save/load scenarios exited the game and loaded their
+native saves in new processes. Fresh callback counters checked for replayed
+operations; native identities and saved values supplied the comparisons.
+
+| Scenario family | Executed boundary |
+| --- | --- |
+| Native health and equipment recipes | Actual initialized pawns, an exact-hand injury, native arm loss/restoration and a bionic replacement; native wear/remove entry points, overlapping torso coverage, inventory exclusion, definition filters and exact garment locks. The recipes themselves ran in the game. Saved metadata, remaining effects, apparel holders and lock flags were checked after restart. |
+| Exact references and composition | Death/resurrection, corpse destruction/discard, retargeting during removal, two muffalo with repeated parts, partial callback failures and reattachment. Independent providers and other targets remained witnesses. |
+| World context | Caravan departure/return, splitting/merging, removal of the former map, a world-only save and entry into a newly generated map. Exact targets and independent pending observations survived the specified restarts. |
+| Metadata and declarations | Constructor/XML conflicts; passive rejection of abstract, open generic or constructor-incompatible classes; changed and removed XML defaults; authoritative saved metadata despite a reimplemented interface getter; unsupported version and processing-instruction retention. Two subsequent saves retained the same opaque payload without nesting wrappers. |
+| Inspection and subscriptions | Bounded body and contribution reports, repeated native-list entries, actual deferred-menu repaint, programmatic option selection, execution-time refusals and preserved simulation randomness. Observer disposal, collection of 10,000 abandoned references and interleaved removal delivery were rechecked. |
+| Core-only configuration | Four processes explicitly verified all five DLC activation flags false, with framework-only and two-example configurations, including fresh-process loads and absence of automatically added contributions. |
+
+The unsupported-version scenario used the Release DLL; the other scenarios used
+Debug. Each scenario kept its installed binary fixed across its processes. Loaded
+or installed hashes matched the recorded artifacts:
+
+- Debug SHA256: `16dd41f38a4186cd166523273b6d5bb9b3f22ce862f1e656cc9f8d15fc4c05a3`.
+- Release SHA256: `e657c7425fa98afb054244c6f8428f3cd3dd9c3cb9642ab633dd9b751edda58d`.
+
+The full suites passed **388 Debug and 369 Release tests**, plus **23 Python checks**.
+The **108 game-independent contract tests** also passed; they are a subset of the
+C# coverage. Real compiled package copies matched their inventories, rejected
+changed DLL bytes and matched again after restoration. All **36 historical API
+snapshots**, their **1,224 file digests** and their framework-source digests matched
+the recorded revisions. The current API export, example checks, site build, local
+links and desktop/mobile browser checks passed.
+
+The audit adds loaded-colony evidence for contracts previously checked only with
+native-assembly fixtures. No additional framework contract failure was reproduced
+in these scenarios. Two declaration-check pilots included definition construction
+in a passive-read measurement; the native `Def` constructor draws a random debug
+ID. The accepted checks measure reads after fixture preparation. A reused earlier
+map pilot omitted selecting the new map and allowed a native repair on load; its
+three processes are excluded from the total. The accepted cycle selects the map
+explicitly and verifies its restored selection without that repair.
+
+Temporary verification mods were removed, installed mod files
+were restored and the normal player configuration remained unchanged. Logs include
+the deliberately injected component exception, expected warnings for references
+to removed targets, and engine loader/graphics/shutdown diagnostics.
+
+These programmatic native operations do not certify player-operated jobs, combat,
+rendered apparel, long-running simulation, arbitrary mod configurations or multiplayer.
+The historical performance comparisons below remain their dated experiments; this
+rerun does not establish a new global performance budget. No site deployment or
+release follows from these checks.
+
 ## Active reference delivery
 
 When several mods retain observers, a notification used to copy every live registration into a temporary array before recording any facts. The [framework change](https://github.com/0n3m0r3/rimweave/commit/dc5a296a3444a5d3e84a2991496a651d68aa537c) now walks the same weak table directly, disposing its enumerator after delivery. It preserves the earlier empty-table release and adds no target index, world cache, periodic scan, extension callback, public signature or save format.

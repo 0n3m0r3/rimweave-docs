@@ -85,8 +85,8 @@ The installed RimWorld 1.7.5011 rev24 getters were inspected and exercised in th
 host. Five regression cases cover independent race/life-stage factors, severity
 independence, retained observations, unchanged native effect membership and random
 state during repeated reads after fixture initialization. The recipe is compiled
-with the documentation examples. No new colony run, third-party patch compatibility
-or arbitrary initialization path is certified by these checks.
+with the documentation examples. These initial cases do not certify arbitrary
+initialization paths or third-party patches.
 
 Six additional regression cases exercise the installed maximum/current health
 methods: rounding, exact occurrence targeting, unrelated severity, native damage
@@ -98,3 +98,11 @@ replacement efficiencies, a replacement ancestor, a missing parent and a stage
 offset. They check the distinction from current health and preserve the effect
 list, severity and random state. Global capacity workers and arbitrary third-party
 patches are not certified by these local part checks.
+
+The [retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+also executed these recipes on initialized pawns in a disposable colony: unrelated
+contribution severity, an injury on one hand with an untouched opposite hand,
+missing-parent function and a native bionic-arm replacement. A complete restart
+preserved the replacement efficiency and independent other-hand effects. Native
+health entry points were invoked directly; surgery jobs and arbitrary providers
+remain separate integrations.

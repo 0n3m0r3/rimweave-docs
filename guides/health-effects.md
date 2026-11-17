@@ -154,8 +154,11 @@ The entity-independent `ContributionResolver` intentionally uses the interface
 supplied by its caller. Other domain owners must provide a passive getter and the
 authoritative scope. The health adapter's guarantee does not make arbitrary
 provider getters safe. Regression tests exercise alternate, throwing and masked
-metadata without changing native membership or random state; no new colony run
-is claimed for this adapter correction.
+metadata without changing native membership or random state. The
+[retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+also exercised a throwing replacement getter on an actual colony effect, including
+its native save and fresh-process load. Health queries and reports used the saved
+base metadata without invoking that getter.
 
 ## Keep the information through a save
 

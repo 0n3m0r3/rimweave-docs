@@ -58,7 +58,11 @@ counts entries, so repeats can consume the available inspection window; omitted
 entries keep the result incomplete. It reads the base metadata used by persistence
 without invoking a subclass's replacement interface getter. Regression tests cover
 repeated references, genuine competitors and provider equality alongside the
-existing passive and bounded-report checks.
+existing passive and bounded-report checks. The
+[retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+also exercised repeated native-list entries on a real colony pawn and restored the
+original list afterward. The report introduced no false identity ambiguity and
+did not call the fixture's replacement metadata getter.
 
 ## Add and remove the example marker
 

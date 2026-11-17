@@ -78,11 +78,20 @@ unknown information remains unknown.
 The installed 1.7.5011 rev24 getters were inspected and exercised with three test
 host cases: native group identity and repeated occurrences, graphic-path
 independence with passive reads, and holder-based wearer resolution. The recipe
-is compiled with the documentation examples. These fixtures do not execute native
-wear/remove callbacks, render garments, simulate damage or certify third-party
-patches or a newly loaded colony. RimWeave adds no equipment state or behavior.
+is compiled with the documentation examples. These initial fixtures do not execute native
+wear/remove callbacks, render garments or simulate damage. RimWeave adds no
+equipment state or behavior.
 
 Seven additional cases verify the explicit gender/stage overload, its native
 `Gender.None` behavior, a multiple-stage mask and the distinction from an empty
 outfit's conflict check. They do not exercise equipment jobs or certify all DLC
 combinations.
+
+The [retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+subsequently executed the recipes after actual native wear, removal and inventory
+operations on initialized colony pawns. Two worn torso layers were retained,
+inventory garments were excluded, and an earlier membership snapshot retained its
+item reference after that item's wearer changed. A fresh process restored the
+remaining layer and inventory holders. Native definition filters were also checked
+against an initialized adult pawn after explicit fixture changes and restoration.
+Equipment jobs, rendered appearance, armor and arbitrary providers remain unverified.

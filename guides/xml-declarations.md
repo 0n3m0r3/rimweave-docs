@@ -85,7 +85,11 @@ effect, attach it or draw simulation randomness. A public constructor that throw
 is structurally valid but can still fail during actual creation; its behavior remains
 the provider's responsibility. The regression suite verifies both native factory
 rejections and the matching passive declaration diagnostics against the installed
-1.7.5011 rev24 assembly. No new colony execution is claimed for this check.
+1.7.5011 rev24 assembly. The
+[retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+repeated these declaration checks inside the game, including native factory
+rejections on an initialized pawn. Valid declarations were inspected without
+constructing their classes or changing health or simulation randomness.
 
 ## Read the declaration without applying it
 

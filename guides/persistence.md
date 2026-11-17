@@ -84,7 +84,11 @@ accepted when the values themselves are valid. Retention preserves unsupported
 metadata; it is not a promise to preserve comments or formatting in a readable
 record. Regression cases exercise the real Scribe API in the test host and check
 two successive saves without nesting retained payloads. These cases are separate
-from the full-game restart scenario below.
+from the original full-game restart scenario below. The later
+[retrospective integration audit](../compatibility/index.md#retrospective-integration-audit)
+also loaded a copied colony save containing a processing instruction in otherwise
+supported metadata. Two fresh-process loads and subsequent saves retained that
+unsupported XML unchanged inside the opaque payload, without nesting wrappers.
 
 ## Keep an unreadable record across restarts
 
