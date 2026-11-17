@@ -38,6 +38,32 @@ have coverage groups, but it is not currently covering a pawn as worn apparel.
 Use the chosen pawn's apparel tracker when querying that pawn, not every apparel
 object reachable from its inventory or map.
 
+## Treat a definition filter as one input
+
+A wardrobe tool may check whether a definition's native gender and developmental
+stage filter accepts a candidate:
+
+[!code-csharp[Read the native definition filter](../examples/Recipes/Equipment.cs#apparel-definition-filter)]
+
+This explicitly uses the `PawnCanWear(Gender, DevelopmentalStage)` overload. In the
+inspected version it checks those two definition fields. `Gender.None` on either
+side bypasses the gender restriction; that is this native filter's behavior, not a
+claim about anatomy, gender identity or an extension's policy. A declared stage
+mask can include several stages. Read the pawn after native initialization, since
+its developmental stage comes from native life-stage state.
+
+Passing this filter does not prove that the garment fits the current outfit or can
+be equipped now. `CanWearWithoutDroppingAnything` separately checks conflicts with
+currently worn apparel; an empty outfit can pass that check while the definition
+filter fails. Neither result establishes reachability, availability, bodily function,
+willingness or permission to perform a job. The extension owns how it combines the
+necessary native facts and its own rules.
+
+Do not substitute a similarly named helper without checking its contract. For
+example, `CorrectAgeForWearing` also checks whether Biotech is active in the inspected
+assembly. These overloads are not interchangeable promises across DLC settings or
+third-party patches.
+
 ## Keep rendering and protection with their owners
 
 Coverage does not establish current visibility, armor effectiveness, medical
@@ -55,3 +81,8 @@ independence with passive reads, and holder-based wearer resolution. The recipe
 is compiled with the documentation examples. These fixtures do not execute native
 wear/remove callbacks, render garments, simulate damage or certify third-party
 patches or a newly loaded colony. RimWeave adds no equipment state or behavior.
+
+Seven additional cases verify the explicit gender/stage overload, its native
+`Gender.None` behavior, a multiple-stage mask and the distinction from an empty
+outfit's conflict check. They do not exercise equipment jobs or certify all DLC
+combinations.

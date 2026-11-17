@@ -6,6 +6,13 @@ namespace RimWeave.Documentation.Examples;
 // Native recipes are compiled, not invoked by the standalone example checks.
 internal static class EquipmentRecipes
 {
+    #region apparel-definition-filter
+    internal static bool PassesNativeDefinitionFilter(Apparel item, Pawn initializedPawn)
+    {
+        return item.def.apparel.PawnCanWear(initializedPawn.gender, initializedPawn.DevelopmentalStage);
+    }
+    #endregion
+
     #region worn-coverage
     internal static IReadOnlyList<Apparel> WornOverPart(Pawn initializedPawn, BodyPartRecord selectedPart)
     {

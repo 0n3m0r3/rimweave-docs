@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
+      branch: dacdec900927429c3f401475f7c6a075f91f4e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: HediffRemovalResult
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
+      branch: dacdec900927429c3f401475f7c6a075f91f4e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
+      branch: dacdec900927429c3f401475f7c6a075f91f4e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Status
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -118,7 +118,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
+      branch: dacdec900927429c3f401475f7c6a075f91f4e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Pawn
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -147,7 +147,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
+      branch: dacdec900927429c3f401475f7c6a075f91f4e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Hediff
     path: RimWeave/Health/HediffRemovalResult.cs
@@ -176,7 +176,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/HediffRemovalResult.cs
-      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
+      branch: dacdec900927429c3f401475f7c6a075f91f4e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Part
     path: RimWeave/Health/HediffRemovalResult.cs
