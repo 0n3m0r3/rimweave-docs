@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionOperations.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionOperations
     path: RimWeave/Health/ContributionOperations.cs
@@ -44,7 +44,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionOperations.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Add
     path: RimWeave/Health/ContributionOperations.cs
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionOperations.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Remove
     path: RimWeave/Health/ContributionOperations.cs

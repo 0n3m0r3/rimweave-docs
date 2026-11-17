@@ -47,6 +47,26 @@ effect on that descendant. Use native presence queries for anatomy and capacity
 queries for function; do not infer either from maximum health. Neither reading
 reserves the target or applies treatment.
 
+## Read native function without inventing eligibility
+
+A fully healthy replacement can have less or more efficiency than a natural part.
+RimWorld already combines the relevant native replacement properties, health and
+stage effects for a selected part:
+
+[!code-csharp[Read native part efficiency](../examples/Recipes/Health.cs#native-part-efficiency)]
+
+Keep the native result rather than reconstructing it from a health ratio. The
+installed method also accounts for replacement ancestors and a missing direct
+parent; an effect's declared stage offset can change efficiency without subtracting
+hit points. Mod-defined getters or patches remain the provider's responsibility.
+
+This local efficiency is not the pawn's overall capacity or permission to perform
+an activity. For a native capacity, query the initialized pawn's
+`health.capacities.GetLevel(capacityDef)` with the relevant native definition.
+Extensions still own the mapping from a capacity to their activity, thresholds,
+context, willingness and consequences. A number, anatomy label or prosthesis does
+not declare fertility or consent.
+
 ## Observe an initialized character
 
 Read on the simulation thread after native pawn initialization. Resolving an uncached
@@ -72,3 +92,9 @@ Six additional regression cases exercise the installed maximum/current health
 methods: rounding, exact occurrence targeting, unrelated severity, native damage
 floors, explicit absence and repeated reads without random-state changes. These
 are getter fixtures, not native surgery or a loaded colony.
+
+Five efficiency regression cases call the installed native calculation for two
+replacement efficiencies, a replacement ancestor, a missing parent and a stage
+offset. They check the distinction from current health and preserve the effect
+list, severity and random state. Global capacity workers and arbitrary third-party
+patches are not certified by these local part checks.

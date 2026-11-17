@@ -24,6 +24,13 @@ internal static class HealthRecipes
     }
     #endregion
 
+    #region native-part-efficiency
+    internal static float ReadNativePartEfficiency(Pawn initializedPawn, BodyPartRecord selectedPart)
+    {
+        return PawnCapacityUtility.CalculatePartEfficiency(initializedPawn.health.hediffSet, selectedPart);
+    }
+    #endregion
+
     #region repeated-parts
     internal static IReadOnlyList<BodyPartRecord> PresentParts(
         Pawn pawn, BodyPartDef definition)

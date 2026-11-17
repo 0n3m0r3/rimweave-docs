@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ReferenceTrackingCoverage
     path: RimWeave/References/ReferenceChanges.cs
@@ -48,7 +48,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: None
     path: RimWeave/References/ReferenceChanges.cs
@@ -75,7 +75,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Maps
     path: RimWeave/References/ReferenceChanges.cs
@@ -102,7 +102,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
+      branch: bb0759d4dfedbe6e8877dbfa8ef597ff951ccfc5
       repo: https://github.com/0n3m0r3/rimweave.git
     id: CooperatingHealthEffect
     path: RimWeave/References/ReferenceChanges.cs
