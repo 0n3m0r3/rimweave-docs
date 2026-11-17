@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingMapComponent.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ReferenceTrackingMapComponent
     path: RimWeave/References/ReferenceTrackingMapComponent.cs
@@ -48,7 +48,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingMapComponent.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/References/ReferenceTrackingMapComponent.cs
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingMapComponent.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: FinalizeInit
     path: RimWeave/References/ReferenceTrackingMapComponent.cs
@@ -104,7 +104,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceTrackingMapComponent.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: MapRemoved
     path: RimWeave/References/ReferenceTrackingMapComponent.cs

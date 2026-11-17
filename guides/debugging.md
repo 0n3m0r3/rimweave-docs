@@ -21,6 +21,10 @@ Select one character on the map. RimWorld calls these entities pawns; animals an
 
 The report lists body slots, parent slots, definitions, labels, directly missing parts and attached health effects. An index identifies a slot in that inspected body list; it is not a permanent organ ID. The command reads state and logs a snapshot without applying effects or consuming simulation randomness.
 
+The snapshot reads at most 100 body parts and 40 attached effects, retains at most 120 source characters per field, and caps report text at 16,000 characters. Any omitted entries or report text mark it **INCOMPLETE**; shortened fields have their own marker. Labels come directly from native definitions or custom labels, with markup and hidden controls escaped. Health-effect presentation getters are not invoked. An effect outside the inspected body is reported as an unresolved part, separately from a whole-body effect. An uninitialized body or health storage produces an unavailable diagnostic.
+
+Reading and writing this snapshot to the native log preserve simulation randomness through the same presentation guard used by the contribution inspector. Re-run the command to observe later native changes. No state is repaired, retained or exported automatically.
+
 ## Inspect declared health contributions
 
 > [!NOTE]

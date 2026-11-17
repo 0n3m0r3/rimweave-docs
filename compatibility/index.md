@@ -501,3 +501,9 @@ The current target is RimWorld 1.7 with .NET 10. Evidence from older game versio
 Extensions own their compatibility statements and adapters. An effect added through a native API by another mod remains native; it does not automatically acquire RimWeave metadata. An exact-instance operation may still be usable when its documented preconditions hold.
 
 Report a compatibility finding with exact versions, a minimal scenario and observable results. Describe an untested interaction as an investigation rather than asserting either universal compatibility or incompatibility.
+
+## Bounded body inspection
+
+An isolated disposable colony on RimWorld 1.7.5011 rev24 exercised the committed Debug body-report implementation with the framework, both optional examples and the installed official expansions. Twelve assertions passed: two native colonists produced stable repeated snapshots with native root slots and inventory counts; report generation and the production logging path preserved native health, body membership, location, identity and simulation random state. The installed assembly hash was recorded and the original mod files and normal player configuration were restored.
+
+The production logging method was invoked programmatically. Manual debug-menu interaction, arbitrary third-party bodies and effects, and broad performance characteristics were not tested. Automated regression cases additionally cover entry and text limits, escaped labels, missing or foreign parts, unavailable storage and hostile effect presentation getters.

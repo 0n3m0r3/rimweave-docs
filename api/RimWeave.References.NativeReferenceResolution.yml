@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: NativeReferenceResolution
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -44,7 +44,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Unresolved
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -71,7 +71,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Loading
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolved
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Mismatch
     path: RimWeave/References/NativeReferenceSnapshot.cs
@@ -152,7 +152,7 @@ items:
   source:
     remote:
       path: RimWeave/References/NativeReferenceSnapshot.cs
-      branch: 690538e684e0e4451513e9f15a966c1f0252c349
+      branch: e159e3afdacd41ad905ca5e1693aed4eb12af83f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: DifferentGame
     path: RimWeave/References/NativeReferenceSnapshot.cs
