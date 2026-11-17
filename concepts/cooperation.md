@@ -40,6 +40,23 @@ Unreadable metadata takes priority even if one readable match was found. The unr
 
 With an identity query, several matches might mean your mod added the same effect twice. With an exclusive responsibility query, they mean several contributions make the same claim. Neither result is a general diagnosis of whether their gameplay effects are compatible.
 
+## Overlapping collections do not create another claimant
+
+Suppose a mod combines the effects from two views of the same character. If both
+views contain the same effect object, the shared resolver counts that instance
+once. It enumerates the supplied sequence once and reads metadata once per
+instance. This also applies to unreadable candidates.
+
+Two different objects still count separately, even if their identities, metadata
+or custom equality compare equal. Repeating a reference does not mean a second
+effect was installed; creating a second object can represent a real conflict.
+The resolver uses reference identity and does not invoke provider equality or
+hashing. Result order follows first appearance and never selects a winner.
+
+This is a rule for the caller's selected collection, not automatic discovery or
+repair of native storage. The regression checks run outside the game; they do
+not establish compatibility with arbitrary mods that alter native collections.
+
 ## What a conflict does not block
 
 The query does not disable a mod or remove an effect. It does not prevent an unrelated feature on another character from running.

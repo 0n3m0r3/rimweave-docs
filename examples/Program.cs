@@ -26,6 +26,14 @@ Expect(ContributionResolver.Resolve(claims.Matches, new ContributionId("example.
         .Status == ContributionLookupStatus.Found,
     "An ambiguous claim must not prevent a unique identity lookup.");
 
+var repeated = ContributionResolver.Resolve(new[] { equipment, equipment }, equipment.Metadata.Identity!);
+Expect(repeated.Status == ContributionLookupStatus.Found && ReferenceEquals(repeated.Matches.Single(), equipment),
+    "Overlapping views must not turn one object into two claimants.");
+var overlappingClaims = ContributionResolver.ResolveExclusiveClaim(
+    claims.Matches.Concat(claims.Matches), claims.Matches[0].Metadata.ExclusiveResponsibility!);
+Expect(overlappingClaims.Status == ContributionLookupStatus.Ambiguous && overlappingClaims.Matches.Count == 2,
+    "Repeating two distinct claimants must preserve the real conflict without duplicating its report.");
+
 var undescribed = new ProtectionContribution();
 Expect(undescribed.Metadata.Origin is null, "No origin may be inferred from the containing type.");
 undescribed.Metadata.DescribeOrigin(new ContributionOrigin(ContributionOriginType.Unknown));

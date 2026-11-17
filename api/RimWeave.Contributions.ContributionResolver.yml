@@ -16,18 +16,22 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionResolver.cs
-      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
+      branch: 6f430adfc82fe98945d7d26bab8f37d58640caf4
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionResolver
     path: RimWeave/Contributions/ContributionResolver.cs
-    startLine: 7
+    startLine: 9
   assemblies:
   - RimWeave
   namespace: RimWeave.Contributions
   summary: Resolves contributions in a caller-supplied scope without keeping a registry.
   remarks: 'The caller selects the authoritative collection and target scope. Candidates are enumerated
 
-    once per query; their order never selects a winner. Use the owning domain''s mutation thread.'
+    once per query. Each distinct instance is read and counted once, using reference identity rather
+
+    than provider equality. Distinct instances remain separate even when their metadata matches.
+
+    Their order never selects a winner. Use the owning domain''s mutation thread.'
   example: []
   syntax:
     content: public static class ContributionResolver
@@ -47,11 +51,11 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionResolver.cs
-      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
+      branch: 6f430adfc82fe98945d7d26bab8f37d58640caf4
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolve
     path: RimWeave/Contributions/ContributionResolver.cs
-    startLine: 18
+    startLine: 20
   assemblies:
   - RimWeave
   namespace: RimWeave.Contributions
@@ -99,11 +103,11 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionResolver.cs
-      branch: dc5a296a3444a5d3e84a2991496a651d68aa537c
+      branch: 6f430adfc82fe98945d7d26bab8f37d58640caf4
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ResolveExclusiveClaim
     path: RimWeave/Contributions/ContributionResolver.cs
-    startLine: 36
+    startLine: 38
   assemblies:
   - RimWeave
   namespace: RimWeave.Contributions
