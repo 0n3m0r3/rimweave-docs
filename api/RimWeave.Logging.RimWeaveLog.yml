@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: RimWeave/Logging/RimWeaveLog.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: RimWeaveLog
     path: RimWeave/Logging/RimWeaveLog.cs
@@ -43,7 +43,7 @@ items:
   source:
     remote:
       path: RimWeave/Logging/RimWeaveLog.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Message
     path: RimWeave/Logging/RimWeaveLog.cs

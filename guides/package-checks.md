@@ -59,6 +59,33 @@ or game compatibility. Stop builds and file copies while checking: the command
 reads files sequentially and does not take an atomic filesystem snapshot. It never
 loads an assembly or writes to the inspected folders.
 
+## Verify a copied mod folder
+
+Keep the JSON inventory from the build you intend to install, then compare one
+explicit mod folder with it. Replace the sample paths with your saved inventory
+and the copied framework folder:
+
+```bash
+python3 tools/verify_package.py inventory.json rimweave.framework /path/to/Mods/RimWeave
+```
+
+The folder name is arbitrary. Select `rimweave.example` or `rimweave.example.peer`
+to check either optional example instead. Only the chosen folder is inspected;
+checking the framework does not require installing the examples. The inventory
+itself describes all three known packages in format version 1.
+
+A matching folder exits with code `0`. Missing files, changed bytes, extra files,
+invalid structure or symbolic links produce diagnostics and code `1`. Optional
+symbols and documentation must match exactly when recorded; adding an unrecorded
+optional file is also a difference. Nothing is copied, removed or repaired. Review
+the differences before deciding what to replace.
+
+Unknown inventory formats, duplicate fields or entries, invalid digests and paths
+outside the fixed package inventory are rejected. A matching digest proves only
+agreement with that saved inventory, which must come from a source you trust. It
+does not prove the running game loaded those files. Keep builds and copies stopped
+throughout the comparison; no atomic filesystem snapshot is promised.
+
 ## Keep example markers explicit
 
 Each of the four example definition files must contain exactly its expected health

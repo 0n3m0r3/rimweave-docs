@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionHediff
     path: RimWeave/Health/ContributionHediff.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Metadata
     path: RimWeave/Health/ContributionHediff.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PostMake
     path: RimWeave/Health/ContributionHediff.cs
@@ -128,7 +128,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ExposeData
     path: RimWeave/Health/ContributionHediff.cs
@@ -156,7 +156,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Notify_PawnDied
     path: RimWeave/Health/ContributionHediff.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Notify_Resurrected
     path: RimWeave/Health/ContributionHediff.cs
@@ -215,7 +215,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Notify_PawnCorpseDestroyed
     path: RimWeave/Health/ContributionHediff.cs
@@ -242,7 +242,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: PostRemoved
     path: RimWeave/Health/ContributionHediff.cs
@@ -269,7 +269,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionHediff.cs
-      branch: 39a8ba7d763668a15d47d9db47950e372b888c2c
+      branch: 310a727a39cf4e54140e3f67a873b46df714457f
       repo: https://github.com/0n3m0r3/rimweave.git
     id: TryMergeWith
     path: RimWeave/Health/ContributionHediff.cs
