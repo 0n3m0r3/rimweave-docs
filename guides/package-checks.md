@@ -60,3 +60,16 @@ python3 -m unittest discover -s tools -p 'test_*.py' -v
 They cover complete folders, missing and empty files, foreign assemblies, manifest
 contracts, invalid XML, links and command exit codes. Their placeholder assembly
 bytes are intentional: these tests prove structural checking, not game loading.
+
+## What GitHub checks automatically
+
+The framework's **Validate package sources** workflow runs the Python regressions
+on every push and pull request. It also supports manual execution. One test reads
+the real versioned manifests and definitions into a temporary package fixture,
+then checks their contract. It supplies inert placeholder assembly bytes, never
+the game's assemblies. A corrupted source manifest makes this check fail.
+
+This remote check is separate from running the validator against locally compiled
+folders. GitHub does not compile the C# solution or run RimWorld. Before installation,
+run the local command after your chosen build and perform the relevant game checks.
+The workflow has read-only repository access and no deployment or release step.

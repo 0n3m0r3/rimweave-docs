@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ReferenceChanges
     path: RimWeave/References/ReferenceChanges.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: None
     path: RimWeave/References/ReferenceChanges.cs
@@ -83,7 +83,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EnteredContext
     path: RimWeave/References/ReferenceChanges.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: LeftContext
     path: RimWeave/References/ReferenceChanges.cs
@@ -137,7 +137,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContextRemoved
     path: RimWeave/References/ReferenceChanges.cs
@@ -164,7 +164,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Died
     path: RimWeave/References/ReferenceChanges.cs
@@ -191,7 +191,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resurrected
     path: RimWeave/References/ReferenceChanges.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Discarded
     path: RimWeave/References/ReferenceChanges.cs
@@ -245,7 +245,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: EffectDetached
     path: RimWeave/References/ReferenceChanges.cs
@@ -272,7 +272,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: TrackingInterrupted
     path: RimWeave/References/ReferenceChanges.cs
@@ -299,7 +299,7 @@ items:
   source:
     remote:
       path: RimWeave/References/ReferenceChanges.cs
-      branch: c30fb660e4b271596752c0dc5783440c6a243a6f
+      branch: 15d38e61810b4267ad843063e18eb648830aff60
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Destroyed
     path: RimWeave/References/ReferenceChanges.cs

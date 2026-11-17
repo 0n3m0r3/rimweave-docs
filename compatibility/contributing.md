@@ -82,6 +82,8 @@ Guides include snippets directly from the example files. Changing an example req
 Before copying the framework or its optional examples into RimWorld, run the
 [structural package checker](../guides/package-checks.md) in the framework checkout.
 Its temporary-folder regression tests require Python 3; they do not load game assemblies.
+The framework runs these tests and checks its versioned manifests/definitions in
+GitHub Actions. Compilation, built-folder checks and game scenarios remain local.
 
 ## Check examples and presentation
 
