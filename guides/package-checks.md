@@ -78,13 +78,35 @@ bytes are intentional: these tests prove structural checking, not game loading.
 
 ## What GitHub checks automatically
 
-The framework's **Validate package sources** workflow runs the Python regressions
+The framework's **Validate sources** workflow runs the Python regressions
 on every push and pull request. It also supports manual execution. Tests read
 the real versioned manifests and definitions and exercise their contract, including empty,
 renamed, extra or incorrectly configured example markers. The fixtures supply inert placeholder assembly bytes, never
 the game's assemblies. A corrupted source manifest makes this check fail.
 
 This remote check is separate from running the validator against locally compiled
-folders. GitHub does not compile the C# solution or run RimWorld. Before installation,
+folders. GitHub also executes the independent C# contracts described below. It does not
+compile the complete mod solution or run RimWorld. Before installation,
 run the local command after your chosen build and perform the relevant game checks.
 The workflow has read-only repository access and no deployment or release step.
+
+## Test shared contracts in GitHub
+
+The same workflow runs 108 existing C# tests for contribution identity, attribution,
+origin, resolution and log formatting. A dedicated test project links the production
+source files and the original test files. It has no RimWorld references, local game
+path or substitute game types, and produces no installable framework assembly.
+
+```bash
+dotnet test RimWeave.Contracts.Tests/RimWeave.Contracts.Tests.csproj --configuration Release
+```
+
+Run this command from the framework repository with .NET 10. The SDK and test
+packages match the existing project. A source-only temporary checkout passed the
+suite without game assemblies or local properties; deliberately removing instance
+deduplication from its resolver made the same command fail.
+
+This checks the linked contracts independently of the game. Native health adapters,
+Scribe persistence, developer UI, the complete framework build and colony behavior
+still require their separate local tests. These 108 tests are a subset of the full
+suite, not 108 additional independent checks.

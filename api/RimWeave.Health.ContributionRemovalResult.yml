@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionRemovalResult.cs
-      branch: 74683700bbbe2af4a1cb506097ca7e5729e004ac
+      branch: 2ae6654ce620a1c157cb32815ca158f0fe252e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionRemovalResult
     path: RimWeave/Health/ContributionRemovalResult.cs
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionRemovalResult.cs
-      branch: 74683700bbbe2af4a1cb506097ca7e5729e004ac
+      branch: 2ae6654ce620a1c157cb32815ca158f0fe252e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: .ctor
     path: RimWeave/Health/ContributionRemovalResult.cs
@@ -86,7 +86,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionRemovalResult.cs
-      branch: 74683700bbbe2af4a1cb506097ca7e5729e004ac
+      branch: 2ae6654ce620a1c157cb32815ca158f0fe252e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Lookup
     path: RimWeave/Health/ContributionRemovalResult.cs
@@ -115,7 +115,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionRemovalResult.cs
-      branch: 74683700bbbe2af4a1cb506097ca7e5729e004ac
+      branch: 2ae6654ce620a1c157cb32815ca158f0fe252e36
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Removal
     path: RimWeave/Health/ContributionRemovalResult.cs
