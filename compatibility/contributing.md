@@ -77,6 +77,12 @@ Use another path if the framework is elsewhere. Add `--allow-worktree` only for 
 
 Guides include snippets directly from the example files. Changing an example requires a new export. Review and commit the generated files under `api/` and `includes/version.md` together with the guide changes. The export pins source links to the selected commit; it omits them for uncommitted previews.
 
+## Check installable mod folders
+
+Before copying the framework or its optional examples into RimWorld, run the
+[structural package checker](../guides/package-checks.md) in the framework checkout.
+Its temporary-folder regression tests require Python 3; they do not load game assemblies.
+
 ## Check examples and presentation
 
 Run the shared-data examples from the documentation repository:

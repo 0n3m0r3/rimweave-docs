@@ -34,3 +34,5 @@
   href: provider-removal.md
 - name: Check your integration
   href: testing.md
+- name: Check mod folders before installing
+  href: package-checks.md
