@@ -16,11 +16,11 @@ items:
   source:
     remote:
       path: RimWeave/Persistence/ContributionMetadataScribe.cs
-      branch: 15d38e61810b4267ad843063e18eb648830aff60
+      branch: 690538e684e0e4451513e9f15a966c1f0252c349
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionMetadataScribe
     path: RimWeave/Persistence/ContributionMetadataScribe.cs
-    startLine: 14
+    startLine: 16
   assemblies:
   - RimWeave
   namespace: RimWeave.Persistence
@@ -29,7 +29,11 @@ items:
 
     This adapter does not save the owner, resolve sources or apply effects. Unreadable metadata is
 
-    retained as opaque XML text on subsequent saves; it requires an explicit future recovery policy.'
+    retained as opaque XML text on subsequent saves; it requires an explicit future recovery policy.
+
+    Unsupported XML nodes, including processing instructions, make the complete block unavailable.
+
+    Comments and text/CDATA representations of supported scalar values are accepted.'
   example: []
   syntax:
     content: 'public sealed class ContributionMetadataScribe : IExposable'
@@ -51,11 +55,11 @@ items:
   source:
     remote:
       path: RimWeave/Persistence/ContributionMetadataScribe.cs
-      branch: 15d38e61810b4267ad843063e18eb648830aff60
+      branch: 690538e684e0e4451513e9f15a966c1f0252c349
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Metadata
     path: RimWeave/Persistence/ContributionMetadataScribe.cs
-    startLine: 28
+    startLine: 30
   assemblies:
   - RimWeave
   namespace: RimWeave.Persistence
@@ -80,11 +84,11 @@ items:
   source:
     remote:
       path: RimWeave/Persistence/ContributionMetadataScribe.cs
-      branch: 15d38e61810b4267ad843063e18eb648830aff60
+      branch: 690538e684e0e4451513e9f15a966c1f0252c349
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ExposeData
     path: RimWeave/Persistence/ContributionMetadataScribe.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - RimWeave
   namespace: RimWeave.Persistence

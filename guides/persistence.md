@@ -71,6 +71,21 @@ Queries return `InvalidMetadata` when an unreadable record is present in the sel
 
 Unreadable XML is kept as text in later saves without interpreting its fields. It is not silently replaced by empty values or automatically repaired. This preserves the record for a possible recovery policy; it does not make a missing third-party class loadable or repair a malformed save file.
 
+### Unsupported XML inside an otherwise valid record
+
+A future writer might put an XML processing instruction inside an identity field
+or between metadata fields. Even when the familiar text still decodes correctly,
+ignoring that additional structure would lose information on the next save.
+RimWeave therefore marks the whole description unavailable and retains its XML,
+including an instruction with no text. It does not interpret the instruction.
+
+Comments, whitespace and CDATA representations of supported scalar text remain
+accepted when the values themselves are valid. Retention preserves unsupported
+metadata; it is not a promise to preserve comments or formatting in a readable
+record. Regression cases exercise the real Scribe API in the test host and check
+two successive saves without nesting retained payloads. These cases are separate
+from the full-game restart scenario below.
+
 ## Keep an unreadable record across restarts
 
 Suppose A and B both affect the same hand, but B's saved description uses a format this version cannot read. A still has readable attribution; that alone does not prove A is the only match. Inspect the incomplete scope through `Resolve`. Treat `InvalidMetadata` as uncertainty, rather than treating B as absent or choosing A anyway. A valid B on the other hand remains queryable in its own scope.
