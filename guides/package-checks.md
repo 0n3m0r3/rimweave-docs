@@ -37,6 +37,28 @@ Correct the cause and rerun the check before copying anything. Review unexpected
 files before removing them. Adding an intended resource requires updating the
 validator's explicit inventory alongside that resource.
 
+## Record the exact file contents
+
+After a successful build, request a portable inventory:
+
+```bash
+python3 tools/check_packages.py --json
+```
+
+On success, standard output contains only JSON with `formatVersion: 1`,
+`validation: "structure-only"` and a sorted `packages` list. Each package has its
+`packageId` and sorted `files`; each file records a package-relative `path`, byte
+count and SHA256 digest. Optional documentation and symbols are included when
+present. Identical bytes produce identical output in different directories; no
+absolute path or timestamp is recorded. On validation failure, no success JSON is
+printed, errors go to standard error and the exit code is nonzero.
+
+Keep the inventory outside the mod folders when saving it for comparison. A digest
+identifies bytes; it does not prove authorship, source revision, build configuration
+or game compatibility. Stop builds and file copies while checking: the command
+reads files sequentially and does not take an atomic filesystem snapshot. It never
+loads an assembly or writes to the inspected folders.
+
 ## Keep example markers explicit
 
 Each of the four example definition files must contain exactly its expected health
