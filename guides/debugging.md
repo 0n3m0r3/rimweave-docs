@@ -45,6 +45,21 @@ The report reads up to 40 attached effects and caps the output at 16,000 charact
 
 Inspection does not apply or remove an effect, start tracking, acknowledge observations, repair metadata or consume simulation randomness. Close and reopen to read the current state; an open report is a snapshot. There is no background collection, automatic file export or retained diagnostic history. The [recorded colony check](../compatibility/index.md#health-contribution-diagnostic) exercised the actual dialog's opening, repaint and closing paths; debug-menu clicks and mouse-wheel interactions remain untested.
 
+### Repeated entries and real competing instances
+
+A damaged or externally edited native list can contain the same effect reference
+more than once. The report keeps its bounded view of those list entries, but the
+common resolver counts that exact instance only once for identity and exclusive
+claim results. Two distinct instances still conflict when they claim the same
+responsibility, even if their metadata or provider-defined equality is identical.
+
+The report does not repair, remove or reorder native entries. Its scan limit still
+counts entries, so repeats can consume the available inspection window; omitted
+entries keep the result incomplete. It reads the base metadata used by persistence
+without invoking a subclass's replacement interface getter. Regression tests cover
+repeated references, genuine competitors and provider equality alongside the
+existing passive and bounded-report checks.
+
 ## Add and remove the example marker
 
 1. In the debug actions menu, search for **marker**. The filter matches action names, not just category names.
