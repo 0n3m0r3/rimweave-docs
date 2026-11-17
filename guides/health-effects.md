@@ -136,6 +136,27 @@ A detached but still resolved effect can keep its declared part: `EffectPart` do
 
 RimWorld saves the effect's current part. RimWeave stores no extra part in its reference and does not serialize snapshots. After loading, take a fresh snapshot of the resolved exact effect; no earlier observed part is reconstructed. The [recorded body-part snapshot scenario](../compatibility/index.md#observed-body-part-snapshots) verifies this distinction with two hand slots, a same-identity witness and a fresh-process load. It does not provide a general anatomical migration or retargeting API.
 
+## Query the metadata that is actually saved
+
+A subclass can reimplement C#'s `IContribution.Metadata` interface and expose a
+second description. Health queries deliberately read the base
+`ContributionHediff.Metadata` property, which is also used by native persistence
+and the diagnostic report. `Find`, `Resolve` and `ResolveExclusiveClaim` do not call
+a subclass's replacement interface getter. Its alternate identity or claim cannot
+retarget a health lookup or conceal unreadable saved metadata.
+
+This binding still uses the common resolver for reference deduplication, identity
+matching and ambiguity. Results retain the original native effect instances and
+remain scoped to the requested pawn and part. A saved load error remains
+`InvalidMetadata`; `Find` refuses that incomplete result.
+
+The entity-independent `ContributionResolver` intentionally uses the interface
+supplied by its caller. Other domain owners must provide a passive getter and the
+authoritative scope. The health adapter's guarantee does not make arbitrary
+provider getters safe. Regression tests exercise alternate, throwing and masked
+metadata without changing native membership or random state; no new colony run
+is claimed for this adapter correction.
+
 ## Keep the information through a save
 
 `ContributionHediff` participates in the game's saving process. If a subclass overrides `ExposeData`, it must call the base implementation in every save/load phase. Read the [save/load guide](persistence.md) for what is restored and what happens if the information cannot be read.

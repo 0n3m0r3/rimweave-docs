@@ -17,15 +17,18 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 4e935b1e8250e9974a029ee862d5ab9f011c5233
+      branch: 22b487e489d34da42901a2fb3ba2dca0d059641d
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionQueries
     path: RimWeave/Health/ContributionQueries.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
   summary: Queries cooperating ContributionHediff instances in authoritative native health storage.
+  remarks: 'Queries bind the base ContributionHediff.Metadata property used by native persistence, even when
+
+    a subclass reimplements IContribution. No provider metadata getter is invoked by this adapter.'
   example: []
   syntax:
     content: public static class ContributionQueries
@@ -45,11 +48,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 4e935b1e8250e9974a029ee862d5ab9f011c5233
+      branch: 22b487e489d34da42901a2fb3ba2dca0d059641d
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Find
     path: RimWeave/Health/ContributionQueries.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -97,11 +100,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 4e935b1e8250e9974a029ee862d5ab9f011c5233
+      branch: 22b487e489d34da42901a2fb3ba2dca0d059641d
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolve
     path: RimWeave/Health/ContributionQueries.cs
-    startLine: 36
+    startLine: 40
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
@@ -142,11 +145,11 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionQueries.cs
-      branch: 4e935b1e8250e9974a029ee862d5ab9f011c5233
+      branch: 22b487e489d34da42901a2fb3ba2dca0d059641d
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ResolveExclusiveClaim
     path: RimWeave/Health/ContributionQueries.cs
-    startLine: 48
+    startLine: 52
   assemblies:
   - RimWeave
   namespace: RimWeave.Health
