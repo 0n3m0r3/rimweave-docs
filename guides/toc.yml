@@ -2,6 +2,8 @@
   href: health-effects.md
 - name: Target one part on a non-human body
   href: target-repeated-parts.md
+- name: Read native body properties
+  href: native-body-properties.md
 - name: Declare health contributions in XML
   href: xml-declarations.md
 - name: Remove one effect

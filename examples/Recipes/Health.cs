@@ -8,6 +8,13 @@ namespace RimWeave.Documentation.Examples;
 // These native recipes are compiled but are not invoked by the standalone checks.
 internal static class HealthRecipes
 {
+    #region native-body-factors
+    internal static (float BodySize, float HealthScale) ReadNativeBodyFactors(Pawn initializedPawn)
+    {
+        return (initializedPawn.BodySize, initializedPawn.HealthScale);
+    }
+    #endregion
+
     #region repeated-parts
     internal static IReadOnlyList<BodyPartRecord> PresentParts(
         Pawn pawn, BodyPartDef definition)
