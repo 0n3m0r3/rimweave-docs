@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionDefExtension
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ownerId
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: localId
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -108,7 +108,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: exclusiveResponsibility
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ResolveReferences
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -166,7 +166,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ConfigErrors
     path: RimWeave/Health/ContributionDefExtension.cs
@@ -196,7 +196,7 @@ items:
   source:
     remote:
       path: RimWeave/Health/ContributionDefExtension.cs
-      branch: 324c4ec07175b95947c4e89fac831fe3a42a91d8
+      branch: ae3e7ed070dde3525f3fdbd452f2b866ce94986c
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Read
     path: RimWeave/Health/ContributionDefExtension.cs

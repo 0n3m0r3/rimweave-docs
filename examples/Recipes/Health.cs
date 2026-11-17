@@ -15,6 +15,15 @@ internal static class HealthRecipes
     }
     #endregion
 
+    #region native-part-health
+    internal static (float Current, float Maximum) ReadNativePartHealth(
+        Pawn initializedPawn, BodyPartRecord selectedPart)
+    {
+        return (initializedPawn.health.hediffSet.GetPartHealth(selectedPart),
+            selectedPart.def.GetMaxHealth(initializedPawn));
+    }
+    #endregion
+
     #region repeated-parts
     internal static IReadOnlyList<BodyPartRecord> PresentParts(
         Pawn pawn, BodyPartDef definition)

@@ -27,6 +27,26 @@ It does not automatically become a size, damage amount or shared measurement. A 
 that intentionally uses severity as a dimension must declare that meaning and scale
 for its consumers; RimWeave does not change it or infer it from a name or texture.
 
+## Read health for one selected part
+
+A medical display can read current and maximum health from the same exact native
+part that the player selected:
+
+[!code-csharp[Read native part health](../examples/Recipes/Health.cs#native-part-health)]
+
+Select the record from that pawn's native body first, as in the
+[repeated-parts guide](target-repeated-parts.md). A definition shared by left and right
+parts is not a selection. The maximum uses the part definition's hit points and the
+pawn's health scale, with native rounding. Current health accounts for injuries on
+that exact occurrence; arbitrary effect severity is not subtracted as damage.
+Native damage floors and explicitly missing parts remain the game's responsibility.
+
+A health number does not establish that a part is present or usable. For example,
+an absent ancestor can make a descendant unavailable even without a missing-part
+effect on that descendant. Use native presence queries for anatomy and capacity
+queries for function; do not infer either from maximum health. Neither reading
+reserves the target or applies treatment.
+
 ## Observe an initialized character
 
 Read on the simulation thread after native pawn initialization. Resolving an uncached
@@ -47,3 +67,8 @@ independence, retained observations, unchanged native effect membership and rand
 state during repeated reads after fixture initialization. The recipe is compiled
 with the documentation examples. No new colony run, third-party patch compatibility
 or arbitrary initialization path is certified by these checks.
+
+Six additional regression cases exercise the installed maximum/current health
+methods: rounding, exact occurrence targeting, unrelated severity, native damage
+floors, explicit absence and repeated reads without random-state changes. These
+are getter fixtures, not native surgery or a loaded colony.
