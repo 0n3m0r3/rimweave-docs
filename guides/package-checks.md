@@ -37,6 +37,21 @@ Correct the cause and rerun the check before copying anything. Review unexpected
 files before removing them. Adding an intended resource requires updating the
 validator's explicit inventory alongside that resource.
 
+## Keep example markers explicit
+
+Each of the four example definition files must contain exactly its expected health
+definition and effect class. An empty file with a valid `Defs` root, an extra
+definition or an accidental rename is rejected. Conditional, inherited or abstract
+XML declarations are outside these four explicit fixtures and are rejected too. For these technical markers,
+`isBad`, `makesAlert`, `everCurableByItem`, `tendable` and `scenarioCanAdd` must each
+appear once with `false`. This catches accidental changes that expose an example
+through ordinary scenario selection or change its declared medical behavior.
+
+These are checks of the repository's explicit source contract. They do not run
+RimWorld's XML inheritance or patches, inspect class behavior, or certify neutrality
+with arbitrary mods. Deliberately changing an example's contract requires reviewing
+its validator and native integration evidence together.
+
 ## What passing means
 
 Passing establishes the checked folder structure. It does **not** establish that
@@ -64,9 +79,9 @@ bytes are intentional: these tests prove structural checking, not game loading.
 ## What GitHub checks automatically
 
 The framework's **Validate package sources** workflow runs the Python regressions
-on every push and pull request. It also supports manual execution. One test reads
-the real versioned manifests and definitions into a temporary package fixture,
-then checks their contract. It supplies inert placeholder assembly bytes, never
+on every push and pull request. It also supports manual execution. Tests read
+the real versioned manifests and definitions and exercise their contract, including empty,
+renamed, extra or incorrectly configured example markers. The fixtures supply inert placeholder assembly bytes, never
 the game's assemblies. A corrupted source manifest makes this check fail.
 
 This remote check is separate from running the validator against locally compiled
