@@ -13,6 +13,13 @@ internal static class EquipmentRecipes
     }
     #endregion
 
+    #region native-apparel-lock
+    internal static bool ReadNativeApparelLock(Pawn initializedPawn, Apparel item)
+    {
+        return initializedPawn.apparel.IsLocked(item);
+    }
+    #endregion
+
     #region worn-coverage
     internal static IReadOnlyList<Apparel> WornOverPart(Pawn initializedPawn, BodyPartRecord selectedPart)
     {

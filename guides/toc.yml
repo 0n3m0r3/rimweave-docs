@@ -6,6 +6,8 @@
   href: native-body-properties.md
 - name: Read native apparel coverage
   href: native-apparel.md
+- name: Understand native apparel locks
+  href: native-apparel-locks.md
 - name: Declare health contributions in XML
   href: xml-declarations.md
 - name: Remove one effect
