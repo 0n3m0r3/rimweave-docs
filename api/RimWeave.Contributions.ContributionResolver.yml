@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionResolver.cs
-      branch: 9656a3543d6358423c4f25bb1b27520e4d1c63dc
+      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ContributionResolver
     path: RimWeave/Contributions/ContributionResolver.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionResolver.cs
-      branch: 9656a3543d6358423c4f25bb1b27520e4d1c63dc
+      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
       repo: https://github.com/0n3m0r3/rimweave.git
     id: Resolve
     path: RimWeave/Contributions/ContributionResolver.cs
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: RimWeave/Contributions/ContributionResolver.cs
-      branch: 9656a3543d6358423c4f25bb1b27520e4d1c63dc
+      branch: 73c8c39814ef2141ebd4413c4cd484ac9124abdb
       repo: https://github.com/0n3m0r3/rimweave.git
     id: ResolveExclusiveClaim
     path: RimWeave/Contributions/ContributionResolver.cs
